@@ -1,0 +1,135 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model reset_password_token {
+  id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  token     String    @unique
+  user_id   String?   @db.Uuid
+  create_at DateTime? @default(now()) @db.Timestamp(6)
+  expire_at DateTime  @db.Timestamp(6)
+  users     users?    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model users {
+  id                   String                 @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  first_name           String                 @db.VarChar(255)
+  last_name            String?                @db.VarChar(255)
+  email                String                 @unique @db.VarChar(255)
+  password             String                 @db.VarChar(255)
+  role                 role                   @default(user)
+  reset_password_token reset_password_token[]
+}
+
+model real_estates {
+  id                  String                @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  slug                String                @unique @db.VarChar(255)
+  name_en             String                @db.VarChar(255)
+  name_ar             String                @db.VarChar(255)
+  description_en      String
+  description_ar      String
+  real_estates_type   real_estates_type     @default(office)
+  price               Int?
+  price_period        price_period?
+  address_en          String
+  address_ar          String
+  location_link       String?
+  created_at          DateTime?             @default(now()) @db.Timestamptz(6)
+  updated_at          DateTime?             @default(now()) @db.Timestamptz(6)
+  floor_number        Int?
+  size_sqm            Float
+  is_available        Boolean               @default(true)
+  cover_image         String                @db.VarChar(255)
+  features_en         String[]
+  features_ar         String[]
+  real_estates_images real_estates_images[]
+  requests            requests[]
+}
+
+model real_estates_images {
+  id              String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  image_url       String?      @db.VarChar(255)
+  real_estates_id String       @db.Uuid
+  created_at      DateTime?    @default(now()) @db.Timestamptz(6)
+  real_estates    real_estates @relation(fields: [real_estates_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "real_estates_images_real_estate_id_fkey")
+}
+
+model parkings {
+  id             String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name_en        String     @db.VarChar(255)
+  name_ar        String     @db.VarChar(255)
+  description_en String?
+  description_ar String?
+  address_en     String
+  address_ar     String
+  location_link  String?    @db.VarChar(255)
+  image          String?    @db.VarChar(255)
+  total_spots    Int?
+  price_monthly  Int?
+  price_yearly   Int?
+  created_at     DateTime?  @default(now()) @db.Timestamptz(6)
+  slug           String     @unique @db.VarChar(255)
+  requests       requests[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model requests {
+  id             String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name           String        @db.VarChar(255)
+  phone_number   String        @db.VarChar(255)
+  email          String?       @db.VarChar(255)
+  plan           price_period  @default(monthly)
+  real_estate_id String?       @db.Uuid
+  parking_id     String?       @db.Uuid
+  request_type   booking_type  @default(parkings)
+  created_at     DateTime?     @default(now()) @db.Timestamptz(6)
+  parkings       parkings?     @relation(fields: [parking_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  real_estates   real_estates? @relation(fields: [real_estate_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model clients {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name_en    String    @db.VarChar(255)
+  logo       String    @db.VarChar(255)
+  created_at DateTime? @default(now()) @db.Timestamp(6)
+  name_ar    String    @db.VarChar(255)
+}
+
+model our_team {
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name_en        String?  @db.VarChar(255)
+  name_ar        String?  @db.VarChar(255)
+  description_en String?
+  description_ar String?
+  position_en    String?  @db.VarChar(255)
+  position_ar    String?  @db.VarChar(255)
+  image          String?  @db.VarChar(255)
+  display_order  Int?     @unique @default(0)
+  main           Boolean? @default(false)
+}
+
+enum role {
+  user
+  admin
+}
+
+enum price_period {
+  monthly
+  yearly
+}
+
+enum real_estates_type {
+  store
+  office
+  depot
+}
+
+enum booking_type {
+  parkings
+  real_estates
+}

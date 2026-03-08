@@ -1,0 +1,60 @@
+interface OfficesHeaderProps {
+  primaryColor: string;
+  locale: "en" | "ar";
+}
+
+export default function OfficesHeader({ primaryColor, locale }: OfficesHeaderProps) {
+  const isArabic = locale === "ar";
+
+  return (
+    <header className="relative h-[60vh] flex items-center justify-start bg-[#0a0f1a] overflow-hidden border-b border-slate-900">
+      {/* Background with Architectural Treatment */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069"
+          className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale contrast-125 transition-transform duration-[3000ms] hover:scale-110"
+          alt={isArabic ? "مكاتب" : "Offices"}
+        />
+        {/* Technical Grid Lines - خطوط الشبكة الهندسية */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f1a] via-[#0a0f1a]/40 to-transparent"></div>
+      </div>
+
+      {/* Structural Framing Elements */}
+      <div className="absolute top-0 left-0 w-full h-24 border-b border-white/5 hidden md:block"></div>
+      <div className="absolute top-0 left-24 w-[1px] h-full border-l border-white/5 hidden md:block"></div>
+
+      <div className="relative z-10 px-6 md:px-32 max-w-5xl space-y-10">
+        {/* Title Block */}
+        <div className="space-y-4">
+          <h1 className="text-6xl md:text-[8vw] font-black text-white leading-[0.85] uppercase tracking-tighter italic">
+            {isArabic ? "المكاتب " : "PREMIUM"} <br />
+            <span 
+              className="text-transparent" 
+              style={{ WebkitTextStroke: `1.5px ${primaryColor}` }}
+            >
+              {isArabic ? "الفاخرة." : "OFFICES."}
+            </span>
+          </h1>
+        </div>
+
+        {/* Description with Vertical Accent (slightly smaller text) */}
+        <div className="max-w-xl border-l-2 border-slate-800 pl-8">
+          <p className="text-slate-400 text-[10px] md:text-[12px] font-bold uppercase tracking-[0.25em] leading-snug italic">
+            {isArabic
+              ? "بيئات معمارية عالية الأداء مصممة للنمو المؤسسي وتحسين القيادة التنفيذية."
+              : "High-performance architectural environments engineered for institutional growth and executive leadership optimization."}
+          </p>
+        </div>
+      </div>
+
+      {/* Coordinates & Status Overlay */}
+      <div className={`absolute bottom-12 ${isArabic ? "left-12":"right-12"} hidden lg:flex flex-col items-end gap-2 opacity-30`}>
+        <p className="text-[8px] font-black text-white uppercase tracking-[0.4em]">
+          {isArabic ? "المعايير البيئية" : "Environmental Standard"}
+        </p>
+       
+      </div>
+    </header>
+  );
+}
