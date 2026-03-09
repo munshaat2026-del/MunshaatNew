@@ -1,9 +1,18 @@
 "use client";
 
-import { Inter, Cairo } from "next/font/google";
+import { Noto_Sans, Noto_Sans_Arabic } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
-const cairo = Cairo({ subsets: ["arabic"], weight: ["400", "700"] });
+const notoSans = Noto_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+});
+
+const notoSansArabic = Noto_Sans_Arabic({
+  subsets: ["arabic"],
+  weight: ["400", "700"],
+  display: "swap",
+});
 
 export default function FontSwitcher({
   children,
@@ -12,7 +21,7 @@ export default function FontSwitcher({
   children: React.ReactNode;
   locale: string;
 }) {
-  const fontClass = locale === "ar" ? cairo.className : inter.className;
+  const fontClass = locale === "ar" ? notoSansArabic.className : notoSans.className;
 
   return <div className={fontClass}>{children}</div>;
 }

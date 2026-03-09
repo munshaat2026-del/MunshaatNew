@@ -1,184 +1,158 @@
 "use client"
 
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronRight, Globe, Phone } from 'lucide-react';
-import LanguageSwitcher from './language-switcher';
+import React, { useState, useEffect } from "react"
+import { Menu, X, ChevronRight } from "lucide-react"
+import LanguageSwitcher from "./language-switcher"
 import Logo from "@/public/logo.png"
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import Image from "next/image"
+import { usePathname } from "next/navigation"
+import { useTranslations, useLocale } from "next-intl" 
+import Link from "next/link" 
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const primaryColor = "#0c479a";
-  const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
+  const t = useTranslations("Navbar") 
+  const locale = useLocale() 
+  
+  const primaryColor = "#0c479a"
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const handleScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden"
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = ""
     }
-
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
+  }, [isOpen])
 
   useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
+    setIsOpen(false)
+  }, [pathname])
 
   const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Offices', href: '/offices' },
-    { name: 'Stores', href: '/stores' },
-    { name: 'Depot', href: '/depot' },
-    { name: 'Parkings', href: '/parkings' },
-    
-    //{ name: 'Contact Us', href: '/contact' },
-  ];
+    { name: t("home"), href: "/" },
+    { name: t("about"), href: "/about" },
+    { name: t("offices"), href: "/offices" },
+    { name: t("stores"), href: "/stores" },
+    { name: t("depot"), href: "/depot" },
+    { name: t("parkings"), href: "/parkings" },
+  ]
 
   return (
     <>
-      <nav className={`w-full fixed z-[100] transition-all duration-500 ${
-        scrolled ? 'bg-white/95 backdrop-blur-md py-4 shadow-sm' : 'bg-white py-6'
-      }`}>
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${
+          scrolled
+            ? "bg-white/95 backdrop-blur shadow-sm py-3"
+            : "bg-white py-5"
+        }`}
+        dir={locale === "ar" ? "rtl" : "ltr"}
+      >
         <div className="max-w-7xl mx-auto px-6 md:px-16">
-          <div className="flex justify-between items-center h-12">
-
-            {/* Logo */}
-            <div className="flex items-center">
-              <a href="/" className="flex items-center gap-4 group transition-all duration-300">
-                <div className="relative overflow-hidden">
-                  <Image 
-                    alt='Royal Manage Logo' 
-                    width={60} 
-                    height={60} 
-                    src={Logo} 
-                    className="object-contain group-hover:scale-110 transition-transform duration-500" 
-                  />
-                </div>
-
-                <div className="h-8 w-[1px] bg-slate-200 hidden sm:block"></div>
-
-                <div className="flex flex-col justify-center">
-                  <h1 className="text-lg md:text-xl font-black text-slate-900 tracking-tighter leading-none uppercase italic">
-                    ROYAL <span style={{ color: primaryColor }}>MANAGE</span>
-                  </h1>
-                </div>
-              </a>
-            </div>
+          <div className="flex items-center justify-between">
+            {/* Logo & Company Name */}
+            <Link href="/" className="flex items-center gap-3">
+              <Image src={Logo} alt="REEAC logo" width={50} height={50} />
+              <h1 className="text-2xl font-black uppercase tracking-tighter text-black">
+                RE<span style={{ color: primaryColor }}>EAC</span>
+              </h1>
+            </Link>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center gap-10">
-              <div className="flex items-center gap-8 border-r border-slate-100 pr-8">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className={`relative text-[10px] font-black uppercase tracking-[0.3em] transition-colors duration-300
-                      ${pathname === link.href ? 'text-slate-900' : 'text-slate-400 hover:text-slate-900'}
-                    `}
-                  >
-                    {link.name}
-                    {pathname === link.href && (
-                      <span 
-                        className="absolute -bottom-2 left-0 w-full h-[2px]" 
-                        style={{ backgroundColor: primaryColor }} 
-                      />
-                    )}
-                  </a>
-                ))}
+            <div className="hidden lg:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`relative text-xs font-bold uppercase tracking-widest transition-colors
+                  ${pathname === link.href || pathname === `/${locale}${link.href}` 
+                    ? "text-slate-900" 
+                    : "text-slate-500 hover:text-slate-900"}`}
+                >
+                  {link.name}
+                  {(pathname === link.href || pathname === `/${locale}${link.href}`) && (
+                    <span
+                      className="absolute left-0 -bottom-2 w-full h-[2px]"
+                      style={{ backgroundColor: primaryColor }}
+                    />
+                  )}
+                </Link>
+              ))}
+              <div className="hidden md:block">
+                <LanguageSwitcher />
               </div>
-<LanguageSwitcher />
-              
             </div>
 
-            {/* Mobile Button */}
-            <div className="lg:hidden flex items-center gap-4">
-              <LanguageSwitcher />
-              <button 
-                onClick={() => setIsOpen(true)}
-                className="p-2 text-slate-900"
-              >
-                <Menu size={24} />
+            {/* Mobile Toggle */}
+            <div className="flex items-center gap-4 lg:hidden">
+              <button onClick={() => setIsOpen(true)} className="p-2">
+                <Menu className="text-black" size={26} />
               </button>
             </div>
-
           </div>
         </div>
       </nav>
 
-      {/* Mobile Sidebar */}
+      {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-full bg-white z-[101] lg:hidden transform transition-transform duration-500 ease-in-out ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed inset-0 bg-white z-[100] transform transition-transform duration-300 ease-out lg:hidden ${
+          isOpen ? "translate-x-0" : (locale === "ar" ? "-translate-x-full" : "translate-x-full")
+        } ${!isOpen && "invisible pointer-events-none"}`}
+        dir={locale === "ar" ? "rtl" : "ltr"}
       >
-        <div className="h-full flex flex-col p-10 overflow-y-auto">
-
-          {/* Header */}
-          <div className="flex justify-between items-center mb-16">
-            <Image alt='logo' width={100} height={30} src={Logo} />
-            <button 
-              onClick={() => setIsOpen(false)} 
-              className="w-12 h-12 border border-slate-900 flex items-center justify-center text-slate-900"
-            >
-              <X size={20} />
-            </button>
-          </div>
-
-          {/* Links */}
-          <div className="flex flex-col gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
+        <div className="absolute inset-0 overflow-y-auto flex flex-col">
+          <div className="p-8 flex flex-col min-h-full">
+            
+            <div className="flex items-center justify-between mb-12 flex-shrink-0">
+              <div className="flex items-center gap-3">
+                <Image src={Logo} alt="logo" width={60} height={60} />
+                <span className="text-2xl font-black uppercase tracking-tighter text-black">
+                   RE<span style={{ color: primaryColor }}>EAC</span>
+                </span>
+              </div>
+              <button
                 onClick={() => setIsOpen(false)}
-                className={`text-4xl font-black uppercase tracking-tighter flex items-center justify-between group py-2
-                  ${pathname === link.href ? 'text-[#0c479a]' : 'text-slate-900 hover:text-[#0c479a]'}
-                  transition-colors duration-300
-                `}
+                className="border p-3 rounded-md active:bg-gray-50"
               >
-                <span>{link.name}</span>
-                <ChevronRight 
-                  size={24} 
-                  className="transition-transform group-hover:translate-x-2 opacity-40" 
-                />
-              </a>
-            ))}
-          </div>
-
-          {/* Footer */}
-          <div className="mt-auto pt-10 border-t border-slate-100 flex flex-col gap-8">
-            <div className="grid grid-cols-2 gap-4">
-              <a 
-                href="tel:+"
-                className="flex items-center justify-center gap-3 p-4 border border-slate-100 text-[9px] font-black uppercase tracking-[0.2em] hover:bg-slate-50"
-              >
-                <Phone size={14} /> Contact
-              </a>
-              <a 
-                href="#"
-                className="flex items-center justify-center gap-3 p-4 border border-slate-100 text-[9px] font-black uppercase tracking-[0.2em] hover:bg-slate-50"
-              >
-                <Globe size={14} /> Locations
-              </a>
+                <X size={22} className="text-black" />
+              </button>
             </div>
 
-           
-          </div>
+            {/* Links */}
+            <div className="flex flex-col gap-6">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`text-2xl font-bold flex justify-between items-center py-2 transition-colors ${
+                    pathname === link.href || pathname === `/${locale}${link.href}` 
+                      ? "text-[#0c479a]" 
+                      : "text-gray-800"
+                  }`}
+                >
+                  {link.name}
+                  <ChevronRight size={22} className={`opacity-50 ${locale === "ar" ? "rotate-180" : ""}`} />
+                </Link>
+              ))}
+            </div>
 
+            {/* Bottom */}
+            <div className="mt-auto pt-10 pb-10 border-t flex items-center justify-between flex-shrink-0">
+              <span className="text-sm text-gray-500 uppercase tracking-widest font-semibold">
+                {t("language")}
+              </span>
+              <LanguageSwitcher />
+            </div>
+          </div>
         </div>
       </div>
     </>
-  );
+  )
 }

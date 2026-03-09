@@ -1,15 +1,11 @@
 {
-  "navbar": {
-    "logoAlt": "شعار شركة فينيكس للاستشارات الجوية",
+  "Navbar": {
     "home": "الرئيسية",
-    "aboutUs": "من نحن",
-    "advisoryServices": "خدمات الاستشارات",
-    "training": "التدريب",
-        "ourteam": "فريقنا",
-
-    "contact": "تواصل معنا"
+    "about": "من نحن",
+    "offices": "المكاتب",
+    "stores": "المتاجر",
+    "depot": "المستودع",
+    "parkings": "المواقف",
+    "language": "اللغة"
   }
-
-
-
 }

@@ -4,6 +4,7 @@ import ExecutiveQuote from "@/app/components/pagescomponents/About/ExecutiveQuot
 import ImpactSection from "@/app/components/pagescomponents/About/ImpactSection";
 import TeamPreview from "@/app/components/pagescomponents/About/TeamPreview";
 import OurComplexes from "@/app/components/pagescomponents/About/OurComplexes";
+import ContactUs from "@/app/components/contactus"
 
 export default function AboutUs() {
   const primaryColor = "#0c479a";
@@ -18,6 +19,7 @@ export default function AboutUs() {
             <ExecutiveQuote primaryColor={primaryColor} />
 
       <TeamPreview primaryColor={primaryColor} />
+      <ContactUs/>
     </div>
   );
 }

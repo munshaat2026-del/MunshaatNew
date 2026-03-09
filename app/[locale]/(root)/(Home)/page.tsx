@@ -9,7 +9,7 @@ export default function Page() {
 
   return (
     <div className="min-h-screen mt-20 bg-white text-slate-900 font-sans">
-      <HeroSection primaryColor={primaryColor} />
+      <HeroSection />
       <LogosSection />
       <StatsSection primaryColor={primaryColor} />
       <ServicesSection primaryColor={primaryColor} />

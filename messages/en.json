@@ -1,12 +1,11 @@
 {
-  "navbar": {
-    "logoAlt": "Phoenix Aviation Consultancy Logo",
+  "Navbar": {
     "home": "Home",
-    "aboutUs": "About Us",
-    "advisoryServices": "Advisory Services",
-    "training": "Training",
-    "ourteam": "Our Team",
-
-    "contact": "Contact"
+    "about": "About",
+    "offices": "Offices",
+    "stores": "Stores",
+    "depot": "Depot",
+    "parkings": "Parkings",
+    "language": "Language"
   }
 }
