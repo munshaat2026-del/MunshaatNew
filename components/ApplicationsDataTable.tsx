@@ -49,16 +49,17 @@ interface DataTableProps<TData> {
   data: TData[];
   routeName: string;
   deleteAction: (
-    id: string
+    id: string,
   ) => Promise<{ success: boolean; message: string; status: number }>;
   totalPages: number;
-
   parkingId?: string | null;
   realEstateId?: string | null;
-  name: string |null;
- requestId?: string | null;
- email:string|null,
- phoneNumber:string|null
+  parkingName?:string;
+  realEstateName?:string
+  name: string | null;
+  requestId?: string | null;
+  email: string | null;
+  phoneNumber: string | null;
 }
 
 export function ApplicationsDataTable<TData>({
@@ -69,9 +70,12 @@ export function ApplicationsDataTable<TData>({
   totalPages,
   realEstateId,
   parkingId,
-name,
-requestId,
-email,phoneNumber
+  name,
+  parkingName,
+realEstateName,
+  requestId,
+  email,
+  phoneNumber,
 }: DataTableProps<TData>) {
   const initialVisibility: VisibilityState = Object.fromEntries(
     columns
@@ -81,7 +85,7 @@ email,phoneNumber
         if (!key) return [];
         return [key, col.meta?.hiddenByDefault ? false : true];
       })
-      .filter((entry): entry is [string, boolean] => entry.length === 2)
+      .filter((entry): entry is [string, boolean] => entry.length === 2),
   );
 
   const [columnVisibility, setColumnVisibility] =
@@ -118,7 +122,11 @@ email,phoneNumber
               <Button
                 size="sm"
                 variant="outline"
-                onClick={() => router.push(`/admin/dashboard/requests/${routeName}/${rowData.id}`)}
+                onClick={() =>
+                  router.push(
+                    `/admin/dashboard/requests/${routeName}/${rowData.id}`,
+                  )
+                }
                 className="cursor-pointer"
               >
                 <SquarePen />
@@ -136,7 +144,7 @@ email,phoneNumber
   const table = useReactTable({
     data,
     columns: columnsWithActions,
-    manualPagination: true, 
+    manualPagination: true,
     pageCount: totalPages,
     state: {
       columnVisibility,
@@ -163,11 +171,11 @@ email,phoneNumber
 
   const selectedRows = table.getSelectedRowModel().flatRows;
   const selectedIds = selectedRows.map(
-    (row) => (row.original as TData & { id: string }).id
+    (row) => (row.original as TData & { id: string }).id,
   );
 
   return (
-    <div className="space-y-4  ml-0 mr-0 lg:ml-4 lg:mr-4 w-full text-gray-600">
+    <div className="space-y-4  ml-0 mr-0 lg:ml-4 lg:mr-4 w-full mb-10 text-gray-600">
       <div className="flex justify-end flex-row items-end gap-2">
         {selectedIds.length > 0 && (
           <BulkDeleteButton
@@ -179,24 +187,24 @@ email,phoneNumber
             }}
           />
         )}
-         <ExportButton
-              realEstateId={realEstateId}
-              parkingId={parkingId}
-              name={name}
-              requestId={requestId}
-              email={email}
-              phoneNumber={phoneNumber}
-              className="ml-auto"
-            />
-        <DropdownMenu>
+        <ExportButton
+          realEstateId={realEstateId}
+          parkingId={parkingId}
+          name={name}
+          requestId={requestId}
+          email={email}
+          phoneNumber={phoneNumber}
+          className="ml-auto"
+          excelFileName={parkingName? parkingName:realEstateName}
           
+        />
+        <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="">
               View <ChevronDown className="ml-2 h-4 w-4" />
             </Button>
-           
           </DropdownMenuTrigger>
-          
+
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Toggle Columns</DropdownMenuLabel>
             <DropdownMenuSeparator />
@@ -230,7 +238,7 @@ email,phoneNumber
                       ? null
                       : flexRender(
                           header.column.columnDef.header,
-                          header.getContext()
+                          header.getContext(),
                         )}
                   </TableHead>
                 ))}
@@ -250,7 +258,7 @@ email,phoneNumber
                     <TableCell key={cell.id}>
                       {flexRender(
                         cell.column.columnDef.cell,
-                        cell.getContext()
+                        cell.getContext(),
                       )}
                     </TableCell>
                   ))}

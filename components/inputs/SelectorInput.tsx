@@ -7,6 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { AlertCircle } from "lucide-react";
 import { Control, Controller, FieldError } from "react-hook-form";
 
 interface Option {
@@ -123,6 +124,7 @@ export default function FormSelect({
             isRTL ? "mr-2 text-right" : "ml-2 text-left"
           }`}
         >
+          <AlertCircle size={12} className="text-red-600" />
           {error.message}
         </p>
       )}

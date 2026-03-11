@@ -1,6 +1,6 @@
-import { getAllrequestsByFilters } from "@/app/server/requests/services";
-import { deleteRequestAction } from "../../(actions)/deleteRequest";
-import { RequestColumns } from "@/components/columns/request-columns";
+import { getAllParkingrequestsByFilters } from "@/app/server/parkingsRequests/services";
+import { deleteParkingRequestAction } from "../../(actions)/deleteParkingRequest";
+import { ParkingsRequestColumns } from "@/components/columns/parking-request-columns";
 import { Card, CardContent } from "@/components/ui/card";
 import { FolderOpen } from "lucide-react";
 import { getParkingNameById } from "@/app/server/parkings/services";
@@ -10,10 +10,10 @@ import { notFound } from "next/navigation";
 
 interface Props {
   searchParams: Promise<{
-     requestId?: string | null;
-  email?: string | null;
-  phoneNumber?: string | null;
-  name: string;
+    requestId?: string | null;
+    email?: string | null;
+    phoneNumber?: string | null;
+    name: string;
     page?: number;
   }>;
   params: Promise<{ id: string }>;
@@ -29,18 +29,16 @@ async function Page({ params, searchParams }: Props) {
     requestId: searchParamsData.requestId ?? null,
     phoneNumber: searchParamsData.phoneNumber ?? null,
     email: searchParamsData.email ?? null,
-    
   };
 
   const parkingResult = await getParkingNameById(id);
 
   if (!parkingResult || !parkingResult.data) {
     notFound();
-  }  
+  }
   const parkingDetails = parkingResult.data;
-  const filteredData = await getAllrequestsByFilters(page, filters);
-  console.log("filteredData: ",filteredData);
-  
+  const filteredData = await getAllParkingrequestsByFilters(page, filters);
+  console.log("filteredData: ", filteredData);
 
   return (
     <div className="flex flex-col justify-start items-start ml-5 md:ml-7 w-[88vw] md:w-[68vw] xl:w-[80vw]">
@@ -50,9 +48,9 @@ async function Page({ params, searchParams }: Props) {
 
       <RequestsFilter
         initialName={searchParamsData.name ?? ""}
-        initialPhoneNumber={searchParamsData.phoneNumber??""}
-        initialEmail={searchParamsData.email??""}
-        initialRequestId={searchParamsData.requestId??""}
+        initialPhoneNumber={searchParamsData.phoneNumber ?? ""}
+        initialEmail={searchParamsData.email ?? ""}
+        initialRequestId={searchParamsData.requestId ?? ""}
       />
 
       <div className="mt-4 mb-4 flex items-center gap-3"></div>
@@ -62,22 +60,23 @@ async function Page({ params, searchParams }: Props) {
           <CardContent className="flex flex-col items-center text-center">
             <FolderOpen className="w-10 h-10 text-gray-400 mb-3" />
             <h3 className="text-gray-600 text-lg font-medium">
-              No Applications Found
+              No Requests Found
             </h3>
           </CardContent>
         </Card>
       ) : (
         <ApplicationsDataTable
-          columns={RequestColumns}
+          columns={ParkingsRequestColumns}
           data={filteredData.data}
-          routeName="request-by-id"
-          deleteAction={deleteRequestAction}
+          routeName="parking-requests-by-id"
+          deleteAction={deleteParkingRequestAction}
           totalPages={filteredData.totalPages}
           parkingId={id}
-          name={searchParamsData.name??null}
+          name={searchParamsData.name ?? null}
           requestId={searchParamsData.requestId ?? null}
           email={searchParamsData.email ?? null}
           phoneNumber={searchParamsData.phoneNumber ?? null}
+          parkingName={parkingResult.data.name_en}
         />
       )}
     </div>

@@ -1,5 +1,33 @@
 import { Prisma, requests } from "@/app/generated/prisma/client";
 
+
+
+
+
+export type translatedParkingsGetPayload= {
+        id: string;
+        slug: string;
+        name: string;
+        description: string | null;
+        address: string;
+        location_link: string | null;
+        image: string | null;
+        total_spots: number | null;
+        price_monthly: number | null;
+        price_yearly: number | null;}
+
+
+
+
+
+
+
+
+
+
+///////////////////////
+
+
 export type NewUser = {
   id?: string;
   first_name: string;
@@ -126,7 +154,7 @@ export type ClientsCreateInput = Prisma.clientsCreateInput;
 export type ClientsUpdateInput = Prisma.clientsUpdateInput;
 export type ClientsGetPayload = Prisma.clientsGetPayload<{}>;
 
-// Requests Types
+//Real Estate Requests Types
 export type RequestsCreateInput = Prisma.requestsCreateInput;
 export type RequestsUpdateInput = Prisma.requestsUpdateInput;
 export type RequestsGetPayload = Prisma.requestsGetPayload<{
@@ -136,31 +164,60 @@ export type RequestsGetPayload = Prisma.requestsGetPayload<{
         name_en: true;
       };
     };
-    parkings: {
-      select: {
-        name_en: true;
-      };
-    };
+
   };
 }>;
-
-export type RequestsGetPayloadOnly = Prisma.requestsGetPayload<{
-  include: {};
-}>;
-
 export type RequestsGetPayloadRealEstate = Prisma.requestsGetPayload<{
   include: {
     real_estates: true;
   };
 }>;
-
-export type RequestsGetPayloadParking = Prisma.requestsGetPayload<{
+export type RequestsGetPayloadOnly = Prisma.requestsGetPayload<{
+  include: {};
+}>;
+// PArking Requests
+export type ParkingsRequestsGetPayloadOnly = Prisma.parkings_requestsGetPayload<{
+  include: {};
+}>;
+export type RequestsGetPayloadParking = Prisma.parkings_requestsGetPayload<{
   include: {
     parkings: true;
   };
 }>;
 
+export type RequestsGetPayloadParkingNameAndId = Prisma.parkings_requestsGetPayload<{
+  include: {
+    parkings: {select:{name_en:true,id:true}};
+  };
+}>;
+export type ParkingRequestsCreateInput = Prisma.parkings_requestsCreateInput;
+export type ParkingRequestsUpdateInput = Prisma.parkings_requestsUpdateInput;
+export type ParkingRequestsGetPayload = Prisma.parkings_requestsGetPayload<{
+  include: {
+    parkings: {
+      select: {
+        name_en: true;
+      };
+    };
 
+  };
+}>;
+
+// Tender Types 
+export type TenderCreateInput = Prisma.tenderCreateInput;
+export type TenderUpdateInput = Prisma.tenderUpdateInput;
+export type TenderGetPayload= Prisma.tenderGetPayload<{}>
+
+// Coming soon types
+export type ComingSoonCreateInput = Prisma.coming_soonCreateInput;
+export type ComingSoonUpdateInput = Prisma.coming_soonUpdateInput;
+export type ComingSoonGetPayload= Prisma.coming_soonGetPayload<{}>
+
+
+// Careers types
+export type CareersCreateInput = Prisma.careersCreateInput;
+export type CareersUpdateInput = Prisma.careersUpdateInput;
+export type CareersGetPayload= Prisma.careersGetPayload<{}>
 
 
 

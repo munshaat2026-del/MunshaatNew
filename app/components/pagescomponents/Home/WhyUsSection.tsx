@@ -27,7 +27,7 @@ export default function WhyUsSection({ primaryColor }: WhyUsSectionProps) {
             </div>
             <h2 className="text-6xl font-black uppercase leading-[0.85] tracking-tighter text-slate-900">
               {data.titleLine1} <br /> 
-              <span className="text-transparent" style={{ WebkitTextStroke: `1.5px ${primaryColor}` }}>
+              <span className="text-[#0c479a]">
                 {data.titleLine2}
               </span>
             </h2>

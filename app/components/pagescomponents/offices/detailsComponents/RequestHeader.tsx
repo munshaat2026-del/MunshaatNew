@@ -32,8 +32,8 @@ export const BookingHeader = ({
               : "Asset Specification // Unit 1204"}
           </span>
         </div>
-        <h1 className="text-4xl md:text-6xl font-black uppercase    italic">
-          <span className="" style={{ WebkitTextStroke: ` ${primaryColor}` }}>
+        <h1 className="text-4xl md:text-6xl font-black uppercase    ">
+          <span className="" >
             {name}
           </span>
         </h1>
@@ -43,7 +43,7 @@ export const BookingHeader = ({
         </p>
       </div>
       <div className="text-right hidden md:block">
-        <p className="text-xl font-black text-green-600 uppercase italic">
+        <p className="text-xl font-black text-green-600 uppercase ">
           {isAr ? "متاح" : "Available"}
         </p>
       </div>

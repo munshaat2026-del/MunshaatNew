@@ -27,11 +27,11 @@ export default function DepotsHeader({ primaryColor, locale }: DepotsHeaderProps
       <div className="relative z-10 px-6 md:px-32 max-w-5xl space-y-10">
         {/* Title Block */}
         <div className="space-y-4">
-          <h1 className="text-6xl md:text-[8vw] font-black text-white leading-[0.85] uppercase tracking-tighter italic" dir={isArabic ? "rtl" : "ltr"}>
+          <h1 className="text-6xl md:text-[8vw] font-black text-white leading-[0.85] uppercase tracking-tighter" dir={isArabic ? "rtl" : "ltr"}>
             {isArabic ? "المستودعات " : "PREMIUM"} <br />
             <span 
-              className="text-transparent" 
-              style={{ WebkitTextStroke: `1.5px ${primaryColor}` }}
+              className="text-[#0c479a]" 
+             
             >
               {isArabic ? "اللوجستية." : "LOGISTIC DEPOTS."}
             </span>

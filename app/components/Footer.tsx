@@ -19,6 +19,7 @@ export function Footer() {
     { name: t("stores"), href: "/stores" },
     { name: t("depot"), href: "/depot" },
     { name: t("parkings"), href: "/parkings" },
+    { name: t("career"), href: "/career" },
   ];
 
   return (

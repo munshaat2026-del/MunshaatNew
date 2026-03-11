@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { X } from "lucide-react";
+import { AlertCircle, X } from "lucide-react";
 import { Control, Controller, FieldError, Merge } from "react-hook-form";
 
 interface MultiInputFormProps {
@@ -131,7 +131,8 @@ export default function MultiInputForm({
       )}
 
       {error && (
-        <p id={errorId} className="mt-1 text-xs text-red-600 ml-2">
+        <p id={errorId} className=" text-xs text-red-600 ml-2 flex flex-row gap-1.5">
+          <AlertCircle size={12} className="text-red-600 mt-0.5" />
           {error.message}
         </p>
       )}

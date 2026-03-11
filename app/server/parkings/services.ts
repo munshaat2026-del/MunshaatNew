@@ -233,13 +233,13 @@ export const getParkingNameById = async (id: string) =>
   );
 
 
-  export const getParkingByIdByLocale = async (id: string, locale: Locale) =>
+  export const getParkingByIdByLocale = async (slug: string, locale: Locale) =>
   unstable_cache(
     async () => {
       const isArabic = locale === "ar";
       try {
         const parking = await prisma.parkings.findUnique({
-          where: { id },
+          where: { slug },
         });
 
         if (!parking)
@@ -274,6 +274,6 @@ export const getParkingNameById = async (id: string) =>
         };
       }
     },
-    [`all-parkings-by-id-${id}-by-locale-${locale}`],
+    [`all-parkings-by-id-${slug}-by-locale-${locale}`],
     { tags: ["parkings"], revalidate: 3600 },
   );

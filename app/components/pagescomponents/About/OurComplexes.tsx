@@ -1,106 +1,145 @@
 "use client";
 import React, { useState } from 'react';
-import { Plus, ArrowUpRight, BarChart } from 'lucide-react';
+import { ArrowUpRight, BarChart } from 'lucide-react';
 import { useLocale } from "next-intl";
-import { aboutdata } from "@/app/data/aboutdata";
+import Link from 'next/link';
+import type { translatedParkingsGetPayload } from "@/types/index";
 
-export default function RoyalOffsetHero() {
+interface Props {
+  complexdata: translatedParkingsGetPayload[];
+}
+
+export default function RoyalOffsetHero({ complexdata }: Props) {
   const [active, setActive] = useState<number | null>(null);
   const locale = useLocale() as "en" | "ar";
-  const data = aboutdata[locale].portfolio;
   const isAr = locale === "ar";
+  const cardCount = complexdata.length;
+
+  const getContainerStyles = () => {
+    if (cardCount >= 6) return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12";
+    return "flex flex-col md:flex-row items-center justify-center gap-6 lg:gap-8";
+  };
+
+  const getCardStyles = (idx: number) => {
+    if (cardCount >= 6) return "w-full h-[550px]";
+    const baseWidth = active === idx ? 'md:flex-[1.5]' : active === null ? 'md:flex-1' : 'md:flex-[0.8]';
+    let offset = "";
+
+    switch (cardCount) {
+      case 2:
+        offset = idx === 0 ? "md:-translate-y-16" : "md:translate-y-16";
+        break;
+      case 3:
+        if (idx === 1) offset = "md:-translate-y-12";
+        break;
+      case 4:
+        offset = idx % 2 === 0 ? "md:-translate-y-8" : "md:translate-y-8";
+        break;
+      case 5:
+        if (idx === 0 || idx === 4) offset = "md:translate-y-10";
+        if (idx === 2) offset = "md:-translate-y-10";
+        break;
+    }
+    return `${baseWidth} ${offset} min-w-[280px]`;
+  };
 
   return (
-    <section className="relative min-h-[100vh] w-full bg-white flex flex-col items-center justify-center overflow-hidden border-b border-slate-900 py-24">
+    <section className="relative min-h-screen w-full bg-white flex flex-col items-center justify-start overflow-hidden border-b border-slate-900 py-32">
       
+      {/* Background Grid Pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:50px_50px]"></div>
 
-      <div className="relative z-20 mb-32 text-center space-y-4">
-        <div className="flex items-center justify-center gap-6 mb-2">
-          <div className="h-[2px] w-12 bg-[#0c479a]"></div>
-          <span className="text-slate-400 text-[10px] font-black uppercase tracking-[0.6em]">
-            {data.tag}
+      {/* --- إغافة عنوان القسم هنا --- */}
+      <div className="relative z-10 w-full max-w-[1500px] px-10 mb-24 space-y-4">
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-[2px] bg-[#0c479a]"></div>
+          <span className="text-[10px] font-black uppercase tracking-[0.5em] text-[#0c479a]">
+            {isAr ? "محفظة الأصول" : "Asset Portfolio"}
           </span>
-          <div className="h-[2px] w-12 bg-[#0c479a]"></div>
         </div>
-        <h2 className="text-5xl md:text-8xl font-black text-slate-900 tracking-tighter uppercase italic leading-none">
-          {data.titleLine1} <br />
-          <span className="text-transparent" style={{ WebkitTextStroke: "1.5px #0c479a" }}>
-            {data.titleLine2}
-          </span>
-        </h2>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none text-slate-900">
+            {isAr ? "مجمعاتنا" : "Our"} <br />
+            <span className=" text-[#0c479a] ">
+               {isAr ? "الصناعية" : "Complexes"}
+            </span>
+          </h2>
+          <p className="max-w-xs text-[11px] font-bold uppercase tracking-tight text-slate-400 leading-relaxed border-l-2 border-slate-100 pl-4">
+            {isAr 
+              ? "نخبة من المرافق اللوجستية المصممة لتعزيز الكفاءة التشغيلية والنمو الصناعي المستدام." 
+              : "A curated selection of logistics facilities engineered for operational excellence and sustainable industrial growth."}
+          </p>
+        </div>
       </div>
 
-      <div className="relative z-10 max-w-7xl w-full px-6 flex flex-col md:flex-row items-center justify-center gap-12">
-        
-        {data.assets.map((item, idx) => (
+      {/* Cards Container */}
+      <div className={`relative z-10 max-w-[1500px] w-full px-10 transition-all duration-700 ${getContainerStyles()}`}>
+        {complexdata.map((item, idx) => (
           <div
-            key={idx}
+            key={item.id || idx}
             onMouseEnter={() => setActive(idx)}
             onMouseLeave={() => setActive(null)}
-            className={`relative transition-all duration-[1000ms] ease-[cubic-bezier(0.19,1,0.22,1)] 
-              ${item.offset} 
-              ${active === idx ? 'md:w-[550px]' : active === null ? 'md:w-[450px]' : 'md:w-[350px] grayscale opacity-40'}
+            className={`relative transition-all duration-[1000ms] ease-[cubic-bezier(0.19,1,0.22,1)] group
+              ${getCardStyles(idx)}
+              ${active !== null && active !== idx ? 'grayscale opacity-40 scale-[0.97]' : 'grayscale-0 opacity-100 scale-100'}
             `}
           >
-            <div className="relative h-[600px] w-full overflow-hidden bg-slate-900 group shadow-2xl">
+            {/* Main Card Design */}
+            <div className="relative h-[550px] w-full overflow-hidden bg-slate-900 shadow-2xl border border-slate-100/10">
               
+              {/* Background Image */}
               <div className="absolute inset-0 transition-transform duration-[2.5s] ease-out group-hover:scale-110">
                 <img 
                   src={item.image} 
-                  className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-1000"
-                  alt={item.title}
+                  alt={item.name}
+                  className="w-full h-full object-cover opacity-60 group-hover:opacity-30 transition-opacity duration-1000"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
               </div>
 
-              <div className={`absolute top-0 ${isAr ? 'right-0' : 'left-0'} bg-[#0c479a] text-white p-6 z-20`}>
-                <span className="text-sm font-black tracking-widest leading-none">{item.id}</span>
+              {/* Card Index */}
+              <div className={`absolute top-0 ${isAr ? 'right-0' : 'left-0'} bg-[#0c479a] text-white px-5 py-4 z-20`}>
+                <span className="text-xs font-black tracking-widest leading-none">
+                  {(idx + 1).toString().padStart(2, '0')}
+                </span>
               </div>
 
-              <div className="absolute inset-0 p-12 flex flex-col justify-between z-10">
-                <div className={`flex ${isAr ? 'justify-start' : 'justify-end'}`}>
-                   <div className="w-12 h-12 border border-white/30 flex items-center justify-center text-white group-hover:bg-[#0c479a] group-hover:border-[#0c479a] transition-all duration-500">
-                      <Plus size={20} className="group-hover:rotate-180 transition-transform duration-700" />
-                   </div>
-                </div>
-
-                <div className="space-y-6">
-                  <div className="space-y-2">
-                    <p className="text-[#0c479a] font-black text-[10px] tracking-[0.5em] uppercase">
-                      {item.subtitle}
+              {/* Content Overlay */}
+              <div className="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                <div className="space-y-5">
+                  <div className="space-y-1">
+                    <p className="text-[#0c479a] font-black text-[9px] tracking-[0.4em] uppercase">
+                      Industrial Complex
                     </p>
-                    <h3 className={`text-5xl md:text-6xl font-black text-white tracking-tighter leading-none italic uppercase transition-transform duration-700 ${isAr ? 'group-hover:-translate-x-3' : 'group-hover:translate-x-3'}`}>
-                      {item.title}
+                    <h3 className={`text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tighter leading-tight uppercase transition-transform duration-700 ${isAr ? 'group-hover:-translate-x-2' : 'group-hover:translate-x-2'}`}>
+                      {item.name}
                     </h3>
                   </div>
 
-                  <div className={`overflow-hidden transition-all duration-1000 ${active === idx ? 'max-h-40 opacity-100 mt-6' : 'max-h-0 opacity-0'}`}>
-                    <div className={`flex items-center gap-8 mb-8 text-white/40 border-[#0c479a] ${isAr ? 'border-r pr-6' : 'border-l pl-6'} text-[10px] font-bold uppercase tracking-widest`}>
-                       <div className="flex items-center gap-2 italic">
-                         <BarChart size={12} /> {data.tier}
-                       </div>
+                  {/* Expandable Info */}
+                  <div className={`overflow-hidden transition-all duration-700 ${active === idx || cardCount >= 6 ? 'max-h-40 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
+                    <div className={`flex items-start gap-4 mb-6 text-white/50 border-[#0c479a] ${isAr ? 'border-r pr-4 text-right' : 'border-l pl-4 text-left'} text-[9px] font-bold uppercase tracking-[0.2em]`}>
+                       <BarChart size={12} className="shrink-0 mt-0.5" /> 
+                       <span className="line-clamp-2 leading-relaxed">
+                         {item.description}
+                       </span>
                     </div>
                     
-                    <button className="flex items-center gap-4 bg-white text-slate-900 px-10 py-5 font-black text-[10px] uppercase tracking-[0.4em] hover:bg-[#0c479a] hover:text-white transition-all duration-500">
-                      {data.analyze} <ArrowUpRight size={16} className={isAr ? "rotate-[-90deg]" : ""} />
-                    </button>
+                    <Link href={`/about/${item.slug}`}>
+                      <button className="flex items-center gap-3 bg-white text-slate-900 px-6 py-3 font-black text-[9px] uppercase tracking-[0.3em] hover:bg-[#0c479a] hover:text-white transition-all duration-500">
+                        {isAr ? "عرض التفاصيل" : "see more"} 
+                        <ArrowUpRight size={14} className={isAr ? "rotate-[-90deg]" : ""} />
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
 
+              {/* Animated Bottom Line */}
               <div className={`absolute bottom-0 ${isAr ? 'right-0' : 'left-0'} h-1 bg-[#0c479a] transition-all duration-1000 ${active === idx ? 'w-full' : 'w-0'}`} />
             </div>
           </div>
         ))}
-      </div>
-
-      <div className={`absolute bottom-10 ${isAr ? 'left-10' : 'right-10'} hidden lg:block opacity-20`}>
-         <div className={`${isAr ? 'rotate-[-90deg] origin-bottom-left' : 'rotate-90 origin-bottom-right'}`}>
-            <p className="text-[9px] font-black tracking-[1em] uppercase text-slate-900">
-              {data.indicator}
-            </p>
-         </div>
       </div>
     </section>
   );

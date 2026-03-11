@@ -42,15 +42,15 @@ function CreateRealEstatesForm({ action,parking }: Props) {
       const result = await action(parking.id,data);
       if (result.status === 401) {
         toast.error(result.message);
-        router.push("/login");
+        router.replace("/login");
         return;
       } else if (result.status === 403) {
         toast.error(result.message);
-        router.push("/");
+        router.replace("/");
         return;
       } else if (result.status === 201) {
         toast.success(result.message);
-        router.push("/admin/dashboard/parkings");
+        router.replace("/admin/dashboard/parkings");
         return;
       } else {
         toast.error(result.message);

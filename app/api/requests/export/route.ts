@@ -2,6 +2,7 @@ import { NextRequest } from "next/server";
 import ExcelJS from "exceljs";
 import { getAllrequestsByFilters } from "@/app/server/requests/services";
 import { type RequestsGetPayload } from "@/types/index";
+import { getAllParkingrequestsByFilters } from "@/app/server/parkingsRequests/services";
 
 type Filters = {
   realEstateId?: string | null;
@@ -9,7 +10,6 @@ type Filters = {
   email: string | null;
   phoneNumber: string | null;
   requestId?: string | null;
-  parkingId?: string | null;
 };
 
 function formatHumanDateTime(value?: string | Date | null): string {
@@ -43,7 +43,6 @@ export async function GET(req: NextRequest) {
       phoneNumber: params.get("phoneNumber"),
       requestId: params.get("requestIdId") ?? null,
       email: params.get("email") ?? null,
-      parkingId: params.get("parkingId") ?? null,
     };
 
     const allRows: RequestsGetPayload[] = [];
@@ -51,18 +50,17 @@ export async function GET(req: NextRequest) {
     let totalPages = 1;
 
     do {
-      const res = await getAllrequestsByFilters(page, {
+      const res =  await getAllrequestsByFilters(page, {
         requestId: filters.requestId ?? null,
         name: filters.name ?? null,
         phoneNumber: filters.phoneNumber,
         email: filters.email ?? null,
-        realEstateId:filters.realEstateId??null,
-        parkingId:filters.parkingId??null
-      });
+        realEstateId:filters.realEstateId??null
+      })
 
       const data = res.data ?? [];
       totalPages = res.totalPages ?? 1;
-      allRows.push(...data);
+      allRows.push(...data );
       page++;
     } while (page <= totalPages);
 
@@ -76,19 +74,16 @@ export async function GET(req: NextRequest) {
       { header: "Phone Number", key: "phone", width: 18 },
       { header: "Plan", key: "plan", width: 20 },
       { header: "Real Estate Name", key: "realEstate", width: 30 },
-     // { header: "Parking Name", key: "parking", width: 30 },
       { header: "Submitted At", key: "createdAt", width: 25 },
-    ]:[
+    ] : [
       { header: "Request ID", key: "requestId", width: 40 },
       { header: "Name", key: "firstName", width: 30 },
       { header: "Email", key: "email", width: 30 },
       { header: "Phone Number", key: "phone", width: 18 },
       { header: "Plan", key: "plan", width: 20 },
-    //  { header: "Real Estate Name", key: "realEstate", width: 30 },
       { header: "Parking Name", key: "parking", width: 30 },
       { header: "Submitted At", key: "createdAt", width: 25 },
-    ];
-
+    ]
     for (const app of allRows) {
       sheet.addRow({
         requestId: app.id ?? "",
@@ -98,7 +93,8 @@ export async function GET(req: NextRequest) {
         plan: app.plan ?? "",
         createdAt: formatHumanDateTime(app.created_at),
         realEstate: app.real_estates?.name_en,
-        parking:app.parkings?.name_en
+        
+       
         
       });
     }

@@ -26,7 +26,7 @@ export default function ParkingLocations({ primaryColor }: ParkingLocationsProps
           </div>
           <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-none">
             {data.titleLine1} <br />
-            <span className="text-transparent" style={{ WebkitTextStroke: `1.5px ${primaryColor}` }}>{data.titleLine2}</span>
+            <span className="text-[#0c479a]">{data.titleLine2}</span>
           </h2>
         </div>
 
@@ -58,8 +58,8 @@ export default function ParkingLocations({ primaryColor }: ParkingLocationsProps
       <div className={`relative group min-h-[500px] border border-slate-200 p-4 ${isAr ? 'order-2 lg:order-1' : 'order-2'}`}>
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1526626392875-f1c04628c040?q=80&w=2070"
-            className="w-full h-full object-cover grayscale opacity-80 group-hover:scale-105 transition-transform duration-1000"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Jordan_Gate_23-5-2009_%281%29.JPG/500px-Jordan_Gate_23-5-2009_%281%29.JPG"
+            className="w-full h-full object-cover  group-hover:scale-105 transition-transform duration-1000"
             alt="Facility Map"
           />
           <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] bg-[size:20px_20px]"></div>
@@ -73,7 +73,7 @@ export default function ParkingLocations({ primaryColor }: ParkingLocationsProps
               <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">{data.telemetryTag}</p>
            </div>
            <div className="space-y-1">
-              <p className="text-3xl font-black text-slate-900 leading-none tracking-tighter italic">84.2%</p>
+              <p className="text-3xl font-black text-slate-900 leading-none tracking-tighter ">84.2%</p>
               <p className="text-[9px] font-black uppercase tracking-widest text-slate-500">{data.occupancyLabel}</p>
            </div>
            <div className="w-full bg-slate-100 h-[2px]">

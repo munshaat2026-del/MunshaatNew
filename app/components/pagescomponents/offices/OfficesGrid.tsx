@@ -24,7 +24,7 @@ export default function OfficesGrid({ offices, primaryColor,locale }: OfficesGri
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         {offices.map((office,index) => (
-         <Link href={`offices/${office.slug}`}>
+         <Link key={index} href={`offices/${office.slug}`}>
           <OfficeCard
           locale={locale}
             key={index}

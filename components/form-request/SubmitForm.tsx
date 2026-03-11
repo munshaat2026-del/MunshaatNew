@@ -13,49 +13,40 @@ import BasicInfo from "./BasicInfo";
 import FormActions from "./FormActions";
 import HeaderSection from "./HeaderSection";
 import RealEstateSummary from "./RealEstateSummary"
-import  ParkingSummary from "./ParkingSummary"
+import { useRouter } from "next/navigation";
 
 type RequestFormValues = z.infer<ReturnType<typeof requestSchema>>;
 interface Props {
-  parkingData?: ParkingsGetPayloadPartially;
-  realEstateData?: RealEstateGetPayloadPartially;
+  realEstateData: RealEstateGetPayloadPartially;
   locale: "en" | "ar";
   action: (
     data: RequestsCreateInput,
   ) => Promise<{ success: boolean; status: number; message: string }>;
-  parkingId?: string;
-  realEstateId?: string;
+  realEstateId: string;
 }
 
 function SubmitForm({
   action,
-  parkingId,
   realEstateId,
   locale,
-  parkingData,
   realEstateData,
 }: Props) {
   const isArabic = locale === "ar";
   const methods = useForm<RequestFormValues>({
     resolver: zodResolver(requestSchema(isArabic)),
   });
-
+  const router= useRouter()
   const { setValue,handleSubmit } = methods;
-
-  if (parkingId) {
-    setValue("parking_id", parkingId)
-    setValue("request_type","parkings")
-  };
-  if (realEstateId) {
     setValue("real_estate_id", realEstateId);
-    setValue("request_type","real_estates")
-  }
-
 
   const onSubmit: SubmitHandler<RequestFormValues> = async (data) => {
     try {
       const result = await action(data);
-      if (result.success) return toast.success(result.message);
+      if (result.success) {
+        toast.success(result.message);
+         router.replace("/")
+         return
+      }
       return toast.error(result.message);
     } catch (error) {
       toast.error(
@@ -89,8 +80,7 @@ function SubmitForm({
 
           {/* RIGHT: Asset Specification Passport */}
           <div className="lg:col-span-5 bg-slate-50/50">
-            {realEstateData && <RealEstateSummary data={realEstateData} locale={locale} />}
-             {parkingData && <ParkingSummary data={parkingData} locale={locale} />}
+             <RealEstateSummary data={realEstateData} locale={locale} />
           </div>
         </div>
       </div>

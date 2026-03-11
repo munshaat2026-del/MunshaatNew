@@ -3,6 +3,7 @@
 import  { useState } from "react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
+import { AlertCircle } from "lucide-react";
 
 interface PasswordInputProps {
   label: string;
@@ -65,6 +66,7 @@ export default function PasswordInput({
 
       {error && (
         <p id={errorId} className="mt-1 text-xs text-red-600 flex items-center gap-2 ml-2">
+          <AlertCircle size={12} className="text-red-600" />
           <span>{error.message}</span>
         </p>
       )}

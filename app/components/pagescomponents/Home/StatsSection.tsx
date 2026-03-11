@@ -53,7 +53,7 @@ export default function StatsSection({ primaryColor }: StatsSectionProps) {
                   </div>
 
                   <div className="space-y-2">
-                    <h4 className="text-5xl font-black tracking-tighter italic leading-none group-hover:translate-x-2 transition-transform duration-500">
+                    <h4 className="text-5xl font-black tracking-tighter  leading-none group-hover:translate-x-2 transition-transform duration-500">
                       {stat.val}
                     </h4>
                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] group-hover:text-slate-900 transition-colors">

@@ -1,4 +1,5 @@
 "use client";
+import { AlertCircle } from "lucide-react";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 
 interface EmailInputProps {
@@ -50,6 +51,7 @@ export default function EmailInput({
 
       {error && (
         <p id={errorId} className="mt-1 text-xs text-red-600 flex items-center gap-2 ml-2">
+          <AlertCircle size={12} className="text-red-600" />
           <span>{error.message}</span>
         </p>
       )}

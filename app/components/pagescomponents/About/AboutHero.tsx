@@ -29,7 +29,7 @@ export default function AboutHero({ primaryColor }: AboutHeroProps) {
 
           <h1 className="text-6xl md:text-[7vw] font-black uppercase tracking-tighter leading-[0.85] text-slate-900">
             {data.titleLine1} <br />
-            <span className="text-transparent" style={{ WebkitTextStroke: `1.5px ${primaryColor}` }}>
+            <span className="text-[#0c479a]" >
               {data.titleLine2}
             </span>
           </h1>

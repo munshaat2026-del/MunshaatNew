@@ -37,6 +37,7 @@ export default async function OfficesListing({ params, searchParams }: Props) {
   const primaryColor = "#0c479a";
 
   const hasOffices = offices?.data && offices.data.length > 0;
+  console.log(offices)
 
   return (
     <div className="min-h-screen mt-24 bg-slate-50/50 text-slate-900 font-sans pb-20">
@@ -108,7 +109,7 @@ export default async function OfficesListing({ params, searchParams }: Props) {
                   <SearchX size={40} className="text-slate-300" />
                 </div>
 
-                <h3 className="text-2xl font-black uppercase italic text-slate-900 tracking-tight">
+                <h3 className="text-2xl font-black uppercase  text-slate-900 tracking-tight">
                   {isArabic ? "لا توجد مكاتب" : "No Offices"}{" "}
                   <span className="text-[#0c479a]">
                     {isArabic ? "متوفرة." : "Found."}

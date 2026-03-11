@@ -35,7 +35,7 @@ export default function CoreValues({ primaryColor }: CoreValuesProps) {
             </div>
             <h2 className="text-5xl md:text-6xl font-black tracking-tighter text-slate-900 uppercase leading-[0.9]">
               {data.titleLine1} <br />
-              <span className="text-transparent" style={{ WebkitTextStroke: `1.5px ${primaryColor}` }}>
+              <span className="text-[#0c479a]">
                 {data.titleLine2}
               </span>
             </h2>
@@ -62,7 +62,7 @@ export default function CoreValues({ primaryColor }: CoreValuesProps) {
                     <Icon size={20} strokeWidth={1.5} />
                   </div>
                   <span className="text-[9px] font-black text-slate-300 uppercase tracking-[0.3em]">
-                    {data.protocol}{i + 1}
+                   {i + 1}
                   </span>
                 </div>
 

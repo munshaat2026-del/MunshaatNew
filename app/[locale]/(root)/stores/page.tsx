@@ -83,7 +83,7 @@ export default async function StoresPage({ params, searchParams }: Props) {
                     )}
                   </p>
 
-                  <div className="flex gap-2 items-center text-[10px] font-bold text-slate-400 uppercase italic">
+                  <div className="flex gap-2 items-center text-[10px] font-bold text-slate-400 uppercase ">
                     <Store size={14} />
                     {isArabic
                       ? "الأصول التجارية المدارة"
@@ -111,7 +111,7 @@ export default async function StoresPage({ params, searchParams }: Props) {
                   <SearchX size={40} className="text-slate-300" />
                 </div>
 
-                <h3 className="text-2xl font-black uppercase italic text-slate-900 tracking-tight">
+                <h3 className="text-2xl font-black uppercase text-slate-900 tracking-tight">
                   {isArabic ? "لا توجد محلات" : "No Stores"}{" "}
                   <span className="text-[#0c479a]">
                     {isArabic ? "متوفرة حالياً." : "Found."}

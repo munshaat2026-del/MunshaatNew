@@ -8,6 +8,10 @@ import {
   KeyRound,
   Crown,
   LayoutDashboard,
+  FileText,
+  Clock,
+  Briefcase,
+  FileCheck,
 } from "lucide-react";
 import { RiTeamLine } from "react-icons/ri";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
@@ -37,15 +41,31 @@ import Link from "next/link";
 const items = [
   { title: "Home", url: "/", icon: Home },
   { title: "Users", url: "/admin/dashboard/users", icon: User2 },
-  { title: "Real Estates", url: "/admin/dashboard/real-estates", icon: HiOutlineBuildingOffice2 },
-  { title: "Parkings", url: "/admin/dashboard/parkings", icon: LuSquareParking },
+  {
+    title: "Real Estates",
+    url: "/admin/dashboard/real-estates",
+    icon: HiOutlineBuildingOffice2,
+  },
+  {
+    title: "Parkings",
+    url: "/admin/dashboard/parkings",
+    icon: LuSquareParking,
+  },
   {
     title: "Requests",
     url: "/admin/dashboard/requests",
     icon: DockIcon,
   },
+  { title: "Tenders", url: "/admin/dashboard/tender", icon: FileText },
+  { title: "Coming Soon", url: "/admin/dashboard/coming-soon", icon: Clock },
+  { title: "Careers", url: "/admin/dashboard/careers", icon: Briefcase },
+  {
+    title: "Applications",
+    url: "/admin/dashboard/applications",
+    icon: FileCheck,
+  },
   { title: "My Team", url: "/admin/dashboard/ourTeam", icon: RiTeamLine },
-    { title: "Clients", url: "/admin/dashboard/ourClients", icon: Crown },
+  { title: "Clients", url: "/admin/dashboard/ourClients", icon: Crown },
 ];
 
 export function AppSidebar() {

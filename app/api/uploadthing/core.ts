@@ -34,11 +34,23 @@ export const ourFileRouter = {
     console.log("Categories Upload Complete:", file.ufsUrl);
     return { uploadedUrl: file.ufsUrl };
   }),
-  projects: f({
+  careers: f({
+    image: { maxFileSize: "2MB", maxFileCount: 2 },
+  }).onUploadComplete(async ({ file }) => {
+    console.log("careers Upload Complete:", file.ufsUrl);
+    return { uploadedUrl: file.ufsUrl };
+  }),
+  parkingRequest: f({
     image: { maxFileSize: "2MB", maxFileCount: 2 },
   }).onUploadComplete(async ({ file }) => {
     console.log("Projects Upload Complete:", file.ufsUrl);
     return { uploadedUrl: file.ufsUrl };
+  }),
+   tender: f({
+    blob: { maxFileSize: "8MB", maxFileCount: 1 },
+  }).onUploadComplete(async ({ file }) => {
+    console.log("tender file Upload Complete:", file.ufsUrl);
+    return { uploadedUrl: file.ufsUrl, fileName: file.name };
   }),
    cv: f({
     blob: { maxFileSize: "8MB", maxFileCount: 1 },

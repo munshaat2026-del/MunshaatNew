@@ -9,7 +9,10 @@ interface ExportButtonProps {
   requestId?: string | null;
   email:string|null;
   phoneNumber:string|null;
+  excelFileName?:string;
+  
   className?: string;
+  
 }
 
 export default function ExportButton({
@@ -18,10 +21,13 @@ export default function ExportButton({
   requestId,
   email,phoneNumber,
   parkingId,
+ excelFileName,
   className = "",
 }: ExportButtonProps) {
   const [loading, setLoading] = useState(false);
-
+   console.log("parkingId: ",parkingId);
+   console.log("realEstateId: ",realEstateId);
+   
   const handleExport = async () => {
     try {
       setLoading(true);
@@ -34,7 +40,7 @@ export default function ExportButton({
       if (email) params.set("email", email);
       if (parkingId) params.set("parkingId", parkingId);
 
-      const url = `/api/requests/export?${params.toString()}`;
+      const url = realEstateId? `/api/requests/export?${params.toString()}`: `/api/requests/exportParkingRequests?${params.toString()}`
 
       const res = await fetch(url, {
         method: "GET",
@@ -50,7 +56,7 @@ export default function ExportButton({
       a.href = downloadUrl;
 
       // set a filename
-      const fileName = `applications-${realEstateId ?? "all"}.xlsx`;
+      const fileName = `Requests on ${excelFileName ?? "all"}.xlsx`
       a.download = fileName;
       document.body.appendChild(a);
       a.click();

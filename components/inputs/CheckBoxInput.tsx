@@ -3,6 +3,7 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Control, Controller, FieldValues, Path } from "react-hook-form";
 import { cn } from "@/lib/utils"; 
+import { AlertCircle } from "lucide-react";
 
 interface FormCheckboxProps<T extends FieldValues> {
   name: Path<T>;
@@ -54,6 +55,7 @@ export default function FormCheckbox<T extends FieldValues>({
       />
       {error?.message && (
         <p className="text-[0.8rem] font-medium text-destructive">
+          <AlertCircle size={12} className="text-red-600" />
           {error.message}
         </p>
       )}

@@ -56,7 +56,7 @@ async function page() {
 
                   <div className="mt-1 flex items-center gap-2 text-xs text-gray-600">
                     <span className="inline-flex items-center justify-center px-2.5 py-1 rounded-full bg-[#2383c9]/10 text-[#2383c9] font-semibold">
-                      {parking.requests.length}
+                      {parking.parkings_requests.length}
                     </span>
                     <span className="whitespace-nowrap">Requests</span>
                   </div>

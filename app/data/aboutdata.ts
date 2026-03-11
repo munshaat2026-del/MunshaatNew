@@ -18,15 +18,15 @@ export const aboutdata = {
       items: [
         { 
           t: "The Mission", 
-          d: "To maximize the operational life and financial yield of iconic real estate assets through smart management.", 
+          d: "To manage and invest government-owned real estate assets in a professional and sustainable manner that balances economic returns with service quality while strengthening institutional governance.", 
         },
         { 
           t: "The Vision", 
-          d: "To be the kingdom's first choice for institutional-grade facility administration by 2030.", 
+          d: "To be the most efficient government real estate arm in managing and developing commercial and administrative complexes across the Kingdom.", 
         },
         { 
-          t: "Our Culture", 
-          d: "A commitment to transparency, safety, and relentless technical innovation.", 
+          t: "Our Value", 
+          d: "Institutional, Governance, Transparency, Operational, Efficiency, Responsibility, Sustainability", 
         },
       ]
     },
@@ -53,6 +53,9 @@ export const aboutdata = {
           image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Tower_in_Amman%2C_Jordan.jpg/500px-Tower_in_Amman%2C_Jordan.jpg",
           offset: "md:translate-y-16",
         }
+        ,
+   
+        
       ]
     },
     impact: {
@@ -94,7 +97,69 @@ export const aboutdata = {
         { name: "Khalid Mansour", role: "Technical Lead" },
         { name: "Omar Bakri", role: "Strategy Director" },
       ]
-    }
+    },
+    /////////////////////////////////////////////////////////
+        contact:{
+       header: {
+      tag: "Direct Communication",
+      title1: "LET'S",
+      title2: "CONNECT."
+    },
+
+    headquarters: {
+      title1: "Operational",
+      title2: "Headquarters"
+    },
+
+    info: [
+      {
+        key: "address",
+        label: "Riyadh Office",
+        value: "KAFD, Tower 4, Riyadh, KSA"
+      },
+      {
+        key: "phone",
+        label: "Direct Line",
+        value: "+966 11 234 5678"
+      },
+      {
+        key: "email",
+        label: "Official Inquiry",
+        value: "ops@royalmanage.sa"
+      }
+    ],
+
+    hours: {
+      title: "Operating Hours",
+      rows: [
+        { day: "Sun - Thu", time: "08:00 - 18:00" },
+        { day: "Friday", time: "Closed", alert: true },
+        { day: "Saturday", time: "Support Only" }
+      ]
+    },
+
+    form: {
+      fullName: "Full Name",
+      company: "Company",
+      email: "Business Email",
+      department: "Department",
+      message: "Message Protocol",
+      submit: "Submit Protocol",
+
+      placeholders: {
+        name: "IDENTITY",
+        company: "ORGANIZATION",
+        email: "OFFICIAL EMAIL"
+      },
+
+      departments: [
+        "ASSET MANAGEMENT",
+        "LEASING INQUIRIES",
+        "PARKING SERVICES"
+      ]
+    },
+
+    globalPresence: "Global Presence"}
   },
   ar: {
     aboutHero: {
@@ -115,15 +180,15 @@ export const aboutdata = {
       items: [
         { 
           t: "المهمة", 
-          d: "تعظيم العمر التشغيلي والعائد المادي للأصول العقارية البارزة من خلال الإدارة الذكية.", 
+          d: "إدارة واستثمار الأصول العقارية المملوكة للحكومة بطريقة احترافية ومستدامة، تحقق التوازن بين العوائد الاقتصادية وجودة الخدمات، مع تعزيز الحوكمة المؤسسية.", 
         },
         { 
           t: "الرؤية", 
-          d: "أن نكون الخيار الأول في المملكة لإدارة المرافق ذات المستوى المؤسسي بحلول عام 2030.", 
+          d: "أن تكون الذراع الحكومي الأكثر كفاءة في إدارة وتطوير المجمعات التجارية والإدارية في مختلف أنحاء المملكة.", 
         },
         { 
-          t: "ثقافتنا", 
-          d: "التزام بالشفافية، والسلامة، والابتكار التقني المستمر.", 
+          t: "القيم", 
+          d: "مؤسسية، حوكمة، شفافية، تشغيلية، كفاءة، مسؤولية، استدامة.", 
         },
       ]
     },
@@ -137,19 +202,20 @@ export const aboutdata = {
       indicator: "تحليل.إنشائي.2026",
       assets: [
         {
-          id: "٠١",
+          id: "01",
           title: "شابسوغ",
           subtitle: "مجمع مكاتب",
           image: "https://images.squarespace-cdn.com/content/v1/5671433fc647ad9f55531f40/1531828884031-IKM5XB9CY03X6Z8TQH38/IMG_0405.JPG?format=2500w",
           offset: "md:-translate-y-16",
         },
         {
-          id: "٠٢",
+          id: "02",
           title: "البرج",
           subtitle: "مبنى تجاري",
           image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Tower_in_Amman%2C_Jordan.jpg/500px-Tower_in_Amman%2C_Jordan.jpg",
           offset: "md:translate-y-16",
         }
+    
       ]
     },
     impact: {
@@ -191,6 +257,69 @@ export const aboutdata = {
         { name: "خالد منصور", role: "القائد التقني" },
         { name: "عمر بكري", role: "مدير الاستراتيجية" },
       ]
-    }
+    },
+    ///////////////////////////////////////////////////////
+    contact:{
+    header: {
+      tag: "اتصال مباشر",
+      title1: "دعنا",
+      title2: "نتواصل"
+    },
+
+    headquarters: {
+      title1: "المقر",
+      title2: "العملياتي"
+    },
+
+    info: [
+      {
+        key: "address",
+        label: "مكتب الرياض",
+        value: "مركز الملك عبدالله المالي، الرياض"
+      },
+      {
+        key: "phone",
+        label: "الخط المباشر",
+        value: "+966 11 234 5678"
+      },
+      {
+        key: "email",
+        label: "الاستفسارات الرسمية",
+        value: "ops@royalmanage.sa"
+      }
+    ],
+
+    hours: {
+      title: "ساعات العمل",
+      rows: [
+        { day: "الأحد - الخميس", time: "08:00 - 18:00" },
+        { day: "الجمعة", time: "مغلق", alert: true },
+        { day: "السبت", time: "دعم فقط" }
+      ]
+    },
+
+    form: {
+      fullName: "الاسم الكامل",
+      company: "الشركة",
+      email: "البريد الإلكتروني",
+      department: "القسم",
+      message: "نص الرسالة",
+      submit: "إرسال البيانات",
+
+      placeholders: {
+        name: "الاسم",
+        company: "المنشأة",
+        email: "البريد الرسمي"
+      },
+
+      departments: [
+        "إدارة الأصول",
+        "استفسارات التأجير",
+        "خدمات المواقف"
+      ]
+    },
+
+    globalPresence: "التواجد العالمي"
+  }
   }
 };

@@ -60,21 +60,21 @@ model real_estates_images {
 }
 
 model parkings {
-  id             String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  name_en        String     @db.VarChar(255)
-  name_ar        String     @db.VarChar(255)
-  description_en String?
-  description_ar String?
-  address_en     String
-  address_ar     String
-  location_link  String?    @db.VarChar(255)
-  image          String?    @db.VarChar(255)
-  total_spots    Int?
-  price_monthly  Int?
-  price_yearly   Int?
-  created_at     DateTime?  @default(now()) @db.Timestamptz(6)
-  slug           String     @unique @db.VarChar(255)
-  requests       requests[]
+  id                String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name_en           String              @db.VarChar(255)
+  name_ar           String              @db.VarChar(255)
+  description_en    String?
+  description_ar    String?
+  address_en        String
+  address_ar        String
+  location_link     String?             @db.VarChar(255)
+  image             String?             @db.VarChar(255)
+  total_spots       Int?
+  price_monthly     Int?
+  price_yearly      Int?
+  created_at        DateTime?           @default(now()) @db.Timestamptz(6)
+  slug              String              @unique @db.VarChar(255)
+  parkings_requests parkings_requests[]
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
@@ -85,10 +85,7 @@ model requests {
   email          String?       @db.VarChar(255)
   plan           price_period  @default(monthly)
   real_estate_id String?       @db.Uuid
-  parking_id     String?       @db.Uuid
-  request_type   booking_type  @default(parkings)
   created_at     DateTime?     @default(now()) @db.Timestamptz(6)
-  parkings       parkings?     @relation(fields: [parking_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   real_estates   real_estates? @relation(fields: [real_estate_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 }
 
@@ -111,6 +108,79 @@ model our_team {
   image          String?  @db.VarChar(255)
   display_order  Int?     @unique @default(0)
   main           Boolean? @default(false)
+}
+
+model parkings_requests {
+  id             String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name           String       @db.VarChar(255)
+  phone_number   String       @db.VarChar(255)
+  email          String?      @db.VarChar(255)
+  plan           price_period @default(monthly)
+  parking_id     String       @db.Uuid
+  license_image  String       @db.VarChar(255)
+  identity_image String       @db.VarChar(255)
+  created_at     DateTime?    @default(now()) @db.Timestamptz(6)
+  parkings       parkings     @relation(fields: [parking_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model applications {
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  full_name       String    @db.VarChar(255)
+  email           String    @db.VarChar(255)
+  address         String    @db.VarChar(255)
+  city            String    @db.VarChar(255)
+  marital_status  String    @db.VarChar(255)
+  major           String    @db.VarChar(255)
+  date_of_birth   DateTime  @db.Date
+  phone_number    String    @db.VarChar(255)
+  national_number String    @db.VarChar(255)
+  nationality     String    @db.VarChar(255)
+  place_of_birth  String    @db.VarChar(255)
+  applied_at      DateTime? @default(now()) @db.Timestamp(6)
+  cv              String
+  career_id       String?   @db.Uuid
+  careers         careers?  @relation(fields: [career_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model careers {
+  id              String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  position_en     String         @db.VarChar(255)
+  position_ar     String         @db.VarChar(255)
+  description_en  String
+  description_ar  String
+  requirements_en String[]
+  requirements_ar String[]
+  experience_en   String?        @db.VarChar(255)
+  experience_ar   String?        @db.VarChar(255)
+  role_en         String?        @db.VarChar(255)
+  role_ar         String?        @db.VarChar(255)
+  image           String         @db.VarChar(255)
+  create_at       DateTime?      @default(now()) @db.Timestamptz(6)
+  slug            String         @unique @db.VarChar(255)
+  applications    applications[]
+}
+
+model coming_soon {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title_en       String    @db.VarChar(255)
+  title_ar       String    @db.VarChar(255)
+  description_en String
+  description_ar String
+  image          String    @db.VarChar(255)
+  estimated_date DateTime? @db.Date
+}
+
+model tender {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name_en        String    @db.VarChar(255)
+  name_ar        String    @db.VarChar(255)
+  slug           String    @unique @db.VarChar(255)
+  description_en String
+  description_ar String
+  pdf_file       String?   @db.VarChar(255)
+  created_at     DateTime? @default(now()) @db.Timestamptz(6)
+  opening_date   DateTime? @default(now()) @db.Date
+  closing_date   DateTime  @db.Date
 }
 
 enum role {

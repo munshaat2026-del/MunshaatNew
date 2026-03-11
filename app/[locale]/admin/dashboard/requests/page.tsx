@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { getRequestsCountByType } from "@/app/server/requests/services";
+import { getRequestsCount } from "@/app/server/requests/services";
+import {getParkingRequestsCount} from "@/app/server/parkingsRequests/services"
 import { Building2, Car, ArrowRight, ClipboardList } from "lucide-react"; 
 import { cn } from "@/lib/utils";
 
 async function RequestsPage() {
-  const parkingsCount = (await getRequestsCountByType("parkings")).data ?? 0;
-  const realEstatesCount = (await getRequestsCountByType("real_estates")).data ?? 0;
+  const parkingsCount = (await getParkingRequestsCount()).data ?? 0;
+  const realEstatesCount = (await getRequestsCount()).data ?? 0;
 
   const categories = [
     {

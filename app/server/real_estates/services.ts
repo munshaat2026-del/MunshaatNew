@@ -552,7 +552,7 @@ export const getAllRealEstatesByTypeByLocale = async (
           status: 200,
           totlaPages: Math.floor(numberOfPages/pageSize),
         };
-      } catch (error) {
+      } catch (_error) {
         return {
           data: null,
           message: "Error In Getting Real Estate By Id Translated",

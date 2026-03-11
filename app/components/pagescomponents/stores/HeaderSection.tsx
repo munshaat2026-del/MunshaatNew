@@ -27,11 +27,11 @@ export default function StoresHeader({ primaryColor, locale }: StoresHeaderProps
       <div className="relative z-10 px-6 md:px-32 max-w-5xl space-y-10">
         {/* Title Block */}
         <div className="space-y-4">
-          <h1 className="text-6xl md:text-[8vw] font-black text-white leading-[0.85] uppercase tracking-tighter italic" dir={isArabic ? "rtl" : "ltr"}>
+          <h1 className="text-6xl md:text-[8vw] font-black text-white leading-[0.85] uppercase tracking-tighter " dir={isArabic ? "rtl" : "ltr"}>
             {isArabic ? "المساحات " : "PREMIUM"} <br />
             <span 
-              className="text-transparent" 
-              style={{ WebkitTextStroke: `1.5px ${primaryColor}` }}
+              className="text-[#0c479a]" 
+         
             >
               {isArabic ? "التجارية." : "RETAIL STORES."}
             </span>
@@ -40,7 +40,7 @@ export default function StoresHeader({ primaryColor, locale }: StoresHeaderProps
 
         {/* Description with Vertical Accent */}
         <div className={`max-w-xl ${isArabic ? "border-r-2 pr-8" : "border-l-2 pl-8"} border-slate-800`}>
-          <p className="text-slate-400 text-[10px] md:text-[12px] font-bold uppercase tracking-[0.25em] leading-snug italic" dir={isArabic ? "rtl" : "ltr"}>
+          <p className="text-slate-400 text-[10px] md:text-[12px] font-bold uppercase tracking-[0.25em] leading-snug " dir={isArabic ? "rtl" : "ltr"}>
             {isArabic
               ? "مواقع تجارية استراتيجية مصممة لتحسين تجربة العميل وتحقيق أقصى قدر من التواجد في السوق."
               : "Strategic retail environments engineered for consumer engagement and market presence optimization."}

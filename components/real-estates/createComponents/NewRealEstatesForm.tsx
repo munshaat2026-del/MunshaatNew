@@ -53,15 +53,15 @@ function CreateRealEstatesForm({ action }: Props) {
 
       if (result.status === 401) {
         toast.error(result.message);
-        router.push("/login");
+        router.replace("/login");
         return;
       } else if (result.status === 403) {
         toast.error(result.message);
-        router.push("/");
+        router.replace("/");
         return;
       } else if (result.status === 201) {
         toast.success(result.message);
-        router.push("/admin/dashboard/real-estates");
+        router.replace("/admin/dashboard/real-estates");
         return;
       } else {
         toast.error(result.message);

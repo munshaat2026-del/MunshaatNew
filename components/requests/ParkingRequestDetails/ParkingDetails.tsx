@@ -14,7 +14,7 @@ function ParkingDetails({
   const request = requestDetails;
 
   return (
-    <div className="lg:col-span-7 h-full">
+    <div className="lg:col-span-7 h-fit">
       <section className="bg-white border border-slate-200 rounded-[2.5rem] overflow-hidden shadow-sm h-full flex flex-col">
         {/* 1. Header Section */}
         <div className="py-8 px-4 md:px-8 ">
@@ -31,7 +31,7 @@ function ParkingDetails({
              
             </div>
 
-            <div className="text-right bg-slate-50  py-2 md:py-4 px-4 rounded-2xl border border-slate-100 min-w-25 md:min-w-35">
+            <div className="text-right bg-slate-50  py-2 md:py-4 px-4 rounded-2xl border border-slate-100 ">
               <p className="text-[10px] uppercase font-black text-slate-400 tracking-tighter mb-1">
                 Price
               </p>
@@ -106,7 +106,7 @@ function ParkingDetails({
 
           {/* 4. GOOGLE MAPS ACTION */}
           {request.parkings?.location_link && (
-            <div className="mt-auto">
+            <div >
               <a
                 href={request.parkings.location_link}
                 target="_blank"

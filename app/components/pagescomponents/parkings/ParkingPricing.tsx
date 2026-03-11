@@ -27,10 +27,10 @@ export default function ParkingPricing({ primaryColor }: ParkingPricingProps) {
             </div>
             <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-none">
               {data.titleLine1} <br />
-              <span className="text-transparent" style={{ WebkitTextStroke: `1.5px ${primaryColor}` }}>{data.titleLine2}</span>
+              <span className="text-[#0c479a]" >{data.titleLine2}</span>
             </h2>
           </div>
-          <p className="text-slate-400 text-[11px] font-bold uppercase tracking-[0.2em] max-w-xs leading-loose italic">
+          <p className="text-slate-400 text-[11px] font-bold uppercase tracking-[0.2em] max-w-xs leading-loose ">
             {data.desc}
           </p>
         </div>
@@ -47,7 +47,7 @@ export default function ParkingPricing({ primaryColor }: ParkingPricingProps) {
               {/* Popular Badge */}
               {plan.isPopular && (
                 <div 
-                  className={`absolute top-0 ${isAr ? 'left-0' : 'right-0'} px-4 py-1 text-[8px] font-black uppercase tracking-widest text-white italic`}
+                  className={`absolute top-0 ${isAr ? 'left-0' : 'right-0'} px-4 py-1 text-[8px] font-black uppercase tracking-widest text-white `}
                   style={{ backgroundColor: primaryColor }}
                 >
                   {data.popularTag}
@@ -57,7 +57,7 @@ export default function ParkingPricing({ primaryColor }: ParkingPricingProps) {
               {/* Plan Header */}
               <div className={`space-y-2 mb-12 ${isAr ? 'text-right' : 'text-left'}`}>
                 <p className="text-[9px] font-black text-slate-300 uppercase tracking-[0.3em]">{data.contractType}</p>
-                <h3 className="text-2xl font-black uppercase tracking-tighter group-hover:italic transition-all">
+                <h3 className="text-2xl font-black uppercase tracking-tighter  transition-all">
                   {plan.name}
                 </h3>
               </div>
@@ -66,7 +66,7 @@ export default function ParkingPricing({ primaryColor }: ParkingPricingProps) {
               <div className={`mb-12 pb-8 border-b border-slate-100 ${isAr ? 'text-right' : 'text-left'}`}>
                 <div className={`flex items-baseline gap-1 ${isAr ? 'flex-row-reverse' : ''}`}>
                   <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mx-2">{data.currency}</span>
-                  <span className="text-5xl font-black tracking-tighter text-slate-900 italic">
+                  <span className="text-5xl font-black tracking-tighter text-slate-900 ">
                     {plan.price}
                   </span>
                 </div>

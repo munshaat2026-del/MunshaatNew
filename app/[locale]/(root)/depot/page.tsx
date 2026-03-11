@@ -109,7 +109,7 @@ export default async function DepotsPage({ params, searchParams }: Props) {
                   <SearchX size={40} className="text-slate-300" />
                 </div>
 
-                <h3 className="text-2xl font-black uppercase italic text-slate-900 tracking-tight">
+                <h3 className="text-2xl font-black uppercase  text-slate-900 tracking-tight">
                   {isArabic ? "لا توجد مستودعات" : "No Depots"}{" "}
                   <span className="text-[#0c479a]">
                     {isArabic ? "متوفرة حالياً." : "Found."}

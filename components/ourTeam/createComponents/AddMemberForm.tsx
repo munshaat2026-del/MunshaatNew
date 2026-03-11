@@ -41,13 +41,13 @@ export default function AddMemberForm({ action }: Props) {
       const result = await action(data);
       if (result.status === 401) {
         toast.error(result.message);
-        router.push("/login");
+        router.replace("/login");
       } else if (result.status === 403) {
         toast.error(result.message);
-        router.push("/");
+        router.replace("/");
       } else if (result.status === 201) {
         toast.success(result.message);
-        router.push("/admin/dashboard/ourTeam");
+        router.replace("/admin/dashboard/ourTeam");
       } else {
         toast.error(result.message);
       }

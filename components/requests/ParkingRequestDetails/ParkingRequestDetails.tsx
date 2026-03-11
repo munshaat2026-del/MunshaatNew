@@ -5,13 +5,15 @@ import {
 } from "lucide-react";
 import { type RequestsGetPayloadParking } from "@/types/index";
 import ParkingDetails from "./ParkingDetails";
-import UserDetails from "../UserDetails";
+import UserDetailsParkingReq from "./UserDetailsParkingReq";
 
 export default function RequestDetailPage({
   requestDetails,
 }: {
   requestDetails: RequestsGetPayloadParking;
 }) {
+  console.log("requestDetails requestDetails : ",requestDetails);
+  
 const { parkings, ...requestDetailsOnly } = requestDetails;
   const parkingId= requestDetails.parkings?.id
 
@@ -37,7 +39,7 @@ const { parkings, ...requestDetailsOnly } = requestDetails;
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* LEFT: CONTACT & ACTIONS */}
-        <UserDetails requestDetails={requestDetailsOnly} />
+        <UserDetailsParkingReq requestDetails={requestDetailsOnly} />
 
         {/* RIGHT: PROPERTY DETAILS */}
         <ParkingDetails requestDetails={requestDetails} />

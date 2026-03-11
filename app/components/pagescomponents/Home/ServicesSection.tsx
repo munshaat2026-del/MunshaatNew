@@ -34,7 +34,7 @@ export default function ServicesSection({ primaryColor }: ServicesSectionProps) 
           </div>
           <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none">
             {data.titleLine1} <br />
-            <span className="text-transparent" style={{ WebkitTextStroke: `1.5px ${primaryColor}` }}>
+            <span className="text-[#0c479a]">
               {data.titleLine2}
             </span>
           </h2>

@@ -76,6 +76,7 @@ async function Page({ params, searchParams }: Props) {
           requestId={searchParamsData.requestId ?? null}
           email={searchParamsData.email ?? null}
           phoneNumber={searchParamsData.phoneNumber ?? null}
+          realEstateName={realEstateDetails.name_en}
         />
       )}
     </div>

@@ -56,7 +56,8 @@ function EditRealEstatesForm({ action, realEstate,realEstateImages }: Props) {
       size_sqm:realEstate.size_sqm??0,
       slug:realEstate.slug??"",
       is_available:realEstate.is_available??false,
-      features:realEstate.features??[],
+      features_en:realEstate.features_en??[],
+      features_ar:realEstate.features_ar??[],
       cover_image:realEstate.cover_image,
     },
   });
@@ -88,15 +89,15 @@ function EditRealEstatesForm({ action, realEstate,realEstateImages }: Props) {
 
       if (result.status === 401) {
         toast.error(result.message);
-        router.push("/login");
+        router.replace("/login");
         return;
       } else if (result.status === 403) {
         toast.error(result.message);
-        router.push("/");
+        router.replace("/");
         return;
       } else if (result.status === 201) {
         toast.success(result.message);
-        router.push("/admin/dashboard/real-estates");
+        router.replace("/admin/dashboard/real-estates");
         return;
       } else {
         toast.error(result.message);

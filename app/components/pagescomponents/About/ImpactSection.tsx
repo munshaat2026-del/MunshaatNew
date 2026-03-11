@@ -30,8 +30,8 @@ export default function ImpactSection({ primaryColor }: ImpactSectionProps) {
                 {data.tag}
               </span>
             </div>
-            <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-none italic">
-              {data.titleLine1} <span className="text-transparent" style={{ WebkitTextStroke: `1.5px ${primaryColor}` }}>{data.titleLine2}</span>
+            <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-none ">
+              {data.titleLine1} <span className="text-[#0c479a]" >{data.titleLine2}</span>
             </h2>
           </div>
 
@@ -43,7 +43,7 @@ export default function ImpactSection({ primaryColor }: ImpactSectionProps) {
                 </span>
                 
                 <div className="flex items-baseline gap-2">
-                   <p className={`text-5xl font-black tracking-tighter italic transition-transform duration-500 ${isAr ? 'group-hover:-translate-x-2' : 'group-hover:translate-x-2'}`}>
+                   <p className={`text-5xl font-black tracking-tighter  transition-transform duration-500 ${isAr ? 'group-hover:-translate-x-2' : 'group-hover:translate-x-2'}`}>
                     {num}
                    </p>
                 </div>
@@ -65,7 +65,7 @@ export default function ImpactSection({ primaryColor }: ImpactSectionProps) {
                 </h3>
             </div>
 
-            <p className="text-slate-500 text-sm md:text-base font-bold uppercase tracking-[0.15em] leading-[2.2] italic">
+            <p className="text-slate-500 text-sm md:text-base font-bold uppercase tracking-[0.15em] leading-[2.2] ">
               {data.heritageDesc}
             </p>
           </div>
