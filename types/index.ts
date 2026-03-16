@@ -124,33 +124,39 @@ export type ParkingsGetPayloadPartially = Prisma.parkingsGetPayload<{
     image: true;
   };
 }>;
-export type TranslatedParkings= {
-   id: string;
-    slug: string;
-    name: string;
-    description: string | null;
-    address: string;
-    location_link: string | null;
-    image: string | null;
-    total_spots: number | null;
-    price_monthly: number | null;
-    price_yearly: number | null;
-}
+export type TranslatedParkings = {
+  id: string;
+  slug: string;
+  name: string;
+  description: string | null;
+  address: string;
+  location_link: string | null;
+  image: string | null;
+  total_spots: number | null;
+  price_monthly: number | null;
+  price_yearly: number | null;
+};
 
 // Our Team Types
 export type OurTeamCreateInput = Prisma.our_teamCreateInput;
 export type OurTeamUpdateInput = Prisma.our_teamUpdateInput;
 export type OurTeamGetPayload = Prisma.our_teamGetPayload<{}>;
-export type TranslatedMembers= { id: string;
-        name: string | null;
-        position: string | null;
-        image: string | null;
-       }
+export type TranslatedMembers = {
+  id: string;
+  name: string | null;
+  position: string | null;
+  image: string | null;
+};
 
 // Clients Types
 export type ClientsCreateInput = Prisma.clientsCreateInput;
 export type ClientsUpdateInput = Prisma.clientsUpdateInput;
 export type ClientsGetPayload = Prisma.clientsGetPayload<{}>;
+export type TranslatedClients = {
+  id: string | undefined;
+  name: string;
+  logo: string;
+};
 
 //Real Estate Requests Types
 export type RequestsCreateInput = Prisma.requestsCreateInput;
@@ -172,8 +178,6 @@ export type RequestsGetPayloadRealEstate = Prisma.requestsGetPayload<{
 export type RequestsGetPayloadOnly = Prisma.requestsGetPayload<{
   include: {};
 }>;
-
-
 
 // PArking Requests
 export type ParkingsRequestsGetPayloadOnly =
@@ -208,48 +212,57 @@ export type ParkingRequestsGetPayload = Prisma.parkings_requestsGetPayload<{
 export type TenderCreateInput = Prisma.tenderCreateInput;
 export type TenderUpdateInput = Prisma.tenderUpdateInput;
 export type TenderGetPayload = Prisma.tenderGetPayload<{}>;
-export type TranslatedTender= { id: string;
-        name: string;
-        description: string;
-        slug: string;
-        pdf_file: string | null;
-        created_at: Date | null;
-        opening_date: Date | null;
-        closing_date: Date;}
+export type TranslatedTender = {
+  id: string;
+  name: string;
+  description: string;
+  slug: string;
+  pdf_file: string | null;
+  created_at: Date | null;
+  opening_date: Date | null;
+  closing_date: Date;
+};
 
 // Coming soon types
 export type ComingSoonCreateInput = Prisma.coming_soonCreateInput;
 export type ComingSoonUpdateInput = Prisma.coming_soonUpdateInput;
 export type ComingSoonGetPayload = Prisma.coming_soonGetPayload<{}>;
-export type TranslatedComingSoon= {id: string;
-    title: string;
-    description: string;
+export type TranslatedComingSoon = {
+  id: string;
+  title: string;
+  description: string;
 
-    image: string;
-    estimated_date: Date | null;
-    completion_rate: number | null;}
+  image: string;
+  estimated_date: Date | null;
+  completion_rate: number | null;
+};
 
 // Careers types
 export type CareersCreateInput = Prisma.careersCreateInput;
 export type CareersUpdateInput = Prisma.careersUpdateInput;
 export type CareersGetPayload = Prisma.careersGetPayload<{}>;
-export type TransalatedCareer={id: string;
-        position: string;
-        description: string;
-        image: string;
-        requirements: string[];
-        role: string | null;
-        experience: string | null;
-        slug: string;}
+export type TransalatedCareer = {
+  id: string;
+  position: string;
+  description: string;
+  image: string;
+  requirements: string[];
+  role: string | null;
+  experience: string | null;
+  slug: string;
+};
 
 // Applications Types
 export type ApplicationCreateInput = Prisma.applicationsCreateInput;
 export type ApplicationUpdateInput = Prisma.applicationsUpdateInput;
 export type ApplicationGetPayload = Prisma.applicationsGetPayload<{}>;
 export type ApplicationGetPayloadWithCareer = Prisma.applicationsGetPayload<{
-  include:{careers:{select:{
-    position_en:true,
-    image:true
-  }}}
+  include: {
+    careers: {
+      select: {
+        position_en: true;
+        image: true;
+      };
+    };
+  };
 }>;
-

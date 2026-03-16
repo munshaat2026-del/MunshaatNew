@@ -486,15 +486,15 @@ export const getAllRealEstatesByTypeByLocale = async (
 
       if (filters?.minSize || filters?.maxSize) {
         where.size_sqm = {
-          ...(filters?.minSize && { gte: filters.minSize }),
-          ...(filters?.maxSize && { lt: filters.maxSize }),
+          ...(filters?.minSize && { gte: Number(filters.minSize) }),
+          ...(filters?.maxSize && { lt: Number(filters.maxSize) }),
         };
       }
 
       if (filters?.minPrice || filters?.maxPrice) {
         where.price = {
-          ...(filters?.minPrice && { gte: filters.minPrice }),
-          ...(filters?.maxPrice && { lte: filters.maxPrice }),
+          ...(filters?.minPrice && { gte: Number(filters.minPrice) }),
+          ...(filters?.maxPrice && { lte: Number(filters.maxPrice) }),
         };
       }
 
@@ -553,6 +553,8 @@ export const getAllRealEstatesByTypeByLocale = async (
           totlaPages: Math.floor(numberOfPages/pageSize),
         };
       } catch (_error) {
+        console.log("_error: ",_error);
+        
         return {
           data: null,
           message: "Error In Getting Real Estate By Id Translated",

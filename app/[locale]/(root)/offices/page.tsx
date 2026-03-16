@@ -34,6 +34,8 @@ export default async function OfficesListing({ params, searchParams }: Props) {
     page,
     filter,
   );
+  console.log("offices: ",offices);
+  
   const primaryColor = "#0c479a";
 
   const hasOffices = offices?.data && offices.data.length > 0;
