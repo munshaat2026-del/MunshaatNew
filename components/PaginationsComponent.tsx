@@ -2,15 +2,15 @@
 
 import React, { useMemo } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Button } from "@/components/ui/button"; // adjust if your path differs
-import { cn } from "@/lib/utils"; // optional helper for classNames; replace if you don't have it
+import { Button } from "@/components/ui/button"; 
+import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Locale } from "@/types";
 
 type PaginationProps = {
   totalPages: number;
-  siblingCount?: number; // number of pages to show around current (default 1)
-  boundaryCount?: number; // pages to always show at beginning/end (default 1)
+  siblingCount?: number; 
+  boundaryCount?: number; 
   locale:Locale
 };
 
@@ -21,10 +21,6 @@ function range(start: number, end: number) {
   return Array.from({ length }, (_, idx) => start + idx);
 }
 
-/**
- * Return a pagination range array containing numbers and DOTS
- * Example: [1, 'DOTS', 4,5,6, 'DOTS', 10]
- */
 function getPaginationRange({
   total,
   current,
@@ -36,7 +32,7 @@ function getPaginationRange({
   siblingCount?: number;
   boundaryCount?: number;
 }) {
-  const totalPageNumbers = boundaryCount * 2 + siblingCount * 2 + 3; // first, last, current, and two dots
+  const totalPageNumbers = boundaryCount * 2 + siblingCount * 2 + 3; 
   // If the number of pages is small we show them all
   if (total <= totalPageNumbers) {
     return range(1, total);

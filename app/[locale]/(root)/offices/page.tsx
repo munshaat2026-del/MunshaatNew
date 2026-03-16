@@ -49,7 +49,8 @@ export default async function OfficesListing({ params, searchParams }: Props) {
           {/* 2. Sticky Sidebar Container */}
           <aside className="w-full lg:w-80 shrink-0">
             <div className="static lg:sticky lg:top-20">
-              <div className="bg-white border-l-4 border-[#0c479a] shadow-sm p-0 lg:p-1">
+
+              <div className="bg-white  border-l-4 border-[#0c479a] shadow-sm p-0 lg:p-1">
                 <OfficeFilterSidebar locale={locale} />
               </div>
             </div>
