@@ -8,6 +8,7 @@ import { useLocale } from "next-intl";
 import { homedata } from "@/app/data/homedata";
 import { useRouter } from 'next/navigation';
 import { Button1 } from '@/components/ui/Button1';
+import Banner from "@/public/banner.jpg"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,11 +65,11 @@ export default function ArabianPremiumEmpire() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-900">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?q=80&w=2072" 
+            src={Banner.src}
             className="hero-zoom-img w-full h-full object-cover opacity-60 transition-all duration-1000" 
             alt="Facade"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
+          <div className="absolute inset-0  from-transparent to-white"></div>
         </div>
 
         <div className="relative z-10 text-center px-6">

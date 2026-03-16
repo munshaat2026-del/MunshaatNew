@@ -12,6 +12,8 @@ export function Footer() {
   const t = useTranslations("Navbar");
   const locale = useLocale();
   const isAr = locale === "ar";
+    const currentYear = new Date().getFullYear();
+    const nurembergUrl="nurembergtech.com"
 
   const navLinks = [
     { name: t("offices"), href: "/offices" },
@@ -24,6 +26,7 @@ export function Footer() {
     { name: t("tenders"), href: "/tender" },
 
     { name: t("career"), href: "/career" },
+     { name: t("comingSoon"), href: "/comingSoon" },
 
   ];
 
@@ -54,10 +57,10 @@ export function Footer() {
               </span>
             </div>
             
-            <p className="text-slate-500 font-bold text-[10px] uppercase tracking-widest leading-relaxed max-w-sm">
+            <p className="text-white font-bold text-[15px] uppercase tracking-widest leading-relaxed max-w-sm">
               {isAr 
-                ? "إدارة مرافق من الدرجة المؤسسية وتميز تشغيلي لأصول العقارات الرائدة في المملكة العربية السعودية."
-                : "Institutional-grade facility management and operational excellence for Saudi Arabia's premier real estate assets."}
+                ? "شركة المنشآت والمجمعات العقارية"
+                : "real estate establishments and complexes company"}
             </p>
 
             <div className="flex gap-0 border border-white/5 w-fit bg-white/[0.02]">
@@ -132,7 +135,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-<div className="mt-16 pt-8 border-t border-white/5 flex justify-center items-center">
+<div className=" border-white/5 flex justify-center items-center">
   <a 
     href="https://nuremberg-group.com" // ضع الرابط الخاص بك هنا
     target="_blank"
@@ -145,22 +148,25 @@ export function Footer() {
     <div className="w-px h-3 bg-white/10" />
 
     {/* نص المشغل - يدعم الاتجاهين */}
-    <div className={`flex items-center gap-2 ${isAr ? 'flex-row-reverse' : 'flex-row'}`}>
-      <span className="text-[7px] md:text-[8px] font-bold text-slate-600 uppercase tracking-[0.3em]">
-        {isAr ? "مشغل بواسطة" : "Powered by"}
-      </span>
-      
-      <span className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] transition-all group-hover:text-white group-hover:tracking-[0.25em]">
-           {isAr ? "مجموعة نوريمبيرغ" : "Nuremberg Group"}  
-        <span className="ml-1" style={{ color: primaryColor }}> © 2026</span>
-      </span>
-
-      {/* سهم صغير يظهر عند الهوفر للإشارة إلى وجود رابط */}
-      <ArrowUpRight 
-        size={10} 
-        className="text-slate-600 opacity-0 group-hover:opacity-100 transition-all -translate-y-0 group-hover:-translate-y-1" 
-      />
-    </div>
+     <div className="text-center pt-5 mt-10 border-t border-white/10">
+          <p className="text-sm  centert  text-white/80 wrap-break-word">
+            {isAr ? (
+              <>
+                © {currentYear} REEAC. جميع الحقوق محفوظة. تم الإنشاء بواسطة{" "}
+                <a href={nurembergUrl} target="_blank" className="underline hover:text-[#0c479a] transition-colors">
+                  Nuremberg Group
+                </a>
+              </>
+            ) : (
+              <>
+                © {currentYear} REEAC. All rights reserved. Made by{" "}
+                <a href={nurembergUrl} target="_blank" className="underline hover:text-[#0c479a] transition-colors">
+                  Nuremberg Group
+                </a>
+              </>
+            )}
+          </p>
+        </div>
   </a>
 </div>
       </div>

@@ -14,7 +14,7 @@ function MediaSection() {
     setValue,
   } = useFormContext<ParkingFormValues>();
   const handleUploadComplete = (url: string) => {
-    setValue("image", url, { shouldValidate: true });
+    setValue("image", url, {  shouldDirty: true });
   };
 
   const handleUploadError = (error: Error) => {
@@ -25,7 +25,7 @@ function MediaSection() {
   return (
     <div className="grid grid-cols-1 gap-6 w-[95%]">
       <div className="w-full">
-        <Label className="block text-sm font-semibold text-gray-700 mb-1 ml-2 ">
+        <Label className="block text-sm  font-semibold text-gray-700 mb-1 ml-2 ">
           Image
         </Label>
         <ImageUploader
