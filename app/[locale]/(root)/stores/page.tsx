@@ -50,8 +50,8 @@ export default async function StoresPage({ params, searchParams }: Props) {
           
           {/* 1. Sidebar Container */}
           <aside className="w-full lg:w-80 shrink-0">
-            <div className="sticky top-20">
-              <div className="bg-white border-l-4 border-[#0c479a] shadow-sm p-1">
+            <div className="static lg:sticky lg:top-20">
+              <div className="bg-white border-l-4 border-[#0c479a] shadow-sm p-0 lg:p-1">
                 <OfficeFilterSidebar locale={locale} />
               </div>
             </div>

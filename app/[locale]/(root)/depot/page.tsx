@@ -27,7 +27,6 @@ export default async function DepotsPage({ params, searchParams }: Props) {
   const locale = (await params).locale;
   const isArabic = locale === "ar";
 
-  // Data Fetching - Explicitly set to "depot"
   const depots = await getAllRealEstatesByTypeByLocale(
     "depot",
     locale,
@@ -40,7 +39,6 @@ export default async function DepotsPage({ params, searchParams }: Props) {
 
   return (
     <div className="min-h-screen mt-24 bg-slate-50/50 text-slate-900 font-sans pb-20">
-      {/* Reusing StoresHeader - Ensure internal text is dynamic or handled via props if possible */}
       <DepotsHeader primaryColor={primaryColor} locale={locale} />
 
       <div className="w-full mx-auto px-6 md:px-12 mt-10">
@@ -48,8 +46,8 @@ export default async function DepotsPage({ params, searchParams }: Props) {
           
           {/* 1. Sidebar Container */}
           <aside className="w-full lg:w-80 shrink-0">
-            <div className="sticky top-20">
-              <div className="bg-white border-l-4 border-[#0c479a] shadow-sm p-1">
+            <div className="static lg:sticky lg:top-20">
+              <div className="bg-white  border-l-4 border-[#0c479a] shadow-sm p-0 lg:p-1">
                 <OfficeFilterSidebar locale={locale} />
               </div>
             </div>
@@ -96,11 +94,11 @@ export default async function DepotsPage({ params, searchParams }: Props) {
                 />
 
                 {/* 3. Pagination */}
-                <div className="flex justify-center pt-10 border-t border-slate-100">
+                {depots.totlaPages>1 && <div className="flex justify-center pt-10 border-t border-slate-100">
                   <div className="bg-white px-6 py-2 shadow-sm border border-slate-100 rounded-full">
                     <PaginationShadcn totalPages={depots.totlaPages} locale={locale} />
                   </div>
-                </div>
+                </div>}
               </div>
             ) : (
               /* 4. Empty State */

@@ -54,7 +54,7 @@ export default function OfficeFilterSidebar({ locale }: { locale: Locale }) {
 
     Object.entries(filters).forEach(([key, value]) => {
       if (!value) params.delete(key);
-      else params.set(key, value); // keep values in EN for filtering
+      else params.set(key, value); 
     });
 
     if (params.has("page")) params.set("page", "1");
@@ -72,7 +72,7 @@ export default function OfficeFilterSidebar({ locale }: { locale: Locale }) {
   return (
     <>
       {/* Mobile Trigger */}
-      <div className="md:hidden fixed bottom-6 right-6 z-50">
+      <div className="lg:hidden fixed bottom-6 right-6 z-50">
         <button
           onClick={() => setOpenMobile(true)}
           className="bg-[#0c479a] text-white shadow-xl p-4 rounded-full flex items-center justify-center transition-transform active:scale-95"
@@ -82,8 +82,8 @@ export default function OfficeFilterSidebar({ locale }: { locale: Locale }) {
       </div>
 
       <aside
-        className={`fixed inset-y-0 left-0 z-[60] w-full sm:w-72 bg-white transform transition-transform duration-300 ease-in-out border-r border-slate-200
-          ${openMobile ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative md:z-0 md:w-full`}
+        className={`fixed inset-y-0 left-0 z-60 w-full sm:w-72 bg-white transform transition-transform duration-300 ease-in-out border-r border-slate-200
+          ${openMobile ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0 lg:relative lg:z-0 lg:w-full`}
       >
         <div className="flex flex-col h-full font-sans">
           {/* Header */}
@@ -92,7 +92,7 @@ export default function OfficeFilterSidebar({ locale }: { locale: Locale }) {
               <Filter size={14} className="text-[#0c479a]" />
               {isArabic ? "خيارات البحث" : "Search Filters"}
             </h2>
-            <button onClick={() => setOpenMobile(false)} className="md:hidden p-1 text-slate-400">
+            <button onClick={() => setOpenMobile(false)} className="lg:hidden p-1 text-slate-400">
               <X size={18} />
             </button>
           </div>
@@ -205,7 +205,7 @@ export default function OfficeFilterSidebar({ locale }: { locale: Locale }) {
       {/* Overlay */}
       {openMobile && (
         <div
-          className="fixed inset-0 bg-slate-900/40 z-55 md:hidden backdrop-blur-[2px]"
+          className="fixed inset-0 bg-slate-900/40 z-55 lg:hidden backdrop-blur-[2px]"
           onClick={() => setOpenMobile(false)}
         />
       )}
