@@ -4,10 +4,28 @@ import { OfficeDetails } from "@/app/components/pagescomponents/offices/detailsC
 import { getAllRealEstatesBySlugByLocale } from "@/app/server/real_estates/services";
 import { Locale } from "@/types";
 import { notFound } from "next/navigation";
+import { generateDynamicMetadata } from "@/lib/constants/metadata";
 
 interface Props {
   params: Promise<{ slug: string; locale: Locale }>;
 }
+
+
+export async function generateMetadata({ params }:Props) {
+  const { locale, slug } = await params;
+  const office = (await getAllRealEstatesBySlugByLocale(slug,locale,"depot")).data;
+
+  return generateDynamicMetadata.page({
+    type: "office",
+    name:office?.name??"",
+    description:office?.description,
+    slug,
+    imageUrl: office?.cover_image,
+    locale,
+  });
+}
+
+
 export default async function OfficeBookingPage({ params }: Props) {
   const { locale, slug } = await params;
   const realEstate = (await getAllRealEstatesBySlugByLocale(slug, locale,"depot")).data;

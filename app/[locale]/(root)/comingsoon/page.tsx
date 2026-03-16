@@ -1,6 +1,16 @@
 import { getAllComingSoonByLocale } from '@/app/server/coming_soon/services'
 import { Locale } from '@/types'
 import ComingSoonPage from "@/app/components/pagescomponents/comingSoon/MainPage"
+import { generatePageMetadata } from "@/lib/constants/metadata";
+
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  return generatePageMetadata("comingSoon", (await params).locale);
+}
 
 interface Props {
   params: Promise<{ locale: Locale }>
