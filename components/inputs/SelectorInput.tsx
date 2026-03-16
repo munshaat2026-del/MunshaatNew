@@ -73,7 +73,7 @@ export default function FormSelect({
                 error ? errorId : description ? `${id}-desc` : undefined
               }
               className={`
-                bg-white shadow-sm transition
+                bg-white shadow-sm transition text-gray-700
                 focus:outline-none focus:ring-2 focus:ring-blue-500
                 ${triggerClassName}
                 ${isRTL ? "text-right" : "text-left"}
@@ -120,11 +120,11 @@ export default function FormSelect({
       {error && (
         <p
           id={errorId}
-          className={`mt-1 text-xs text-red-600 ${
+          className={`mt-1 text-xs flex flex-row gap-2 text-red-600 ${
             isRTL ? "mr-2 text-right" : "ml-2 text-left"
           }`}
         >
-          <AlertCircle size={12} className="text-red-600" />
+          <AlertCircle size={12} className="text-red-600 mt-0.5" />
           {error.message}
         </p>
       )}

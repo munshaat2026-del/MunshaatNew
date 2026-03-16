@@ -25,33 +25,8 @@ export const requestSchema = (isArabic: boolean) =>
 
       plan: z.enum(["monthly", "yearly"]).default("monthly").optional(),
 
-      real_estate_id: z.string().uuid().nullable().optional(),
-      parking_id: z.string().uuid().nullable().optional(),
-
-      request_type: z
-        .enum(["parkings", "real_estates"])
-        .default("parkings")
-        .optional(),
+      real_estate_id: z.string().uuid(),
     })
-    .refine(
-      (data) =>
-        (data.real_estate_id && !data.parking_id) ||
-        (!data.real_estate_id && data.parking_id),
-      {
-        message: isArabic
-          ? "يجب إدخال أحد المعرفين فقط: العقار أو الموقف"
-          : "Exactly one of real_estate_id or parking_id must be provided",
-        path: ["real_estate_id"],
-      }
-    )
-    .refine(
-      (data) =>
-        (data.request_type === "real_estates" && data.real_estate_id) ||
-        (data.request_type === "parkings" && data.parking_id),
-      {
-        message: isArabic
-          ? "نوع الطلب يجب أن يتطابق مع المعرف المرسل"
-          : "request_type must match the provided ID",
-        path: ["request_type"],
-      }
-    );
+      
+    
+  

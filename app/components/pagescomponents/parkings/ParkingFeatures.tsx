@@ -21,7 +21,7 @@ export default function ParkingFeatures({ primaryColor }: ParkingFeaturesProps) 
       
       {/* Header Info */}
       <div className={`mb-16 flex items-center gap-4 ${isAr ? 'flex-row-reverse' : ''}`}>
-        <div className="w-12 h-[2px]" style={{ backgroundColor: primaryColor }}></div>
+        <div className="w-12 h-0.5" style={{ backgroundColor: primaryColor }}></div>
         <span className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400">
           {data.meta}
         </span>
@@ -62,23 +62,14 @@ export default function ParkingFeatures({ primaryColor }: ParkingFeaturesProps) 
                 </div>
 
                 {/* Visual Accent */}
-                <div className="w-0 h-[1px] bg-slate-900 group-hover:w-full transition-all duration-700 opacity-20"></div>
+                <div className="w-0 h-px bg-slate-900 group-hover:w-full transition-all duration-700 opacity-20"></div>
               </div>
             </div>
           )
         })}
       </div>
       
-      {/* Technical Footnote */}
-      <div className={`mt-12 flex flex-col md:flex-row justify-between items-center gap-4 opacity-30 ${isAr ? 'md:flex-row-reverse' : ''}`}>
-        <p className="text-[8px] font-black uppercase tracking-widest text-slate-400">
-          {data.footnote}
-        </p>
-        <div className={`flex gap-4 text-[8px] font-black text-slate-400 uppercase ${isAr ? 'flex-row-reverse' : ''}`}>
-          <span>{data.coordinates[0]}</span>
-          <span>{data.coordinates[1]}</span>
-        </div>
-      </div>
+     
     </section>
   );
 }

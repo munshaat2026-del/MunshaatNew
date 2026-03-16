@@ -1,42 +1,42 @@
 export const parkingdata = {
   en: {
-    parkingHero: {
-      statusLabel: "Facility Status",
-      statusValue: "Live // 98% Occupied",
-      assetRef: "Asset Ref",
-      assetCode: "KSA_RIY_PRK_092",
-      badge: "Smart Access Protocol Active",
-      titleLine1: "SEAMLESS",
-      titleLine2: "MOBILITY.",
-      desc: "High-security parking solutions for individuals and corporate fleets. Optimizing the urban flow of Riyadh's prime districts.",
-      ctaPrimary: "Reserve Space",
-      ctaSecondary: "Corporate Contracts"
-    },
+   parkingHero: {
+  statusLabel: "Parking Status",
+  statusValue: "Available for Subscription",
+  assetRef: "Location Code",
+  assetCode: "PRK_001",
+  badge: "Secure Access System",
+  titleLine1: "SMART",
+  titleLine2: "PARKING.",
+  desc: "Secure and convenient parking spaces with flexible monthly and yearly subscription plans.",
+  ctaPrimary: "Request Parking",
+  ctaSecondary: "View Plans"
+},
     ///////////////////////////////////
-    parkingFeatures: {
-      meta: "Infrastructure Specs // Area P-01",
-      sysPrefix: "SYS_0",
-      footnote: "All systems integrated via REEAC Central Hub",
-      coordinates: ["LAT: 24.7136", "LON: 46.6753"],
-      items: [
-        {
-          title: "ANPR Access",
-          desc: "License plate recognition for hands-free entry.",
-        },
-        {
-          title: "24/7 Security",
-          desc: "Thermal imaging and round-the-clock patrol.",
-        },
-        {
-          title: "EV Stations",
-          desc: "High-speed charging bays for electric vehicles.",
-        },
-        {
-          title: "Easy Billing",
-          desc: "Automated monthly invoicing and digital payments.",
-        },
-      ]
+   parkingFeatures: {
+  meta: "Parking Features",
+  sysPrefix: "SYS_0",
+  footnote: "Secure and convenient parking for monthly and yearly subscribers.",
+  coordinates: [],
+  items: [
+    {
+      title: "Secure Access",
+      desc: "Controlled entry and exit to ensure only authorized vehicles can access the parking.",
     },
+    {
+      title: "24/7 Monitoring",
+      desc: "Parking areas are monitored around the clock for safety and security.",
+    },
+    {
+      title: "Reserved Parking",
+      desc: "Guaranteed parking spaces for subscribers with flexible monthly or yearly plans.",
+    },
+    {
+      title: "Easy Subscription",
+      desc: "Simple application process with convenient monthly and yearly payment options.",
+    },
+  ],
+},
     /////////////////////////////////////////////
     parkingPricing: {
       tag: "Rate Card 2026",
@@ -94,42 +94,42 @@ export const parkingdata = {
   },
   ar: {
     parkingHero: {
-      statusLabel: "حالة المرفق",
-      statusValue: "مباشر // إشغال 98%",
-      assetRef: "مرجع الأصل",
-      assetCode: "KSA_RIY_PRK_092",
-      badge: "بروتوكول الوصول الذكي نشط",
-      titleLine1: "حركة",
-      titleLine2: "انسيابية.",
-      desc: "حلول مواقف سيارات عالية الأمان للأفراد وأساطيل الشركات. تحسين التدفق الحضري في المناطق الحيوية بالرياض.",
-      ctaPrimary: "احجز مساحتك",
-      ctaSecondary: "عقود الشركات"
-    },
+  statusLabel: "حالة المواقف",
+  statusValue: "متاح للاشتراك",
+  assetRef: "رمز الموقع",
+  assetCode: "PRK_001",
+  badge: "نظام دخول آمن",
+  titleLine1: "مواقف",
+  titleLine2: "ذكية.",
+  desc: "مواقف سيارات آمنة ومريحة مع خطط اشتراك شهرية وسنوية مرنة.",
+  ctaPrimary: "طلب موقف",
+  ctaSecondary: "عرض الخطط"
+},
     ////////////////////////////////////////
-    parkingFeatures: {
-      meta: "مواصفات البنية التحتية // منطقة P-01",
-      sysPrefix: "نظام_٠",
-      footnote: "جميع الأنظمة مرتبطة عبر مركز REEAC الموحد",
-      coordinates: ["خط عرض: ٢٤.٧١٣٦", "خط طول: ٤٦.٦٧٥٣"],
-      items: [
-        {
-          title: "دخول ذكي (ANPR)",
-          desc: "التعرف التلقائي على لوحات المركبات لدخول سلس.",
-        },
-        {
-          title: "أمن على مدار الساعة",
-          desc: "تصوير حراري ودوريات أمنية متواصلة.",
-        },
-        {
-          title: "محطات شحن (EV)",
-          desc: "نقاط شحن فائقة السرعة للسيارات الكهربائية.",
-        },
-        {
-          title: "فوترة ميسرة",
-          desc: "فواتير شهرية مؤتمتة ومدفوعات رقمية.",
-        },
-      ]
+   parkingFeatures: {
+  meta: "مميزات المواقف",
+  sysPrefix: "SYS_0",
+  footnote: "مواقف آمنة ومريحة للمشتركين بخطط شهرية وسنوية.",
+  coordinates: [],
+  items: [
+    {
+      title: "دخول آمن",
+      desc: "تحكم كامل في الدخول والخروج لضمان وصول المركبات المصرح لها فقط.",
     },
+    {
+      title: "مراقبة 24/7",
+      desc: "يتم مراقبة مواقف السيارات على مدار الساعة لضمان السلامة والأمان.",
+    },
+    {
+      title: "موقف محجوز",
+      desc: "مساحات مواقف مضمونة للمشتركين مع خطط شهرية وسنوية مرنة.",
+    },
+    {
+      title: "اشتراك سهل",
+      desc: "عملية تقديم بسيطة مع خيارات دفع شهرية وسنوية مريحة.",
+    },
+  ],
+},
     ////////////////////////////////////////////
     parkingPricing: {
       tag: "بطاقة الأسعار ٢٠٢٦",

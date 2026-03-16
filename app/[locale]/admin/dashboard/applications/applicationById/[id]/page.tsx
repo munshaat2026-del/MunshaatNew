@@ -1,5 +1,5 @@
 import { getApplicationById } from "@/app/server/applications/services";
-import ApplicationDetailsClient from "@/components/applications/ApplicationDetails";
+import ApplicationDetailsClient from "@/components/applications/applicationDetails/MainComponent";
 import { markApplicationAsShownAction } from "../../(actions)/markApplicationAction";
 import { notFound } from "next/navigation";
 

@@ -5,6 +5,7 @@ import { useState, useEffect, useRef, DragEvent } from "react";
 import Image from "next/image";
 import type { OurFileRouter } from "@/app/api/uploadthing/core";
 import { useUploadThing } from "@/lib/uploadthing";
+import { Locale } from "@/types";
 
 interface ImageUploaderProps {
   endpoint: keyof OurFileRouter;
@@ -12,6 +13,7 @@ interface ImageUploaderProps {
   onUploadError: (error: Error) => void;
   initialImageUrl?: string | null;
   onDelete?: () => void;
+  locale?:Locale
 }
 
 type UploadThingFile = {
@@ -29,6 +31,7 @@ export default function ImageUploader({
   onUploadComplete,
   onUploadError,
   initialImageUrl,
+  locale,
   onDelete,
 }: ImageUploaderProps) {
   const [imageUrl, setImageUrl] = useState<string | null>(
@@ -162,21 +165,28 @@ export default function ImageUploader({
       >
         <UploadCloudIcon className="w-10 h-10 text-gray-400 mb-2" />
 
-        <p className="text-sm font-semibold">
-          {isUploading
-            ? "Uploading..."
-            : isDragOver
-            ? "Drop image here"
-            : "Drop image here or click to upload"}
-        </p>
+       <p className="text-sm font-semibold">
+  {isUploading
+    ? locale === "ar"
+      ? "جاري الرفع..."
+      : "Uploading..."
+    : isDragOver
+    ? locale === "ar"
+      ? "قم بإفلات الصورة هنا"
+      : "Drop image here"
+    : locale === "ar"
+    ? "قم بإفلات الصورة هنا أو انقر للرفع"
+    : "Drop image here or click to upload"}
+</p>
 
         <p className="text-xs text-gray-400">
-          Image (Max 2MB)
+          {locale==="en"?"Image (Max 2MB)":"الصورة (الحد الأقصى 2 ميجابايت)"}
         </p>
       </div>
 
       {errorMessage && (
         <p className="text-red-600 text-sm font-medium">
+          
           {errorMessage}
         </p>
       )}

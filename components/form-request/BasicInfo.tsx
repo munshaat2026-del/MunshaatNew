@@ -9,6 +9,7 @@ import { User, Mail, Phone, Briefcase } from "lucide-react";
 
 type RequestFormValues = z.infer<ReturnType<typeof requestSchema>>;
 interface Props {
+  
   locale: "en" | "ar";
 }
 
@@ -77,7 +78,7 @@ function BasicInfo({ locale }: Props) {
           <TextInput
             register={register("phone_number")}
             error={errors.phone_number}
-            className="w-full bg-transparent border-b border-slate-200 py-3 text-gray-700 text-sm font-bold uppercase outline-none focus:border-[#0c479a] transition-all"
+            className="w-full bg-transparent border-b border-slate-200 py-3 text-gray-700 text-sm  outline-none focus:border-[#0c479a] transition-all"
           />
         </div>
 

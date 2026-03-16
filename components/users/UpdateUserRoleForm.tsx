@@ -1,11 +1,12 @@
 "use client";
 import  { useTransition } from "react";
-import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import SelectorInput from "@/components/inputs/SelectorInput";
 import { Role } from "@/app/server/users/services";
+import { Button1 } from '@/components/ui/Button1';
+import { Button2 } from '@/components/ui/Button2';
 interface Props {
   userId: string;
   userRole: string;
@@ -68,16 +69,15 @@ export default function UpdateRoleForm({ userId, userRole, action }: Props) {
         only.{" "}
       </div>
       <div className="flex flex-row gap-3 justify-end mt-8">
-        <Button variant="outline" type="button" className="cursor-pointer" onClick={()=>{router.push("/admin/dashboard/users")}}>
+        <Button2  type="button" className="cursor-pointer" onClick={()=>{router.push("/admin/dashboard/users")}}>
           Cancel
-        </Button>
-        <Button
+        </Button2>
+        <Button1
           type="submit"
-          className="bg-black text-white cursor-pointer hover:bg-gray-700"
           disabled={isPending}
         >
           {isPending ? "Updating..." : "Update Role"}
-        </Button>
+        </Button1>
       </div>
     </form>
   );

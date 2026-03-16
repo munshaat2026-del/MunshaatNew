@@ -2,7 +2,7 @@ import React from "react";
 import { MapPin, Navigation, Warehouse, ArrowLeft } from "lucide-react";
 import { Locale } from "@/types";
 import { notFound } from "next/navigation";
-import { getParkingByIdByLocale } from "@/app/server/parkings/services";
+import { getParkingBySlugByLocale } from "@/app/server/parkings/services";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -13,7 +13,7 @@ interface Props {
 export default async function page({ params }: Props) {
   const { locale, slug } = await params;
   
-  const response = await (await getParkingByIdByLocale(slug, locale))();
+  const response = await (await getParkingBySlugByLocale(slug, locale))();
   const complexdata = response?.data;
 
   if (!complexdata) return notFound();
@@ -48,7 +48,7 @@ export default async function page({ params }: Props) {
         </div>
 
         {/* 3. Main Asset Image */}
-        <div className="relative w-full aspect-video md:aspect-[21/9] bg-slate-100 mb-16 overflow-hidden border border-slate-200">
+        <div className="relative w-full aspect-video md:aspect-21/9 bg-slate-100 mb-16 overflow-hidden border border-slate-200">
           {complexdata.image ? (
             <Image 
               fill
@@ -98,12 +98,7 @@ export default async function page({ params }: Props) {
         </div>
       </main>
 
-      {/* 5. Minimal Footer */}
-      <footer className="mt-20 border-t border-slate-100 py-10 text-center">
-        <span className="text-[9px] font-bold text-slate-300 uppercase tracking-[0.5em]">
-          © 2026 Munshaat Industrial Group
-        </span>
-      </footer>
+     
     </div>
   );
 }

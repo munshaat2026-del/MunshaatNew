@@ -129,4 +129,4 @@ const translatedClients= result.map((client:ClientsCreateInput)=>{
       status: 500,
     };
   }
-})()
+},[`client-by-locale-${locale}`],{tags:["clients"],revalidate:3600})()

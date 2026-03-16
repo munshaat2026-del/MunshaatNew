@@ -24,7 +24,7 @@ async function page() {
 
           {/* Optional CTA */}
           <Link
-            href="/admin/dashboard/careers/create"
+            href="/admin/dashboard/careers/newCareer"
             className="mt-6 inline-flex items-center rounded-md bg-[#397a34] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition"
           >
             Add New Career
@@ -55,7 +55,7 @@ async function page() {
                   </div>
 
                   <div className="mt-1 flex items-center gap-2 text-xs text-gray-600">
-                    <span className="inline-flex items-center justify-center px-2.5 py-1 rounded-full bg-[#397a34]/10 text-[#397a34] font-semibold">
+                    <span className="inline-flex items-center justify-center px-2.5 py-1 rounded-full bg-[#0c479a]/10 text-[#0c479a] font-semibold">
                       {career.applications.length}
                     </span>
                     <span className="whitespace-nowrap">Applications</span>

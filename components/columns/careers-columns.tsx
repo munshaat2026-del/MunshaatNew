@@ -1,11 +1,11 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { NewCareer } from "@/types";
+import { CareersGetPayload } from "@/types";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowUpDown } from "lucide-react";
 
-export const CareersColumns: ColumnDef<NewCareer>[] = [
+export const CareersColumns: ColumnDef<CareersGetPayload>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -61,22 +61,26 @@ export const CareersColumns: ColumnDef<NewCareer>[] = [
     meta:{ hiddenByDefault: true }
   },
 
-  {
-    accessorKey: "description_en",
-    header: "Description (EN)",
-    cell: ({ row }) => {
-      const name = row.getValue("description_en") as string;
-
-      return <div className="flex items-center gap-2">{name}</div>;
-    },
-    enableSorting: false,
+ {
+  accessorKey: "description_en",
+  header: "Description (EN)",
+  cell: ({ row }) => {
+    const desc = row.original.description_en;
+    return (
+      <div className="truncate max-w-xs">
+        {desc.length > 35 ? desc.slice(0, 35) + "..." : desc}
+      </div>
+    );
   },
+},
   {
     accessorKey: "description_ar",
     header: "Description (AR)",
     cell: ({ row }) => {
-      const name = row.original.description_ar;
-      return <div>{name}</div>;
+      const desc = row.original.description_ar;
+      return <div className="truncate max-w-xs">
+        {desc.length > 35 ? desc.slice(0, 35) + "..." : desc}
+      </div>;
     },
     enableSorting: false,
     meta:{ hiddenByDefault: true }

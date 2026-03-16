@@ -1,10 +1,14 @@
 {
   "Navbar": {
+    "careers":"الوظائف",
+    "tenders":"العطاءات",
+     "comingSoon":"قريباً",
+    "realEstates":"العقارات",
     "home": "الرئيسية",
     "about": "من نحن",
     "offices": "المكاتب",
     "stores": "المتاجر",
-    "depot": "المستودع",
+    "depot": "المستودعات",
     "parkings": "المواقف",
     "language": "اللغة",
     "career":"الوظائف"

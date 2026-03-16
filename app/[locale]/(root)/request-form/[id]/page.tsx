@@ -13,11 +13,10 @@ interface Props {
 async function page({ params }: Props) {
   const { id, locale } = await params;
 
-  const [realEstateData, parkingData] = await Promise.all([
-    getRealEstatesByIdPartially(id),
-    getParkingByIdPartially(id),
-  ]);
-  if (!realEstateData.data && !parkingData.data) {
+  const realEstateData = await getRealEstatesByIdPartially(id)
+
+
+  if (!realEstateData.data) {
     notFound();
   }
 
@@ -26,10 +25,8 @@ async function page({ params }: Props) {
       <SubmitForm
         locale={locale}
         action={submitRequestAction}
-        parkingId={parkingData.data ? id : undefined}
-        realEstateId={realEstateData.data ? id : undefined}
-        parkingData={parkingData.data ? parkingData.data : undefined}
-        realEstateData={realEstateData.data ? realEstateData.data : undefined}
+        realEstateId={id}
+        realEstateData={realEstateData.data}
       />
     </div>
   );

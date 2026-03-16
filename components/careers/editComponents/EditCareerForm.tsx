@@ -17,6 +17,7 @@ import BasicInfo from "./BasicInfo";
 import MediaSection from "./MediaSection";
 import FormActions from "./FormActions";
 
+
 type CareerFormValues = z.infer<typeof careersSchema>;
 
 interface Props {

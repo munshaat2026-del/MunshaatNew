@@ -1,15 +1,20 @@
 "use server";
 import { type RequestsCreateInput } from "@/types/index";
 import { addRequest } from "@/app/server/requests/services";
+import { revalidatePath } from "next/cache";
 export const submitRequestAction = async (data: RequestsCreateInput) => {
   try {
     const result = await addRequest(data);
-    if (result.status === 201)
-      return {
+    if (result.status === 201){
+      revalidatePath(`/admin/dashboard/requests`);
+       return {
         success: true,
         message: result.message,
         status: result.status,
       };
+    }
+      
+     
 
     return {
       success: false,

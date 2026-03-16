@@ -46,6 +46,13 @@ function BasicInfo() {
         control={control}
         error={errors.estimated_date}
       />
+
+      <TextInput
+        register={register("completion_rate",{valueAsNumber:true})}
+        label="Completion Rate (Number)"
+        error={errors.completion_rate}
+        placeholder="e.g: 95"
+      />
      
     </div>
   );

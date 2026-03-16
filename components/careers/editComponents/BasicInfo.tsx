@@ -53,18 +53,19 @@ function BasicInfo() {
       <TextInput
         register={register("experience_en")}
         label="Experience (EN)"
-        error={errors.position_en}
+        error={errors.experience_en}
       />
       <TextInput
         register={register("experience_ar")}
         label="Experience (AR)"
-        error={errors.experience_en}
+        error={errors.experience_ar}
       />
 
       <TextInput
         register={register("role_en")}
         label="Role (EN)"
         error={errors.role_en}
+        placeholder="e.g Full Time"
       />
       <TextInput
         register={register("role_ar")}
@@ -77,12 +78,14 @@ function BasicInfo() {
         label="Requirements (EN)"
         name="requirements_en"
         error={errors.requirements_en}
+        placeholder=""
       />
       <MultiInputForm
         control={control}
         label="Requirements (AR)"
         name="requirements_ar"
         error={errors.requirements_ar}
+        placeholder=""
       />
     </div>
   );

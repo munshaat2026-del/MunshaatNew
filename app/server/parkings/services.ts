@@ -1,11 +1,9 @@
 import prisma from "@/lib/prisma";
-import { Prisma } from "@/app/generated/prisma/client";
 import { revalidateTag, unstable_cache } from "next/cache";
 import { UTApi } from "uploadthing/server";
 import {Locale, ParkingsCreateInput ,parkingsUpdateInput} from "@/types/index"
 
 const utapi = new UTApi();
-
 
 
 // Add a new parking
@@ -81,7 +79,7 @@ export const getAllParkingsWithRequest = unstable_cache(
       const parkings = await prisma.parkings.findMany({
         orderBy: { created_at: "desc" },
         select: {
-          requests: { select: { id: true } },
+          parkings_requests: { select: { id: true } },
           id: true,
           name_en: true,
           image: true,
@@ -166,6 +164,40 @@ export const getParkingByIdPartially = async (id: string) =>
     { tags: ["parkings"], revalidate: 3600 },
   )();
 
+  export const getParkingPartially = 
+  unstable_cache(
+    async () => {
+      try {
+        const parking = await prisma.parkings.findMany({
+          select: {
+            id:true,
+            name_ar: true,
+            name_en: true,
+            description_ar: true,
+            description_en: true,
+            address_ar: true,
+            address_en: true,
+            image: true,
+          },
+        });
+        return {
+          data: parking,
+          message: `Parkings Details Partialy `,
+          status: 200,
+        };
+      } catch (error) {
+        console.error("Error fetching Parkings Details Partialy", error);
+        return {
+          data: null,
+          message: `Error fetching parkings details partialy`,
+          status: 500,
+        };
+      }
+    },
+    [`parkings-partially`],
+    { tags: ["parkings"], revalidate: 3600 },
+  )
+
 export const getParkingNameById = async (id: string) =>
   unstable_cache(
     async () => {
@@ -230,10 +262,10 @@ export const getParkingNameById = async (id: string) =>
     },
     [`all-parkings-by-locale-${locale}`],
     { tags: ["parkings"], revalidate: 3600 },
-  );
+  )();
 
 
-  export const getParkingByIdByLocale = async (slug: string, locale: Locale) =>
+  export const getParkingBySlugByLocale = async (slug: string, locale: Locale) =>
   unstable_cache(
     async () => {
       const isArabic = locale === "ar";
@@ -274,6 +306,6 @@ export const getParkingNameById = async (id: string) =>
         };
       }
     },
-    [`all-parkings-by-id-${slug}-by-locale-${locale}`],
+    [`all-parkings-by-slug-${slug}-by-locale-${locale}`],
     { tags: ["parkings"], revalidate: 3600 },
   );

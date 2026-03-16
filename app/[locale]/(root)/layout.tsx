@@ -8,7 +8,7 @@ import { setRequestLocale } from "next-intl/server";
 import FontSwitcher from "@/app/components/fontswitcher/FontSwitcher";
 import { routing } from "@/i18n/routing";
 import { notFound } from 'next/navigation';
-import OfficeFilterSidebar from "@/app/components/pagescomponents/offices/OfficesFilter";
+import {getComingSoonCount} from "@/app/server/coming_soon/services"
 
 type Props = {
   children: React.ReactNode;
@@ -21,6 +21,10 @@ export function generateStaticParams() {
 
 export default async function RootLayout({ children, params }: Props) {
   const { locale } = await params;
+
+const count= (await getComingSoonCount()).data
+ console.log("count: ",count);
+ 
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -37,7 +41,7 @@ export default async function RootLayout({ children, params }: Props) {
     <NextIntlClientProvider locale={locale} messages={messages}>
       <FontSwitcher locale={locale}>
         <div className="flex flex-col min-h-screen " dir={dir}>
-          <Navbar />
+          <Navbar isComingSoon={count>0? true:false} />
           <main className="flex-1">
        
             {children}

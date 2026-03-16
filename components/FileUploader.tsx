@@ -6,6 +6,7 @@ import { useUploadThing } from "@/lib/uploadthing";
 import { toast } from "sonner";
 import { FileUp, X, Loader2, Paperclip, CheckCircle2, Eye, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Locale } from "@/types";
 
 interface FileUploaderProps {
   name: string;
@@ -14,6 +15,7 @@ interface FileUploaderProps {
   error?: FieldError;
   required?: boolean;
   disabled?: boolean;
+  locale?:Locale
 }
 
 interface UploadResponse {
@@ -27,11 +29,12 @@ export default function FileUploader({
   control,
   error,
   required,
+  locale,
   disabled,
 }: FileUploaderProps) {
   const [isUploading, setIsUploading] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
-
+  const isArabic= locale==="ar"
   const { startUpload } = useUploadThing("cv", {
     onClientUploadComplete(res: UploadResponse[]) {
       const upload = res?.[0];
@@ -122,11 +125,11 @@ export default function FileUploader({
                     )}
                     <p className="mb-1 text-sm text-muted-foreground">
                       <span className="font-semibold text-primary">
-                        Click to upload
+                       {isArabic?"اضغط لتحميل ملف":" Click to upload"}
                       </span>
                     </p>
                     <p className="text-xs text-muted-foreground/70">
-                      PDF (Max 8MB)
+                     {isArabic?"PDF (بحد اقصى 8 ميجابايت)":"PDF (Max 8MB)"} 
                     </p>
                   </div>
                   <input
@@ -179,8 +182,8 @@ export default function FileUploader({
             </div>
 
             {error && (
-              <p className="text-[0.8rem] font-medium text-destructive">
-                <AlertCircle size={12} className="text-red-600" />
+              <p className="text-[0.8rem] flex flex-row gap-2 font-medium text-destructive">
+                <AlertCircle size={12} className="text-red-600 mt-0.5" />
                 {error.message}
               </p>
             )}

@@ -6,6 +6,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Warehouse, Building2, Truck, Layout, MoveUpRight } from 'lucide-react';
 import { useLocale } from "next-intl";
 import { homedata } from "@/app/data/homedata";
+import { useRouter } from 'next/navigation';
+import { Button1 } from '@/components/ui/Button1';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,6 +16,7 @@ export default function ArabianPremiumEmpire() {
   const locale = useLocale() as "en" | "ar";
   const isAr = locale === "ar";
   const data = homedata[locale];
+  const router= useRouter()
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -69,12 +72,7 @@ export default function ArabianPremiumEmpire() {
         </div>
 
         <div className="relative z-10 text-center px-6">
-          <div className="hero-fade inline-flex items-center gap-3 px-4 py-1 border border-white/20 bg-white/5 backdrop-blur-sm mb-10">
-            <Layout className="text-white" size={12} />
-            <span className="text-[9px] font-black text-white uppercase tracking-[0.5em]">
-              {data.intelligence}
-            </span>
-          </div>
+         
           
           <h1 className="hero-fade text-[12vw] md:text-[8vw] font-black leading-[1.2] tracking-[-0.05em] uppercase text-white">
             {data.prime} <br />
@@ -84,12 +82,10 @@ export default function ArabianPremiumEmpire() {
           </h1>
 
           <div className="hero-fade mt-16 flex flex-wrap justify-center gap-0">
-            <button className="group bg-[#0c479a] text-white px-12 py-6 font-black text-[10px] uppercase tracking-[0.3em] flex items-center gap-4 transition-all hover:bg-black">
-              {data.requestPortfolio} <MoveUpRight size={16} className={isAr ? "rotate-[-90deg]" : ""} />
-            </button>
-            <button className="bg-white text-slate-900 px-12 py-6 font-black text-[10px] uppercase tracking-[0.3em] border border-slate-100 hover:bg-slate-50 transition-all">
-              {data.virtualTour}
-            </button>
+            <Button1  onClick={()=>{router.push("/about")}} className="group bg-[#0c479a] text-white px-12 py-6 font-black text-[20px] uppercase tracking-[0.3em] flex items-center gap-4 transition-all hover:bg-black">
+              {data.aboutUs} <MoveUpRight size={20} className={isAr ? "rotate-[-90deg]" : ""} />
+            </Button1>
+           
           </div>
         </div>
       </section>

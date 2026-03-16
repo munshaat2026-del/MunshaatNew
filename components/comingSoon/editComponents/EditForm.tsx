@@ -11,7 +11,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { toast } from "sonner";
-import { ComingSoonCreateInput, ComingSoonGetPayload, ComingSoonUpdateInput } from "@/types";
+import {
+  ComingSoonCreateInput,
+  ComingSoonGetPayload,
+  ComingSoonUpdateInput,
+} from "@/types";
 import { useRouter } from "next/navigation";
 import BasicInfo from "./BasicInfo";
 import MediaSection from "./MediaSection";
@@ -22,25 +26,28 @@ type ComingSoonFormValues = z.infer<typeof comingSoonSchema>;
 interface Props {
   comingSoon: ComingSoonGetPayload;
   action: (
-    id:string,data: ComingSoonUpdateInput,
+    id: string,
+    data: ComingSoonUpdateInput,
   ) => Promise<{ success: boolean; message: string; status: number }>;
 }
 function CreateTenderForm({ action, comingSoon }: Props) {
   const methods = useForm<ComingSoonFormValues>({
     resolver: zodResolver(comingSoonSchema),
-    defaultValues: comingSoon,
+    defaultValues: {
+      ...comingSoon,
+      estimated_date: comingSoon.estimated_date
+        ? new Date(comingSoon.estimated_date)
+        : new Date(),
+    },
   });
   const {
     handleSubmit,
-    formState: { errors },
   } = methods;
-
-  console.log("errors: ", errors);
 
   const router = useRouter();
   const onSubmit: SubmitHandler<ComingSoonFormValues> = async (data) => {
     try {
-      const result = await action(comingSoon.id,data);
+      const result = await action(comingSoon.id, data);
       if (result.status === 401) {
         toast.error(result.message);
         router.replace("/login");

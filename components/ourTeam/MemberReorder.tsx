@@ -20,10 +20,12 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
-import { GripVertical, User } from "lucide-react"; // Better visual cues
+import { GripVertical, User } from "lucide-react"; 
 
 import { MemberOrder } from "@/types";
-import { Button } from "../ui/button";
+import { Button1 } from "../ui/Button1";
+import { Button2 } from "../ui/Button2";
+
 import { cn } from "@/lib/utils";
 
 export type Member = {
@@ -149,7 +151,7 @@ export default function MemberReorder({
   const saving = externalSaving || isSaving;
 
   return (
-    <div className="max-w-4xl mx-auto p-4 lg:p-8">
+    <div className="max-w-5xl mx-auto p-4 lg:p-8">
       <header className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div className="space-y-1">
           <h3 className="text-3xl font-bold tracking-tight">Team Structure</h3>
@@ -159,12 +161,12 @@ export default function MemberReorder({
         </div>
 
         <div className="flex items-center gap-2">
-          <Button variant="outline" onClick={() => router.back()} disabled={saving} className="text-gray-800">
+          <Button2  onClick={() => router.back()} disabled={saving} >
             Cancel
-          </Button>
-          <Button onClick={handleSaveOrder} disabled={saving} className="min-w-25">
+          </Button2>
+          <Button1 onClick={handleSaveOrder} disabled={saving} >
             {saving ? "Saving..." : "Save Changes"}
-          </Button>
+          </Button1>
         </div>
       </header>
 

@@ -1,5 +1,9 @@
 {
   "Navbar": {
+    "careers":"Careers",
+    "tenders":"Tenders",
+     "comingSoon":"Coming Soon",
+    "realEstates":"Real Estates",
     "home": "Home",
     "about": "About",
     "offices": "Offices",

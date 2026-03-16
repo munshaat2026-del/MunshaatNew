@@ -256,6 +256,14 @@ export const getMainMembersByLocale = (locale: string) =>
         const result = await prisma.our_team.findMany({
           where: { main: true },
           orderBy: { display_order: "asc" },
+          select: {
+            name_en: true,
+            name_ar: true,
+            position_en: true,
+            position_ar: true,
+            image: true,
+            id: true,
+          },
         });
 
         if (!result) return { data: [], status: 200 };
@@ -264,11 +272,7 @@ export const getMainMembersByLocale = (locale: string) =>
           id: member.id,
           name: locale === "en" ? member.name_en : member.name_ar,
           position: locale === "en" ? member.position_en : member.position_ar,
-          description:
-            locale === "en" ? member.description_en : member.description_ar,
           image: member.image,
-          display_order: member.display_order,
-          main: member.main,
         }));
 
         return {
@@ -298,6 +302,14 @@ export const getNotMainMembersByLocale = (locale: string) =>
         const result = await prisma.our_team.findMany({
           where: { main: false },
           orderBy: { display_order: "asc" },
+           select: {
+            name_en: true,
+            name_ar: true,
+            position_en: true,
+            position_ar: true,
+            image: true,
+            id: true,
+          },
         });
 
         if (!result) return { data: [], status: 200 };
@@ -306,11 +318,7 @@ export const getNotMainMembersByLocale = (locale: string) =>
           id: member.id,
           name: locale === "en" ? member.name_en : member.name_ar,
           position: locale === "en" ? member.position_en : member.position_ar,
-          description:
-            locale === "en" ? member.description_en : member.description_ar,
           image: member.image,
-          display_order: member.display_order,
-          main: member.main,
         }));
 
         return {

@@ -1,5 +1,5 @@
 
-import { CareersColumns } from "@/components/columns/careers-columns";
+import {CareersColumns  } from "@/components/columns/careers-columns";
 import { DataTable } from "@/components/data-table";
 import { deleteCareerAction } from "./(actions)/deleteCareer";
 import NavigationButton from "@/components/NavigationButton";

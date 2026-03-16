@@ -26,6 +26,8 @@ function BasicInfo() {
     setValue("slug", slug, { shouldDirty: false, shouldValidate: false });
   }, [watchedName, setValue]);
 
+  console.log("req: ",watch("requirements_en"));
+  
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 w-[95%] gap-0 lg:gap-5">
       <TextInput
@@ -53,23 +55,25 @@ function BasicInfo() {
       <TextInput
         register={register("experience_en")}
         label="Experience (EN)"
-        error={errors.position_en}
+        error={errors.experience_en}
       />
       <TextInput
         register={register("experience_ar")}
         label="Experience (AR)"
-        error={errors.experience_en}
+        error={errors.experience_ar}
       />
 
       <TextInput
         register={register("role_en")}
         label="Role (EN)"
         error={errors.role_en}
+        placeholder="e.g Full Time"
       />
       <TextInput
         register={register("role_ar")}
         label="Role (AR)"
         error={errors.role_ar}
+        
       />
 
       <MultiInputForm
@@ -77,12 +81,14 @@ function BasicInfo() {
         label="Requirements (EN)"
         name="requirements_en"
         error={errors.requirements_en}
+        placeholder=""
       />
       <MultiInputForm
         control={control}
         label="Requirements (AR)"
         name="requirements_ar"
         error={errors.requirements_ar}
+        placeholder=""
       />
     </div>
   );

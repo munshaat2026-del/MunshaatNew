@@ -35,8 +35,11 @@ export default function CreateCareerForm({ action }: Props) {
   });
   const {
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting,errors },
   } = methods;
+
+  console.log("errors: ",errors);
+  
 
   const onSubmit = async (data: CareerFormValues) => {
     try {

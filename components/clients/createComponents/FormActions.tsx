@@ -1,7 +1,9 @@
 "use client"
 import React from 'react'
 import { useFormContext } from 'react-hook-form';
-import { Button } from '@/components/ui/button';
+import { Button1 } from '@/components/ui/Button1';
+import { Button2 } from '@/components/ui/Button2';
+
 import { useRouter } from 'next/navigation';
 function FormActions() {
     const {formState:{isDirty,isSubmitting}} = useFormContext()
@@ -9,23 +11,21 @@ function FormActions() {
   return (
     <div>
          <div className="flex flex-row justify-center gap-4 mt-10 mb-5">
-              <Button
+              <Button1
                 type="submit"
                 disabled={!isDirty || isSubmitting}
-                className="bg-gray-800"
               >
                 {isSubmitting ? "Adding..." : "Add Client"}
-              </Button>
-              <Button
+              </Button1>
+              <Button2
                 disabled={isSubmitting}
-                className="bg-gray-800"
                 type="button"
                 onClick={() => {
                   router.push("/admin/dashboard/ourClients");
                 }}
               >
                 Cancel
-              </Button>
+              </Button2>
             </div>
     </div>
   )

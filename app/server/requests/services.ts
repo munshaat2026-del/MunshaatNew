@@ -61,7 +61,6 @@ export const getAllRequests = unstable_cache(
         const result = await prisma.requests.findMany({
           include: {
             real_estates: true,
-            parkings: true,
           },
           orderBy: {
             created_at: "desc",
@@ -87,6 +86,7 @@ export const getAllRequests = unstable_cache(
   { tags: ["requests"], revalidate: 3600 },
 )();
 
+/*
 // Get Request By Type
 export const getRequestsByRequestType = async (
   requestType: "real_estates" | "parkings",
@@ -121,52 +121,24 @@ export const getRequestsByRequestType = async (
     },
     [`requests-by-type-${requestType}`],
     { tags: ["requests"], revalidate: 3600 },
-  )();
+  )();*/
 
 // Get Request By ID
 export const getRequestById = async (id: string) =>
   unstable_cache(
     async () => {
       try {
-        const requestType = await prisma.requests.findUnique({
+        const result = await prisma.requests.findUnique({
           where: { id },
-          select: {
-            id: true,
-            request_type: true,
+          include: {
+            real_estates: true,
           },
         });
-
-        if(!requestType) return {
-            data: null,
-            status: 409,
-            message: `No Request Found`,
-          };
-
-        if (requestType?.request_type === "parkings") {
-          const result = await prisma.requests.findUnique({
-            where: { id },
-            include: {
-              parkings: true,
-            },
-          });
-          return {
-            data: result,
-            status: 200,
-            message: `Parking => Request By This ID: ${id}`,
-          };
-        } else {
-          const result = await prisma.requests.findUnique({
-            where: { id },
-            include: {
-              real_estates: true,
-            },
-          });
-          return {
-            data: result,
-            status: 200,
-            message: `Real Estate => Request By This ID: ${id}`,
-          };
-        }
+        return {
+          data: result,
+          status: 200,
+          message: `Request By This ID: ${id}`,
+        };
       } catch (error) {
         console.error("Get Request by id error:", error);
         return {
@@ -180,22 +152,19 @@ export const getRequestById = async (id: string) =>
     { tags: ["requests"], revalidate: 3600 },
   )();
 
-export const getRequestsCountByType = async (
-  requestType: "real_estates" | "parkings",
+export const getRequestsCount = async (
 ) => {
   try {
-    const result = await prisma.requests.count({
-      where: { request_type: requestType },
-    });
+    const result = await prisma.requests.count({});
     return {
       data: result,
-      message: `Number Of Requests On ${requestType}`,
+      message: `Number Of Requests`,
       status: 200,
     };
   } catch (error) {
     return {
       data: null,
-      message: `Error In Getting The Number Of Requests On ${requestType}`,
+      message: `Error In Getting The Number Of Requests`,
       status: 500,
     };
   }
@@ -207,7 +176,6 @@ type RequestFilters = {
   phoneNumber?: string | null;
   name: string | null;
   realEstateId?: string | null;
-  parkingId?: string | null;
 };
 
 const DEFAULT_PAGE_SIZE = 10;
@@ -231,9 +199,6 @@ export const getAllrequestsByFilters = (
         where.real_estate_id = filters.realEstateId;
       }
 
-      if (filters?.parkingId) {
-        where.parking_id = filters.parkingId;
-      }
       if (filters?.email) {
         where.email = filters.email;
       }
@@ -261,7 +226,6 @@ export const getAllrequestsByFilters = (
             orderBy: { created_at: "desc" },
             include: {
               real_estates: { select: { name_en: true } },
-              parkings: { select: { name_en: true } },
             },
           }),
           prisma.requests.count({ where }),

@@ -142,7 +142,7 @@ export const aboutdata = {
       fullName: "Full Name",
       company: "Company",
       email: "Business Email",
-      department: "Department",
+      subject: "Subject",
       message: "Message Protocol",
       submit: "Submit Protocol",
 
@@ -302,7 +302,7 @@ export const aboutdata = {
       fullName: "الاسم الكامل",
       company: "الشركة",
       email: "البريد الإلكتروني",
-      department: "القسم",
+      subject: "الموضوع",
       message: "نص الرسالة",
       submit: "إرسال البيانات",
 
