@@ -34,8 +34,6 @@ export default async function OfficesListing({ params, searchParams }: Props) {
     page,
     filter,
   );
-  console.log("offices: ",offices);
-  
   const primaryColor = "#0c479a";
 
   const hasOffices = offices?.data && offices.data.length > 0;
@@ -50,8 +48,8 @@ export default async function OfficesListing({ params, searchParams }: Props) {
         <div className="flex flex-col lg:flex-row gap-10">
           {/* 2. Sticky Sidebar Container */}
           <aside className="w-full lg:w-80 shrink-0">
-            <div className="sticky top-20">
-              <div className="bg-white border-l-4 border-[#0c479a] shadow-sm p-1">
+            <div className="static lg:sticky lg:top-20">
+              <div className="bg-white border-l-4 border-[#0c479a] shadow-sm p-0 lg:p-1">
                 <OfficeFilterSidebar locale={locale} />
               </div>
             </div>
@@ -98,11 +96,11 @@ export default async function OfficesListing({ params, searchParams }: Props) {
                 />
 
                 {/* 4. Centered Pagination */}
-                <div className="flex justify-center pt-10 border-t border-slate-100">
+               {offices.totlaPages>1&& <div className="flex justify-center pt-10 border-t border-slate-100">
                   <div className="bg-white px-6 py-2 shadow-sm border border-slate-100 rounded-full">
                     <PaginationShadcn totalPages={offices.totlaPages} locale={locale} />
                   </div>
-                </div>
+                </div>}
               </div>
             ) : (
               /* 5. Enhanced Empty State */

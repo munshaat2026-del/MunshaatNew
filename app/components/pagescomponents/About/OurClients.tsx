@@ -66,7 +66,7 @@ export default function InitiativePartners({ locale, clients }: InitiativePartne
             {clients.map((partner, index) => (
               <CarouselItem
                 key={index}
-                className="partner-item pl-4 md:pl-8 basis-1/2 sm:basis-1/3 lg:basis-1/2"
+                className="partner-item pl-4 md:pl-8 basis-1/2 sm:basis-1/3 lg:basis-1/3"
               >
                 <div className="group/item flex flex-col items-center">
                   {/* Sharp Technical Frame */}

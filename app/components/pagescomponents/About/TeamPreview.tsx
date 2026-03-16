@@ -39,7 +39,7 @@ export default function TeamPreview({ primaryColor ,locale,data }: TeamPreviewPr
               <div className="relative aspect-[4/5] overflow-hidden bg-slate-200">
                 <img
                   src={member.image??""}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 grayscale hover:grayscale-0"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 "
                   alt={member.name??"Memebr Name"}
                 />
                 

@@ -1,93 +1,69 @@
-
-import { Locale, useLocale } from "next-intl";
-import { TranslatedMembers } from '@/types';
+import { Locale, TranslatedMembers } from '@/types';
 
 interface TeamRosterProps {
-    primaryColor: string;
-      locale:Locale;
-      data:TranslatedMembers[]
+  primaryColor: string;
+  locale: Locale;
+  data: TranslatedMembers[];
 }
 
-export default function TeamRoster({ primaryColor ,locale,data }: TeamRosterProps) {
-   const isAr = locale === "ar";
-  const memberCount = data.length;
+export default function TeamRoster({ primaryColor, locale, data }: TeamRosterProps) {
+  const isAr = locale === "ar";
+
   return (
-    <section className="py-24 px-6 bg-[#fcfcfc] overflow-hidden">
+    <section className="py-20 px-6 bg-[#fcfcfc]">
       <div className="max-w-7xl mx-auto">
         
-        {/* Technical Header */}
-        <div className={`mb-16 flex flex-col gap-2 `}>
+        {/* Header - متناسق مع النمط الرئيسي لكن بحجم أصغر */}
+        <div className={`mb-12 flex flex-col gap-3 ${isAr ? 'items-end' : 'items-start'}`}>
           <div className="flex items-center gap-3">
-            <div className="w-8 h-0.5" style={{ backgroundColor: primaryColor }} />
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">
+            {!isAr && <div className="w-8 h-[2px]" style={{ backgroundColor: primaryColor }} />}
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
               {isAr ? "الكوادر الإضافية" : "Additional Personnel"}
             </span>
+            {isAr && <div className="w-8 h-[2px]" style={{ backgroundColor: primaryColor }} />}
           </div>
-          <h3 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tighter">
-            {isAr ? "فريق العمل" : "Our Associates"}
+          <h3 className="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tighter">
+            {isAr ? "فريق العمل المعاون" : "Our Associates"}
           </h3>
         </div>
 
-        {/* Dynamic Grid: Adapts based on member count */}
-        <div className={`
-          flex flex-wrap gap-8 justify-center
-          ${isAr ? 'flex-row-reverse' : 'flex-row'}
-        `}>
+        {/* Grid - نستخدم 4 أو 5 أعمدة ليظهروا بحجم أصغر من الأساسيين */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {data.map((member, i) => (
-            <div 
-              key={i} 
-              className={`
-                group relative bg-white border border-slate-100 shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-2
-                /* Size Logic: If only 1 or 2, make them significantly larger */
-                ${memberCount <= 2 ? 'w-full md:w-[calc(50%-1rem)] lg:w-[calc(45%-1rem)]' : 'w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1.5rem)]'}
-              `}
-            >
-              <div className={`flex flex-col md:flex-row h-full ${isAr ? 'md:flex-row-reverse' : ''}`}>
+            <div key={i} className="group relative">
+              
+              {/* Image Container - دائري أو مربع بسيط مع تأثير Scale */}
+              <div className="relative aspect-square overflow-hidden  transition-all duration-700 bg-slate-100 border border-slate-100">
+                <img
+                  src={member.image ?? ""}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  alt={member.name ?? "Member"}
+                />
                 
-                {/* Image Section: Larger & Greyscale-to-Color */}
-                <div className="relative w-full md:w-2/5 aspect-[4/5] md:aspect-auto overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
-                  <img
-                    src={member.image??""}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                    alt={member.name??"Memebr name"}
-                  />
-                  {/* Decorative Blueprint Overlay */}
-                  <div className="absolute inset-0 opacity-20 group-hover:opacity-0 transition-opacity pointer-events-none border-[10px] border-white/20 m-2" />
-                </div>
-
-                {/* Info Section: High-Contrast Technical Style */}
-                <div className={`flex-1 p-8 flex flex-col justify-center bg-white ${isAr ? 'text-right' : 'text-left'}`}>
-                  <div className="space-y-4">
-                   
-                    
-                    <h4 className="text-xl md:text-2xl font-black text-slate-900 uppercase leading-none group-hover:text-[#0c479a] transition-colors">
-                      {member.name}
-                    </h4>
-                    
-                    <div className={`flex items-center gap-3 ${isAr ? 'justify-end' : 'justify-start'}`}>
-                      <div className="w-4 h-px bg-slate-200" />
-                      <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                        {member.position}
-                      </p>
-                    </div>
-
-                   
-                  </div>
-                </div>
+                {/* Subtle Overlay Line */}
+                <div 
+                  className="absolute bottom-0 left-0 w-full h-1 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+                  style={{ backgroundColor: primaryColor }}
+                />
               </div>
 
-              {/* Hover Accent Line */}
-              <div 
-                className="absolute bottom-0 left-0 h-1 transition-all duration-500 w-0 group-hover:w-full"
-                style={{ backgroundColor: primaryColor }}
-              />
+              {/* Minimal Info */}
+              <div className={`mt-4 ${isAr ? 'text-right' : 'text-left'}`}>
+                <h4 className="text-sm font-black text-slate-900 uppercase tracking-tight group-hover:text-slate-600 transition-colors">
+                  {member.name}
+                </h4>
+                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-1">
+                  {member.position}
+                </p>
+              </div>
+              
             </div>
           ))}
         </div>
 
-        {/* Background Decorative Element */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 text-[20vw] font-black text-slate-50/50 select-none pointer-events-none -z-10">
-          TEAM
+        {/* Decorative Background Text - لإضافة لمسة فنية خفيفة */}
+        <div className={`absolute opacity-[0.03] pointer-events-none font-black text-9xl uppercase -z-10 ${isAr ? 'left-0' : 'right-0'}`}>
+          {isAr ? "فريقنا" : "Support"}
         </div>
 
       </div>
