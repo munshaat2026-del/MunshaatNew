@@ -9,6 +9,11 @@ import { homedata } from "@/app/data/homedata";
 import { useRouter } from 'next/navigation';
 import { Button1 } from '@/components/ui/Button1';
 import Banner from "@/public/banner.jpg"
+import alburg from "@/public/alburg.jpg"
+import header from "@/public/header.jpeg"
+
+import garage from "@/public/garage.jpeg"
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -97,21 +102,21 @@ export default function ArabianPremiumEmpire() {
             <div className={`absolute top-0 ${isAr ? 'right-0' : 'left-0'} z-40 bg-black text-white px-6 py-2 text-[9px] font-black uppercase tracking-widest`}>
               {data.warehouseTitle}
             </div>
-            <img src="https://plus.unsplash.com/premium_photo-1676357174991-9dba7713d397?q=80&w=1172" className="w-full h-full object-cover" alt="Warehouse" />
+            <img src={header.src} className="w-full h-full object-cover" alt="Warehouse" />
           </div>
 
           <div className={`part-left absolute bottom-0 ${isAr ? 'right-0' : 'left-0'} w-[49.8%] h-[64%] z-20 overflow-hidden border-white shadow-2xl ${isAr ? 'border-l-4' : 'border-r-4'}`}>
             <div className={`absolute bottom-0 ${isAr ? 'right-0' : 'left-0'} z-40 bg-[#0c479a] text-white px-6 py-2 text-[9px] font-black uppercase tracking-widest`}>
               {data.officeTitle}
             </div>
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070" className="w-full h-full object-cover" alt="Offices" />
+            <img src={alburg.src} className="w-full h-full object-cover" alt="Offices" />
           </div>
 
           <div className={`part-right absolute bottom-0 ${isAr ? 'left-0' : 'right-0'} w-[49.8%] h-[64%] z-10 overflow-hidden shadow-2xl`}>
             <div className={`absolute bottom-0 ${isAr ? 'left-0' : 'right-0'} z-40 bg-slate-900 text-white px-6 py-2 text-[9px] font-black uppercase tracking-widest`}>
               {data.logisticsTitle}
             </div>
-            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2070" className="w-full h-full object-cover" alt="Logistics" />
+            <img src={garage.src} className="w-full h-full object-cover" alt="Logistics" />
           </div>
 
           <div className="building-title absolute inset-0 z-50 flex items-center justify-center opacity-0 translate-y-10 pointer-events-none">

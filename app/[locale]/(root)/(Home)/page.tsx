@@ -5,6 +5,7 @@ import ServicesSection from "@/app/components/pagescomponents/Home/ServicesSecti
 import WhyUsSection from "@/app/components/pagescomponents/Home/WhyUsSection";
 import {HOME_METADATA} from "@/lib/constants/metadata"
 
+
 export const metadata= HOME_METADATA
 
 export default function Page() {
