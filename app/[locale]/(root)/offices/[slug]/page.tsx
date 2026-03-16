@@ -8,6 +8,22 @@ import { notFound } from "next/navigation";
 interface Props {
     params:Promise<{slug:string,locale:Locale}>
 }
+
+import { generateDynamicMetadata } from "@/lib/constants/metadata";
+
+export async function generateMetadata({ params }:Props) {
+  const { locale, slug } = await params;
+  const office = (await getAllRealEstatesBySlugByLocale(slug,locale,"office")).data;
+
+  return generateDynamicMetadata.page({
+    type: "office",
+    name:office?.name??"",
+    description:office?.description,
+    slug,
+    imageUrl: office?.cover_image,
+    locale,
+  });
+}
 export default async function OfficeBookingPage({ params }: Props) {
     const {locale,slug}= await params
     const realEstate= (await getAllRealEstatesBySlugByLocale(slug,locale,"office")).data

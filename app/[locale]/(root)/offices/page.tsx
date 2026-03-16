@@ -6,6 +6,16 @@ import OfficeFilterSidebar from "@/app/components/pagescomponents/offices/Office
 import PaginationShadcn from "@/components/PaginationsComponent";
 import { Building2, SearchX } from "lucide-react";
 import Link from "next/link";
+import { generatePageMetadata } from "@/lib/constants/metadata";
+
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  return generatePageMetadata("offices", (await params).locale);
+}
 
 type filter = {
   minSize?: number;

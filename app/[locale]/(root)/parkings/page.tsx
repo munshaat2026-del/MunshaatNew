@@ -7,6 +7,19 @@ import SubmitParkingForm from "@/components/parking-request-form/SubmitParkingRe
 import { Locale } from "@/types";
 import { getAllParkingsByLocale } from "@/app/server/parkings/services";
 import { notFound } from "next/navigation";
+import { generatePageMetadata } from "@/lib/constants/metadata";
+
+
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  return generatePageMetadata("parkings", (await params).locale);
+}
+
+
 
 
 interface Props {

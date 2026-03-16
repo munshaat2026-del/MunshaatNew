@@ -23,9 +23,6 @@ export default async function RootLayout({ children, params }: Props) {
   const { locale } = await params;
 
 const count= (await getComingSoonCount()).data
- console.log("count: ",count);
- 
-
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }

@@ -9,6 +9,18 @@ import Link from "next/link";
 import StoresHeader from "@/app/components/pagescomponents/stores/HeaderSection";
 import StoresGrid from "@/app/components/pagescomponents/stores/StoreGrid";
 
+import { generatePageMetadata } from "@/lib/constants/metadata";
+
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  return generatePageMetadata("stores", (await params).locale);
+}
+
+
 type Filter = {
   minSize?: number;
   maxSize?: number;

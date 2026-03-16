@@ -3,6 +3,18 @@ import { Locale } from "@/types";
 import { getAllTendersByLocale } from "@/app/server/tenders/services";
 import MainTenderPage from "@/app/components/pagescomponents/tender/MainTenderPage";
 import EmptyTenders from "@/app/components/pagescomponents/tender/EmptyTender"; 
+import { generatePageMetadata } from "@/lib/constants/metadata";
+
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  return generatePageMetadata("tenders", (await params).locale);
+}
+
+
 interface Props{
   params: Promise<{locale:Locale}>
 }

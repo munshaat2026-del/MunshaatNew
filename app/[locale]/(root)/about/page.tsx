@@ -16,6 +16,18 @@ import {sendEmailAction} from "@/app/[locale]/(root)/about/(actions)/sendEmailAc
 import TeamDirectory from "@/app/components/pagescomponents/About/NotMainMemebrs"
 import { getAllClientsByLocale } from "@/app/server/clients/services";
 import OurClients from "@/app/components/pagescomponents/About/OurClients";
+
+import { generatePageMetadata } from "@/lib/constants/metadata";
+
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  return generatePageMetadata("about", (await params).locale);
+}
+
 interface Props {
   params: Promise<{ slug: string; locale: Locale }>;
 }

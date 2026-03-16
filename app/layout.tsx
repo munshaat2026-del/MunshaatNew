@@ -7,7 +7,7 @@ import FontSwitcher from "@/app/components/fontswitcher/FontSwitcher";
 import NextAuthProviders from "@/providers/NextAuthProvider";
 
 export const metadata: Metadata = {
-  title: { template: `%s | ${AppName}`, default: AppName },
+  title: { template: `%s `, default: AppName },
   description: `${AppDescription}`,
   metadataBase: new URL(AppURL),
 };

@@ -29,7 +29,7 @@ export default function DepotsGrid({ depots, primaryColor, locale }: DepotsGridP
         {depots.map((depot, index) => (
           <Link 
             key={depot.id || index} 
-            href={`/${locale}/depots/${depot.slug || depot.id}`} 
+            href={`/${locale}/depot/${depot.slug || depot.id}`} 
             className="group block"
           >
             <DepotCard

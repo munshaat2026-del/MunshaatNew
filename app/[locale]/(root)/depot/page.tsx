@@ -6,6 +6,16 @@ import { Package, SearchX } from "lucide-react"; // Using Package for Depots
 import Link from "next/link";
 import DepotGrid from "@/app/components/pagescomponents/depotComponents/DepotGrid";
 import DepotsHeader from "@/app/components/pagescomponents/depotComponents/DepotHeader";
+import { generatePageMetadata } from "@/lib/constants/metadata";
+
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  return generatePageMetadata("depots", (await params).locale);
+}
 
 type Filter = {
   minSize?: number;
