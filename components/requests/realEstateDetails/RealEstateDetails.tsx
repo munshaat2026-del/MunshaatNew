@@ -114,13 +114,13 @@ function RealEstateDetails({
             </div>
 
             {/* Features Chips */}
-            {property?.features && property.features.length > 0 && (
+            {property?.features_en && property.features_en.length > 0 && (
               <div>
                
                 <h4 className="text-[10px] flex flex-row gap-1.5 uppercase font-black text-slate-400 tracking-widest mb-3">
                    <div className="w-1 h-3 bg-emerald-500 rounded-full" /> Key Features</h4>
                 <div className="flex flex-wrap gap-2">
-                  {property.features.map((feature: string, idx: number) => (
+                  {property.features_en.map((feature: string, idx: number) => (
                     <span key={idx} className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 text-slate-700 rounded-full text-xs font-bold border border-slate-200">
                       <CheckCircle2 className="w-3 h-3 text-emerald-500" />
                       {feature}
