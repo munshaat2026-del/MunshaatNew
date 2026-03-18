@@ -106,11 +106,11 @@ export default function CareersPage({ careers, locale }: Props) {
                   <div className="mt-auto pt-8 border-t border-slate-100 flex items-center justify-between group-hover:border-[#0c479a]/20 transition-colors">
                     <div className="flex items-center gap-3 text-[11px] font-black  tracking-[0.3em] text-[#0c479a] group-hover:gap-5 transition-all">
                       {isArabic ? "استعراض التفاصيل" : "View Details"}
-                      <ArrowUpRight size={16} className={"transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"} />
+                      <ArrowUpRight size={16} className={"transition-transform duration-500 group-hover:translate-x-1"} />
                     </div>
                     
                     {/* Minimalist ID Indicator */}
-                    <div className="text-[12px] font-bold text-slate-400 border-b-[1px] border-b-[#0c479a]  tracking-widest">
+                    <div className="text-[12px] font-bold text-slate-400  tracking-widest">
                       {job.role}
                     </div>
                   </div>

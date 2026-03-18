@@ -15,7 +15,6 @@ export const parkingdata = {
     ///////////////////////////////////
    parkingFeatures: {
   meta: "Parking Features",
-  sysPrefix: "SYS_0",
   footnote: "Secure and convenient parking for monthly and yearly subscribers.",
   coordinates: [],
   items: [
@@ -108,7 +107,6 @@ export const parkingdata = {
     ////////////////////////////////////////
    parkingFeatures: {
   meta: "مميزات المواقف",
-  sysPrefix: "SYS_0",
   footnote: "مواقف آمنة ومريحة للمشتركين بخطط شهرية وسنوية.",
   coordinates: [],
   items: [

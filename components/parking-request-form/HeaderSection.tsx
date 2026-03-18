@@ -28,14 +28,7 @@ function HeaderSection({ locale }: { locale: Locale }) {
 
         {/* TEXT CONTENT */}
         <div className="space-y-1 md:space-y-3">
-          <div className="flex items-center gap-3">
-            <div className="h-px w-8 bg-[#0c479a] hidden md:block"></div>
-            <p className="text-[9px] md:text-[11px] font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-slate-500 leading-none">
-              {isArabic
-                ? "طلب تأجير // احجز مساحتك الخاصة"
-                : "Rental Application // Secure your space"}
-            </p>
-          </div>
+  
 
           <h1 className="text-2xl md:text-5xl font-black uppercase tracking-tighter   leading-[0.9]">
             {isArabic ? "تقديم" : "Inquiry"}{" "}

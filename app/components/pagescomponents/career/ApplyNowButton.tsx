@@ -27,11 +27,11 @@ function ApplyNowButton({ locale,careerId }: { locale: Locale,careerId:string })
             <span className="font-bold uppercase text-[11px] tracking-[0.2em]">
               {isArabic ? "قدم الآن" : "Apply Now"}
             </span>
-            {isArabic ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}
+       <ArrowRight  size={16} /> 
           </button>
 
           <div className="mt-8 pt-6 border-t border-slate-100 flex items-center gap-4 text-slate-400">
-            <ShieldCheck size={20} />
+            <ShieldCheck size={20} className="no-flip" />
             <div className="space-y-0.5">
               <p className="text-[9px] font-bold uppercase tracking-widest text-slate-600">
                 {isArabic ? "بياناتك محمية بالكامل" : "Privacy Protected"}
