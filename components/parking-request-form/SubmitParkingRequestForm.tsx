@@ -60,7 +60,7 @@ function SubmitForm({ action, locale, parkingData }: Props) {
 
   const onSubmit: SubmitHandler<ParkingRequestFormValues> = async (data) => {
     try {
-      const result = await action(data);
+      const result = await action({...data,parkings:{connect:{id:data.parking_id}}});
       if (result.success) {
         toast.success(result.message);
         methods.reset();
