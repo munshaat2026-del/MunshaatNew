@@ -38,7 +38,7 @@ const OfficeBookingPage = () => {
               <div className="w-10 h-[1px] bg-[#0c479a]"></div>
               <span className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400">Asset Specification // Unit 1204</span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none italic">
+            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none ">
               Premium <span className="text-transparent" style={{ WebkitTextStroke: `1.5px ${primaryColor}` }}>Executive Suite.</span>
             </h1>
             <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
@@ -48,7 +48,7 @@ const OfficeBookingPage = () => {
           </div>
           <div className="text-right hidden md:block">
              <p className="text-[8px] font-black text-slate-300 uppercase tracking-widest">Global Availability</p>
-             <p className="text-xl font-black text-green-600 uppercase italic">Operational</p>
+             <p className="text-xl font-black text-green-600 uppercase ">Operational</p>
           </div>
         </header>
 
@@ -127,7 +127,7 @@ const OfficeBookingPage = () => {
                     ].map(([label, val], idx) => (
                       <tr key={idx} className="border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors">
                         <td className="px-8 py-6 text-[9px] font-black text-slate-400 uppercase tracking-widest w-1/3 bg-slate-50/50">{label}</td>
-                        <td className="px-8 py-6 text-[10px] font-black text-slate-900 uppercase tracking-widest italic">{val}</td>
+                        <td className="px-8 py-6 text-[10px] font-black text-slate-900 uppercase tracking-widest ">{val}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -144,7 +144,7 @@ const OfficeBookingPage = () => {
 
               <div className="relative z-10 space-y-2">
                 <p className="text-[8px] font-black text-slate-500 uppercase tracking-widest">Financial Summary</p>
-                <div className="flex items-baseline gap-2 text-white italic">
+                <div className="flex items-baseline gap-2 text-white ">
                   <span className="text-4xl font-black tracking-tighter">$1,250</span>
                   <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">/ MONTHLY</span>
                 </div>
@@ -172,7 +172,7 @@ const OfficeBookingPage = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-[10px] font-black text-white uppercase tracking-widest">Initial Investment</span>
-                    <span className="text-xl font-black text-[#0c479a] italic">$1,250.00</span>
+                    <span className="text-xl font-black text-[#0c479a] ">$1,250.00</span>
                   </div>
                 </div>
 

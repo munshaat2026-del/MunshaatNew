@@ -46,7 +46,7 @@ export default function FormDateInput({
           {label}
         </label>
         {description && (
-          <p id={`${id}-desc`} className="text-[10px] text-slate-400 font-medium italic">
+          <p id={`${id}-desc`} className="text-[10px] text-slate-400 font-medium  ">
             {description}
           </p>
         )}

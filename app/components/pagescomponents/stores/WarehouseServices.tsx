@@ -59,7 +59,7 @@ export default function WarehouseServices({ primaryColor }: WarehouseServicesPro
               style={{ backgroundColor: primaryColor }}
             >
               <div className="space-y-2">
-                <p className="text-6xl font-black tracking-tighter leading-none uppercase italic">24/7</p>
+                <p className="text-6xl font-black tracking-tighter leading-none uppercase  ">24/7</p>
                 <p className="text-[9px] font-black uppercase tracking-[0.3em] opacity-80 border-t border-white/20 pt-4">
                   OPERATIONAL ACCESS PROTOCOL
                 </p>

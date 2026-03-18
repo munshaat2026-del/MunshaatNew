@@ -17,7 +17,7 @@ function FormActions() {
               
               <div className="relative z-10 flex items-center gap-3">
                 {isSubmitting ? (
-                  <span className="animate-pulse italic">Logging in...</span>
+                  <span className="animate-pulse  ">Logging in...</span>
                 ) : (
                   <>
                     <span>Login</span>

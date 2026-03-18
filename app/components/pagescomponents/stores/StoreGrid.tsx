@@ -15,7 +15,7 @@ export default function StoresGrid({ stores, primaryColor, locale }: StoresGridP
     <main className="py-20 max-w-7xl mx-auto">
       
       <div className="flex justify-between items-baseline mb-12" dir={isArabic ? "rtl" : "ltr"}>
-        <h2 className="text-2xl font-black uppercase tracking-tight italic">
+        <h2 className="text-2xl font-black uppercase tracking-tight  ">
           {isArabic ? "المساحات التجارية المتاحة" : "Available Retail Units"}
           <span className="text-slate-500 mx-4 text-lg">
             ({stores.length})

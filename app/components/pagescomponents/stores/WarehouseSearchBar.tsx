@@ -11,11 +11,11 @@ export default function WarehouseSearchBar({ primaryColor }: WarehouseSearchBarP
         <div className="flex items-center gap-10">
            <div className="hidden md:block">
               <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Total Managed Capacity</p>
-              <p className="text-xl font-black italic">85,000+ SQM</p>
+              <p className="text-xl font-black  ">85,000+ SQM</p>
            </div>
            <div className="hidden md:block">
               <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Occupancy Rate</p>
-              <p className="text-xl font-black italic" style={{ color: primaryColor }}>92%</p>
+              <p className="text-xl font-black  " style={{ color: primaryColor }}>92%</p>
            </div>
         </div>
         

@@ -44,10 +44,10 @@ export default function ParkingFeatures({ primaryColor }: ParkingFeaturesProps) 
               <div className="space-y-8 relative z-10">
                 {/* Icon */}
                 <div
-                  className="w-14 h-14 flex items-center justify-center border border-slate-100 bg-white group-hover:border-slate-900 transition-all duration-500 shadow-sm"
+                  className="w-14 h-14 flex  items-center justify-center border border-slate-100 bg-white group-hover:border-slate-900 transition-all duration-500 shadow-sm"
                   style={{ color: primaryColor }}
                 >
-                  <Icon size={22} strokeWidth={1.5} />
+                  <Icon className='no-flip' size={22} strokeWidth={1.5} />
                 </div>
 
                 {/* Text Content */}

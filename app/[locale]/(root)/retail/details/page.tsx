@@ -40,7 +40,7 @@ const EmptyRetailUnit = () => {
           </div>
           <div className="bg-slate-900 text-white p-6 md:p-10 shrink-0">
              <p className="text-[10px] font-black uppercase tracking-[0.3em] opacity-60 mb-2">Availability Status</p>
-             <p className="text-xl font-black uppercase tracking-widest italic">Immediate Lease</p>
+             <p className="text-xl font-black uppercase tracking-widest ">Immediate Lease</p>
           </div>
         </div>
 
@@ -132,7 +132,7 @@ const EmptyRetailUnit = () => {
               <div className="p-10 space-y-10">
                 <div className="space-y-2">
                   <p className="text-[9px] font-black uppercase tracking-[0.4em] text-slate-400">Annual Operational Lease</p>
-                  <h3 className="text-5xl font-black text-slate-900 tracking-tighter italic">$9,675.00</h3>
+                  <h3 className="text-5xl font-black text-slate-900 tracking-tighter ">$9,675.00</h3>
                 </div>
                 
                 <div className="space-y-6">
@@ -167,7 +167,7 @@ const EmptyRetailUnit = () => {
               
               {/* Technical Footnote */}
               <div className="bg-slate-50 p-4 border-t border-slate-100">
-                 <p className="text-[8px] text-slate-400 font-bold uppercase tracking-tighter text-center italic">
+                 <p className="text-[8px] text-slate-400 font-bold uppercase tracking-tighter text-center ">
                    All fit-out designs must be submitted for RM Engineering approval prior to commencement.
                  </p>
               </div>

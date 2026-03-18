@@ -25,7 +25,7 @@ function BasicInfo() {
                  Secure Reset
                </p>
             </div>
-            <h1 className="text-3xl font-black uppercase italic tracking-tight text-slate-900">
+            <h1 className="text-3xl font-black uppercase   tracking-tight text-slate-900">
               New <span className="text-[#0c479a]">Password.</span>
             </h1>
           </div>

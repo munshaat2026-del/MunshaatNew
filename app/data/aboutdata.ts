@@ -2,8 +2,8 @@ export const aboutdata = {
   en: {
     aboutHero: {
       tag: "Our Identity",
-      titleLine1: "REDEFINING",
-      titleLine2: "ASSET VALUE.",
+      titleLine1: "About",
+      titleLine2: "Us.",
       description: "Since our inception, REEAC has been at the forefront of facility operations, merging Saudi heritage with global technical standards.",
       est: "EST. 2014 // HQ RIYADH",
       overlayTag: "Institutional \n Standards",
@@ -164,8 +164,8 @@ export const aboutdata = {
   ar: {
     aboutHero: {
       tag: "هويتنا",
-      titleLine1: "إعادة تعريف",
-      titleLine2: "قيمة الأصول.",
+      titleLine1: "من",
+      titleLine2: "نحن",
       description: "منذ انطلاقتنا، كانت REEAC في طليعة عمليات إدارة المرافق، حيث دمجت التراث السعودي مع المعايير التقنية العالمية.",
       est: "تأسست 2014 // المقر الرئيسي الرياض",
       overlayTag: "معايير \n مؤسسية",

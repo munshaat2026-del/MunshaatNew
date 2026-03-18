@@ -40,7 +40,7 @@ export default function DepotsHeader({ primaryColor, locale }: DepotsHeaderProps
 
         {/* Description with Vertical Accent */}
         <div className={`max-w-xl ${isArabic ? "border-r-2 pr-8" : "border-l-2 pl-8"} border-slate-800`}>
-          <p className="text-slate-400 text-[10px] md:text-[12px] font-bold uppercase tracking-[0.25em] leading-snug italic" dir={isArabic ? "rtl" : "ltr"}>
+          <p className="text-slate-400 text-[10px] md:text-[12px] font-bold uppercase tracking-[0.25em] leading-snug  " dir={isArabic ? "rtl" : "ltr"}>
             {isArabic
               ? "بيئات تخزين استراتيجية مصممة لتحسين كفاءة سلاسل التوريد والتميز في إدارة الأصول اللوجستية."
               : "Strategic storage environments engineered for supply chain efficiency and logistics asset management excellence."}

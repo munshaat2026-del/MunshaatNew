@@ -150,7 +150,7 @@ export const OfficeDetails = ({
               {isAr ? "الملخص المالي" : "Financial Summary"}
             </p>
 
-            <div className="flex items-baseline gap-2 text-white italic">
+            <div className="flex items-baseline gap-2 text-white  ">
               <span className="text-4xl font-black tracking-tighter">
                 {realEstate.price
                   ? `${realEstate.price.toLocaleString()}`

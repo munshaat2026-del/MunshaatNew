@@ -15,7 +15,7 @@ export default function DepotsGrid({ depots, primaryColor, locale }: DepotsGridP
     <main className="py-20 max-w-7xl mx-auto">
       {/* Grid Header with Industrial Context */}
       <div className="flex justify-between items-baseline mb-12" dir={isArabic ? "rtl" : "ltr"}>
-        <h2 className="text-2xl font-black uppercase tracking-tight italic">
+        <h2 className="text-2xl font-black uppercase tracking-tight  ">
           {isArabic ? "مستودعات التخزين المتاحة" : "Available Storage Units"}
           <span className="text-slate-500 mx-4 text-lg">
             ({depots.length})

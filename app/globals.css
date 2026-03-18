@@ -124,3 +124,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+  body, p, span, h1, h2, h3, h5, h6, li, a, div {
+    text-align: start !important;
+     line-height: 1.4;
+
+  }
+.centert {
+  text-align: center !important;
+  line-height: 1.5;
+}
+
+[dir="rtl"] .fa,
+[dir="rtl"] svg {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .no-flip {
+  transform: none !important;
+}

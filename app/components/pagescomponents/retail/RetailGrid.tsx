@@ -24,7 +24,7 @@ export default function RetailGrid({ primaryColor, units }: RetailGridProps) {
       <div className="mb-20 flex flex-col md:flex-row justify-between items-end gap-6 border-b border-slate-900 pb-10">
         <div className="space-y-2">
           <p className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400">Database / Retail_Assets_2026</p>
-          <h2 className="text-4xl font-black uppercase tracking-tighter italic">Available Inventory.</h2>
+          <h2 className="text-4xl font-black uppercase tracking-tighter  ">Available Inventory.</h2>
         </div>
         <div className="flex gap-8">
            <div className="text-right">
@@ -33,7 +33,7 @@ export default function RetailGrid({ primaryColor, units }: RetailGridProps) {
            </div>
            <div className="text-right border-l border-slate-100 pl-8">
               <p className="text-[8px] font-black text-slate-300 uppercase tracking-widest">Global Status</p>
-              <p className="text-xl font-black leading-none text-green-600 uppercase italic">Operational</p>
+              <p className="text-xl font-black leading-none text-green-600 uppercase  ">Operational</p>
            </div>
         </div>
       </div>
@@ -110,7 +110,7 @@ export default function RetailGrid({ primaryColor, units }: RetailGridProps) {
                     <MapPin size={12} />
                     <span className="text-[9px] font-black uppercase tracking-widest">Internal Pos</span>
                   </div>
-                  <span className="text-xs font-black text-slate-500 uppercase tracking-tight italic">{unit.location}</span>
+                  <span className="text-xs font-black text-slate-500 uppercase tracking-tight  ">{unit.location}</span>
                 </div>
               </div>
 

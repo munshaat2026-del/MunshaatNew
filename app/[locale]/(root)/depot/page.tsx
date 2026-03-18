@@ -90,7 +90,7 @@ export default async function DepotsPage({ params, searchParams }: Props) {
                     )}
                   </p>
 
-                  <div className="flex gap-2 items-center text-[10px] font-bold text-slate-400 uppercase italic">
+                  <div className="flex gap-2 items-center text-[10px] font-bold text-slate-400 uppercase ">
                     <Package size={14} />
                     {isArabic
                       ? "أصول الخدمات اللوجستية"

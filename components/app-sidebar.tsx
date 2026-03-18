@@ -83,7 +83,7 @@ export function AppSidebar() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#2383c9]/10 border border-[#2383c9]/20">
               <LayoutDashboard className="text-[#2383c9] " size={18} />
             </div>
-            <span className="text-sm font-black tracking-widest text-white uppercase italic">
+            <span className="text-sm font-black tracking-widest text-white uppercase  ">
               Munsh<span className="text-[#2383c9] font-bold ">aat</span>
             </span>
           </SidebarGroupLabel>
@@ -156,7 +156,7 @@ export function AppSidebar() {
                     <span className="text-[11px] font-black text-white uppercase tracking-tight truncate w-24">
                       {userName}
                     </span>
-                    <span className="text-[9px] font-mono text-[#2383c9]/60 uppercase italic">
+                    <span className="text-[9px] font-mono text-[#2383c9]/60 uppercase  ">
                       Authorized
                     </span>
                   </div>

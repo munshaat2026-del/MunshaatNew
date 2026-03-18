@@ -36,7 +36,7 @@ export default function WarehouseHero({ primaryColor }: WarehouseHeroProps) {
 
         {/* Hero Title - Architectural Scale (ضبط الحجم ليكون متجاوباً) */}
         <div className="space-y-2">
-          <h1 className="text-5xl sm:text-7xl md:text-[8vw] lg:text-[10vw] font-black text-white uppercase tracking-tighter leading-[0.9] md:leading-[0.85] italic">
+          <h1 className="text-5xl sm:text-7xl md:text-[8vw] lg:text-[10vw] font-black text-white uppercase tracking-tighter leading-[0.9] md:leading-[0.85]  ">
             STRATEGIC <br /> 
             <span 
               className="text-transparent inline-block py-2" // إضافة padding بسيط للنص المفرغ لضمان عدم قطع حواف الـ Stroke
@@ -49,7 +49,7 @@ export default function WarehouseHero({ primaryColor }: WarehouseHeroProps) {
 
         {/* Content Block with Border Accent */}
         <div className="max-w-2xl border-l-2 border-slate-800 pl-8 space-y-10">
-          <p className="text-slate-400 text-xs md:text-sm font-bold uppercase tracking-[0.25em] leading-loose italic">
+          <p className="text-slate-400 text-xs md:text-sm font-bold uppercase tracking-[0.25em] leading-loose  ">
             Scalable warehousing solutions with integrated security, fire suppression, 
             and optimized logistics access across Riyadh's high-demand industrial hubs.
           </p>

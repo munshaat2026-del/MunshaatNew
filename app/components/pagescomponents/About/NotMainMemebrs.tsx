@@ -13,15 +13,8 @@ export default function TeamRoster({ primaryColor, locale, data }: TeamRosterPro
     <section className="py-20 px-6 bg-[#fcfcfc]">
       <div className="max-w-7xl mx-auto">
         
-        {/* Header - متناسق مع النمط الرئيسي لكن بحجم أصغر */}
-        <div className={`mb-12 flex flex-col gap-3 ${isAr ? 'items-end' : 'items-start'}`}>
-          <div className="flex items-center gap-3">
-            {!isAr && <div className="w-8 h-[2px]" style={{ backgroundColor: primaryColor }} />}
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
-              {isAr ? "الكوادر الإضافية" : "Additional Personnel"}
-            </span>
-            {isAr && <div className="w-8 h-[2px]" style={{ backgroundColor: primaryColor }} />}
-          </div>
+        <div className={`mb-12 flex flex-col gap-3 items-center`}>
+        
           <h3 className="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tighter">
             {isAr ? "فريق العمل المعاون" : "Our Associates"}
           </h3>

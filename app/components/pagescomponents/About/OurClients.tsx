@@ -42,14 +42,8 @@ export default function InitiativePartners({ locale, clients }: InitiativePartne
         
         {/* REEAC Styled Header */}
        <div className={`mb-16 flex flex-col gap-2`}>
-  <div className="flex items-center gap-3">
-    <div className="w-8 h-[2px]" style={{ backgroundColor: primaryColor }} />
-    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">
-      {isAr ? "شركاء النجاح" : "Trusted Clients"}
-    </span>
-  </div>
 
-  <h2 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tighter">
+  <h2 className="text-3xl md:text-4xl centert font-black text-slate-900 uppercase tracking-tighter">
     {isAr ? "عملاؤنا" : "Our Clients"}
   </h2>
 </div>

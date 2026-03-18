@@ -106,7 +106,7 @@ export default function CareersPage({ careers, locale }: Props) {
                   <div className="mt-auto pt-8 border-t border-slate-100 flex items-center justify-between group-hover:border-[#0c479a]/20 transition-colors">
                     <div className="flex items-center gap-3 text-[11px] font-black  tracking-[0.3em] text-[#0c479a] group-hover:gap-5 transition-all">
                       {isArabic ? "استعراض التفاصيل" : "View Details"}
-                      <ArrowUpRight size={16} className={cn("transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1", isArabic && "rotate-[-90deg]")} />
+                      <ArrowUpRight size={16} className={"transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"} />
                     </div>
                     
                     {/* Minimalist ID Indicator */}
@@ -134,24 +134,7 @@ export default function CareersPage({ careers, locale }: Props) {
         )}
       </section>
 
-      {/* 3. Global Footer CTA */}
-      <footer className="bg-[#0b1236] py-32 px-6 text-center overflow-hidden relative">
-         <div className="max-w-4xl mx-auto relative z-10">
-            <span className="text-[#0c479a] text-[10px] font-black uppercase tracking-[0.6em] mb-6 block">
-              {isArabic ? "هل تمتلك المهارات؟" : "Universal_Application"}
-            </span>
-            <h4 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-12">
-              {isArabic ? "أرسل سيرتك الذاتية للمستقبل" : "Submit Your Profile for Future Shifts"}
-            </h4>
-            <button className="bg-transparent border-2 border-white/10 text-white px-12 py-5 text-[11px] font-black uppercase tracking-[0.4em] hover:bg-white hover:text-[#0b1236] transition-all duration-500">
-              {isArabic ? "طلب عام" : "General_Inquiry"}
-            </button>
-         </div>
-         {/* Large Background Text Decoration */}
-         <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[15vw] font-black text-white/[0.02] uppercase pointer-events-none whitespace-nowrap">
-            MUNSHAAT_CORE
-         </div>
-      </footer>
+  
     </div>
   );
 }

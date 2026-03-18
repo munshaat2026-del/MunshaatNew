@@ -24,7 +24,7 @@ export default function RetailHero({ primaryColor }: RetailHeroProps) {
       {/* Meta Data Corner */}
       <div className="absolute top-40 right-10 hidden lg:block text-right space-y-1 opacity-40">
         <p className="text-[8px] font-black text-white uppercase tracking-[0.4em]">Sector Profile</p>
-        <p className="text-[10px] font-black text-[#0c479a] uppercase tracking-widest italic">High-Traffic Retail_01</p>
+        <p className="text-[10px] font-black text-[#0c479a] uppercase tracking-widest  ">High-Traffic Retail_01</p>
       </div>
 
       <div className="relative z-10 max-w-5xl space-y-12">
@@ -43,7 +43,7 @@ export default function RetailHero({ primaryColor }: RetailHeroProps) {
 
         {/* Title - تم ضبط القياسات هنا لضمان عدم القطش */}
         <div className="space-y-4">
-          <h1 className="text-5xl sm:text-7xl md:text-[8vw] lg:text-[9vw] font-black text-white leading-[0.9] md:leading-[0.85] uppercase tracking-tighter italic">
+          <h1 className="text-5xl sm:text-7xl md:text-[8vw] lg:text-[9vw] font-black text-white leading-[0.9] md:leading-[0.85] uppercase tracking-tighter  ">
             WHERE BRANDS <br />
             <span 
               className="text-transparent inline-block" // inline-block تحسن معالجة الحواف
@@ -56,7 +56,7 @@ export default function RetailHero({ primaryColor }: RetailHeroProps) {
 
         {/* Description & Action */}
         <div className="max-w-xl border-l-2 border-slate-800 pl-8 space-y-8">
-          <p className="text-slate-400 text-xs md:text-sm font-bold uppercase tracking-[0.2em] leading-loose italic">
+          <p className="text-slate-400 text-xs md:text-sm font-bold uppercase tracking-[0.2em] leading-loose  ">
             Strategic retail nodes situated in high-velocity urban corridors. 
             Engineered for maximum visibility and long-term brand equity growth.
           </p>

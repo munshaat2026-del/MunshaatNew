@@ -65,7 +65,7 @@ function ForgotPasswordPage() {
           ) : (
             <div className="space-y-8">
               <div className="p-6 bg-emerald-50 border-l-4 border-emerald-500">
-                <p className="text-sm text-slate-600 leading-relaxed italic">
+                <p className="text-sm text-slate-600 leading-relaxed ">
                   If an account exists for{" "}
                   <span className="font-bold text-slate-900">{writtenEmail}</span>
                   , you will receive a password reset link in your inbox
