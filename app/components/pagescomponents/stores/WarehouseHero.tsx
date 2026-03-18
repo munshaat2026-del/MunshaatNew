@@ -51,7 +51,7 @@ export default function WarehouseHero({ primaryColor }: WarehouseHeroProps) {
         <div className="max-w-2xl border-l-2 border-slate-800 pl-8 space-y-10">
           <p className="text-slate-400 text-xs md:text-sm font-bold uppercase tracking-[0.25em] leading-loose italic">
             Scalable warehousing solutions with integrated security, fire suppression, 
-            and optimized logistics access across Riyadh's high-demand industrial hubs.
+            and optimized logistics access across Amman's high-demand industrial hubs.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-0 border border-white/10 w-fit bg-white/5 backdrop-blur-sm shadow-2xl">

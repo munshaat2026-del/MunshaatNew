@@ -78,7 +78,7 @@ export const parkingdata = {
     parkingLocations: {
       tag: "Regional Deployment",
       titleLine1: "STRATEGIC",
-      titleLine2: "RIYADH HUBS.",
+      titleLine2: "Amman HUBS.",
       loadFactor: "Load Factor",
       telemetryTag: "Live Telemetry",
       occupancyLabel: "Network Occupancy",
@@ -171,7 +171,7 @@ export const parkingdata = {
     parkingLocations: {
       tag: "الانتشار الإقليمي",
       titleLine1: "مراكز",
-      titleLine2: "الرياض الاستراتيجية.",
+      titleLine2: "عمان الاستراتيجية.",
       loadFactor: "معامل الإشغال",
       telemetryTag: "بث حي للمؤشرات",
       occupancyLabel: "إشغال الشبكة الكلي",

@@ -5,7 +5,7 @@ export const aboutdata = {
       titleLine1: "REDEFINING",
       titleLine2: "ASSET VALUE.",
       description: "Since our inception, REEAC has been at the forefront of facility operations, merging Saudi heritage with global technical standards.",
-      est: "EST. 2014 // HQ RIYADH",
+      est: "EST. 2014 // HQ Amaan",
       overlayTag: "Institutional \n Standards",
       precisionLabel: "Operational Precision"
     },
@@ -82,7 +82,7 @@ export const aboutdata = {
       highlight: "future",
       textPart3: " grows.",
       signature: "The Board of Directors",
-      subSignature: "REEAC Operations Group // Riyadh HQ",
+      subSignature: "REEAC Operations Group // Amman HQ",
       stamp: "Operational \n Excellence \n Verified 2026",
       bgText: "REEAC"
     },
@@ -114,8 +114,8 @@ export const aboutdata = {
     info: [
       {
         key: "address",
-        label: "Riyadh Office",
-        value: "KAFD, Tower 4, Riyadh, KSA"
+        label: "Amman Office",
+        value: "KAFD, Tower 4, Amman, Jordan"
       },
       {
         key: "phone",
@@ -167,7 +167,7 @@ export const aboutdata = {
       titleLine1: "إعادة تعريف",
       titleLine2: "قيمة الأصول.",
       description: "منذ انطلاقتنا، كانت REEAC في طليعة عمليات إدارة المرافق، حيث دمجت التراث السعودي مع المعايير التقنية العالمية.",
-      est: "تأسست 2014 // المقر الرئيسي الرياض",
+      est: "تأسست 2014 // المقر الرئيسي عمان",
       overlayTag: "معايير \n مؤسسية",
       precisionLabel: "الدقة التشغيلية"
     },
@@ -242,7 +242,7 @@ export const aboutdata = {
       highlight: "مستقبل",
       textPart3: " المملكة العربية السعودية.",
       signature: "مجلس الإدارة",
-      subSignature: "مجموعة REEAC التشغيلية // المقر الرئيسي بالرياض",
+      subSignature: "مجموعة REEAC التشغيلية // المقر الرئيسي عمان",
       stamp: "التميز \n التشغيلي \n معتمد 2026",
       bgText: "رياك"
     },
@@ -274,8 +274,8 @@ export const aboutdata = {
     info: [
       {
         key: "address",
-        label: "مكتب الرياض",
-        value: "مركز الملك عبدالله المالي، الرياض"
+        label: "مكتب عمان",
+        value: "مركز الملك عبدالله المالي، عمان"
       },
       {
         key: "phone",

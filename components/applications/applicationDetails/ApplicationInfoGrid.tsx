@@ -110,7 +110,7 @@ export default function Footer() {
               <div className="flex items-start gap-3 group">
                 <MapPin size={16} className="text-slate-700 group-hover:text-white transition-colors shrink-0" />
                 <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 leading-tight group-hover:text-slate-300">
-                  King Fahd Road, KAFD Tower 4,<br />Riyadh, Saudi Arabia
+                  King Fahd Road, KAFD Tower 4,<br />Amman, Jordan
                 </span>
               </div>
 
