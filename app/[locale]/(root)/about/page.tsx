@@ -44,7 +44,6 @@ export default async function AboutUs({ params }: Props) {
     getAllClientsByLocale(locale)
   ]);
 
-  console.log("clients: ",clients);
   
 
   const complexdata = parkings?.data;

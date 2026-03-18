@@ -6,7 +6,6 @@ import { getComingSoonById } from "@/app/server/coming_soon/services";
 async function Page(props: { params: Promise<{ id: string }> }) {
   const { id } = await props.params;
   const comingSoon = (await getComingSoonById(id)); 
-  console.log("comingSoon: ",comingSoon);
   
   
   if (!comingSoon || !comingSoon.data) {

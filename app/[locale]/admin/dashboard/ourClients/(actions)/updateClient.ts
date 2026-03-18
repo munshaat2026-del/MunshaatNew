@@ -35,7 +35,6 @@ export async function editClientAction(clientId:string,data: ClientsUpdateInput)
     }
     return { success: false, message: result.message, status: result.status };
   } catch (error) {
-    console.log("description_ar:banner?.description_ar??",error);
     
     return {success:false, message: "Error In Updating The Client", status: 500 };
   }

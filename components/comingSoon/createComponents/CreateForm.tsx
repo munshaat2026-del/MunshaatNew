@@ -32,10 +32,7 @@ function CreateTenderForm({ action }: Props) {
   const {
     handleSubmit,
     formState:{errors}
-  } = methods;
-
-  console.log("errors: ",errors);
-  
+  } = methods;  
 
   const router = useRouter();
   const onSubmit: SubmitHandler<ComingSoonFormValues> = async (data) => {

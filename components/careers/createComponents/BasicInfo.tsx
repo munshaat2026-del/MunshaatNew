@@ -26,7 +26,6 @@ function BasicInfo() {
     setValue("slug", slug, { shouldDirty: false, shouldValidate: false });
   }, [watchedName, setValue]);
 
-  console.log("req: ",watch("requirements_en"));
   
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 w-[95%] gap-0 lg:gap-5">

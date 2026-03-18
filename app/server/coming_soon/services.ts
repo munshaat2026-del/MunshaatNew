@@ -2,7 +2,6 @@ import prisma from "@/lib/prisma";
 import { revalidateTag, unstable_cache } from "next/cache";
 import { ComingSoonCreateInput, ComingSoonUpdateInput } from "@/types";
 import { UTApi } from "uploadthing/server";
-import { count } from "console";
 const utapi = new UTApi();
 // Create new coming soon item
 export const newComingSoon = async (data: ComingSoonCreateInput) => {

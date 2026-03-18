@@ -25,8 +25,6 @@ export default function ExportButton({
   className = "",
 }: ExportButtonProps) {
   const [loading, setLoading] = useState(false);
-   console.log("parkingId: ",parkingId);
-   console.log("realEstateId: ",realEstateId);
    
   const handleExport = async () => {
     try {

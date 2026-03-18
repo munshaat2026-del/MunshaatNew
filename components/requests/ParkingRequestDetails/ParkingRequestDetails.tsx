@@ -11,9 +11,7 @@ export default function RequestDetailPage({
   requestDetails,
 }: {
   requestDetails: RequestsGetPayloadParking;
-}) {
-  console.log("requestDetails requestDetails : ",requestDetails);
-  
+}) {  
 const { parkings, ...requestDetailsOnly } = requestDetails;
   const parkingId= requestDetails.parkings?.id
 

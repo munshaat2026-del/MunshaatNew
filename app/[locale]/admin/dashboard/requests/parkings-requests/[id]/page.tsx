@@ -38,7 +38,6 @@ async function Page({ params, searchParams }: Props) {
   }
   const parkingDetails = parkingResult.data;
   const filteredData = await getAllParkingrequestsByFilters(page, filters);
-  console.log("filteredData: ", filteredData);
 
   return (
     <div className="flex flex-col justify-start items-start ml-5 md:ml-7 w-[88vw] md:w-[68vw] xl:w-[80vw]">

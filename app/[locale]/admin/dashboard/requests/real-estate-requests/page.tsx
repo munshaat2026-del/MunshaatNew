@@ -12,7 +12,6 @@ import {
 async function RealEstatesRequestsPage() {
   const response = await getAllRealEstatesWithRequests();
   const allRealEstates = response?.data ?? [];
-  console.log("allRealEstates: ",allRealEstates);
   
 
   // Grouping logic

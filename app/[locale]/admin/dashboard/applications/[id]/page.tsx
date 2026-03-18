@@ -39,7 +39,6 @@ async function Page({ params, searchParams }: Props) {
     notFound();
   }
 
-console.log("filters: ",filters );
 
   const careerDetails = careerResult.data;
   const filteredData = await getAllApplicationsByFilters(page, filters);

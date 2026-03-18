@@ -6,7 +6,6 @@ import { getTenderById } from "@/app/server/tenders/services";
 async function Page(props: { params: Promise<{ id: string }> }) {
   const { id } = await props.params;
   const tender = (await getTenderById(id)); 
-  console.log("tender: ",tender);
   
   
   if (!tender || !tender.data) {

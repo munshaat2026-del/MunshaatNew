@@ -27,7 +27,6 @@ export async function generateMetadata({ params }:Props) {
 export default async function JobDetailPage({ params }: Props) {
   const { slug,locale } = await params;
 const job= (await getCareerBySlugAndLocale(slug,locale)).data
-console.log("job: ",job);
 
   if (job===null) return notFound();
 

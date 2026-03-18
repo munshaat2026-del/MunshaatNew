@@ -70,7 +70,6 @@ export default function FileUploader({
     setIsUploading(true);
     const res = await startUpload([file]);
     const upload = res?.[0];
-    console.log("upload: ", upload);
 
     if (upload?.ufsUrl) {
       onChange(upload.ufsUrl);
@@ -90,7 +89,6 @@ export default function FileUploader({
       control={control}
       rules={{ required: required ? "File is required" : false }}
       render={({ field }) => {
-        console.log("field: ", field);
 
         const isFilePresent = !!field.value;
 

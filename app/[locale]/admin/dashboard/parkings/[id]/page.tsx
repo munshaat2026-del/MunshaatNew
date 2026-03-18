@@ -6,7 +6,6 @@ import { getParkingById } from "@/app/server/parkings/services";
 async function Page(props: { params: Promise<{ id: string }> }) {
   const { id } = await props.params;
   const parking = (await getParkingById(id)); 
-  console.log("parking: ",parking);
   
   
   if (!parking || !parking.data) {

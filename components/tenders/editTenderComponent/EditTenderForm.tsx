@@ -49,12 +49,7 @@ function EditTenderForm({ action, tender }: Props) {
   });
   const {
     handleSubmit,
-    formState: { errors },
-    watch,
   } = methods;
-  console.log("errors: ", errors);
-  console.log("watch:close: ", watch("closing_date"));
-
   const router = useRouter();
   const onSubmit: SubmitHandler<TenderFormValues> = async (data) => {
     try {

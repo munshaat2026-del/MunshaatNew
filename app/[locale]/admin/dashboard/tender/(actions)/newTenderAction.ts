@@ -39,7 +39,6 @@ export const addTenderAction = async (data:  TenderCreateInput) => {
       message: result.message,
     };
   } catch (error) {
-    console.log("error: ",error);
     
     return {
       success: false,

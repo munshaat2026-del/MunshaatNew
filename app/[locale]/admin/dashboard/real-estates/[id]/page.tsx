@@ -7,7 +7,6 @@ async function Page(props: { params: Promise<{ id: string }> }) {
   const { id } = await props.params;
   const realEstate = (await getRealEstatesById(id)); 
   const realEstateImages=  (await getRealEstateImages(id)).data
-  console.log("realEstate: ",realEstate);
   
   if (!realEstate || !realEstate.data) {
     notFound();
