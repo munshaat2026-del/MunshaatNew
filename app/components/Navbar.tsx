@@ -136,7 +136,7 @@ export default function Navbar({isComingSoon}:{isComingSoon:Boolean}) {
           <div className="flex items-center justify-between mb-10">
             <div className="flex items-center gap-2">
               <Image src={Logo} alt="logo" width={45} height={45} />
-              <span className="text-xl font-black uppercase tracking-tighter">RE<span style={{ color: primaryColor }}>EAC</span></span>
+              <span className="text-xl font-black text-black uppercase tracking-tighter">RE<span style={{ color: primaryColor }}>EAC</span></span>
             </div>
             <button onClick={() => setIsOpen(false)} className="p-2 bg-slate-50 rounded-full">
               <X size={20} className="text-black" />
