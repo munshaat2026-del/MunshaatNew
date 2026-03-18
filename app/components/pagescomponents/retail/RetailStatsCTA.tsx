@@ -30,14 +30,14 @@ export default function RetailStatsCTA({ primaryColor }: RetailStatsCTAProps) {
             <div className="grid grid-cols-2 gap-12 pt-12 border-t border-slate-100">
               <div className="space-y-2">
                 <div className="flex items-baseline gap-2">
-                   <p className="text-5xl font-black tracking-tighter text-slate-900 italic">4.2M</p>
+                   <p className="text-5xl font-black tracking-tighter text-slate-900  ">4.2M</p>
                    <div className="w-2 h-2 bg-[#0c479a]"></div>
                 </div>
                 <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.3em]">Annual Traffic Index</p>
               </div>
               <div className="space-y-2">
                 <div className="flex items-baseline gap-2">
-                   <p className="text-5xl font-black tracking-tighter text-slate-900 italic">92%</p>
+                   <p className="text-5xl font-black tracking-tighter text-slate-900  ">92%</p>
                    <div className="w-2 h-2 bg-green-500"></div>
                 </div>
                 <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.3em]">Retention Reliability</p>
@@ -68,7 +68,7 @@ export default function RetailStatsCTA({ primaryColor }: RetailStatsCTAProps) {
           
           <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
             <div className="space-y-4">
-              <h3 className="text-4xl font-black text-white uppercase tracking-tighter italic">
+              <h3 className="text-4xl font-black text-white uppercase tracking-tighter  ">
                 Start Your Expansion <span style={{ color: primaryColor }}>Protocol.</span>
               </h3>
               <p className="text-slate-500 text-[10px] font-black uppercase tracking-[0.3em]">Institutional Grade Leasing Consultancy Available 24/7</p>

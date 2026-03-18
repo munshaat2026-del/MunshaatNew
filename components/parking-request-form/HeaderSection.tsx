@@ -37,7 +37,7 @@ function HeaderSection({ locale }: { locale: Locale }) {
             </p>
           </div>
 
-          <h1 className="text-2xl md:text-5xl font-black uppercase tracking-tighter italic leading-[0.9]">
+          <h1 className="text-2xl md:text-5xl font-black uppercase tracking-tighter   leading-[0.9]">
             {isArabic ? "تقديم" : "Inquiry"}{" "}
             <span className="text-[#0c479a] block md:inline">
               {isArabic ? "طلب " : "Submission."}

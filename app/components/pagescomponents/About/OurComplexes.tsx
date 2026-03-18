@@ -90,7 +90,7 @@ export default function RoyalOffsetHero({ complexdata }: Props) {
               {/* Background Image */}
               <div className="absolute inset-0 transition-transform duration-[2.5s] ease-out group-hover:scale-110">
                 <img 
-                  src={item.image} 
+                  src={item.image!} 
                   alt={item.name}
                   className="w-full h-full object-cover opacity-60 group-hover:opacity-30 transition-opacity duration-1000"
                 />
@@ -128,7 +128,7 @@ export default function RoyalOffsetHero({ complexdata }: Props) {
                     <Link href={`/about/${item.slug}`}>
                       <button className="flex items-center gap-3 bg-white text-slate-900 px-6 py-3 font-black text-[9px] uppercase tracking-[0.3em] hover:bg-[#0c479a] hover:text-white transition-all duration-500">
                         {isAr ? "عرض التفاصيل" : "see more"} 
-                        <ArrowUpRight size={14} className={isAr ? "rotate-[-90deg]" : ""} />
+                        <ArrowUpRight size={14}  />
                       </button>
                     </Link>
                   </div>

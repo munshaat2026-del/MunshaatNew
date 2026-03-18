@@ -14,7 +14,7 @@ export default function OfficesGrid({ offices, primaryColor,locale }: OfficesGri
   return (
     <main className="py-20  max-w-7xl mx-auto">
       <div className="flex justify-between items-baseline mb-12">
-       <h2 className="text-2xl font-black uppercase tracking-tight italic">
+       <h2 className="text-2xl font-black uppercase tracking-tight  ">
   {isArabic ? "الوحدات المتاحة" : "Available Units"}
   <span className="text-slate-500 mx-2">
     ({offices.length})

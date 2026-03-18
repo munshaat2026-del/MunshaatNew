@@ -16,7 +16,7 @@ export default function NotFound() {
         
         {/* Static Background Text */}
         <h1 
-          className="text-[25vw] font-black leading-none tracking-tighter italic select-none pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          className="text-[25vw] font-black leading-none tracking-tighter select-none pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           style={{ 
             color: primaryColor,
             opacity: 0.04
@@ -28,10 +28,10 @@ export default function NotFound() {
         <div className="space-y-8">
           {/* Simplified Text Header */}
           <div className="space-y-4">
-            <h2 className="text-6xl md:text-8xl font-black text-slate-900 uppercase tracking-tighter italic leading-none">
+            <h2 className="text-6xl md:text-8xl font-black text-slate-900 uppercase tracking-tighter leading-none">
               Page <span style={{ color: primaryColor }}>Not Found.</span>
             </h2>
-            <p className="text-slate-400 text-[10px] md:text-xs font-black uppercase tracking-[0.4em] max-w-sm mx-auto italic">
+            <p className="text-slate-400 text-[10px] md:text-xs font-black uppercase tracking-[0.4em] max-w-sm mx-auto ">
               Registry Error: Asset coordinate unavailable.
             </p>
           </div>

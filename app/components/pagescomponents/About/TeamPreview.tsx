@@ -18,16 +18,14 @@ export default function TeamPreview({ primaryColor ,locale,data }: TeamPreviewPr
       <div className="max-w-7xl mx-auto">
         
         {/* Header - Minimalist */}
-        <div className={`mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6 `}>
+        <div className={`mb-20 flex flex-col  md:flex-row md:items-end  md:justify-center justify-between gap-6 `}>
           <div className="space-y-4">
-            <div className={`h-1 w-12 ${isAr ? 'mr-0 ml-auto md:ml-0 md:mr-0' : ''}`} style={{ backgroundColor: primaryColor }}></div>
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter">
-              {aboutData.titlePart1} <span className="font-light italic text-slate-400">&</span> {aboutData.titlePart2}
+           
+            <h2 className="text-4xl  md:text-5xl font-black text-slate-900 uppercase tracking-tighter">
+              {aboutData.titlePart1} <span className="font-light   text-slate-400">&</span> {aboutData.titlePart2}
             </h2>
           </div>
-          <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.4em]">
-            {aboutData.tag}
-          </p>
+         
         </div>
 
         {/* The Grid */}

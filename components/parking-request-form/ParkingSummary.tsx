@@ -38,7 +38,7 @@ const ParkingSummary = ({ data, locale }: ParkingSummaryProps) => {
           <p className="text-[8px] font-black uppercase tracking-[0.4em] text-[#0c479a] mb-1">
             {labels.specs}
           </p>
-          <h2 className="text-xl font-black uppercase italic tracking-tight">
+          <h2 className="text-xl font-black uppercase   tracking-tight">
             {data.name}
           </h2>
         </div>
@@ -53,7 +53,7 @@ const ParkingSummary = ({ data, locale }: ParkingSummaryProps) => {
               <Info size={14} />
               <h4 className="text-[9px] font-black uppercase tracking-[0.3em]">{labels.description}</h4>
             </div>
-            <p className="text-[11px] font-bold text-slate-500 leading-relaxed uppercase tracking-wide border-l-2 border-slate-200 pl-4 rtl:border-l-0 rtl:border-r-2 rtl:pr-4 italic">
+            <p className="text-[11px] font-bold text-slate-500 leading-relaxed uppercase tracking-wide border-l-2 border-slate-200 pl-4 rtl:border-l-0 rtl:border-r-2 rtl:pr-4  ">
               {data.description}
             </p>
           </div>
@@ -67,7 +67,7 @@ const ParkingSummary = ({ data, locale }: ParkingSummaryProps) => {
               <h4 className="text-[8px] font-black uppercase tracking-[0.3em] text-slate-500 mb-2">
                 {labels.location}
               </h4>
-              <p className="text-[10px] font-black uppercase leading-tight tracking-tighter italic">
+              <p className="text-[10px] font-black uppercase leading-tight tracking-tighter  ">
                 {data.address}
               </p>
             </div>

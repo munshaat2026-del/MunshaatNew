@@ -15,7 +15,7 @@ function HeaderSection({success}:{success:boolean}) {
                 Account Recovery
               </p>
             </div>
-            <h1 className="text-3xl font-black uppercase italic tracking-tight text-slate-900">
+            <h1 className="text-3xl font-black uppercase   tracking-tight text-slate-900">
               {success ? "Link " : "Reset "}
               <span className="text-[#0c479a]">
                 {success ? "Sent." : "Password."}

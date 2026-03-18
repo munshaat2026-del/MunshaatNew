@@ -29,7 +29,7 @@ const [loading, setLoading] = useState(false);
         {showForgotPassword && (
           <Link
             href="/forgot-password"
-            className="text-[10px] font-black uppercase text-slate-400 hover:text-[#0c479a] transition-colors italic tracking-widest"
+            className="text-[10px] font-black uppercase text-slate-400 hover:text-[#0c479a] transition-colors   tracking-widest"
           >
             Forgot Password?
           </Link>
@@ -38,7 +38,7 @@ const [loading, setLoading] = useState(false);
         {showRegister && (
           <Link
             href="/register"
-            className="text-[10px] font-black uppercase text-[#0c479a] hover:underline transition-colors flex items-center gap-1 italic tracking-widest"
+            className="text-[10px] font-black uppercase text-[#0c479a] hover:underline transition-colors flex items-center gap-1   tracking-widest"
           >
             <UserPlus size={12} />
             Create Account
@@ -51,7 +51,7 @@ const [loading, setLoading] = useState(false);
           {/* Divider */}
           <div className="relative flex items-center">
             <div className="grow border-t border-slate-100"></div>
-            <span className="shrink mx-4 text-[9px] font-black text-slate-300 uppercase tracking-widest italic">
+            <span className="shrink mx-4 text-[9px] font-black text-slate-300 uppercase tracking-widest  ">
               or
             </span>
             <div className="grow border-t border-slate-100"></div>

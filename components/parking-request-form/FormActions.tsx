@@ -45,19 +45,14 @@ function FormActions({ locale }: Props) {
               <span>
                 {isArabic ? "تنفيذ تقديم الطلب" : "Execute Submission"}
               </span>
-              {isArabic && (
+          
                 <Send
                   size={18}
-                  className="transition-transform duration-500 group-hover:-translate-x-2 group-hover:-translate-y-1 rotate-270"
+                  className="transition-transform duration-500 group-hover:-translate-x-2 group-hover:-translate-y-1"
                 />
-              )}
+            
 
-              {!isArabic && (
-                <Send
-                  size={18}
-                  className="transition-transform duration-500 group-hover:translate-x-2 group-hover:-translate-y-1"
-                />
-              )}
+          
             </>
           )}
         </div>

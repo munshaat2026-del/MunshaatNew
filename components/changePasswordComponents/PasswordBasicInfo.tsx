@@ -27,7 +27,7 @@ function BasicInfo() {
 
         <div className="py-2 flex items-center gap-4">
           <div className="grow border-t border-slate-100"></div>
-          <span className="text-[9px] font-black text-slate-300 uppercase tracking-widest italic">
+          <span className="text-[9px] font-black text-slate-300 uppercase tracking-widest  ">
             New Credentials
           </span>
           <div className="grow border-t border-slate-100"></div>

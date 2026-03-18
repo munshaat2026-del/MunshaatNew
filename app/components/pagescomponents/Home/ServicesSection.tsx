@@ -9,6 +9,9 @@ import {
   ShieldCheck,
   Users,
   ArrowUpRight,
+  Store,
+  Settings,
+  FileText,
 } from "lucide-react";
 import { useLocale } from "next-intl";
 import { homedata } from "@/app/data/homedata";
@@ -22,7 +25,14 @@ export default function ServicesSection({ primaryColor }: ServicesSectionProps) 
   const data = homedata[locale].servicesSection;
   const isAr = locale === "ar";
 
-  const icons = [BarChart, Zap, Building2, Car, ShieldCheck, Users];
+  const icons = [
+  Store,        
+  Building2,   
+  Car,          
+  Settings,     
+  FileText,     
+  Users    
+];
 
   return (
     <section className="py-40 px-6 md:px-20 bg-white">
@@ -77,9 +87,7 @@ export default function ServicesSection({ primaryColor }: ServicesSectionProps) 
                 {item.d}
               </p>
 
-              <a href="#" className="inline-flex items-center gap-2 text-[9px] font-black uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                {data.explore} <ArrowUpRight size={14} className={isAr ? "rotate-[-90deg]" : ""} />
-              </a>
+             
             </div>
           )
         })}

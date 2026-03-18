@@ -40,7 +40,7 @@ export default function WhyUsSection({ primaryColor }: WhyUsSectionProps) {
                   className="w-12 h-12 shrink-0 border border-slate-100 flex items-center justify-center transition-all duration-500 group-hover:bg-slate-900 group-hover:text-white"
                   style={{ color: primaryColor }}
                 >
-                  <CheckCircle2 size={20} strokeWidth={1.5} />
+                  <CheckCircle2 className='no-flip' size={20} strokeWidth={1.5} />
                 </div>
                 <div className="space-y-2">
                   <h4 className="font-black text-[13px] uppercase tracking-widest text-slate-900">

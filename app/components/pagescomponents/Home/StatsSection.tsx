@@ -27,7 +27,7 @@ export default function StatsSection({ primaryColor }: StatsSectionProps) {
                 {data.analytics}
               </span>
            </div>
-           <span className="text-[8px] font-black text-slate-300 uppercase tracking-widest hidden md:block italic">
+           <span className="text-[8px] font-black text-slate-300 uppercase tracking-widest hidden md:block  ">
              {data.verified}
            </span>
         </div>
@@ -81,7 +81,7 @@ export default function StatsSection({ primaryColor }: StatsSectionProps) {
                 <span className="text-[7px] font-black text-slate-300 uppercase tracking-widest leading-none mb-1">
                   {data.tierLabel}
                 </span>
-                <span className="text-[9px] font-black text-[#0c479a] uppercase tracking-widest italic">
+                <span className="text-[9px] font-black text-[#0c479a] uppercase tracking-widest  ">
                   {data.tierValue}
                 </span>
             </div>

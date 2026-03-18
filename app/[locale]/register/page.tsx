@@ -71,7 +71,7 @@ export default function RegisterForm() {
           {/* Header */}
           <div className="mb-10">
           
-            <h1 className="text-4xl font-black uppercase italic tracking-tight text-slate-900">
+            <h1 className="text-4xl font-black uppercase  tracking-tight text-slate-900">
               Create <span className="text-[#0c479a]">Account.</span>
             </h1>
           </div>

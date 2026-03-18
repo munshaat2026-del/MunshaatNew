@@ -53,13 +53,7 @@ export default function MainTenderPage({ data, locale }: Props) {
               {t.status}
             </span>
           </div>
-          <Link
-            href={`/`}
-            className="text-sm font-bold flex items-center gap-2 hover:text-[#0c479a] transition-colors"
-          >
-            {isAr ? <ArrowRight size={18} /> : <ArrowLeft size={18} />}
-            {isAr ? "العودة" : "Back"}
-          </Link>
+       
         </div>
 
         {/* Title Section */}

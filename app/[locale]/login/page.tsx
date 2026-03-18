@@ -55,7 +55,7 @@ const Login = () => {
               <p className="text-[10px] font-black uppercase tracking-[0.4em] text-[#0c479a] mb-2">
                 Welcome Back
               </p>
-              <h1 className="text-4xl font-black uppercase italic tracking-tight text-slate-900">
+              <h1 className="text-4xl font-black uppercase  tracking-tight text-slate-900">
                 Log <span className="text-[#0c479a]">In.</span>
               </h1>
             </div>

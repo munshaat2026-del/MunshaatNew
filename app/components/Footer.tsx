@@ -70,7 +70,7 @@ export function Footer() {
                   href="#"
                   className="w-10 h-10 flex items-center justify-center border-r border-white/5 hover:bg-white hover:text-slate-950 transition-all last:border-r-0"
                 >
-                  <Icon size={16} />
+                  <Icon className="no-flip" size={16} />
                 </Link>
               ))}
             </div>
@@ -92,9 +92,8 @@ export function Footer() {
                     {item.name}
                     <ArrowUpRight
                       size={10}
-                      className={`opacity-0 group-hover:opacity-100 transition-all ${
-                        isAr ? "rotate-[-90deg]" : ""
-                      }`}
+                      className={`opacity-0 group-hover:opacity-100 transition-all 
+                      `}
                     />
                   </Link>
                 </li>
@@ -136,7 +135,7 @@ export function Footer() {
 
             <div className="space-y-4">
               <div className="flex items-start gap-3 group">
-                <MapPin size={16} className="text-slate-700 group-hover:text-white transition-colors shrink-0" />
+                <MapPin size={16} className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0" />
                 <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 leading-tight group-hover:text-slate-300">
                   King Abudlah Road
                   <br />
@@ -145,14 +144,14 @@ export function Footer() {
               </div>
 
               <div className="flex items-center gap-3 group">
-                <Phone size={16} className="text-slate-700 group-hover:text-white transition-colors shrink-0" />
+                <Phone size={16} className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0" />
                 <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
                   +966 11 000 0000
                 </span>
               </div>
 
               <div className="flex items-center gap-3 group">
-                <Mail size={16} className="text-slate-700 group-hover:text-white transition-colors shrink-0" />
+                <Mail size={16} className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0" />
                 <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
                   info@reeac.sa
                 </span>
@@ -162,8 +161,8 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="text-center pt-10 mt-10 border-t border-white/10">
-          <p className="text-sm text-white/80 break-words">
+        <div className="text-center  pt-10 mt-10 border-t border-white/10">
+          <p className="text-sm centert text-white/80 break-words">
             {isAr ? (
               <>
                 © {currentYear} REEAC. جميع الحقوق محفوظة. تم الإنشاء بواسطة{" "}

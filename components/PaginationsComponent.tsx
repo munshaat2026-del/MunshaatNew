@@ -130,8 +130,9 @@ export default function PaginationShadcn({
         onClick={prev}
         disabled={currentPage === 1}
         aria-label="Previous page"
+        
       >
-        <ChevronLeft className="h-4 w-4" />
+        <ChevronLeft className="h-4 w-4 no-flip" />
       </Button>
 
       {pages.map((p, idx) =>
@@ -160,7 +161,7 @@ export default function PaginationShadcn({
         disabled={currentPage === totalPages}
         aria-label="Next page"
       >
-        <ChevronRight className="h-4 w-4" />
+        <ChevronRight className="h-4 no-flip w-4" />
       </Button>
     </nav>
   );

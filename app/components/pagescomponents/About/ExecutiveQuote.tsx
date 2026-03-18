@@ -32,7 +32,7 @@ export default function ExecutiveQuote({ primaryColor }: ExecutiveQuoteProps) {
           </div>
           
           <div className="relative z-10 w-24 h-24 border border-white/20 flex items-center justify-center group hover:border-white transition-colors duration-700">
-            <Quote size={32} className={`transition-transform duration-500 group-hover:scale-110 ${isAr ? 'rotate-180' : ''}`} style={{ color: primaryColor }} />
+            <Quote size={32} className={`transition-transform no-flip duration-500 group-hover:scale-110 ${isAr ? 'rotate-180' : ''}`} style={{ color: primaryColor }} />
             {/* زوايا ديكورية حادة */}
             <div className={`absolute -top-2 ${isAr ? '-right-2' : '-left-2'} w-4 h-4 border-t ${isAr ? 'border-r' : 'border-l'} border-white/40`}></div>
             <div className={`absolute -bottom-2 ${isAr ? '-left-2' : '-right-2'} w-4 h-4 border-b ${isAr ? 'border-l' : 'border-r'} border-white/40`}></div>

@@ -18,7 +18,7 @@ export default function WarehouseCTA({ primaryColor }: WarehouseCTAProps) {
              <div className="w-12 h-[1px] bg-slate-200"></div>
           </div>
 
-          <h2 className="text-5xl md:text-8xl font-black uppercase tracking-[-0.05em] leading-[0.85] text-slate-900 italic">
+          <h2 className="text-5xl md:text-8xl font-black uppercase tracking-[-0.05em] leading-[0.85] text-slate-900  ">
             READY TO EXPAND <br />
             {/* تم تصحيح الخطأ هنا: استخدام camelCase للخاصية */}
             <span 

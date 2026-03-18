@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Warehouse, Building2, Truck, Layout, MoveUpRight } from 'lucide-react';
+import { Warehouse, Building2, Car, Layout, MoveUpRight } from 'lucide-react';
 import { useLocale } from "next-intl";
 import { homedata } from "@/app/data/homedata";
 import { useRouter } from 'next/navigation';
@@ -63,7 +63,7 @@ export default function ArabianPremiumEmpire() {
     return () => ctx.revert();
   }, [isAr]);
 
-  const icons = [Warehouse, Building2, Truck];
+  const icons = [Car,  Warehouse ,Building2];
 
   return (
     <div ref={containerRef} className="bg-white text-slate-900 overflow-x-hidden font-sans">
@@ -97,22 +97,22 @@ export default function ArabianPremiumEmpire() {
       </section>
 
       <section className="assembly-section relative h-screen bg-white flex items-center justify-center overflow-hidden border-y border-slate-100">
-        <div className="relative w-full mt-24 max-w-6xl h-[70vh]">
-          <div className="part-top absolute top-0 w-full h-[35%] z-30 overflow-hidden border-b-4 border-white shadow-2xl">
+        <div className="relative w-full mt-20 max-w-6xl h-[85vh]">
+          <div className="part-top absolute top-0 w-full h-[45%] z-30 overflow-hidden border-b-4 border-white shadow-2xl">
             <div className={`absolute top-0 ${isAr ? 'right-0' : 'left-0'} z-40 bg-black text-white px-6 py-2 text-[9px] font-black uppercase tracking-widest`}>
               {data.warehouseTitle}
             </div>
             <img src={header.src} className="w-full h-full object-cover" alt="Warehouse" />
           </div>
 
-          <div className={`part-left absolute bottom-0 ${isAr ? 'right-0' : 'left-0'} w-[49.8%] h-[64%] z-20 overflow-hidden border-white shadow-2xl ${isAr ? 'border-l-4' : 'border-r-4'}`}>
+          <div className={`part-left absolute bottom-0 ${isAr ? 'right-0' : 'left-0'} w-[49.8%] h-[54%] z-20 overflow-hidden border-white shadow-2xl ${isAr ? 'border-l-4' : 'border-r-4'}`}>
             <div className={`absolute bottom-0 ${isAr ? 'right-0' : 'left-0'} z-40 bg-[#0c479a] text-white px-6 py-2 text-[9px] font-black uppercase tracking-widest`}>
               {data.officeTitle}
             </div>
             <img src={alburg.src} className="w-full h-full object-cover" alt="Offices" />
           </div>
 
-          <div className={`part-right absolute bottom-0 ${isAr ? 'left-0' : 'right-0'} w-[49.8%] h-[64%] z-10 overflow-hidden shadow-2xl`}>
+          <div className={`part-right absolute bottom-0 ${isAr ? 'left-0' : 'right-0'} w-[49.8%] h-[54%] z-10 overflow-hidden shadow-2xl`}>
             <div className={`absolute bottom-0 ${isAr ? 'left-0' : 'right-0'} z-40 bg-slate-900 text-white px-6 py-2 text-[9px] font-black uppercase tracking-widest`}>
               {data.logisticsTitle}
             </div>

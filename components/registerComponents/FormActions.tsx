@@ -16,7 +16,7 @@ function FormActions() {
                 {isSubmitting ? (
                   <>
                     <Loader2 className="animate-spin" size={18} />
-                    <span className="italic">Creating Profile...</span>
+                    <span className=" ">Creating Profile...</span>
                   </>
                 ) : (
                   <>
