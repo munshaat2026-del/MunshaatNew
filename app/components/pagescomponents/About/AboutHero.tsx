@@ -3,6 +3,7 @@
 import React from 'react';
 import { useLocale } from "next-intl";
 import { aboutdata } from "@/app/data/aboutdata";
+import AboutImage from "@/public/aboutImage.jpeg"
 
 interface AboutHeroProps {
   primaryColor: string;
@@ -51,7 +52,7 @@ export default function AboutHero({ primaryColor }: AboutHeroProps) {
         <div className="flex-1 relative bg-slate-50 min-h-[500px]">
           <div className="absolute inset-0 overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069"
+              src={AboutImage.src}
               className="w-full h-full object-cover transition-all duration-1000 scale-105"
               alt="Corporate Environment"
             />

@@ -48,13 +48,7 @@ export default function OfficesHeader({ primaryColor, locale }: OfficesHeaderPro
         </div>
       </div>
 
-      {/* Coordinates & Status Overlay */}
-      <div className={`absolute bottom-12 ${isArabic ? "left-12":"right-12"} hidden lg:flex flex-col items-end gap-2 opacity-30`}>
-        <p className="text-[8px] font-black text-white uppercase tracking-[0.4em]">
-          {isArabic ? "المعايير البيئية" : "Environmental Standard"}
-        </p>
-       
-      </div>
+  
     </header>
   );
 }

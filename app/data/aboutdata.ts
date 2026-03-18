@@ -4,31 +4,32 @@ export const aboutdata = {
       tag: "Our Identity",
       titleLine1: "About",
       titleLine2: "Us.",
-      description: "Since our inception, REEAC has been at the forefront of facility operations, merging Saudi heritage with global technical standards.",
-      est: "EST. 2014 // HQ Amaan",
+      description:
+        "Al Munsha’at and Commercial Complexes Company is the real estate arm of the Jordanian Government, specializing in the management and investment of commercial and administrative assets in line with professional standards and national policies to maximize asset value and ensure long-term financial sustainability.",
+      est: "HQ Amman",
       overlayTag: "Institutional \n Standards",
-      precisionLabel: "Operational Precision"
+      precisionLabel: "Operational Precision",
     },
     coreValues: {
       tag: "Strategic DNA",
       titleLine1: "FOUNDATIONS OF",
       titleLine2: "EXCELLENCE.",
-      desc: "Architecting the future of asset management in Saudi Arabia.",
+      desc: "Architecting the future of asset management in Jordan.",
       protocol: "PROTOCOL_0",
       items: [
-        { 
-          t: "The Mission", 
-          d: "To manage and invest government-owned real estate assets in a professional and sustainable manner that balances economic returns with service quality while strengthening institutional governance.", 
+        {
+          t: "The Mission",
+          d: "To manage and invest government owned real estate assets in a professional and sustainable manner that balances economic returns with service quality while strengthening institutional governance.",
         },
-        { 
-          t: "The Vision", 
-          d: "To be the most efficient government real estate arm in managing and developing commercial and administrative complexes across the Kingdom.", 
+        {
+          t: "The Vision",
+          d: "To be the most efficient government real estate arm in managing and developing commercial and administrative complexes across the Kingdom.",
         },
-        { 
-          t: "Our Value", 
-          d: "Institutional, Governance, Transparency, Operational, Efficiency, Responsibility, Sustainability", 
+        {
+          t: "Our Value",
+          d: "Institutional Governance, Transparency, Operational Efficiency, Responsibility, Sustainability",
         },
-      ]
+      ],
     },
     /////////////////////////////////////
     portfolio: {
@@ -43,27 +44,27 @@ export const aboutdata = {
           id: "01",
           title: "SHABSOGH",
           subtitle: "OFFICE COMPLEX",
-          image: "https://images.squarespace-cdn.com/content/v1/5671433fc647ad9f55531f40/1531828884031-IKM5XB9CY03X6Z8TQH38/IMG_0405.JPG?format=2500w",
+          image:
+            "https://images.squarespace-cdn.com/content/v1/5671433fc647ad9f55531f40/1531828884031-IKM5XB9CY03X6Z8TQH38/IMG_0405.JPG?format=2500w",
           offset: "md:-translate-y-16",
         },
         {
           id: "02",
           title: "ALBURG",
           subtitle: "RETAIL BUILDING",
-          image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Tower_in_Amman%2C_Jordan.jpg/500px-Tower_in_Amman%2C_Jordan.jpg",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Tower_in_Amman%2C_Jordan.jpg/500px-Tower_in_Amman%2C_Jordan.jpg",
           offset: "md:translate-y-16",
-        }
-        ,
-   
-        
-      ]
+        },
+      ],
     },
     impact: {
       tag: "Performance Metrics",
       titleLine1: "OUR",
       titleLine2: "IMPACT.",
       heritageTag: "Institutional Heritage",
-      heritageDesc: "Established as a strategic response to the growing need for institutional-grade asset management in the Kingdom, we have evolved into a full-scale operational partner for Vision 2030 initiatives.",
+      heritageDesc:
+        "Established as a strategic response to the growing need for institutional-grade asset management in the Kingdom, we have evolved into a full-scale operational partner for Vision 2030 initiatives.",
       cta: "Download Company Profile",
       fileInfo: "* PDF Format // 12.4 MB Revision 2026",
       stats: [
@@ -71,7 +72,7 @@ export const aboutdata = {
         ["200+", "Expert Staff"],
         ["500k", "Square Meters"],
         ["15+", "Prime Assets"],
-      ]
+      ],
     },
     //////////////////////////////////////
     quoteSection: {
@@ -84,7 +85,7 @@ export const aboutdata = {
       signature: "The Board of Directors",
       subSignature: "REEAC Operations Group // Amman HQ",
       stamp: "Operational \n Excellence \n Verified 2026",
-      bgText: "REEAC"
+      bgText: "REEAC",
     },
     ////////////////////////////////
     teamSection: {
@@ -96,101 +97,103 @@ export const aboutdata = {
         { name: "Sarah Johnson", role: "Operations Head" },
         { name: "Khalid Mansour", role: "Technical Lead" },
         { name: "Omar Bakri", role: "Strategy Director" },
-      ]
+      ],
     },
     /////////////////////////////////////////////////////////
-        contact:{
-       header: {
-      tag: "Direct Communication",
-      title1: "LET'S",
-      title2: "CONNECT."
-    },
-
-    headquarters: {
-      title1: "Operational",
-      title2: "Headquarters"
-    },
-
-    info: [
-      {
-        key: "address",
-        label: "Amman Office",
-        value: "KAFD, Tower 4, Amman, Jordan"
-      },
-      {
-        key: "phone",
-        label: "Direct Line",
-        value: "+966 11 234 5678"
-      },
-      {
-        key: "email",
-        label: "Official Inquiry",
-        value: "ops@royalmanage.sa"
-      }
-    ],
-
-    hours: {
-      title: "Operating Hours",
-      rows: [
-        { day: "Sun - Thu", time: "08:00 - 18:00" },
-        { day: "Friday", time: "Closed", alert: true },
-        { day: "Saturday", time: "Support Only" }
-      ]
-    },
-
-    form: {
-      fullName: "Full Name",
-      company: "Company",
-      email: "Business Email",
-      subject: "Subject",
-      message: "Message Protocol",
-      submit: "Submit Protocol",
-
-      placeholders: {
-        name: "IDENTITY",
-        company: "ORGANIZATION",
-        email: "OFFICIAL EMAIL"
+    contact: {
+      header: {
+        tag: "Direct Communication",
+        title1: "LET'S",
+        title2: "CONNECT.",
       },
 
-      departments: [
-        "ASSET MANAGEMENT",
-        "LEASING INQUIRIES",
-        "PARKING SERVICES"
-      ]
-    },
+      headquarters: {
+        title1: "Operational",
+        title2: "Headquarters",
+      },
 
-    globalPresence: "Global Presence"}
+      info: [
+        {
+          key: "address",
+          label: "Address",
+          value: "KAFD, Tower 4, Amman, Jordan",
+        },
+        {
+          key: "phone",
+          label: "Phone Number",
+          value: "+966 11 234 5678",
+        },
+        {
+          key: "email",
+          label: "Email",
+          value: "ops@royalmanage.sa",
+        },
+      ],
+
+      hours: {
+        title: "Operating Hours",
+        rows: [
+          { day: "Sun - Thu", time: "08:00 - 18:00" },
+          { day: "Friday", time: "Closed", alert: true },
+          { day: "Saturday", time: "Support Only" },
+        ],
+      },
+
+      form: {
+        fullName: "Full Name",
+        company: "Company",
+        email: "Business Email",
+        subject: "Subject",
+        message: "Message Protocol",
+        submit: "Send Email",
+
+        placeholders: {
+          name: "IDENTITY",
+          company: "ORGANIZATION",
+          email: "OFFICIAL EMAIL",
+        },
+
+        departments: [
+          "ASSET MANAGEMENT",
+          "LEASING INQUIRIES",
+          "PARKING SERVICES",
+        ],
+      },
+
+      globalPresence: "Global Presence",
+    },
   },
   ar: {
     aboutHero: {
       tag: "هويتنا",
       titleLine1: "من",
       titleLine2: "نحن",
-      description: "منذ انطلاقتنا، كانت REEAC في طليعة عمليات إدارة المرافق، حيث دمجت التراث السعودي مع المعايير التقنية العالمية.",
-      est: "تأسست 2014 // المقر الرئيسي عمان",
+      description:
+        "تُعد شركة المنشآت والمجمعات العقارية الذراع العقاري للحكومة الأردنية، حيث تختص بإدارة واستثمار الأصول العقارية ذات الطابع التجاري والإداري وفق أسس مهنية ومؤسسية، وبما ينسجم مع السياسات الوطنية لتعظيم قيمة الأصول وتحقيق الاستدامة المالية.",
+      est: " المقر الرئيسي عمان",
       overlayTag: "معايير \n مؤسسية",
-      precisionLabel: "الدقة التشغيلية"
+      precisionLabel: "الدقة التشغيلية",
     },
     coreValues: {
       tag: "الحمض النووي الاستراتيجي",
       titleLine1: "أسس",
       titleLine2: "التميز.",
-      desc: "بناء مستقبل إدارة الأصول في المملكة العربية السعودية.",
+      desc: "بناء مستقبل إدارة الأصول في المملكة الأردنية الهاشمية.",
       protocol: "بروتوكول_0",
       items: [
-        { 
-          t: "المهمة", 
-          d: "إدارة واستثمار الأصول العقارية المملوكة للحكومة بطريقة احترافية ومستدامة، تحقق التوازن بين العوائد الاقتصادية وجودة الخدمات، مع تعزيز الحوكمة المؤسسية.", 
+        {
+          t: "الرسالة",
+          d: `إدارة واﺳﺘﺜﻤﺎر اﻷﺻﻮل اﻟﻌﻘﺎرﻳﺔ اﻟﺤﻜﻮﻣﻴﺔ ﺑﺄﺳﻠﻮب اﺣﺘﺮاﻓﻲ وﻣﺴﺘﺪام، ﻳﺤﻘﻖ اﻟﺘﻮازن ﺑﻴﻦ اﻟﻌﺎﺋﺪ اﻻﻗﺘﺼﺎدي وﺟﻮدة اﻟﺨﺪﻣﺎت، وﻳﻌﺰز ﻣﺒﺎدئ اﻟﺤﻮﻛﻤﺔ اﻟﻤﺆﺳﺴﻴﺔ.`,
         },
-        { 
-          t: "الرؤية", 
-          d: "أن تكون الذراع الحكومي الأكثر كفاءة في إدارة وتطوير المجمعات التجارية والإدارية في مختلف أنحاء المملكة.", 
+        {
+          t: "الرؤية",
+          d: `أن ﺗﻜﻮن اﻟﺸﺮﻛﺔ اﻟﺬراع اﻟﻌﻘﺎري اﻟﺤﻜﻮﻣﻲ اﻷﻛﺜﺮ ﻛﻔﺎءة ﻓﻲ إدارة وﺗﻄﻮﻳﺮ اﻟﻤﺠﻤﻌﺎت اﻟﺘﺠﺎرﻳﺔ واﻹدارﻳﺔ ﻋﻠﻰ ﻣﺴﺘﻮى اﻟﻤﻤﻠﻜﺔ.`,
         },
-        { 
-          t: "القيم", 
-          d: "مؤسسية، حوكمة، شفافية، تشغيلية، كفاءة، مسؤولية، استدامة.", 
+        {
+          t: "القيم",
+          d: "مؤسسية، اﻟﺤﻮﻛﻤﺔ اﻟﻤﺆﺳﺴﻴﺔ، شفافية، اﻟﻜﻔﺎءة اﻟﺘﺸﻐﻴﻠية، استدامة.",
         },
-      ]
+      ],
     },
     ///////////////////////////////////////////
     portfolio: {
@@ -205,25 +208,27 @@ export const aboutdata = {
           id: "01",
           title: "شابسوغ",
           subtitle: "مجمع مكاتب",
-          image: "https://images.squarespace-cdn.com/content/v1/5671433fc647ad9f55531f40/1531828884031-IKM5XB9CY03X6Z8TQH38/IMG_0405.JPG?format=2500w",
+          image:
+            "https://images.squarespace-cdn.com/content/v1/5671433fc647ad9f55531f40/1531828884031-IKM5XB9CY03X6Z8TQH38/IMG_0405.JPG?format=2500w",
           offset: "md:-translate-y-16",
         },
         {
           id: "02",
           title: "البرج",
           subtitle: "مبنى تجاري",
-          image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Tower_in_Amman%2C_Jordan.jpg/500px-Tower_in_Amman%2C_Jordan.jpg",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Tower_in_Amman%2C_Jordan.jpg/500px-Tower_in_Amman%2C_Jordan.jpg",
           offset: "md:translate-y-16",
-        }
-    
-      ]
+        },
+      ],
     },
     impact: {
       tag: "مقاييس الأداء",
       titleLine1: "أثرنا",
       titleLine2: "الملموس.",
       heritageTag: "الإرث المؤسسي",
-      heritageDesc: "تأسست REEAC كاستجابة استراتيجية للحاجة المتزايدة لإدارة الأصول على مستوى مؤسسي في المملكة، وتطورنا لنصبح شريكاً تشغيلياً كاملاً لمبادرات رؤية 2030.",
+      heritageDesc:
+        "تأسست REEAC كاستجابة استراتيجية للحاجة المتزايدة لإدارة الأصول على مستوى مؤسسي في المملكة، وتطورنا لنصبح شريكاً تشغيلياً كاملاً لمبادرات رؤية 2030.",
       cta: "تحميل ملف الشركة",
       fileInfo: "* صيغة PDF // ١٢.٤ ميجابايت تحديث ٢٠٢٦",
       stats: [
@@ -231,7 +236,7 @@ export const aboutdata = {
         ["+٢٠٠", "خبير مختص"],
         ["٥٠٠ ألف", "متر مربع"],
         ["+١٥", "أصل عقاري"],
-      ]
+      ],
     },
     ////////////////////////////////////////////////
     quoteSection: {
@@ -244,7 +249,7 @@ export const aboutdata = {
       signature: "مجلس الإدارة",
       subSignature: "مجموعة REEAC التشغيلية // المقر الرئيسي عمان",
       stamp: "التميز \n التشغيلي \n معتمد 2026",
-      bgText: "رياك"
+      bgText: "رياك",
     },
     /////////////////////////////////////////
     teamSection: {
@@ -256,70 +261,66 @@ export const aboutdata = {
         { name: "سارة جونسون", role: "رئيسة العمليات" },
         { name: "خالد منصور", role: "القائد التقني" },
         { name: "عمر بكري", role: "مدير الاستراتيجية" },
-      ]
+      ],
     },
     ///////////////////////////////////////////////////////
-    contact:{
-    header: {
-      tag: "اتصال مباشر",
-      title1: "دعنا",
-      title2: "نتواصل"
-    },
-
-    headquarters: {
-      title1: "المقر",
-      title2: "العملياتي"
-    },
-
-    info: [
-      {
-        key: "address",
-        label: "مكتب عمان",
-        value: "مركز الملك عبدالله المالي، عمان"
-      },
-      {
-        key: "phone",
-        label: "الخط المباشر",
-        value: "+966 11 234 5678"
-      },
-      {
-        key: "email",
-        label: "الاستفسارات الرسمية",
-        value: "ops@royalmanage.sa"
-      }
-    ],
-
-    hours: {
-      title: "ساعات العمل",
-      rows: [
-        { day: "الأحد - الخميس", time: "08:00 - 18:00" },
-        { day: "الجمعة", time: "مغلق", alert: true },
-        { day: "السبت", time: "دعم فقط" }
-      ]
-    },
-
-    form: {
-      fullName: "الاسم الكامل",
-      company: "الشركة",
-      email: "البريد الإلكتروني",
-      subject: "الموضوع",
-      message: "نص الرسالة",
-      submit: "إرسال البيانات",
-
-      placeholders: {
-        name: "الاسم",
-        company: "المنشأة",
-        email: "البريد الرسمي"
+    contact: {
+      header: {
+        tag: "اتصال مباشر",
+        title1: "دعنا",
+        title2: "نتواصل",
       },
 
-      departments: [
-        "إدارة الأصول",
-        "استفسارات التأجير",
-        "خدمات المواقف"
-      ]
-    },
+      headquarters: {
+        title1: "المقر",
+        title2: "العملياتي",
+      },
 
-    globalPresence: "التواجد العالمي"
-  }
-  }
+      info: [
+        {
+          key: "address",
+          label: "العنوان",
+          value: "مركز الملك عبدالله المالي، عمان",
+        },
+        {
+          key: "phone",
+          label:"رقم الهاتف",
+          value: "+966 11 234 5678",
+        },
+        {
+          key: "email",
+          label: "البريد الإلكتروني",
+          value: "ops@royalmanage.sa",
+        },
+      ],
+
+      hours: {
+        title: "ساعات العمل",
+        rows: [
+          { day: "الأحد - الخميس", time: "08:00 - 18:00" },
+          { day: "الجمعة", time: "مغلق", alert: true },
+          { day: "السبت", time: "دعم فقط" },
+        ],
+      },
+
+      form: {
+        fullName: "الاسم الكامل",
+        company: "الشركة",
+        email: "البريد الإلكتروني",
+        subject: "الموضوع",
+        message: "نص الرسالة",
+        submit: "إرسال البريد",
+
+        placeholders: {
+          name: "الاسم",
+          company: "المنشأة",
+          email: "البريد الرسمي",
+        },
+
+        departments: ["إدارة الأصول", "استفسارات التأجير", "خدمات المواقف"],
+      },
+
+      globalPresence: "التواجد العالمي",
+    },
+  },
 };

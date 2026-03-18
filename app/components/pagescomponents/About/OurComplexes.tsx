@@ -54,22 +54,23 @@ export default function RoyalOffsetHero({ complexdata }: Props) {
         <div className="flex items-center gap-3">
           <div className="w-12 h-[2px] bg-[#0c479a]"></div>
           <span className="text-[10px] font-black uppercase tracking-[0.5em] text-[#0c479a]">
-            {isAr ? "محفظة الأصول" : "Asset Portfolio"}
+            {isAr ? "اﻟﻤﻠﻜﻴﺔ اﻟﻌﻘﺎرﻳﺔ" : "Real Estate Ownership"}
           </span>
         </div>
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none text-slate-900">
-            {isAr ? "مجمعاتنا" : "Our"} <br />
-            <span className=" text-[#0c479a] ">
-               {isAr ? "الصناعية" : "Complexes"}
-            </span>
-          </h2>
-          <p className="max-w-xs text-[11px] font-bold uppercase tracking-tight text-slate-400 leading-relaxed border-l-2 border-slate-100 pl-4">
-            {isAr 
-              ? "نخبة من المرافق اللوجستية المصممة لتعزيز الكفاءة التشغيلية والنمو الصناعي المستدام." 
-              : "A curated selection of logistics facilities engineered for operational excellence and sustainable industrial growth."}
-          </p>
-        </div>
+         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none text-slate-900">
+      {isAr ? "مجمعاتنا" : "Our"} <br />
+      <span className=" text-[#0c479a] ">
+        {isAr ? "العقارية" : "Complexes"}
+      </span>
+    </h2>
+
+    <p className="max-w-xs text-[11px] font-bold uppercase tracking-tight text-slate-400 leading-relaxed border-l-2 border-slate-100 pl-4">
+      {isAr
+        ? "تمتلك الشركة عددًا من المجمعات العقارية في العاصمة عمّان، من أبرزها مجمع البرج ومجمع الشابسوغ، والتي تُدار وفق أعلى المعايير المهنية."
+        : "The company owns a number of real estate complexes in Amman, including Al Burj Complex and Al Shabsough Complex, managed according to the highest professional standards."}
+    </p>
+  </div>
       </div>
 
       {/* Cards Container */}

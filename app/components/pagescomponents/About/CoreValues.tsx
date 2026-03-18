@@ -25,14 +25,9 @@ export default function CoreValues({ primaryColor }: CoreValuesProps) {
     <section className="py-40 px-6 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto">
         
-        <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="mb-20 flex flex-col md:flex-row md:items-end justify-start gap-8">
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-[1px] bg-[#0c479a]"></div>
-              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400">
-                {data.tag}
-              </span>
-            </div>
+           
             <h2 className="text-5xl md:text-6xl font-black tracking-tighter text-slate-900 uppercase leading-[0.9]">
               {data.titleLine1} <br />
               <span className="text-[#0c479a]">

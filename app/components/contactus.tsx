@@ -92,11 +92,7 @@ export default function ContactSection({ locale, action }: Props) {
               className={`lg:col-span-5 border-slate-100 ${isAr ? "lg:border-l" : "lg:border-r"}`}
             >
               <div className="p-8 md:p-12 space-y-12">
-                <h3 className="text-2xl font-black uppercase tracking-tighter leading-tight">
-                  {data.headquarters.title1} <br />
-                  {data.headquarters.title2}
-                </h3>
-
+                
                 <div className="space-y-8">
                   {data.info.map((item, i) => {
                     const Icon = iconMap[item.key];

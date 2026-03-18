@@ -55,7 +55,7 @@ export default function TeamPreview({ primaryColor ,locale,data }: TeamPreviewPr
                 <h4 className="text-lg font-black text-slate-900 uppercase tracking-tight">
                   {member.name}
                 </h4>
-                <div className={`flex items-center gap-2 mt-1 ${isAr ? 'flex-row-reverse' : ''}`}>
+                <div className={`flex items-center gap-2 mt-1 `}>
                   <div className="w-4 h-[2px]" style={{ backgroundColor: primaryColor }}></div>
                   <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">
                     {member.position}

@@ -48,15 +48,7 @@ export default function DepotsHeader({ primaryColor, locale }: DepotsHeaderProps
         </div>
       </div>
 
-      {/* Coordinates & Status Overlay */}
-      <div className={`absolute bottom-12 ${isArabic ? "left-12 text-left" : "right-12 text-right"} hidden lg:flex flex-col gap-2 opacity-30`}>
-        <p className="text-[8px] font-black text-white uppercase tracking-[0.4em]">
-          {isArabic ? "المعايير اللوجستية" : "Logistics Standard"}
-        </p>
-        <p className="text-[8px] font-black text-white uppercase tracking-[0.4em]">
-          {isArabic ? "بروتوكول إدارة المستودعات" : "Warehouse Management Protocol"}
-        </p>
-      </div>
+    
     </header>
   );
 }
