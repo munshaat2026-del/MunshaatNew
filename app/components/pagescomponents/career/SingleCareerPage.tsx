@@ -84,7 +84,7 @@ export default function SingleJobPage({ locale, job }: Props) {
               <div className="flex items-center gap-3">
                 <FileText size={16} className="text-[#0c479a]" />
                 <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
-                  01. {isArabic ? "عن الوظيفة" : "Job Overview"}
+                  {isArabic ? "عن الوظيفة" : "Job Overview"}
                 </h3>
               </div>
               <p className="text-lg md:text-xl text-slate-700 leading-relaxed font-semibold">
@@ -94,12 +94,7 @@ export default function SingleJobPage({ locale, job }: Props) {
 
             {/* Requirements Section */}
             <section className="bg-slate-900 text-white p-8 md:p-12 relative overflow-hidden rounded-sm">
-              <div className={cn(
-                "absolute top-0 w-12 h-12 bg-[#0c479a] flex items-center justify-center",
-                isArabic ? "left-0" : "right-0"
-              )}>
-                <Plus size={20} />
-              </div>
+       
 
               <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-500 mb-10">
                 02. {isArabic ? "المتطلبات" : "Requirements"}
@@ -124,8 +119,8 @@ export default function SingleJobPage({ locale, job }: Props) {
           </div>
 
           {/* 4. Sidebar */}
-          <aside className="lg:col-span-5 lg:sticky lg:top-32">
-             <ApplyNowButton locale={locale} careerId={job.id}/>
+          <aside className="lg:col-span-5  lg:sticky lg:top-32">
+             <ApplyNowButton  locale={locale} careerId={job.id}/>
 
           </aside>
          

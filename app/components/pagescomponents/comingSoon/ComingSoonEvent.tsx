@@ -17,7 +17,6 @@ function ComingSoonEvent({ locale, data }: { locale: Locale, data: TranslatedCom
   };
 
   const content = {
-    subtitle: isAr ? "تحديث المنصة | تحت الإنشاء" : "Platform Update | Under Construction",
     targetDate: isAr ? "تاريخ الإطلاق المتوقع" : "Target Launch Date",
     completion: isAr ? "معدل الإنجاز" : "Completion Rate"
   };  
@@ -34,10 +33,7 @@ function ComingSoonEvent({ locale, data }: { locale: Locale, data: TranslatedCom
           <div className="space-y-10">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <span className="w-6 h-0.5 bg-[#0c479a]"></span>
-                <span className="text-[#0c479a] text-[10px] font-bold uppercase tracking-[0.3em]">
-                  {content.subtitle}
-                </span>
+               
               </div>
               <h1 className="text-4xl md:text-5xl font-black text-slate-900 leading-[1.05] tracking-tighter uppercase">
                 {data.title}
@@ -55,7 +51,7 @@ function ComingSoonEvent({ locale, data }: { locale: Locale, data: TranslatedCom
                 {/* Completion Metric */}
                 <div className="bg-slate-50 p-6 space-y-3">
                   <div className="flex items-center gap-2">
-                    <BarChart3 size={14} className="text-[#0c479a]" />
+                    <BarChart3 size={14} className="text-[#0c479a] no-flip" />
                     <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">
                        {content.completion}
                     </span>
@@ -69,7 +65,7 @@ function ComingSoonEvent({ locale, data }: { locale: Locale, data: TranslatedCom
                 {isFutureDate && (
                   <div className="bg-slate-50 p-6 space-y-3 border-s border-slate-200 lg:border-s-0">
                     <div className="flex items-center gap-2">
-                      <CalendarDays size={14} className="text-[#0c479a]" />
+                      <CalendarDays size={14} className="text-[#0c479a] no-flip" />
                       <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">
                          {content.targetDate}
                       </span>
@@ -89,12 +85,7 @@ function ComingSoonEvent({ locale, data }: { locale: Locale, data: TranslatedCom
                 />
               </div>
               
-              <div className="flex items-center gap-2 pt-4">
-                <Milestone size={12} className="text-slate-300" />
-                <span className="text-[8px] font-bold text-slate-300 uppercase tracking-[0.2em]">
-                  {isAr ? "نشر العمليات المجدولة: نشط" : "Scheduled Ops Deployment: Active"}
-                </span>
-              </div>
+          
             </div>
           </div>
         </div>

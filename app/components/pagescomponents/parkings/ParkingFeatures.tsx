@@ -36,11 +36,7 @@ export default function ParkingFeatures({ primaryColor }: ParkingFeaturesProps) 
               key={i} 
               className={`group p-10 border-b border-slate-100 hover:bg-slate-50 transition-all duration-500 relative overflow-hidden ${isAr ? 'border-l' : 'border-r'}`}
             >
-              {/* Index Number */}
-              <span className={`absolute top-6 ${isAr ? 'left-6' : 'right-6'} text-[8px] font-black text-slate-200 group-hover:text-slate-400 transition-colors uppercase tracking-widest`}>
-                {data.sysPrefix}{i + 1}
-              </span>
-
+         
               <div className="space-y-8 relative z-10">
                 {/* Icon */}
                 <div
