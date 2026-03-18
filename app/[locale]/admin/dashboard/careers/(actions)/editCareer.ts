@@ -2,11 +2,11 @@
 
 import { authOptions } from "@/app/auth/authoptions";
 import { updateCareer } from "@/app/server/careers/services";
-import {  NewCareer } from "@/types";
+import {  CareersUpdateInput } from "@/types";
 import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
 
-export const editCareerAction = async (data: Partial<NewCareer>,id:string) => {
+export const editCareerAction = async (data: CareersUpdateInput,id:string) => {
   const session = await getServerSession(authOptions);
   try {
     if (!session)
