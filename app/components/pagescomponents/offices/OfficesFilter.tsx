@@ -13,6 +13,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { Locale } from "@/types";
+import { Button1 } from "@/components/ui/Button1";
 
 export default function OfficeFilterSidebar({ locale }: { locale: Locale }) {
   const isArabic = locale === "ar";
@@ -184,13 +185,13 @@ export default function OfficeFilterSidebar({ locale }: { locale: Locale }) {
 
           {/* Action Footer */}
           <div className="p-4 border-t border-slate-100 bg-white space-y-2">
-            <button
+            <Button1
               onClick={updateParams}
-              className="w-full py-2.5 bg-[#0c479a] text-white text-xs font-bold rounded flex items-center justify-center gap-2 hover:bg-[#083575] transition-colors"
+              className="w-full py-2.5 text-xs font-bold rounded flex items-center justify-center gap-2"
             >
               <Search size={14} />
               {isArabic ? "تطبيق الفلاتر" : "Apply Filters"}
-            </button>
+            </Button1>
             <button
               onClick={clearAll}
               className="w-full py-2 text-[11px] font-medium text-slate-400 hover:text-slate-600 transition-colors flex items-center justify-center gap-1"

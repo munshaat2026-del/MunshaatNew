@@ -1,3 +1,4 @@
+import { Button1 } from "@/components/ui/Button1";
 import { Locale } from "@/types";
 import { ArrowLeft, ArrowRight, ShieldCheck } from "lucide-react";
 import Link from "next/link";
@@ -23,12 +24,12 @@ function ApplyNowButton({ locale,careerId }: { locale: Locale,careerId:string })
               : "Our HR team will review your application and get back to you as soon as possible."}
           </p>
 
-          <button className="w-full bg-slate-900 text-white py-5 flex items-center justify-center gap-3 group hover:bg-[#0c479a] transition-all duration-300">
+          <Button1 className="w-full  py-5 flex items-center justify-center gap-3 group ">
             <span className="font-bold uppercase text-[11px] tracking-[0.2em]">
               {isArabic ? "قدم الآن" : "Apply Now"}
             </span>
        <ArrowRight  size={16} /> 
-          </button>
+          </Button1>
 
           <div className="mt-8 pt-6 border-t border-slate-100 flex items-center gap-4 text-slate-400">
             <ShieldCheck size={20} className="no-flip" />

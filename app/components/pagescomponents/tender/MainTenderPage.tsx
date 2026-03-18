@@ -114,7 +114,7 @@ export default function MainTenderPage({ data, locale }: Props) {
               <a
                 href={data.pdf_file ?? ""}
                 download
-                className="flex items-center justify-between w-full bg-slate-900 text-white px-6 py-4 font-black uppercase text-[11px] tracking-widest hover:bg-[#0c479a] transition-all"
+                className="flex items-center justify-between w-full bg-[#0c479a]  text-white px-6 py-4 font-black uppercase text-[11px] tracking-widest hover:bg-slate-900 duration-300 transition-all"
               >
                 {t.cta}
                 <Download size={16} />

@@ -4,6 +4,7 @@ import { ArrowUpRight, BarChart } from 'lucide-react';
 import { useLocale } from "next-intl";
 import Link from 'next/link';
 import type { translatedParkingsGetPayload } from "@/types/index";
+import { Button1 } from '@/components/ui/Button1';
 
 interface Props {
   complexdata: translatedParkingsGetPayload[];
@@ -127,10 +128,10 @@ export default function RoyalOffsetHero({ complexdata }: Props) {
                     </div>
                     
                     <Link href={`/about/${item.slug}`}>
-                      <button className="flex items-center gap-3 bg-white text-slate-900 px-6 py-3 font-black text-[9px] uppercase tracking-[0.3em] hover:bg-[#0c479a] hover:text-white transition-all duration-500">
+                      <Button1 className="flex items-center gap-3  px-6 py-3 font-black text-[9px] border-[#0c479a] uppercase tracking-[0.3em] hover:bg-[#0c479a] hover:text-white transition-all duration-500">
                         {isAr ? "عرض التفاصيل" : "see more"} 
                         <ArrowUpRight size={14}  />
-                      </button>
+                      </Button1>
                     </Link>
                   </div>
                 </div>

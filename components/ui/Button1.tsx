@@ -15,7 +15,7 @@ export function Button1({
   className={`
     group relative px-8 py-3 text-xs font-black uppercase tracking-[0.2em]
     rounded-sm bg-[#0c479a] text-white border-2 border-[#0c479a]
-    overflow-hidden transition-all duration-300 active:scale-95
+    overflow-hidden transition-all duration-500 active:scale-95
 
     hover:bg-[#0c479a]
 
