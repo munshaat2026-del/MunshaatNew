@@ -2,7 +2,7 @@ import { getAllApplicationsByFilters } from "@/app/server/applications/services"
 import { deleteApplicationAction } from "../(actions)/deleteApplication";
 import { ApplicationColumns } from "@/components/columns/application-columns";
 import { Card, CardContent } from "@/components/ui/card";
-import { FolderOpen } from "lucide-react";
+import { FolderOpen, Info } from "lucide-react";
 import { getCareerNameAndIdById } from "@/app/server/careers/services";
 import ApplicationsFilter from "@/components/applications/ApplicationsFilter";
 import { CareerApplicationsDataTable } from "@/components/CareerApplicationTable";
@@ -45,9 +45,11 @@ async function Page({ params, searchParams }: Props) {
 
   return (
     <div className="flex flex-col justify-start items-start ml-5 md:ml-7 w-[88vw] md:w-[68vw] xl:w-[80vw]">
-      <h1 className="text-2xl font-semibold mb-4 border-b p-1 w-full">
+      <h1 className="text-2xl font-semibold mb-4 border-b p-1 w-full text-gray-600">
         Applications On {careerDetails.position_en}
       </h1>
+     
+     
 
       <ApplicationsFilter
         initialCity={searchParamsData.city ?? ""}
@@ -81,6 +83,17 @@ async function Page({ params, searchParams }: Props) {
           careerName={careerDetails.position_en}
         />
       )}
+      <div className=" w-full lg:w-[95%] mb-4 mx-auto">
+  <div className="flex items-start gap-3 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 shadow-sm">
+    <Info className="w-5 h-5 text-blue-600 mt-0.5" />
+    
+    <div className="flex flex-col ">
+      <span className="text-xs lg:text-sm text-blue-700">
+        All applications are automatically deleted 45 days after submission.
+      </span>
+    </div>
+  </div>
+</div>
     </div>
   );
 }

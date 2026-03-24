@@ -43,7 +43,7 @@ export default function ApplicationDetailsClient({ applicationDetails, markAppli
         loading={loading} 
       />
 
-      <main className="max-w-7xl mx-auto px-4 mt-8">
+      <main className="max-w-7xl mx-auto px-2 mt-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left: Sidebar */}
           <div className="lg:col-span-4">

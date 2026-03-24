@@ -5,23 +5,64 @@ export default function ApplicationInfoGrid({ application }: { application: any 
   const formatDate = (date: any) => 
     date ? new Date(date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) : "Not Specified";
 
+  const deletionDate = new Date(application.applied_at);
+deletionDate.setDate(deletionDate.getDate() + 45);
+
   return (
-    <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-10">
+    <div className="bg-white rounded-3xl shadow-sm border border-slate-200 py-10 px-4 lg:px-10">
       {/* Header Info */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-8 border-b border-slate-100">
-        <div>
-          <h1 className="text-3xl lg:text-5xl font-black text-slate-900 tracking-tight uppercase mb-2">
-            {application.full_name}
-          </h1>
-          <p className="text-slate-400 font-bold text-sm tracking-wide">
-            Candidate ID: <span className="text-slate-900">{application.id?.substring(0, 8).toUpperCase()}</span>
-          </p>
-        </div>
-        <div className="text-left md:text-right">
-          <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-1">Application Date</p>
-          <p className="text-sm font-black text-slate-900">{formatDate(application.applied_at)}</p>
-        </div>
+    <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-12 pb-10 border-b border-slate-100">
+  {/* 🆔 Left Side: Identity & Status */}
+  <div className="space-y-4">
+    <div className="flex flex-wrap items-center gap-4">
+      <h1 className="text-2xl lg:text-5xl font-black text-slate-900 tracking-tight uppercase">
+        {application.full_name}
+      </h1>
+      {/* Visual Status Badge - Industrial Style */}
+      <span className="px-3 py-1 bg-slate-900 text-white text-[10px] font-black uppercase tracking-[0.2em] self-center">
+        Active
+      </span>
+    </div>
+
+    <div className="flex items-center gap-6">
+      <p className="text-slate-400 font-bold text-[11px] uppercase tracking-widest flex items-center gap-2">
+        <span className="w-2 h-2 bg-[#0c479a]" /> {/* Small industrial accent */}
+        Candidate ID:{" "}
+        <span className="text-slate-900 font-black">
+          {application.id?.substring(0, 8).toUpperCase()}
+        </span>
+      </p>
+    </div>
+  </div>
+
+  {/* 🗓️ Right Side: Process Timeline */}
+  <div className="grid grid-cols-2 md:flex md:flex-col gap-6 md:gap-4 md:items-end border-t md:border-t-0 pt-6 md:pt-0 border-slate-50">
+    
+    {/* Application Date - Clean Metadata */}
+    <div className="md:text-right group">
+      <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-1 group-hover:text-slate-600 transition-colors">
+        Applied Date
+      </p>
+      <p className="text-sm font-black text-slate-900 font-mono">
+        {formatDate(application.applied_at)}
+      </p>
+    </div>
+
+    {/* Deletion Date - Styled as a "Warning/Expiration" */}
+    <div className="md:text-right group">
+      <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-1 group-hover:text-slate-600 transition-colors">
+        Deletion Date
+      </p>
+      <div className="flex items-center  gap-2">
+         {/* Subtle warning dot */}
+        <p className="text-sm font-black text-red-600 font-mono">
+          {formatDate(deletionDate)}
+        </p>
       </div>
+    </div>
+
+  </div>
+</div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
         {/* PERSONAL SECTION */}
@@ -44,7 +85,7 @@ export default function ApplicationInfoGrid({ application }: { application: any 
       </div>
 
       {/* CV Preview Section */}
-      <div className="mt-16 bg-slate-50 rounded-3xl border border-slate-200 p-10 flex flex-col items-center text-center">
+      <div className="mt-16 bg-slate-50 rounded-3xl border border-slate-200 py-10 px-3 lg:px-8 flex flex-col items-center text-center">
         <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 border border-slate-100">
           <FileText className="w-8 h-8 text-[#0c479a]" />
         </div>

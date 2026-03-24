@@ -2,6 +2,7 @@ import prisma from "@/lib/prisma";
 import { type ApplicationCreateInput } from "@/types/index";
 import { revalidateTag, unstable_cache } from "next/cache";
 import { UTApi } from "uploadthing/server";
+import { lte } from "zod";
 
 const utapi = new UTApi();
 
@@ -125,6 +126,49 @@ export const deleteApplication = async (id: string) => {
       data: error,
       message: "Error In Deleting The Application",
       status: 500,
+    };
+  }
+};
+
+export const deleteAllExpiredApplications = async () => {
+  const date: Date = new Date();
+  date.setDate(date.getDate() - 45);
+
+  try {
+    const expiredAppliations = await prisma.applications.findMany({
+      where: { applied_at: { lt: date } },
+      select: { cv: true, id: true },
+    });
+
+    const expiredApplicationsIds = expiredAppliations.map((ele) => ele.id);
+    if (expiredAppliations.length === 0) {
+      return {
+        status: 409,
+        message: "No expired applications found",
+        deletedCount: 0,
+      };
+    }
+    const result = await prisma.applications.deleteMany({
+      where: { id: { in: expiredApplicationsIds } },
+    });
+
+    const cvKey = expiredAppliations
+      .map((ele) => ele.cv.split("/f/")[1])
+      .filter(Boolean);
+
+    if (cvKey.length > 0) {
+      await utapi.deleteFiles(cvKey);
+    }
+    return {
+      status: 201,
+      message: "Expired Applications Deleted Successfully",
+      deletedCount: Number(result.count),
+    };
+  } catch (error) {
+    return {
+      status: 500,
+      message: "Error in deleteing expired applications",
+      deletedCount: 0,
     };
   }
 };
@@ -298,7 +342,9 @@ export const getAllApplicationsByFilters = (
             skip,
             take: pageSize,
             orderBy: { applied_at: "desc" },
-            include: { careers: { select: { position_en: true,image:true } } },
+            include: {
+              careers: { select: { position_en: true, image: true } },
+            },
           }),
           prisma.applications.count({ where }),
         ]);
