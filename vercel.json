@@ -1,8 +1,11 @@
 {
-  "cron": [
+  "crons": [
     {
       "path": "/api/applications/cleanUp?secret=xKPOoYrPMn3",
       "schedule": "0 0 * * *"
     }
   ]
 }
+
+
+
