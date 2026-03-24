@@ -152,6 +152,7 @@ export const deleteAllExpiredApplications = async () => {
       where: { id: { in: expiredApplicationsIds } },
     });
 
+    revalidateTag("applications","max")
     const cvKey = expiredAppliations
       .map((ele) => ele.cv.split("/f/")[1])
       .filter(Boolean);
