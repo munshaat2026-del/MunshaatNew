@@ -21,7 +21,13 @@ export default function FontSwitcher({
   children: React.ReactNode;
   locale: string;
 }) {
-  const fontClass = locale === "ar" ? notoSansArabic.className : notoSans.className;
-
-  return <div className={fontClass}>{children}</div>;
+  return (
+    <div
+      lang={locale}
+      dir={locale === "ar" ? "rtl" : "ltr"}
+      className={locale === "ar" ? notoSansArabic.className : notoSans.className}
+    >
+      {children}
+    </div>
+  );
 }

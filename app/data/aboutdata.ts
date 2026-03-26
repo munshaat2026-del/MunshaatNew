@@ -9,7 +9,7 @@ export const aboutdata = {
     aboutHero: {
       tag: "Our Identity",
       titleLine1: "About",
-      titleLine2: "Us.",
+      titleLine2: "Us",
       description:
         "Al Munsha’at and Commercial Complexes Company is the real estate arm of the Jordanian Government, specializing in the management and investment of commercial and administrative assets in line with professional standards and national policies to maximize asset value and ensure long-term financial sustainability.",
       est: "HQ Amman",
@@ -19,7 +19,7 @@ export const aboutdata = {
     coreValues: {
       tag: "Strategic DNA",
       titleLine1: "FOUNDATIONS OF",
-      titleLine2: "EXCELLENCE.",
+      titleLine2: "EXCELLENCE",
       desc: "Architecting the future of asset management in Jordan.",
       protocol: "PROTOCOL_0",
       items: [
@@ -67,7 +67,7 @@ export const aboutdata = {
     impact: {
       tag: "Performance Metrics",
       titleLine1: "OUR",
-      titleLine2: "IMPACT.",
+      titleLine2: "IMPACT",
       heritageTag: "Institutional Heritage",
       heritageDesc:
         "Established as a strategic response to the growing need for institutional-grade asset management in the Kingdom, we have evolved into a full-scale operational partner for Vision 2030 initiatives.",
@@ -85,7 +85,7 @@ export const aboutdata = {
       tag: "Board Statement",
       textPart1: "At ",
       brand: "Reeac",
-      textPart2: ", we engineer the environments where Saudi Arabia’s ",
+      textPart2: ", we engineer the environments where Jordan’s ",
       highlight: "future",
       textPart3: " grows.",
       signature: "The Board of Directors",
@@ -110,7 +110,7 @@ export const aboutdata = {
       header: {
         tag: "Direct Communication",
         title1: "LET'S",
-        title2: "CONNECT.",
+        title2: "CONNECT",
       },
 
       headquarters: {
@@ -183,7 +183,7 @@ export const aboutdata = {
     coreValues: {
       tag: "الحمض النووي الاستراتيجي",
       titleLine1: "أسس",
-      titleLine2: "التميز.",
+      titleLine2: "التميز",
       desc: "بناء مستقبل إدارة الأصول في المملكة الأردنية الهاشمية.",
       protocol: "بروتوكول_0",
       items: [
@@ -231,7 +231,7 @@ export const aboutdata = {
     impact: {
       tag: "مقاييس الأداء",
       titleLine1: "أثرنا",
-      titleLine2: "الملموس.",
+      titleLine2: "الملموس",
       heritageTag: "الإرث المؤسسي",
       heritageDesc:
         "تأسست Reeac كاستجابة استراتيجية للحاجة المتزايدة لإدارة الأصول على مستوى مؤسسي في المملكة، وتطورنا لنصبح شريكاً تشغيلياً كاملاً لمبادرات رؤية 2030.",
@@ -251,7 +251,7 @@ export const aboutdata = {
       brand: "Reeac",
       textPart2: "، نحن نهندس البيئات التي ينمو فيها ",
       highlight: "مستقبل",
-      textPart3: " المملكة العربية السعودية.",
+      textPart3: "المملكة الأردنية الهاشمية. ",
       signature: "مجلس الإدارة",
       subSignature: "مجموعة Reeac التشغيلية // المقر الرئيسي عمان",
       stamp: "التميز \n التشغيلي \n معتمد 2026",

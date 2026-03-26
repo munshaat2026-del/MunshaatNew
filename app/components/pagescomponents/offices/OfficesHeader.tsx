@@ -33,7 +33,7 @@ export default function OfficesHeader({ primaryColor, locale }: OfficesHeaderPro
               className="text-[#0c479a]" 
             
             >
-              {isArabic ? "الفاخرة." : "OFFICES."}
+              {isArabic ? "الفاخرة" : "OFFICES"}
             </span>
           </h1>
         </div>

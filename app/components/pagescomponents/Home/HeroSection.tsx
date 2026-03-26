@@ -83,7 +83,7 @@ export default function ArabianPremiumEmpire() {
           <h1 className="hero-fade text-[12vw] centert  md:text-[8vw] font-black leading-[1.2] tracking-[-0.05em] uppercase text-white">
             {data.prime} <br />
             <span className="text-[#0c479a]" >
-              {data.assets}.
+              {data.assets}
             </span>
           </h1>
 

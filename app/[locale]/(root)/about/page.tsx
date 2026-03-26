@@ -54,10 +54,7 @@ export default async function AboutUs({ params }: Props) {
       <AboutHero primaryColor={primaryColor} />
       <CoreValues primaryColor={primaryColor} />
       <OurComplexes complexdata={complexdata} />
-
-      {/*<ImpactSection primaryColor={primaryColor} />*/}
       <ExecutiveQuote primaryColor={primaryColor} />
-
       {mainMembers.data && <TeamPreview primaryColor={primaryColor}locale={locale} data={mainMembers.data}/>}
       {notMainMemebrs.data && <TeamDirectory primaryColor={primaryColor}locale={locale} data={notMainMemebrs.data}/>}
       {clients.data && clients.data?.length>0 &&  <OurClients locale={locale} clients={clients.data} />}

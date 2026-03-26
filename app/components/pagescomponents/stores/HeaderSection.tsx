@@ -33,7 +33,7 @@ export default function StoresHeader({ primaryColor, locale }: StoresHeaderProps
               className="text-[#0c479a]" 
          
             >
-              {isArabic ? "التجارية." : "RETAIL STORES."}
+              {isArabic ? "التجارية" : "RETAIL STORES"}
             </span>
           </h1>
         </div>

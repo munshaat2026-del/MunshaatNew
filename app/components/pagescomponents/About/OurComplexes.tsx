@@ -50,7 +50,6 @@ export default function RoyalOffsetHero({ complexdata }: Props) {
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:50px_50px]"></div>
 
-      {/* --- إغافة عنوان القسم هنا --- */}
       <div className="relative z-10 w-full max-w-[1500px] px-10 mb-24 space-y-4">
         <div className="flex items-center gap-3">
           <div className="w-12 h-[2px] bg-[#0c479a]"></div>
@@ -77,15 +76,15 @@ export default function RoyalOffsetHero({ complexdata }: Props) {
       {/* Cards Container */}
       <div className={`relative z-10 max-w-[1500px] w-full px-10 transition-all duration-700 ${getContainerStyles()}`}>
         {complexdata.map((item, idx) => (
-          <div
-            key={item.id || idx}
+         <Link href={`/about/${item.slug}`}
+          key={item.id || idx}
             onMouseEnter={() => setActive(idx)}
             onMouseLeave={() => setActive(null)}
             className={`relative transition-all duration-[1000ms] ease-[cubic-bezier(0.19,1,0.22,1)] group
               ${getCardStyles(idx)}
               ${active !== null && active !== idx ? 'grayscale opacity-40 scale-[0.97]' : 'grayscale-0 opacity-100 scale-100'}
-            `}
-          >
+            `}>
+          
             {/* Main Card Design */}
             <div className="relative h-[550px] w-full overflow-hidden bg-slate-900 shadow-2xl border border-slate-100/10">
               
@@ -140,7 +139,7 @@ export default function RoyalOffsetHero({ complexdata }: Props) {
               {/* Animated Bottom Line */}
               <div className={`absolute bottom-0 ${isAr ? 'right-0' : 'left-0'} h-1 bg-[#0c479a] transition-all duration-1000 ${active === idx ? 'w-full' : 'w-0'}`} />
             </div>
-          </div>
+         </Link>
         ))}
       </div>
     </section>

@@ -33,7 +33,7 @@ export default function DepotsHeader({ primaryColor, locale }: DepotsHeaderProps
               className="text-[#0c479a]" 
              
             >
-              {isArabic ? "اللوجستية." : "LOGISTIC DEPOTS."}
+              {isArabic ? "اللوجستية" : "LOGISTIC DEPOTS"}
             </span>
           </h1>
         </div>

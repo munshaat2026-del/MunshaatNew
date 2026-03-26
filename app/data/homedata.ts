@@ -46,7 +46,7 @@ export const homedata = {
     servicesSection: {
       tag: "Capabilities",
       titleLine1: "CORE",
-      titleLine2: "COMPETENCIES.",
+      titleLine2: "COMPETENCIES",
       description: "Precision-engineered management solutions for institutional real estate assets.",
       explore: "Explore Protocol",
       items: [
@@ -146,7 +146,7 @@ export const homedata = {
     servicesSection: {
       tag: "القدرات والخدمات",
       titleLine1: "القدرات",
-      titleLine2: "الجوهرية.",
+      titleLine2: "الجوهرية",
       description: "حلول إدارة هندسية دقيقة للأصول العقارية المؤسسية.",
       explore: "استعراض البروتوكول",
       items: [

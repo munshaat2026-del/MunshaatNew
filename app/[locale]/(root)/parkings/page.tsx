@@ -1,7 +1,5 @@
 import ParkingHero from "@/app/components/pagescomponents/parkings/ParkingHero";
 import ParkingFeatures from "@/app/components/pagescomponents/parkings/ParkingFeatures";
-import ParkingPricing from "@/app/components/pagescomponents/parkings/ParkingPricing";
-import ParkingLocations from "@/app/components/pagescomponents/parkings/ParkingLocations";
 import { submitParkingRequestAction } from "./(actions)/submitParkingRequestAction";
 import SubmitParkingForm from "@/components/parking-request-form/SubmitParkingRequestForm";
 import { Locale } from "@/types";
@@ -18,10 +16,6 @@ export async function generateMetadata({
 }) {
   return generatePageMetadata("parkings", (await params).locale);
 }
-
-
-
-
 interface Props {
   params: Promise<{ locale: Locale }>;
 }
@@ -43,7 +37,6 @@ export default async function ParkingLeasing({ params }: Props) {
     <div className="min-h-screen mt-20 bg-white text-slate-900 font-sans">
       <ParkingHero primaryColor={primaryColor} />
       <ParkingFeatures primaryColor={primaryColor} />
-      {/*<ParkingPricing primaryColor={primaryColor} />*/}
       <SubmitParkingForm
         locale={locale}
         action={submitParkingRequestAction}
