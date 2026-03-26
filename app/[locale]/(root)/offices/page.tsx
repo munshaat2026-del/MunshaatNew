@@ -92,11 +92,11 @@ export default async function OfficesListing({ params, searchParams }: Props) {
                     )}
                   </p>
 
-                  <div className="flex gap-2 items-center text-[10px] font-bold text-slate-400 uppercase ">
+                  <div className="flex gap-2 items-center text-[10px] font-bold text-slate-400  ">
                     <Building2 size={14} />
                     {isArabic
-                      ? "الأصول المدارة من REEAC"
-                      : "REEAC Assets Managed"}
+                      ? "الأصول المدارة من Rccac"
+                      : "Reeac Assets Managed"}
                   </div>
                 </div>
 

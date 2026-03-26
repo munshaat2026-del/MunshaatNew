@@ -30,7 +30,7 @@ export const homedata = {
     },
     stats: {
       analytics: "Live Asset Analytics // R-2026",
-      verified: "Data Verified by REEAC Infrastructure Dept.",
+      verified: "Data Verified by Reeac Infrastructure Dept.",
       updateFreq: "Update Frequency",
       sync: "Real-Time Sync",
       tierLabel: "Operational Tier",
@@ -80,8 +80,8 @@ export const homedata = {
     whyUs: {
       tag: "Advantage",
       titleLine1: "WHY",
-      titleLine2: "REEAC?",
-      label: "Strategic Assets 01 // KSA",
+      titleLine2: "Reeac?",
+      label: "Strategic Assets 01 // Jordan",
       points: [
   { 
     t: "Local Expertise", 
@@ -130,7 +130,7 @@ export const homedata = {
     },
     stats: {
       analytics: "تحليلات الأصول المباشرة // R-2026",
-      verified: "بيانات معتمدة من قسم البنية التحتية لـ REEAC",
+      verified: "بيانات معتمدة من قسم البنية التحتية لـ Reeac",
       updateFreq: "تردد التحديث",
       sync: "مزامنة لحظية",
       tierLabel: "المستوى التشغيلي",
@@ -180,7 +180,7 @@ export const homedata = {
     whyUs: {
       tag: "الميزة التنافسية",
       titleLine1: "لماذا",
-      titleLine2: "REEAC؟",
+      titleLine2: "Reeac؟",
       label: "أصول استراتيجية 01 // المملكة",
       points: [
   { 

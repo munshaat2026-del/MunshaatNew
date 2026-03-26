@@ -1,3 +1,9 @@
+
+
+  const address= process.env.NEXT_PUBLIC_ADDRESS_LINE_EN
+const phoneNumber= process.env.NEXT_PUBLIC_PHONE
+const emailAddress= process.env.NEXT_PUBLIC_EMAIL
+const arabicAddress= process.env.NEXT_PUBLIC_ADDRESS_LINE_AR
 export const aboutdata = {
   en: {
     aboutHero: {
@@ -78,14 +84,14 @@ export const aboutdata = {
     quoteSection: {
       tag: "Board Statement",
       textPart1: "At ",
-      brand: "REEAC",
+      brand: "Reeac",
       textPart2: ", we engineer the environments where Saudi Arabia’s ",
       highlight: "future",
       textPart3: " grows.",
       signature: "The Board of Directors",
-      subSignature: "REEAC Operations Group // Amman HQ",
+      subSignature: "Reeac Operations Group // Amman HQ",
       stamp: "Operational \n Excellence \n Verified 2026",
-      bgText: "REEAC",
+      bgText: "Reeac",
     },
     ////////////////////////////////
     teamSection: {
@@ -116,17 +122,17 @@ export const aboutdata = {
         {
           key: "address",
           label: "Address",
-          value: "KAFD, Tower 4, Amman, Jordan",
+          value: address,
         },
         {
           key: "phone",
           label: "Phone Number",
-          value: "+966 11 234 5678",
+          value: phoneNumber,
         },
         {
           key: "email",
           label: "Email",
-          value: "ops@royalmanage.sa",
+          value: emailAddress,
         },
       ],
 
@@ -228,7 +234,7 @@ export const aboutdata = {
       titleLine2: "الملموس.",
       heritageTag: "الإرث المؤسسي",
       heritageDesc:
-        "تأسست REEAC كاستجابة استراتيجية للحاجة المتزايدة لإدارة الأصول على مستوى مؤسسي في المملكة، وتطورنا لنصبح شريكاً تشغيلياً كاملاً لمبادرات رؤية 2030.",
+        "تأسست Reeac كاستجابة استراتيجية للحاجة المتزايدة لإدارة الأصول على مستوى مؤسسي في المملكة، وتطورنا لنصبح شريكاً تشغيلياً كاملاً لمبادرات رؤية 2030.",
       cta: "تحميل ملف الشركة",
       fileInfo: "* صيغة PDF // ١٢.٤ ميجابايت تحديث ٢٠٢٦",
       stats: [
@@ -242,12 +248,12 @@ export const aboutdata = {
     quoteSection: {
       tag: "بيان مجلس الإدارة",
       textPart1: "في ",
-      brand: "REEAC",
+      brand: "Reeac",
       textPart2: "، نحن نهندس البيئات التي ينمو فيها ",
       highlight: "مستقبل",
       textPart3: " المملكة العربية السعودية.",
       signature: "مجلس الإدارة",
-      subSignature: "مجموعة REEAC التشغيلية // المقر الرئيسي عمان",
+      subSignature: "مجموعة Reeac التشغيلية // المقر الرئيسي عمان",
       stamp: "التميز \n التشغيلي \n معتمد 2026",
       bgText: "رياك",
     },
@@ -280,17 +286,17 @@ export const aboutdata = {
         {
           key: "address",
           label: "العنوان",
-          value: "مركز الملك عبدالله المالي، عمان",
+          value: arabicAddress,
         },
         {
           key: "phone",
           label:"رقم الهاتف",
-          value: "+966 11 234 5678",
+          value: phoneNumber,
         },
         {
           key: "email",
           label: "البريد الإلكتروني",
-          value: "ops@royalmanage.sa",
+          value: emailAddress,
         },
       ],
 

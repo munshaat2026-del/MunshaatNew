@@ -34,6 +34,8 @@ export default function ContactSection({ locale, action }: Props) {
   const isAr = locale === "ar";
   const data = aboutdata[locale].contact;
 
+
+
   const method = useForm<ContactFormValues>({
     resolver: zodResolver(createContactSchema(locale)),
   });
@@ -43,6 +45,8 @@ export default function ContactSection({ locale, action }: Props) {
     phone: Phone,
     email: Mail,
   };
+
+
 
   const { handleSubmit } = method;
 

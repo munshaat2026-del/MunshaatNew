@@ -25,7 +25,7 @@ export default function WhyUsSection({ primaryColor }: WhyUsSectionProps) {
               <span className="text-[10px] font-black uppercase tracking-[0.5em]">{data.tag}</span>
               <div className="h-[1px] w-12 bg-slate-200"></div>
             </div>
-            <h2 className="text-6xl font-black uppercase leading-[0.85] tracking-tighter text-slate-900">
+            <h2 className="text-6xl font-black  leading-[0.85] tracking-tighter text-slate-900">
               {data.titleLine1} <br /> 
               <span className="text-[#0c479a]">
                 {data.titleLine2}

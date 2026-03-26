@@ -82,7 +82,7 @@ export const parkingdata = {
       telemetryTag: "Live Telemetry",
       occupancyLabel: "Network Occupancy",
       planRef: "Master Plan Ref",
-      planCode: "REEAC_INFRA_KSA_26",
+      planCode: "Reeac_INFRA_KSA_26",
       locations: [
         { name: "Olaya Financial District", code: "Z-01", status: "High" },
         { name: "King Fahd Road Central", code: "Z-02", status: "Medium" },
@@ -174,7 +174,7 @@ export const parkingdata = {
       telemetryTag: "بث حي للمؤشرات",
       occupancyLabel: "إشغال الشبكة الكلي",
       planRef: "مرجع المخطط الرئيسي",
-      planCode: "REEAC_INFRA_KSA_26",
+      planCode: "Reeac_INFRA_KSA_26",
       locations: [
         { name: "حي العليا المالي", code: "Z-01", status: "مرتفع" },
         { name: "وسط طريق الملك فهد", code: "Z-02", status: "متوسط" },

@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, ArrowUpRight } from "lucide-react"
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, ArrowUpRight, Facebook } from "lucide-react"
 import Logo from "@/public/logo.png"
 import Image from "next/image"
 import Link from "next/link"
@@ -13,7 +13,8 @@ export function Footer() {
   const locale = useLocale()
   const isAr = locale === "ar"
   const currentYear = new Date().getFullYear()
-  const nurembergUrl = "https://nuremberg-group.com"
+  const nurembergUrl = process.env.NEXT_PUBLIC_NUREMBERG_URL
+  const address= isAr ? process.env.NEXT_PUBLIC_ADDRESS_LINE_AR :process.env.NEXT_PUBLIC_ADDRESS_LINE_EN
 
   const navLinks = [
     { name: t("offices"), href: "/offices" },
@@ -49,11 +50,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-4 items-start">
           
           {/* Logo */}
-          <div className="lg:col-span-4 space-y-6">
+          <div className="lg:col-span-4 space-y-4 lg:space-y-6">
             <div className="flex items-center gap-4">
               <Image alt="REEAC Logo" width={42} height={42} src={Logo} className="object-contain" />
-              <span className="text-2xl font-black uppercase tracking-tighter leading-none">
-                RE<span style={{ color: primaryColor }}>EAC</span>
+              <span className="text-2xl font-black  tracking-tighter leading-none">
+                Re<span style={{ color: primaryColor }}>eac</span>
               </span>
             </div>
 
@@ -66,8 +67,8 @@ export function Footer() {
             <div className="flex border border-white/5 w-fit bg-white/[0.02]">
               {[
                 { Icon: Linkedin, href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "#" },
-                { Icon: Twitter, href: process.env.NEXT_PUBLIC_TWITTER_URL || "#" },
-                { Icon: Instagram, href: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "#" }
+                { Icon: Facebook, href: process.env.NEXT_PUBLIC_TWITTER_URL || "#" },
+                { Icon: Instagram, href: process.env.NEXT_PUBLIC_FACEBOOK_URL || "#" }
               ].map(({ Icon, href }, i) => (
                 <Link
                   key={i}
@@ -81,7 +82,7 @@ export function Footer() {
           </div>
 
           {/* Services */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-4 lg:space-y-6">
             <h4 className="text-[9px] font-black uppercase tracking-[0.4em] text-[#0c479a]">
               {isAr ? "الخدمات" : "Services"}
             </h4>
@@ -105,7 +106,7 @@ export function Footer() {
           </div>
 
           {/* Important links */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2  space-y-6 hidden lg:grid">
             <h4 className="text-[9px] font-black uppercase tracking-[0.4em] text-[#0c479a]">
               {isAr ? "روابط مهمة" : "Important links"}
             </h4>
@@ -131,7 +132,7 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="lg:col-span-4 space-y-6">
+          <div className="lg:col-span-4 space-y-4 lg:space-y-6">
             <h4 className="text-[9px] font-black uppercase tracking-[0.4em] text-[#0c479a]">
               {isAr ? "المقر الرئيسي" : "Headquarters"}
             </h4>
@@ -140,9 +141,7 @@ export function Footer() {
               <div className="flex items-start gap-3 group">
                 <MapPin size={16} className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0" />
                 <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 leading-tight group-hover:text-slate-300">
-                  {process.env.NEXT_PUBLIC_ADDRESS_LINE1}
-                  <br />
-                  {process.env.NEXT_PUBLIC_ADDRESS_LINE2}
+                  {address}
                 </span>
               </div>
 
@@ -152,6 +151,14 @@ export function Footer() {
                   {process.env.NEXT_PUBLIC_PHONE}
                 </span>
               </div>
+
+<div className="flex items-center gap-3 group">
+                <Phone size={16} className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0" />
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
+                  {process.env.NEXT_PUBLIC_LAND_NUMBER}
+                </span>
+              </div>
+
 
               <div className="flex items-center gap-3 group">
                 <Mail size={16} className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0" />
@@ -164,11 +171,11 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="text-center pt-10 mt-10 border-t border-white/10">
+        <div className="text-center pt-7 mt-6 border-t border-white/10">
           <p className="text-sm text-white/80 centert break-words">
             {isAr ? (
               <>
-                © {currentYear} REEAC. جميع الحقوق محفوظة. تم الإنشاء بواسطة{" "}
+                © {currentYear} Reeac. جميع الحقوق محفوظة. تم الإنشاء بواسطة{" "}
                 <Link
                   href={nurembergUrl}
                   target="_blank"
@@ -179,7 +186,7 @@ export function Footer() {
               </>
             ) : (
               <>
-                © {currentYear} REEAC. All rights reserved. Made by{" "}
+                © {currentYear} Reeac. All rights reserved. Made by{" "}
                 <Link
                   href={nurembergUrl}
                   target="_blank"

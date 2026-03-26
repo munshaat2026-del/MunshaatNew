@@ -66,8 +66,8 @@ export default function Navbar({isComingSoon}:{isComingSoon:Boolean}) {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group">
               <Image src={Logo} alt="REEAC logo" width={42} height={42} className="transition-transform duration-500 group-hover:scale-105" />
-              <h1 className="text-xl font-black uppercase tracking-tighter text-black">
-                RE<span style={{ color: primaryColor }}>EAC</span>
+              <h1 className="text-xl font-black  tracking-tighter text-black">
+                Re<span style={{ color: primaryColor }}>eac</span>
               </h1>
             </Link>
 

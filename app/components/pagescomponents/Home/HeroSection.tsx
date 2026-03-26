@@ -89,7 +89,7 @@ export default function ArabianPremiumEmpire() {
 
           <div className="hero-fade mt-16 flex flex-wrap justify-center gap-0">
             <Button1  onClick={()=>{router.push("/about")}} className="group bg-[#0c479a] text-white px-12 py-6 font-black text-[20px] uppercase tracking-[0.3em] flex items-center gap-4 transition-all hover:bg-black">
-              {data.aboutUs} <MoveUpRight size={20} className={isAr ? "rotate-[-90deg]" : ""} />
+              {data.aboutUs} <MoveUpRight size={20}/>
             </Button1>
            
           </div>
