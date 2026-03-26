@@ -1,6 +1,6 @@
 "use client";
 
-import { Noto_Sans, Noto_Sans_Arabic } from "next/font/google";
+import { Noto_Sans, Cairo } from "next/font/google";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
@@ -8,9 +8,10 @@ const notoSans = Noto_Sans({
   display: "swap",
 });
 
-const notoSansArabic = Noto_Sans_Arabic({
+const cairoArabic = Cairo({
   subsets: ["arabic"],
-  weight: ["400", "700"],
+  // Cairo offers a wide range of weights (200-900)
+  weight: ["400", "500", "600", "700"], 
   display: "swap",
 });
 
@@ -22,12 +23,18 @@ export default function FontSwitcher({
   locale: string;
 }) {
   const isArabic = locale === "ar";
-  const fontClass = isArabic ? notoSansArabic.className : notoSans.className;
+  const fontClass = isArabic ? cairoArabic.className : notoSans.className;
 
   return (
-    <div 
-      className={fontClass} 
-      style={{ letterSpacing: isArabic ? "0" : "normal" }}
+    <div
+      className={fontClass}
+      style={{
+        // Essential fixes for the iOS "disconnected letters" bug
+        letterSpacing: isArabic ? "0" : "normal",
+        fontVariantLigatures: isArabic ? "common-ligatures" : "normal",
+        textRendering: "optimizeLegibility",
+        wordBreak: isArabic ? "keep-all" : "normal",
+      }}
     >
       {children}
     </div>
