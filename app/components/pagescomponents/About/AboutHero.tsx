@@ -36,7 +36,7 @@ export default function AboutHero({ primaryColor }: AboutHeroProps) {
           </h1>
 
           <div className="space-y-6 pt-8">
-            <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.2em] leading-loose max-w-md">
+            <p className="text-slate-400 text-xs font-bold max-w-md">
               {data.description}
             </p>
             <div className="flex gap-4 items-center">
