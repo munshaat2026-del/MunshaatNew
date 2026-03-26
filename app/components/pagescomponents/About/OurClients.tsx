@@ -2,7 +2,13 @@
 
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { Locale, TranslatedClients } from "@/types";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
@@ -12,12 +18,15 @@ interface InitiativePartnersProps {
   clients: TranslatedClients[];
 }
 
-export default function InitiativePartners({ locale, clients }: InitiativePartnersProps) {
+export default function InitiativePartners({
+  locale,
+  clients,
+}: InitiativePartnersProps) {
   const primaryColor = "#0c479a";
   const autoplay = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true })
+    Autoplay({ delay: 3000, stopOnInteraction: true }),
   );
-  const isAr= locale==="ar"
+  const isAr = locale === "ar";
 
   const carouselRef = useRef<HTMLDivElement | null>(null);
 
@@ -39,14 +48,12 @@ export default function InitiativePartners({ locale, clients }: InitiativePartne
   return (
     <section className="bg-white py-24 border-t border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        
         {/* REEAC Styled Header */}
-       <div className={`mb-16 flex flex-col gap-2`}>
-
-  <h2 className="text-3xl md:text-4xl text-center font-black text-slate-900 uppercase tracking-tighter">
-    {isAr ? "عملاؤنا" : "Our Clients"}
-  </h2>
-</div>
+        <div className={`mb-16 flex flex-col gap-2`}>
+          <h2 className="text-3xl md:text-4xl text-center font-black text-slate-900 uppercase tracking-tighter">
+            {isAr ? "عملاؤنا" : "Our Clients"}
+          </h2>
+        </div>
         <Carousel
           opts={{
             align: "start",
@@ -70,9 +77,9 @@ export default function InitiativePartners({ locale, clients }: InitiativePartne
                       alt={partner.name}
                       className="w-2/3 h-2/3 object-contain   group-hover/item:opacity-100 transition-all duration-700"
                     />
-                    
+
                     {/* Corner Accent visible on hover */}
-                    <div 
+                    <div
                       className="absolute bottom-0 right-0 w-4 h-4 border-r-2 border-b-2 opacity-0 group-hover/item:opacity-100 transition-all duration-500"
                       style={{ borderColor: primaryColor }}
                     />
@@ -92,22 +99,22 @@ export default function InitiativePartners({ locale, clients }: InitiativePartne
 
           {/* Industrial Styled Arrows - only visible on hover */}
           <div className="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <CarouselPrevious 
-              className={`absolute -left-12 top-1/2 border-slate-200 rounded-none w-10 h-10 hover:bg-black hover:text-white transition-all`} 
+            <CarouselPrevious
+              className={`absolute -left-12 top-1/2 border-slate-200 rounded-none w-10 h-10 hover:bg-black hover:text-white transition-all`}
             />
-            <CarouselNext 
-              className={`absolute -right-12 top-1/2 border-slate-200 rounded-none w-10 h-10 hover:bg-black hover:text-white transition-all`} 
+            <CarouselNext
+              className={`absolute -right-12 top-1/2 border-slate-200 rounded-none w-10 h-10 hover:bg-black hover:text-white transition-all`}
             />
           </div>
         </Carousel>
 
         {/* Technical Progress Bar Decoration */}
         <div className="mt-16 flex items-center gap-4 opacity-20">
-           <div className="h-px flex-1 bg-slate-400" />
-           <div className="text-[8px] font-black tracking-[0.4em] text-slate-500 uppercase">
-             {isAr ? "سجل الشركاء المعتمد" : "Verified Partners Log"}
-           </div>
-           <div className="h-px flex-1 bg-slate-400" />
+          <div className="h-px flex-1 bg-slate-400" />
+          <div className="text-[8px] font-black  text-slate-500 uppercase">
+            {isAr ? "سجل الشركاء المعتمد" : "Verified Partners Log"}
+          </div>
+          <div className="h-px flex-1 bg-slate-400" />
         </div>
       </div>
     </section>

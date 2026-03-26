@@ -43,7 +43,7 @@ export const OfficeDetails = ({
         <section className="space-y-6">
           <div className="flex items-center gap-4 text-[#0c479a]">
             <Info size={18} />
-            <h2 className="text-[10px] font-black uppercase tracking-[0.4em]">
+            <h2 className="text-[10px] font-black uppercase ">
               {isAr ? "وصف العقار" : "Property Description"}
             </h2>
           </div>
@@ -60,7 +60,7 @@ export const OfficeDetails = ({
         <section className="space-y-8">
           <div className="flex items-center gap-4 text-[#0c479a]">
             <TrendingUp size={18} />
-            <h2 className="text-[10px] font-black uppercase tracking-[0.4em]">
+            <h2 className="text-[10px] font-black uppercase ">
               {isAr ? "المواصفات الفنية" : "Technical Specifications"}
             </h2>
           </div>
@@ -107,7 +107,7 @@ export const OfficeDetails = ({
         <section className="space-y-10">
           <div className="flex items-center gap-4 text-[#0c479a]">
             <Activity size={18} />
-            <h2 className="text-[10px] font-black uppercase tracking-[0.4em]">
+            <h2 className="text-[10px] font-black uppercase ">
               {isAr ? "المرافق والخدمات" : "Infrastructure Features"}
             </h2>
           </div>
@@ -155,8 +155,8 @@ export const OfficeDetails = ({
                 {realEstate.price
                   ? `${realEstate.price.toLocaleString()}`
                   : isAr
-                  ? "اتصل بنا"
-                  : "Contact Us"}
+                    ? "اتصل بنا"
+                    : "Contact Us"}
               </span>
 
               <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">
@@ -188,7 +188,7 @@ export const OfficeDetails = ({
 
             <Link
               href={`/request-form/${realEstate.id}`}
-              className="w-full bg-[#0c479a] hover:bg-white hover:text-black text-white font-black py-6 text-[10px] uppercase tracking-[0.5em] transition-all flex items-center justify-center gap-4 group"
+              className="w-full bg-[#0c479a] hover:bg-white hover:text-black text-white font-black py-6 text-[10px] uppercase  transition-all flex items-center justify-center gap-4 group"
             >
               {isAr ? "تقديم طلب إيجار" : "Apply for Rental Request"}
 

@@ -8,7 +8,6 @@ import DepotGrid from "@/app/components/pagescomponents/depotComponents/DepotGri
 import DepotsHeader from "@/app/components/pagescomponents/depotComponents/DepotHeader";
 import { generatePageMetadata } from "@/lib/constants/metadata";
 
-
 export async function generateMetadata({
   params,
 }: {
@@ -43,7 +42,7 @@ export default async function DepotsPage({ params, searchParams }: Props) {
     page,
     filter,
   );
-  
+
   const primaryColor = "#0c479a";
   const hasDepots = depots?.data && depots.data.length > 0;
 
@@ -53,11 +52,9 @@ export default async function DepotsPage({ params, searchParams }: Props) {
 
       <div className="w-full mx-auto px-6 md:px-12 mt-10">
         <div className="flex flex-col lg:flex-row gap-10">
-          
           {/* 1. Sidebar Container */}
           <aside className="w-full lg:w-80 shrink-0">
             <div className="static lg:sticky lg:top-20">
-
               <div className="bg-white  border-l-4 border-[#0c479a] shadow-sm p-0 lg:p-1">
                 <OfficeFilterSidebar locale={locale} />
               </div>
@@ -99,18 +96,23 @@ export default async function DepotsPage({ params, searchParams }: Props) {
                 </div>
 
                 <DepotGrid
-                  depots={depots.data} 
+                  depots={depots.data}
                   locale={locale}
                   primaryColor={primaryColor}
                 />
 
                 {/* 3. Pagination */}
 
-                {depots.totlaPages>1 && <div className="flex justify-center pt-10 border-t border-slate-100">
-                  <div className="bg-white px-6 py-2 shadow-sm border border-slate-100 rounded-full">
-                    <PaginationShadcn totalPages={depots.totlaPages} locale={locale} />
+                {depots.totlaPages > 1 && (
+                  <div className="flex justify-center pt-10 border-t border-slate-100">
+                    <div className="bg-white px-6 py-2 shadow-sm border border-slate-100 rounded-full">
+                      <PaginationShadcn
+                        totalPages={depots.totlaPages}
+                        locale={locale}
+                      />
+                    </div>
                   </div>
-                </div>}
+                )}
               </div>
             ) : (
               /* 4. Empty State */
@@ -134,7 +136,7 @@ export default async function DepotsPage({ params, searchParams }: Props) {
 
                 <Link
                   href={`/${locale}/depots`}
-                  className="mt-8 px-8 py-3 bg-[#0c479a] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-slate-900 transition-all shadow-lg"
+                  className="mt-8 px-8 py-3 bg-[#0c479a] text-white text-[10px] font-black uppercase  hover:bg-slate-900 transition-all shadow-lg"
                 >
                   {isArabic ? "إعادة تعيين البحث" : "Reset Search"}
                 </Link>

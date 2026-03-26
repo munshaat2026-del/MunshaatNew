@@ -44,7 +44,7 @@ export default function ParkingHero({ primaryColor }: ParkingHeroProps) {
         </h1>
 
         <div className="max-w-2xl mx-auto space-y-8">
-          <p className="text-slate-400 text-xs md:text-sm font-bold uppercase tracking-[0.25em] leading-relaxed  ">
+          <p className="text-slate-400 text-xs md:text-sm font-bold  tracking-[0.25em] leading-relaxed  ">
             {data.desc}
           </p>
           

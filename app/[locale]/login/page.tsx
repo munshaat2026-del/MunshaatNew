@@ -17,9 +17,7 @@ const Login = () => {
   const methods = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
   });
-  const {
-    handleSubmit,
-  } = methods;
+  const { handleSubmit } = methods;
 
   const onSubmit: SubmitHandler<LoginFormValues> = async (data) => {
     try {
@@ -52,7 +50,7 @@ const Login = () => {
           <div className="bg-white border-l-8 border-[#0c479a] shadow-[0_20px_50px_rgba(0,0,0,0.1)] p-10 md:p-12">
             {/* Header */}
             <div className="mb-10">
-              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-[#0c479a] mb-2">
+              <p className="text-[10px] font-black uppercase  text-[#0c479a] mb-2">
                 Welcome Back
               </p>
               <h1 className="text-4xl font-black uppercase  tracking-tight text-slate-900">
@@ -60,7 +58,10 @@ const Login = () => {
               </h1>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 w-full">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="space-y-6 w-full"
+            >
               <BasicInfo />
 
               {/* Login Button */}

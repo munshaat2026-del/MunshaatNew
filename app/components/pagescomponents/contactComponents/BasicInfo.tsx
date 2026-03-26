@@ -24,7 +24,7 @@ function BasicInfo({ locale }: { locale: Locale }) {
       <div>
         {/* Full Name */}
         <div className="group space-y-2">
-          <label className="text-[9px] font-black uppercase tracking-[0.3em] text-slate-400">
+          <label className="text-[9px] font-black uppercase  text-slate-400">
             {data.form.fullName}
           </label>
           <input
@@ -44,7 +44,7 @@ function BasicInfo({ locale }: { locale: Locale }) {
 
       {/* Email */}
       <div className="group space-y-2">
-        <label className="text-[9px] font-black uppercase tracking-[0.3em] text-slate-400">
+        <label className="text-[9px] font-black uppercase  text-slate-400">
           {data.form.email}
         </label>
         <input
@@ -63,7 +63,7 @@ function BasicInfo({ locale }: { locale: Locale }) {
 
       {/* Subject */}
       <div className="group space-y-2 col-span-1 md:col-span-2">
-        <label className="text-[9px] font-black uppercase tracking-[0.3em] text-slate-400">
+        <label className="text-[9px] font-black uppercase  text-slate-400">
           {data.form.subject}
         </label>
         <input
@@ -82,7 +82,7 @@ function BasicInfo({ locale }: { locale: Locale }) {
 
       {/* Message */}
       <div className="group space-y-2 col-span-1 md:col-span-2">
-        <label className="text-[9px] font-black uppercase tracking-[0.3em] text-slate-400">
+        <label className="text-[9px] font-black uppercase  text-slate-400">
           {data.form.message}
         </label>
         <textarea
@@ -101,7 +101,7 @@ function BasicInfo({ locale }: { locale: Locale }) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="group relative w-full py-5 col-span-1 md:col-span-2 bg-[#0c479a] text-white font-black uppercase tracking-[0.4em] text-[13px] flex items-center justify-center gap-4 hover:bg-black transition-all overflow-hidden disabled:opacity-50"
+        className="group relative w-full py-5 col-span-1 md:col-span-2 bg-[#0c479a] text-white font-black uppercase  text-[13px] flex items-center justify-center gap-4 hover:bg-black transition-all overflow-hidden disabled:opacity-50"
       >
         <span className="relative z-10 flex items-center gap-4">
           {isSubmitting ? "Sending..." : data.form.submit}

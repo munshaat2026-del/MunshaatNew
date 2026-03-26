@@ -22,7 +22,6 @@ function BasicInfo({ locale }: Props) {
     formState: { errors },
   } = useFormContext<ApplicationFormValues>();
 
-
   const labels = {
     name: isArabic ? "الإسم كامل" : "Full Name",
     address: isArabic ? "العنوان" : "Address",
@@ -47,7 +46,7 @@ function BasicInfo({ locale }: Props) {
         <div className="group transition-all">
           <div className="flex items-center gap-2  border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
             <User size={14} className="text-[#0c479a]" />
-            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+            <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
               {labels.name}
             </label>
           </div>
@@ -61,7 +60,7 @@ function BasicInfo({ locale }: Props) {
         <div className="group transition-all">
           <div className="flex items-center gap-2  border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
             <PiCertificateBold size={14} className="text-[#0c479a]" />
-            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+            <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
               {labels.major}
             </label>
           </div>
@@ -75,7 +74,7 @@ function BasicInfo({ locale }: Props) {
         <div className="group transition-all">
           <div className="flex items-center gap-2  border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
             <MapPinHouse size={14} className="text-[#0c479a]" />
-            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+            <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
               {labels.address}
             </label>
           </div>
@@ -90,7 +89,7 @@ function BasicInfo({ locale }: Props) {
         <div className="group transition-all">
           <div className="flex items-center gap-2  border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
             <MdOutlinePermIdentity size={14} className="text-[#0c479a]" />
-            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+            <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
               {labels.national_number}
             </label>
           </div>
@@ -101,11 +100,11 @@ function BasicInfo({ locale }: Props) {
           />
         </div>
 
-         {/* National Number */}
+        {/* National Number */}
         <div className="group transition-all">
           <div className="flex items-center gap-2  border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
             <MdOutlinePermIdentity size={14} className="text-[#0c479a]" />
-            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+            <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
               {labels.nationality}
             </label>
           </div>
@@ -120,7 +119,7 @@ function BasicInfo({ locale }: Props) {
         <div className="group">
           <div className="flex items-center gap-2  border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
             <Mail size={14} className="text-[#0c479a]" />
-            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+            <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
               {labels.email}
             </label>
           </div>
@@ -135,7 +134,7 @@ function BasicInfo({ locale }: Props) {
         <div className="group">
           <div className="flex items-center gap-2  border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
             <Phone size={14} className="text-[#0c479a]" />
-            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+            <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
               {labels.phone}
             </label>
           </div>
@@ -145,8 +144,6 @@ function BasicInfo({ locale }: Props) {
             className="w-full bg-transparent border-b border-slate-200 py-3 text-gray-700 text-sm  outline-none focus:border-[#0c479a] transition-all"
           />
         </div>
-
-        
       </div>
     </div>
   );

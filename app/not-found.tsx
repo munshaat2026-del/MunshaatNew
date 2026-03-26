@@ -13,13 +13,12 @@ export default function NotFound() {
       </div>
 
       <div className="max-w-4xl w-full text-center relative z-10">
-        
         {/* Static Background Text */}
-        <h1 
+        <h1
           className="text-[25vw] font-black leading-none tracking-tighter select-none pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-          style={{ 
+          style={{
             color: primaryColor,
-            opacity: 0.04
+            opacity: 0.04,
           }}
         >
           404
@@ -31,11 +30,11 @@ export default function NotFound() {
             <h2 className="text-6xl md:text-8xl font-black text-slate-900 uppercase tracking-tighter leading-none">
               Page <span style={{ color: primaryColor }}>Not Found.</span>
             </h2>
-            <p className="text-slate-400 text-[10px] md:text-xs font-black uppercase tracking-[0.4em] max-w-sm mx-auto ">
+            <p className="text-slate-400 text-[10px] md:text-xs font-black uppercase  max-w-sm mx-auto ">
               Registry Error: Asset coordinate unavailable.
             </p>
           </div>
-          
+
           {/* Navigation Cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-8">
             {[
@@ -44,17 +43,18 @@ export default function NotFound() {
               { icon: Package, label: "Depots", href: "/en/depots" },
               { icon: Car, label: "Parkings", href: "/en/parkings" },
             ].map((asset, i) => (
-              <Link 
-                key={i} 
-                href={asset.href} 
+              <Link
+                key={i}
+                href={asset.href}
                 className="group flex flex-col items-center gap-4 p-8 bg-white/40 backdrop-blur-md border border-white hover:border-[#0c479a]/30 hover:shadow-xl hover:shadow-[#0c479a]/5 transition-all duration-500"
               >
-                <div 
-                  className="w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 bg-slate-50 group-hover:bg-[#0c479a]"
-                >
-                  <asset.icon size={22} className="text-slate-400 group-hover:text-white transition-colors" />
+                <div className="w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 bg-slate-50 group-hover:bg-[#0c479a]">
+                  <asset.icon
+                    size={22}
+                    className="text-slate-400 group-hover:text-white transition-colors"
+                  />
                 </div>
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-hover:text-slate-900 transition-colors text-center">
+                <span className="text-[10px] font-black uppercase  text-slate-400 group-hover:text-slate-900 transition-colors text-center">
                   {asset.label}
                 </span>
               </Link>
@@ -65,7 +65,7 @@ export default function NotFound() {
           <div className="pt-10">
             <Link
               href="/"
-              className="inline-flex items-center gap-4 px-12 py-5 bg-slate-900 text-white text-[10px] font-black uppercase tracking-[0.5em] hover:bg-[#0c479a] transition-all shadow-lg"
+              className="inline-flex items-center gap-4 px-12 py-5 bg-slate-900 text-white text-[10px] font-black uppercase  hover:bg-[#0c479a] transition-all shadow-lg"
             >
               <ArrowLeft size={16} />
               Go to Homepage
@@ -76,7 +76,9 @@ export default function NotFound() {
 
       {/* Subtle UI Detail */}
       <div className="absolute bottom-10 left-10 border-l border-slate-200 pl-4 hidden md:block">
-        <p className="text-[8px] font-black text-slate-300 uppercase tracking-[0.4em]">Error Protocol: 0x404_ASSET_NULL</p>
+        <p className="text-[8px] font-black text-slate-300 uppercase ">
+          Error Protocol: 0x404_ASSET_NULL
+        </p>
       </div>
     </div>
   );

@@ -43,7 +43,7 @@ function BasicInfo({ locale, parkingOptions }: Props) {
         <div className="group transition-all">
           <div className="flex items-center gap-2  border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
             <User size={14} className="text-[#0c479a]" />
-            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+            <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
               {labels.name}
             </label>
           </div>
@@ -58,7 +58,7 @@ function BasicInfo({ locale, parkingOptions }: Props) {
         <div className="group">
           <div className="flex items-center gap-2  border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
             <Mail size={14} className="text-[#0c479a]" />
-            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+            <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
               {labels.email}
             </label>
           </div>
@@ -73,7 +73,7 @@ function BasicInfo({ locale, parkingOptions }: Props) {
         <div className="group">
           <div className="flex items-center gap-2  border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
             <Phone size={14} className="text-[#0c479a]" />
-            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+            <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
               {labels.phone}
             </label>
           </div>
@@ -88,7 +88,7 @@ function BasicInfo({ locale, parkingOptions }: Props) {
         <div className="group">
           <div className="flex items-center gap-2  border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
             <Briefcase size={14} className="text-[#0c479a]" />
-            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+            <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
               {labels.plan}
             </label>
           </div>
@@ -107,7 +107,7 @@ function BasicInfo({ locale, parkingOptions }: Props) {
         <div className="group">
           <div className="flex items-center gap-2  border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
             <Briefcase size={14} className="text-[#0c479a]" />
-            <label className="text-[10px]  tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+            <label className="text-[10px]   text-slate-400 group-focus-within:text-[#0c479a]">
               {labels.parkingData}
             </label>
           </div>

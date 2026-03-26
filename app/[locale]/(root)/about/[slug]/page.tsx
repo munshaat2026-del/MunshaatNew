@@ -12,7 +12,7 @@ interface Props {
 
 export default async function page({ params }: Props) {
   const { locale, slug } = await params;
-  
+
   const response = await (await getParkingBySlugByLocale(slug, locale))();
   const complexdata = response?.data;
 
@@ -21,11 +21,15 @@ export default async function page({ params }: Props) {
   const isAr = locale === "ar";
 
   return (
-    <div className={`min-h-screen bg-white text-black ${isAr ? 'font-sans underline-offset-4' : 'font-sans'}`}>
-      
+    <div
+      className={`min-h-screen bg-white text-black ${isAr ? "font-sans underline-offset-4" : "font-sans"}`}
+    >
       {/* 1. Navigation Bar */}
       <nav className="border-b border-black px-6 py-6 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2 font-black uppercase text-[11px] tracking-tighter">
+        <Link
+          href="/"
+          className="flex items-center gap-2 font-black uppercase text-[11px] tracking-tighter"
+        >
           <ArrowLeft size={16} className={isAr ? "rotate-180" : ""} />
           {isAr ? "العودة للقائمة" : "Back to List"}
         </Link>
@@ -35,7 +39,6 @@ export default async function page({ params }: Props) {
       </nav>
 
       <main className="max-w-6xl mx-auto px-6 py-16">
-        
         {/* 2. Title & Location Row */}
         <div className="border-l-4 border-[#0c479a] pl-6 mb-12">
           <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-4">
@@ -50,9 +53,9 @@ export default async function page({ params }: Props) {
         {/* 3. Main Asset Image */}
         <div className="relative w-full aspect-video md:aspect-21/9 bg-slate-100 mb-16 overflow-hidden border border-slate-200">
           {complexdata.image ? (
-            <Image 
+            <Image
               fill
-              src={complexdata.image} 
+              src={complexdata.image}
               alt={complexdata.name}
               className="object-cover"
               priority
@@ -60,17 +63,18 @@ export default async function page({ params }: Props) {
           ) : (
             <div className="w-full h-full flex flex-col items-center justify-center text-slate-300">
               <Warehouse size={64} strokeWidth={1} />
-              <span className="text-[10px] font-bold mt-4 uppercase">Asset Image Missing</span>
+              <span className="text-[10px] font-bold mt-4 uppercase">
+                Asset Image Missing
+              </span>
             </div>
           )}
         </div>
 
         {/* 4. Information Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 border-t border-slate-100 pt-12">
-          
           {/* Detailed Description */}
           <div className="md:col-span-2">
-            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-6">
+            <h3 className="text-[10px] font-black uppercase  text-slate-400 mb-6">
               {isAr ? "الوصف التفصيلي" : "Asset Description"}
             </h3>
             <p className="text-xl text-slate-700 leading-relaxed font-medium">
@@ -81,11 +85,11 @@ export default async function page({ params }: Props) {
           {/* Location & CTA */}
           <div className="space-y-8">
             <div className="bg-slate-50 p-8 border border-slate-100">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-4">
+              <h3 className="text-[10px] font-black uppercase  text-slate-400 mb-4">
                 {isAr ? "الموقع" : "Coordinates"}
               </h3>
               <p className="text-sm font-bold mb-8">{complexdata.address}</p>
-              
+
               <Link href={complexdata.location_link || "#"} target="_blank">
                 <button className="w-full bg-black text-white py-4 px-6 font-black uppercase text-[11px] tracking-widest flex items-center justify-between hover:bg-[#0c479a] transition-colors">
                   {isAr ? "فتح الخرائط" : "Open Navigation"}
@@ -94,11 +98,8 @@ export default async function page({ params }: Props) {
               </Link>
             </div>
           </div>
-
         </div>
       </main>
-
-     
     </div>
   );
 }

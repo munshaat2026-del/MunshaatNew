@@ -21,7 +21,10 @@ export default function StoreCard({
   };
 
   return (
-    <div className="group cursor-pointer bg-white" dir={isArabic ? "rtl" : "ltr"}>
+    <div
+      className="group cursor-pointer bg-white"
+      dir={isArabic ? "rtl" : "ltr"}
+    >
       {/* 1. Image Section */}
       <div className="relative aspect-4/3 overflow-hidden bg-slate-100 mb-6 border border-slate-50 shadow-sm">
         <img
@@ -32,7 +35,7 @@ export default function StoreCard({
 
         {/* Status Badge: Swaps sides based on locale */}
         <div
-          className={`absolute top-0 ${isArabic ? "right-0" : "left-0"} px-4 py-2 text-[9px] font-black uppercase tracking-[0.2em] text-white z-10`}
+          className={`absolute top-0 ${isArabic ? "right-0" : "left-0"} px-4 py-2 text-[9px] font-black uppercase  text-white z-10`}
           style={{ backgroundColor: primaryColor }}
         >
           {isArabic ? "متاح" : "Available"}
@@ -71,7 +74,8 @@ export default function StoreCard({
               </span>
             </div>
             <span className="text-lg font-black text-slate-900 tracking-tighter">
-              {office.size_sqm} <span className="text-xs">{isArabic ? "م²" : "sqm"}</span>
+              {office.size_sqm}{" "}
+              <span className="text-xs">{isArabic ? "م²" : "sqm"}</span>
             </span>
           </div>
 
@@ -80,11 +84,13 @@ export default function StoreCard({
             <div className="flex items-center gap-2 text-slate-500">
               <ShoppingBag size={12} />
               <span className="text-[9px] font-black uppercase tracking-widest">
-                {isArabic ? "السعر" : "Price"} / {getPeriodLabel(office.price_period)}
+                {isArabic ? "السعر" : "Price"} /{" "}
+                {getPeriodLabel(office.price_period)}
               </span>
             </div>
             <span className="text-lg font-black text-slate-900 tracking-tighter truncate">
-              {office.price?.toLocaleString()} <span className="text-xs">{isArabic ? "د.أ" : "JOD"}</span>
+              {office.price?.toLocaleString()}{" "}
+              <span className="text-xs">{isArabic ? "د.أ" : "JOD"}</span>
             </span>
           </div>
         </div>
@@ -92,8 +98,10 @@ export default function StoreCard({
         {/* 4. Action Hint */}
         <div className="pt-2 flex items-center">
           <span
-            className={`text-[9px] font-black uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-all duration-300 transform ${
-              isArabic ? "translate-x-2.5 group-hover:translate-x-0" : "-translate-x-2.5 group-hover:translate-x-0"
+            className={`text-[9px] font-black uppercase  opacity-0 group-hover:opacity-100 transition-all duration-300 transform ${
+              isArabic
+                ? "translate-x-2.5 group-hover:translate-x-0"
+                : "-translate-x-2.5 group-hover:translate-x-0"
             }`}
             style={{ color: primaryColor }}
           >

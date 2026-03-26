@@ -26,16 +26,14 @@ export const BookingHeader = ({
             className="w-10 h-[1px]"
             style={{ backgroundColor: primaryColor }}
           ></div>
-          <span className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400">
+          <span className="text-[10px] font-black uppercase  text-slate-400">
             {isAr
               ? "مواصفات الأصول // وحدة 1204"
               : "Asset Specification // Unit 1204"}
           </span>
         </div>
         <h1 className="text-4xl md:text-6xl font-black uppercase    ">
-          <span className="" >
-            {name}
-          </span>
+          <span className="">{name}</span>
         </h1>
         <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
           <MapPin size={14} style={{ color: primaryColor }} />

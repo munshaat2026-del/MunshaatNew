@@ -23,12 +23,12 @@ function FormActions({ locale }: Props) {
           relative rounded-md scale-105 overflow-hidden group
           w-full py-4 md:py-6 
           bg-[#0c479a] text-white 
-          font-black uppercase tracking-[0.5em] text-[12px] 
+          font-black uppercase  text-[12px] 
           flex items-center justify-center gap-3 md:gap-4 
           transition-all duration-500
-          hover:tracking-[0.7em] hover:shadow-[0_20px_40px_rgba(12,71,154,0.3)]
+          hover: hover:shadow-[0_20px_40px_rgba(12,71,154,0.3)]
           active:scale-[0.98] 
-          disabled:opacity-50 disabled:grayscale disabled:tracking-[0.5em]
+          disabled:opacity-50 disabled:grayscale disabled:
         "
       >
         {/* Background Slide Effect - Logic remains same for both */}
@@ -45,14 +45,11 @@ function FormActions({ locale }: Props) {
               <span>
                 {isArabic ? "تنفيذ تقديم الطلب" : "Execute Submission"}
               </span>
-          
-                <Send
-                  size={18}
-                  className="transition-transform duration-500 group-hover:-translate-x-2 group-hover:-translate-y-1"
-                />
-            
 
-          
+              <Send
+                size={18}
+                className="transition-transform duration-500 group-hover:-translate-x-2 group-hover:-translate-y-1"
+              />
             </>
           )}
         </div>

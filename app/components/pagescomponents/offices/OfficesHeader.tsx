@@ -40,7 +40,7 @@ export default function OfficesHeader({ primaryColor, locale }: OfficesHeaderPro
 
         {/* Description with Vertical Accent (slightly smaller text) */}
         <div className="max-w-xl border-l-2 border-slate-800 pl-8">
-          <p className="text-slate-400 text-[10px] md:text-[12px] font-bold uppercase tracking-[0.25em] leading-snug ">
+          <p className="text-slate-400 text-[10px] md:text-[12px] font-bold  tracking-[0.25em] leading-snug ">
             {isArabic
               ? "بيئات معمارية عالية الأداء مصممة للنمو المؤسسي وتحسين القيادة التنفيذية."
               : "High-performance architectural environments engineered for institutional growth and executive leadership optimization."}

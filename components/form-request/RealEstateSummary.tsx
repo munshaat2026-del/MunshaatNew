@@ -32,7 +32,7 @@ const RealEstateSummary = ({ data, locale }: RealEstateSummaryProps) => {
         />
         <div className="absolute inset-0 bg-slate-900/20"></div>
         <div className="absolute bottom-0 left-0 right-0 p-6 bg-linear-to-t from-slate-950 text-white">
-          <p className="text-[8px] font-black uppercase tracking-[0.4em] text-[#0c479a] mb-1">
+          <p className="text-[8px] font-black uppercase  text-[#0c479a] mb-1">
             {labels.specs}
           </p>
           <h2 className="text-xl font-black uppercase   tracking-tight">
@@ -89,7 +89,7 @@ const RealEstateSummary = ({ data, locale }: RealEstateSummaryProps) => {
         <div className="space-y-4">
           <div className="flex items-center gap-2 text-[#0c479a]">
             <Info size={14} />
-            <h4 className="text-[9px] font-black uppercase tracking-[0.3em]">
+            <h4 className="text-[9px] font-black uppercase ">
               {labels.description}
             </h4>
           </div>
@@ -103,7 +103,7 @@ const RealEstateSummary = ({ data, locale }: RealEstateSummaryProps) => {
           <div className="flex items-start gap-4">
             <MapPin size={18} className="text-[#0c479a] mt-1 shrink-0" />
             <div>
-              <h4 className="text-[8px] font-black uppercase tracking-[0.3em] text-slate-500 mb-2">
+              <h4 className="text-[8px] font-black uppercase  text-slate-500 mb-2">
                 {labels.location}
               </h4>
               <p className="text-[10px] font-black uppercase leading-tight tracking-tighter  ">

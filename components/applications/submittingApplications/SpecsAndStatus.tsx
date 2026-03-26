@@ -27,7 +27,7 @@ function SpecsAndStatus({ locale }: { locale: Locale }) {
       <div>
         <div className="flex items-center gap-2 mb-2 border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
           <MapPin size={14} className="text-[#0c479a]" />
-          <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+          <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
             {isArabic ? "المحافظة" : "city"}
           </label>
         </div>
@@ -35,8 +35,8 @@ function SpecsAndStatus({ locale }: { locale: Locale }) {
         <FormSelect
           control={control}
           name="city"
-          dir={isArabic ?"rtl":"ltr"}
-          placeholder={isArabic? "اختر محافظة":"Select City"}
+          dir={isArabic ? "rtl" : "ltr"}
+          placeholder={isArabic ? "اختر محافظة" : "Select City"}
           options={jordanCities(isArabic)}
           error={errors.city}
           triggerClassName="w-full"
@@ -47,7 +47,7 @@ function SpecsAndStatus({ locale }: { locale: Locale }) {
       <div>
         <div className="flex items-center gap-2 mb-2 border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
           <MapPin size={14} className="text-[#0c479a]" />
-          <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+          <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
             {isArabic ? "مكان الولادة" : "Place Of Birth"}
           </label>
         </div>
@@ -57,8 +57,8 @@ function SpecsAndStatus({ locale }: { locale: Locale }) {
           name="place_of_birth"
           options={jordanCities(isArabic)}
           error={errors.place_of_birth}
-          dir={isArabic ?"rtl":"ltr"}
-          placeholder={isArabic ? "اختر مكان الولادة":"Select Place Of Birth"}
+          dir={isArabic ? "rtl" : "ltr"}
+          placeholder={isArabic ? "اختر مكان الولادة" : "Select Place Of Birth"}
           triggerClassName="w-full"
         />
       </div>
@@ -66,7 +66,7 @@ function SpecsAndStatus({ locale }: { locale: Locale }) {
       <div>
         <div className="flex items-center gap-2 mb-2 border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
           <MapPin size={14} className="text-[#0c479a]" />
-          <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+          <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
             {isArabic ? "الحالة الإجتماعية" : "Marital Status"}
           </label>
         </div>
@@ -76,8 +76,10 @@ function SpecsAndStatus({ locale }: { locale: Locale }) {
           name="marital_status"
           options={maritalStatusOptions(isArabic)}
           error={errors.marital_status}
-          placeholder={isArabic?"اختر الحالة الإجتماعية":"Select Marital Status"}
-          dir={isArabic ?"rtl":"ltr"}
+          placeholder={
+            isArabic ? "اختر الحالة الإجتماعية" : "Select Marital Status"
+          }
+          dir={isArabic ? "rtl" : "ltr"}
           triggerClassName="w-full"
         />
       </div>
@@ -85,7 +87,7 @@ function SpecsAndStatus({ locale }: { locale: Locale }) {
       <div className="col-span-1 md:col-span-2">
         <div className="flex items-center gap-2  border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
           <MapPin size={14} className="text-[#0c479a]" />
-          <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+          <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
             {isArabic ? "تاريخ الولادة" : "Date Of Birth"}
           </label>
         </div>
@@ -93,7 +95,7 @@ function SpecsAndStatus({ locale }: { locale: Locale }) {
         <DateInYearsInputs
           control={control}
           name="date_of_birth"
-          placeholder={isArabic ? "اختر تاريخ الولادة":"Select Date Of Birth"}
+          placeholder={isArabic ? "اختر تاريخ الولادة" : "Select Date Of Birth"}
           error={errors.date_of_birth}
           label=""
         />

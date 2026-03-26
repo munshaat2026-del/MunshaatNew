@@ -12,16 +12,16 @@ interface AuthOptionsProps {
   showGoogle?: boolean;
 }
 
-export const GoogleLogin = ({ 
-  showRegister = true, 
-  showForgotPassword = true, 
-  showGoogle = true 
+export const GoogleLogin = ({
+  showRegister = true,
+  showForgotPassword = true,
+  showGoogle = true,
 }: AuthOptionsProps) => {
-const [loading, setLoading] = useState(false);
-    const handleGoogleLogin = async () => {
-  setLoading(true);
-  await signIn("google", { callbackUrl: "/" });
-};
+  const [loading, setLoading] = useState(false);
+  const handleGoogleLogin = async () => {
+    setLoading(true);
+    await signIn("google", { callbackUrl: "/" });
+  };
   return (
     <div className="space-y-6 pt-4">
       {/* Navigation Links */}
@@ -34,7 +34,7 @@ const [loading, setLoading] = useState(false);
             Forgot Password?
           </Link>
         )}
-        
+
         {showRegister && (
           <Link
             href="/register"
@@ -63,13 +63,15 @@ const [loading, setLoading] = useState(false);
             onClick={handleGoogleLogin}
             className="group w-full py-4 border border-slate-200 flex justify-center items-center gap-3 bg-white hover:bg-slate-50 transition-all duration-300 active:scale-[0.98]"
           >
-            <FcGoogle size={20} className="group-hover:scale-110 transition-transform" />
-            <span className="text-[10px] font-black text-slate-700 uppercase tracking-[0.2em]">
-             {loading ? "Redirecting..." : "Login with Google"}
+            <FcGoogle
+              size={20}
+              className="group-hover:scale-110 transition-transform"
+            />
+            <span className="text-[10px] font-black text-slate-700 uppercase ">
+              {loading ? "Redirecting..." : "Login with Google"}
             </span>
           </button>
         </>
-        
       )}
     </div>
   );

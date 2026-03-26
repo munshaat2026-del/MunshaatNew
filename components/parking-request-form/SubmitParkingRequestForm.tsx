@@ -42,10 +42,7 @@ function SubmitForm({ action, locale, parkingData }: Props) {
     },
   });
 
-  const {
-    handleSubmit,
-    control,
-  } = methods;
+  const { handleSubmit, control } = methods;
 
   const parkingOptions = useMemo(
     () =>
@@ -53,14 +50,17 @@ function SubmitForm({ action, locale, parkingData }: Props) {
     [parkingData],
   );
 
- const parkingId = useWatch({ control, name: "parking_id" });
+  const parkingId = useWatch({ control, name: "parking_id" });
   const selectedParkingDetails = parkingData.find(
     (ele) => String(ele.id) === String(parkingId),
   );
 
   const onSubmit: SubmitHandler<ParkingRequestFormValues> = async (data) => {
     try {
-      const result = await action({...data,parkings:{connect:{id:data.parking_id}}});
+      const result = await action({
+        ...data,
+        parkings: { connect: { id: data.parking_id } },
+      });
       if (result.success) {
         toast.success(result.message);
         methods.reset();
@@ -90,7 +90,7 @@ function SubmitForm({ action, locale, parkingData }: Props) {
             <div className="lg:col-span-7 p-4 md:p-8 lg:p-12 bg-white">
               <div className="max-w-2xl mx-auto lg:mx-0">
                 <div className="mb-10">
-                  <span className="text-[#0c479a] text-[10px] font-black uppercase tracking-[0.3em] bg-[#0c479a]/5 px-3 py-1 rounded-md">
+                  <span className="text-[#0c479a] text-[10px] font-black uppercase  bg-[#0c479a]/5 px-3 py-1 rounded-md">
                     {isArabic ? "نموذج الطلب" : "Request Entry"}
                   </span>
                   <h2 className="text-2xl font-black text-slate-900 mt-4 uppercase tracking-tight">
@@ -143,7 +143,7 @@ function SubmitForm({ action, locale, parkingData }: Props) {
                         : "Awaiting Selection"}
                     </h3>
 
-                    <p className="text-slate-400 text-[11px] font-bold max-w-70 leading-relaxed uppercase tracking-wider">
+                    <p className="text-slate-400 text-[11px] font-bold max-w-70 leading-relaxed  tracking-wider">
                       {isArabic
                         ? "يرجى تحديد موقف من القائمة لاستكمال بيانات الطلب واستعراض العقود"
                         : "Select a parking unit to populate the request and review contractual obligations"}

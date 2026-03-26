@@ -34,7 +34,7 @@ function MediaSection({ locale }: { locale: Locale }) {
       <div className="w-full">
         <div className="flex items-center gap-2 mb-2.5  border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
           <AiOutlineIdcard size={14} className="text-[#0c479a]" />
-          <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+          <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
             {isArabic ? "صورة الهوية" : "Identity Image"}
           </label>
         </div>
@@ -57,7 +57,7 @@ function MediaSection({ locale }: { locale: Locale }) {
       <div className="w-full">
         <div className="flex items-center gap-2 mb-2.5  border-l-2 border-[#0c479a] rtl:border-l-0 rtl:border-r-2 px-3">
           <RxIdCard size={14} className="text-[#0c479a]" />
-          <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-focus-within:text-[#0c479a]">
+          <label className="text-[10px] font-black uppercase  text-slate-400 group-focus-within:text-[#0c479a]">
             {isArabic ? "صورة رخصة القيادة" : "License Image"}
           </label>
         </div>

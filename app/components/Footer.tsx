@@ -1,34 +1,45 @@
-"use client"
+"use client";
 
-import React from "react"
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, ArrowUpRight, Facebook } from "lucide-react"
-import Logo from "@/public/logo.png"
-import Image from "next/image"
-import Link from "next/link"
-import { useTranslations, useLocale } from "next-intl"
+import React from "react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Twitter,
+  Instagram,
+  ArrowUpRight,
+  Facebook,
+} from "lucide-react";
+import Logo from "@/public/logo.png";
+import Image from "next/image";
+import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
 
 export function Footer() {
-  const primaryColor = "#0c479a"
-  const t = useTranslations("Navbar")
-  const locale = useLocale()
-  const isAr = locale === "ar"
-  const currentYear = new Date().getFullYear()
-  const nurembergUrl = process.env.NEXT_PUBLIC_NUREMBERG_URL
-  const address= isAr ? process.env.NEXT_PUBLIC_ADDRESS_LINE_AR :process.env.NEXT_PUBLIC_ADDRESS_LINE_EN
+  const primaryColor = "#0c479a";
+  const t = useTranslations("Navbar");
+  const locale = useLocale();
+  const isAr = locale === "ar";
+  const currentYear = new Date().getFullYear();
+  const nurembergUrl = process.env.NEXT_PUBLIC_NUREMBERG_URL;
+  const address = isAr
+    ? process.env.NEXT_PUBLIC_ADDRESS_LINE_AR
+    : process.env.NEXT_PUBLIC_ADDRESS_LINE_EN;
 
   const navLinks = [
     { name: t("offices"), href: "/offices" },
     { name: t("stores"), href: "/stores" },
     { name: t("depot"), href: "/depot" },
-    { name: t("parkings"), href: "/parkings" }
-  ]
+    { name: t("parkings"), href: "/parkings" },
+  ];
 
   const navLinks2 = [
     { name: t("about"), href: "/about" },
     { name: t("tenders"), href: "/tender" },
     { name: t("career"), href: "/career" },
-    { name: t("comingSoon"), href: "/comingSoon" }
-  ]
+    { name: t("comingSoon"), href: "/comingSoon" },
+  ];
 
   return (
     <footer
@@ -41,18 +52,23 @@ export function Footer() {
           style={{
             backgroundImage:
               "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
-            backgroundSize: "80px 80px"
+            backgroundSize: "80px 80px",
           }}
         ></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-4 items-start">
-          
           {/* Logo */}
           <div className="lg:col-span-4 space-y-4 lg:space-y-6">
             <div className="flex items-center gap-4">
-              <Image alt="REEAC Logo" width={42} height={42} src={Logo} className="object-contain" />
+              <Image
+                alt="REEAC Logo"
+                width={42}
+                height={42}
+                src={Logo}
+                className="object-contain"
+              />
               <span className="text-2xl font-black  tracking-tighter leading-none">
                 Re<span style={{ color: primaryColor }}>eac</span>
               </span>
@@ -66,9 +82,18 @@ export function Footer() {
 
             <div className="flex border border-white/5 w-fit bg-white/[0.02]">
               {[
-                { Icon: Linkedin, href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "#" },
-                { Icon: Facebook, href: process.env.NEXT_PUBLIC_TWITTER_URL || "#" },
-                { Icon: Instagram, href: process.env.NEXT_PUBLIC_FACEBOOK_URL || "#" }
+                {
+                  Icon: Linkedin,
+                  href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "#",
+                },
+                {
+                  Icon: Facebook,
+                  href: process.env.NEXT_PUBLIC_TWITTER_URL || "#",
+                },
+                {
+                  Icon: Instagram,
+                  href: process.env.NEXT_PUBLIC_FACEBOOK_URL || "#",
+                },
               ].map(({ Icon, href }, i) => (
                 <Link
                   key={i}
@@ -83,7 +108,7 @@ export function Footer() {
 
           {/* Services */}
           <div className="lg:col-span-2 space-y-4 lg:space-y-6">
-            <h4 className="text-[9px] font-black uppercase tracking-[0.4em] text-[#0c479a]">
+            <h4 className="text-[9px] font-black uppercase  text-[#0c479a]">
               {isAr ? "الخدمات" : "Services"}
             </h4>
 
@@ -107,7 +132,7 @@ export function Footer() {
 
           {/* Important links */}
           <div className="lg:col-span-2  space-y-6 hidden lg:grid">
-            <h4 className="text-[9px] font-black uppercase tracking-[0.4em] text-[#0c479a]">
+            <h4 className="text-[9px] font-black uppercase  text-[#0c479a]">
               {isAr ? "روابط مهمة" : "Important links"}
             </h4>
 
@@ -133,35 +158,46 @@ export function Footer() {
 
           {/* Contact */}
           <div className="lg:col-span-4 space-y-4 lg:space-y-6">
-            <h4 className="text-[9px] font-black uppercase tracking-[0.4em] text-[#0c479a]">
+            <h4 className="text-[9px] font-black uppercase  text-[#0c479a]">
               {isAr ? "المقر الرئيسي" : "Headquarters"}
             </h4>
 
             <div className="space-y-4">
               <div className="flex items-start gap-3 group">
-                <MapPin size={16} className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0" />
+                <MapPin
+                  size={16}
+                  className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0"
+                />
                 <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 leading-tight group-hover:text-slate-300">
                   {address}
                 </span>
               </div>
 
               <div className="flex items-center gap-3 group">
-                <Phone size={16} className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0" />
+                <Phone
+                  size={16}
+                  className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0"
+                />
                 <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
                   {process.env.NEXT_PUBLIC_PHONE}
                 </span>
               </div>
 
-<div className="flex items-center gap-3 group">
-                <Phone size={16} className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0" />
+              <div className="flex items-center gap-3 group">
+                <Phone
+                  size={16}
+                  className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0"
+                />
                 <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
                   {process.env.NEXT_PUBLIC_LAND_NUMBER}
                 </span>
               </div>
 
-
               <div className="flex items-center gap-3 group">
-                <Mail size={16} className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0" />
+                <Mail
+                  size={16}
+                  className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0"
+                />
                 <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
                   {process.env.NEXT_PUBLIC_EMAIL}
                 </span>
@@ -200,5 +236,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

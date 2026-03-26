@@ -14,15 +14,10 @@ export default function OfficeCard({
 }: OfficeCardProps) {
   const isArabic = locale === "ar";
 
-
   const pricePeriods = [
-  { value: "monthly", en: "Monthly", ar: "شهري" },
-  { value: "yearly", en: "Yearly", ar: "سنوي" },
-];
-
-
-
-
+    { value: "monthly", en: "Monthly", ar: "شهري" },
+    { value: "yearly", en: "Yearly", ar: "سنوي" },
+  ];
 
   return (
     <div className="group cursor-pointer bg-white">
@@ -36,7 +31,7 @@ export default function OfficeCard({
 
         {/* Status Badge: Solid Primary Color */}
         <div
-          className="absolute top-0 left-0 px-4 py-2 text-[9px] font-black uppercase tracking-[0.2em] text-white z-10"
+          className="absolute top-0 left-0 px-4 py-2 text-[9px] font-black uppercase  text-white z-10"
           style={{ backgroundColor: primaryColor }}
         >
           {isArabic ? "متاح" : "Available"}
@@ -75,7 +70,8 @@ export default function OfficeCard({
               </span>
             </div>
             <span className="text-lg font-black text-slate-900 tracking-tighter">
-              {office.size_sqm} <span className="text-xs">{isArabic ? "متر مربع" :"sqm"}</span>
+              {office.size_sqm}{" "}
+              <span className="text-xs">{isArabic ? "متر مربع" : "sqm"}</span>
             </span>
           </div>
 
@@ -84,12 +80,13 @@ export default function OfficeCard({
               <Briefcase size={12} />
               <span className="text-[9px] font-black uppercase tracking-widest">
                 {isArabic
-                  ? `السعر/${office.price_period==="monthly" ?"شهري":"monthly"}`
-                  : `Price/${office.price_period==="yearly"?"سنوي":"yearly"}`}
+                  ? `السعر/${office.price_period === "monthly" ? "شهري" : "monthly"}`
+                  : `Price/${office.price_period === "yearly" ? "سنوي" : "yearly"}`}
               </span>
             </div>
             <span className="text-lg font-black text-slate-900 tracking-tighter truncate">
-              {office.price} <span className="text-xs">{isArabic?"أ.د":"JOD"}</span>
+              {office.price}{" "}
+              <span className="text-xs">{isArabic ? "أ.د" : "JOD"}</span>
             </span>
           </div>
         </div>
@@ -97,7 +94,7 @@ export default function OfficeCard({
         {/* 4. Action Hint: Modern & Subtle */}
         <div className="pt-2 flex items-center justify-between">
           <span
-            className="text-[9px] font-black uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-all duration-300 transform -translate-x-2.5 group-hover:translate-x-0"
+            className="text-[9px] font-black uppercase  opacity-0 group-hover:opacity-100 transition-all duration-300 transform -translate-x-2.5 group-hover:translate-x-0"
             style={{ color: primaryColor }}
           >
             {isArabic ? "عرض التفاصيل" : "View Details"}

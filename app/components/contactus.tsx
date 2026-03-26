@@ -34,8 +34,6 @@ export default function ContactSection({ locale, action }: Props) {
   const isAr = locale === "ar";
   const data = aboutdata[locale].contact;
 
-
-
   const method = useForm<ContactFormValues>({
     resolver: zodResolver(createContactSchema(locale)),
   });
@@ -45,8 +43,6 @@ export default function ContactSection({ locale, action }: Props) {
     phone: Phone,
     email: Mail,
   };
-
-
 
   const { handleSubmit } = method;
 
@@ -78,7 +74,7 @@ export default function ContactSection({ locale, action }: Props) {
             <div className="inline-flex items-center gap-2">
               <div className="w-2 h-2 bg-[#0c479a]"></div>
 
-              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400">
+              <span className="text-[10px] font-black uppercase  text-slate-400">
                 {data.header.tag}
               </span>
             </div>
@@ -96,7 +92,6 @@ export default function ContactSection({ locale, action }: Props) {
               className={`lg:col-span-5 border-slate-100 ${isAr ? "lg:border-l" : "lg:border-r"}`}
             >
               <div className="p-8 md:p-12 space-y-12">
-                
                 <div className="space-y-8">
                   {data.info.map((item, i) => {
                     const Icon = iconMap[item.key];
@@ -111,7 +106,7 @@ export default function ContactSection({ locale, action }: Props) {
                         </div>
 
                         <div>
-                          <h4 className="font-black text-[9px] uppercase tracking-[0.3em] text-slate-300 mb-1">
+                          <h4 className="font-black text-[9px] uppercase  text-slate-300 mb-1">
                             {item.label}
                           </h4>
 
@@ -126,7 +121,7 @@ export default function ContactSection({ locale, action }: Props) {
 
                 {/* Hours */}
                 <div className="bg-slate-950 p-8 text-white space-y-6">
-                  <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-[#0c479a]">
+                  <h3 className="text-[10px] font-black uppercase  text-[#0c479a]">
                     {data.hours.title}
                   </h3>
 
@@ -159,7 +154,6 @@ export default function ContactSection({ locale, action }: Props) {
               </form>
             </div>
           </div>
-        
         </div>
       </section>
     </FormProvider>

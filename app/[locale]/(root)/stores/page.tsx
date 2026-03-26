@@ -11,7 +11,6 @@ import StoresGrid from "@/app/components/pagescomponents/stores/StoreGrid";
 
 import { generatePageMetadata } from "@/lib/constants/metadata";
 
-
 export async function generateMetadata({
   params,
 }: {
@@ -19,7 +18,6 @@ export async function generateMetadata({
 }) {
   return generatePageMetadata("stores", (await params).locale);
 }
-
 
 type Filter = {
   minSize?: number;
@@ -48,7 +46,7 @@ export default async function StoresPage({ params, searchParams }: Props) {
     page,
     filter,
   );
-  
+
   const primaryColor = "#0c479a";
   const hasStores = stores?.data && stores.data.length > 0;
 
@@ -59,7 +57,6 @@ export default async function StoresPage({ params, searchParams }: Props) {
 
       <div className="w-full mx-auto px-6 md:px-12 mt-10">
         <div className="flex flex-col lg:flex-row gap-10">
-          
           {/* 1. Sidebar Container */}
           <aside className="w-full lg:w-80 shrink-0">
             <div className="static lg:sticky lg:top-20">
@@ -110,11 +107,16 @@ export default async function StoresPage({ params, searchParams }: Props) {
                 />
 
                 {/* 3. Pagination */}
-               {stores.totlaPages>1&& <div className="flex justify-center pt-10 border-t border-slate-100">
-                  <div className="bg-white px-6 py-2 shadow-sm border border-slate-100 rounded-full">
-                    <PaginationShadcn totalPages={stores.totlaPages} locale={locale} />
+                {stores.totlaPages > 1 && (
+                  <div className="flex justify-center pt-10 border-t border-slate-100">
+                    <div className="bg-white px-6 py-2 shadow-sm border border-slate-100 rounded-full">
+                      <PaginationShadcn
+                        totalPages={stores.totlaPages}
+                        locale={locale}
+                      />
+                    </div>
                   </div>
-                </div>}
+                )}
               </div>
             ) : (
               /* 4. Empty State */
@@ -138,7 +140,7 @@ export default async function StoresPage({ params, searchParams }: Props) {
 
                 <Link
                   href={`/${locale}/stores`}
-                  className="mt-8 px-8 py-3 bg-[#0c479a] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-slate-900 transition-all shadow-lg"
+                  className="mt-8 px-8 py-3 bg-[#0c479a] text-white text-[10px] font-black uppercase  hover:bg-slate-900 transition-all shadow-lg"
                 >
                   {isArabic ? "إعادة تعيين البحث" : "Reset Search"}
                 </Link>

@@ -8,7 +8,6 @@ import { Building2, SearchX } from "lucide-react";
 import Link from "next/link";
 import { generatePageMetadata } from "@/lib/constants/metadata";
 
-
 export async function generateMetadata({
   params,
 }: {
@@ -47,7 +46,7 @@ export default async function OfficesListing({ params, searchParams }: Props) {
   const primaryColor = "#0c479a";
 
   const hasOffices = offices?.data && offices.data.length > 0;
-  console.log(offices)
+  console.log(offices);
 
   return (
     <div className="min-h-screen mt-24 bg-slate-50/50 text-slate-900 font-sans pb-20">
@@ -59,7 +58,6 @@ export default async function OfficesListing({ params, searchParams }: Props) {
           {/* 2. Sticky Sidebar Container */}
           <aside className="w-full lg:w-80 shrink-0">
             <div className="static lg:sticky lg:top-20">
-
               <div className="bg-white  border-l-4 border-[#0c479a] shadow-sm p-0 lg:p-1">
                 <OfficeFilterSidebar locale={locale} />
               </div>
@@ -107,11 +105,16 @@ export default async function OfficesListing({ params, searchParams }: Props) {
                 />
 
                 {/* 4. Centered Pagination */}
-               {offices.totlaPages>1&& <div className="flex justify-center pt-10 border-t border-slate-100">
-                  <div className="bg-white px-6 py-2 shadow-sm border border-slate-100 rounded-full">
-                    <PaginationShadcn totalPages={offices.totlaPages} locale={locale} />
+                {offices.totlaPages > 1 && (
+                  <div className="flex justify-center pt-10 border-t border-slate-100">
+                    <div className="bg-white px-6 py-2 shadow-sm border border-slate-100 rounded-full">
+                      <PaginationShadcn
+                        totalPages={offices.totlaPages}
+                        locale={locale}
+                      />
+                    </div>
                   </div>
-                </div>}
+                )}
               </div>
             ) : (
               /* 5. Enhanced Empty State */
@@ -135,7 +138,7 @@ export default async function OfficesListing({ params, searchParams }: Props) {
 
                 <Link
                   href={`/${locale}/offices`}
-                  className="mt-8 px-8 py-3 bg-[#0c479a] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-slate-900 transition-all shadow-lg"
+                  className="mt-8 px-8 py-3 bg-[#0c479a] text-white text-[10px] font-black uppercase  hover:bg-slate-900 transition-all shadow-lg"
                 >
                   {isArabic ? "إعادة تعيين جميع الفلاتر" : "Reset All Filters"}
                 </Link>
