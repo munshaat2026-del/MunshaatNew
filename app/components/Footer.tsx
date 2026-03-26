@@ -177,7 +177,7 @@ export function Footer() {
               <>
                 © {currentYear} Reeac. جميع الحقوق محفوظة. تم الإنشاء بواسطة{" "}
                 <Link
-                  href={nurembergUrl}
+                  href={nurembergUrl!}
                   target="_blank"
                   className="underline hover:text-[#0c479a] transition-colors"
                 >
@@ -188,7 +188,7 @@ export function Footer() {
               <>
                 © {currentYear} Reeac. All rights reserved. Made by{" "}
                 <Link
-                  href={nurembergUrl}
+                  href={nurembergUrl!}
                   target="_blank"
                   className="underline hover:text-[#0c479a] transition-colors"
                 >
