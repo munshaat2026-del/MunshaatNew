@@ -116,6 +116,12 @@
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
+[lang="ar"] {
+  letter-spacing: 0 !important;
+  /* Some older WebKit versions need this to force proper joining */
+  text-rendering: optimizeLegibility; 
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

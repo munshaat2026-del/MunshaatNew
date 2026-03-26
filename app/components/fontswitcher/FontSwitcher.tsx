@@ -21,11 +21,13 @@ export default function FontSwitcher({
   children: React.ReactNode;
   locale: string;
 }) {
+  const isArabic = locale === "ar";
+  const fontClass = isArabic ? notoSansArabic.className : notoSans.className;
+
   return (
-    <div
-      lang={locale}
-      dir={locale === "ar" ? "rtl" : "ltr"}
-      className={locale === "ar" ? notoSansArabic.className : notoSans.className}
+    <div 
+      className={fontClass} 
+      style={{ letterSpacing: isArabic ? "0" : "normal" }}
     >
       {children}
     </div>
