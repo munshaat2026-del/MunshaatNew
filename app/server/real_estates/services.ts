@@ -482,7 +482,7 @@ export const getAllRealEstatesByTypeByLocale = async (
       const pageSize = 9;
       const skip = (pageNumber - 1) * pageSize;
 
-      const where: RealEstateWhereInputs = { real_estates_type: type };
+      const where: RealEstateWhereInputs = { real_estates_type: type,is_available:true };
 
       if (filters?.minSize || filters?.maxSize) {
         where.size_sqm = {
@@ -501,6 +501,7 @@ export const getAllRealEstatesByTypeByLocale = async (
       if (filters?.floor) {
         where.floor_number = filters?.floor;
       }
+
       try {
         const numberOfPages = await prisma.real_estates.count({ where });
         const estates = await prisma.real_estates.findMany({

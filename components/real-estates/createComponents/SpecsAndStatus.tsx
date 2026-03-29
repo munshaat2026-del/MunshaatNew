@@ -9,11 +9,13 @@ import { pricePeriodOptions} from "@/lib/constants/dashboardData";
 import FormSelect from "@/components/inputs/SelectorInput";
 import FormCheckbox from "@/components/inputs/CheckBoxInput";
 import MultiInputForm from "@/components/inputs/MultiInput";
+import { Globe } from "lucide-react";
 
 type RealEstatesFormValues = z.infer<typeof RealEstateSchema>;
 
 function SpecsAndStatus() {
   const {
+    watch,
     formState: { errors },
     control,
   } = useFormContext<RealEstatesFormValues>();
@@ -54,21 +56,31 @@ function SpecsAndStatus() {
         </div>
 
         {/* Row 3: Availability Toggle */}
-        <div className="md:col-span-2 flex items-center justify-between rounded-lg border p-4 bg-muted/30">
-          <div className="space-y-0.5">
-            <label className="text-sm font-medium">Listing Availability</label>
-            <p className="text-xs text-muted-foreground">
-              Toggle whether this property is currently visible to the public.
-            </p>
-          </div>
-          <FormCheckbox
-            name="is_available"
-            control={control}
-            label="Is Available"
-            error={errors.is_available}
-            className="mb-0 ml-0" 
-          />
-        </div>
+         <div className="col-span-1 md:col-span-2 flex flex-col items-start sm:flex-row sm:items-center w-full justify-between gap-4 p-5 border-y md:border border-slate-200 bg-slate-50/30">
+  <div className="flex items-center gap-4">
+    <div className={`p-2 rounded-lg ${watch('is_available') ? 'bg-green-100 text-green-600' : 'bg-slate-100 text-slate-400'}`}>
+      <Globe className="w-5 h-5" /> {/* Or any icon library you use */}
+    </div>
+    <div>
+      <h3 className="text-sm font-bold text-slate-900">Visible on Website</h3>
+      <p className="text-xs text-slate-500">Visibility depends on the "Available" status.</p>
+    </div>
+  </div>
+
+  <div className="flex flex-col items-center gap-2 ">
+   
+    <FormCheckbox
+      name="is_available"
+      control={control}
+      label="Available"
+      className="font-bold text-slate-900"
+    />
+     <p className="text-[11px] font-medium text-slate-400 italic">
+      {watch('is_available') ? "Visible to public" : "Hidden from site"}
+    </p>
+  </div>
+  
+</div>
       </div>
   );
 }
