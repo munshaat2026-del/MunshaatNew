@@ -33,6 +33,7 @@ function MediaSection() {
           endpoint="parkings"
           onUploadComplete={handleUploadComplete}
           onUploadError={handleUploadError}
+          locale="en"
           
         />
         {errors.image && (

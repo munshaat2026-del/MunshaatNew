@@ -66,7 +66,7 @@ function BasicInfo() {
       <div className="md:col-span-2">
         <TextareaInput
           register={register("description_en")}
-          label="English Description"
+          label="Description (EN) "
           error={errors.description_en}
           className="w-full lg:w-[95%]"
         />
@@ -75,7 +75,7 @@ function BasicInfo() {
       <div className="md:col-span-2">
         <TextareaInput
           register={register("description_ar")}
-          label="Arabic Description"
+          label="Description (AR)"
           error={errors.description_ar}
           className="w-full lg:w-[95%] "
           dir="rtl" 

@@ -1,14 +1,9 @@
 "use client";
 
-import React from "react";
 import {
-  BarChart,
-  Zap,
   Building2,
   Car,
-  ShieldCheck,
   Users,
-  ArrowUpRight,
   Store,
   Settings,
   FileText,
@@ -37,14 +32,14 @@ export default function ServicesSection({
             <span className="text-[10px] font-black uppercase ">
               {data.tag}
             </span>
-            <div className="h-[1px] w-12 bg-slate-200"></div>
+            <div className="h-px w-12 bg-slate-200"></div>
           </div>
           <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none">
             {data.titleLine1} <br />
             <span className="text-[#0c479a]">{data.titleLine2}</span>
           </h2>
         </div>
-        <p className="text-slate-400 font-bold text-[10px] uppercase  max-w-xs leading-loose pb-2 border-b border-slate-100">
+        <p className="text-slate-400 font-bold text-[10px]   max-w-xs leading-loose pb-2 border-b border-slate-100">
           {data.description}
         </p>
       </div>
@@ -82,7 +77,7 @@ export default function ServicesSection({
                 {item.t}
               </h3>
 
-              <p className="text-slate-400 text-[11px] font-bold uppercase tracking-widest leading-relaxed mb-8">
+              <p className="text-slate-400 text-[11px] font-bold  tracking-widest leading-relaxed mb-8">
                 {item.d}
               </p>
             </div>

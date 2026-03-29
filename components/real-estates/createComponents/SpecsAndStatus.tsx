@@ -47,7 +47,7 @@ function SpecsAndStatus() {
             name="features_ar"
             error={errors.features_ar}
             control={control}
-            placeholder="e.g. Garage, High-speed Wi-Fi"
+            placeholder="مثال: كراج، واي فاي عالي السرعة"
 
            
           />

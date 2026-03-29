@@ -178,9 +178,9 @@ export function Footer() {
                   size={16}
                   className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0"
                 />
-                <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
+                <a href={`tel:${process.env.NEXT_PUBLIC_PHONE}` }  className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
                   {process.env.NEXT_PUBLIC_PHONE}
-                </span>
+                </a >
               </div>
 
               <div className="flex items-center gap-3 group">
@@ -188,9 +188,9 @@ export function Footer() {
                   size={16}
                   className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0"
                 />
-                <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
+                <a href={`tel:${process.env.NEXT_PUBLIC_LAND_NUMBER}` } className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
                   {process.env.NEXT_PUBLIC_LAND_NUMBER}
-                </span>
+                </a>
               </div>
 
               <div className="flex items-center gap-3 group">
@@ -198,9 +198,9 @@ export function Footer() {
                   size={16}
                   className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0"
                 />
-                <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
+                <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`} className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
                   {process.env.NEXT_PUBLIC_EMAIL}
-                </span>
+                </a>
               </div>
             </div>
           </div>

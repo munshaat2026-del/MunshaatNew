@@ -2,7 +2,7 @@ import { MapPin, Maximize2, ShoppingBag, ArrowUpRight } from "lucide-react";
 import { type TranslatedRaelEstate } from "@/types/index";
 
 interface StoreCardProps {
-  office: TranslatedRaelEstate; // Keeping the prop name 'office' to avoid breaking the parent map for now
+  office: TranslatedRaelEstate; 
   primaryColor: string;
   locale?: "en" | "ar";
 }
@@ -58,7 +58,7 @@ export default function StoreCard({
 
         <div className="flex items-center gap-1.5 text-slate-400">
           <MapPin size={14} style={{ color: primaryColor }} />
-          <span className="text-[10px] font-black uppercase tracking-widest truncate">
+          <span className="text-[10px] font-black  tracking-widest truncate">
             {office.address}
           </span>
         </div>

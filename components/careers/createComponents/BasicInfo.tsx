@@ -37,6 +37,7 @@ function BasicInfo() {
       <TextInput
         register={register("position_ar")}
         label="Position (AR)"
+        dir="rtl"
         error={errors.position_ar}
       />
 
@@ -48,6 +49,7 @@ function BasicInfo() {
       <TextareaInput
         register={register("description_ar")}
         label="Description (AR)"
+        dir="rtl"
         error={errors.description_ar}
       />
 
@@ -59,6 +61,7 @@ function BasicInfo() {
       <TextInput
         register={register("experience_ar")}
         label="Experience (AR)"
+        dir="rtl"
         error={errors.experience_ar}
       />
 
@@ -72,6 +75,8 @@ function BasicInfo() {
         register={register("role_ar")}
         label="Role (AR)"
         error={errors.role_ar}
+        dir="rtl"
+        placeholder="مثال: دوام كامل"
         
       />
 

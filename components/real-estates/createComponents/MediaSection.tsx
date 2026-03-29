@@ -42,6 +42,7 @@ function MediaSection() {
           endpoint="realEstates"
           onUploadComplete={handleUploadComplete}
           onUploadError={handleUploadError}
+          locale="en"
           
         />
         {errors.cover_image && (
@@ -65,6 +66,7 @@ function MediaSection() {
             });
           }}
           onUploadError={(err: Error) => toast.error(err.message)}
+          
         />
       </div>
     </div>

@@ -36,17 +36,20 @@ function BasicInfo() {
       <TextInput
         register={register("position_ar")}
         label="Position (AR)"
+        dir="rtl"
         error={errors.position_ar}
       />
 
       <TextareaInput
         register={register("description_en")}
         label="Description (EN)"
+        
         error={errors.description_en}
       />
       <TextareaInput
         register={register("description_ar")}
         label="Description (AR)"
+        dir="rtl"
         error={errors.description_ar}
       />
 
@@ -58,6 +61,7 @@ function BasicInfo() {
       <TextInput
         register={register("experience_ar")}
         label="Experience (AR)"
+        dir="rtl" 
         error={errors.experience_ar}
       />
 
@@ -70,7 +74,9 @@ function BasicInfo() {
       <TextInput
         register={register("role_ar")}
         label="Role (AR)"
+        dir="rtl"
         error={errors.role_ar}
+        placeholder="مثال: دوام كامل"
       />
 
       <MultiInputForm

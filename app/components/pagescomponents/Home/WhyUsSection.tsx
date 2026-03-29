@@ -49,7 +49,7 @@ export default function WhyUsSection({ primaryColor }: WhyUsSectionProps) {
                   <h4 className="font-black text-[13px] uppercase tracking-widest text-slate-900">
                     {point.t}
                   </h4>
-                  <p className="text-slate-400 text-[11px] font-bold uppercase tracking-tight leading-relaxed max-w-sm">
+                  <p className="text-slate-400 text-[11px] font-bold  tracking-tight leading-relaxed max-w-sm">
                     {point.d}
                   </p>
                 </div>

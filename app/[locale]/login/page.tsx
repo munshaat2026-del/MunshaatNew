@@ -23,7 +23,7 @@ const Login = () => {
     try {
       const result = await signIn("credentials", {
         redirect: false,
-        callbackUrl: "/",
+        callbackUrl: "/admin/dashboard",
         email: data.email,
         password: data.password,
       });
@@ -32,7 +32,7 @@ const Login = () => {
         toast.error("Login failed. Please check your email and password.");
       } else {
         toast.success("Welcome back!");
-        window.location.href = "/";
+        window.location.href = "/admin/dashboard";
       }
     } catch (err) {
       toast.error("Something went wrong. Please try again later.");

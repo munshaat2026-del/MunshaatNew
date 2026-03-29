@@ -24,12 +24,13 @@ function MediaSection() {
   return (
     <div className="grid grid-cols-1 gap-6 w-[95%]">
      <div className="flex flex-col w-full md:w-1/2">
-              <label className="text-base text-black mb-2">Member Image</label>
+              <label className="text-base text-gray-700 mb-2 font-semibold">Member Image</label>
               <ImageUploader
                 endpoint="ourTeam"
                 initialImageUrl={watch("image")}
                 onUploadComplete={handleUploadComplete}
                 onUploadError={handleUploadError}
+                locale="en"
               />
               {errors.image && (
                 <p className="mt-1 text-xs text-red-600">Image is required</p>

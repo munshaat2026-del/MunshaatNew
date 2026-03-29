@@ -46,6 +46,7 @@ function BasicInfo() {
       <TextInput
         register={register("name_ar")}
         label="Name (AR)"
+        dir="rtl" 
         error={errors.name_ar}
       />
       <TextareaInput
@@ -56,6 +57,7 @@ function BasicInfo() {
       <TextareaInput
         register={register("description_ar")}
         label="Description (AR)"
+        dir="rtl" 
         error={errors.description_ar}
       />
 
@@ -67,6 +69,7 @@ function BasicInfo() {
       <TextInput
         register={register("address_ar")}
         label="Address (AR)"
+        dir="rtl" 
         error={errors.address_ar}
       />
 

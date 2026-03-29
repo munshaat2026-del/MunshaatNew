@@ -55,7 +55,7 @@ export default function OfficeCard({
 
         <div className="flex items-center gap-1.5 text-slate-400">
           <MapPin size={14} style={{ color: primaryColor }} />
-          <span className="text-[10px] font-black uppercase tracking-widest">
+          <span className="text-[10px] font-black  tracking-widest">
             {office.address}
           </span>
         </div>

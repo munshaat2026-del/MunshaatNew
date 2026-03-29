@@ -30,9 +30,10 @@ function MediaSection() {
         </Label>
         <ImageUploader
           initialImageUrl={watch("logo")}
-          endpoint="parkings"
+          endpoint="ourClients"
           onUploadComplete={handleUploadComplete}
           onUploadError={handleUploadError}
+          locale="en"
           
         />
         {errors.logo && (

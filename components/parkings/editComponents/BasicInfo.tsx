@@ -70,7 +70,7 @@ function BasicInfo() {
 
       <TextInput
         register={register("total_spots", { valueAsNumber: true })}
-        label="Total Spots"
+        label="Total Spots (Number)"
         error={errors.total_spots}
       />
       <TextInput
