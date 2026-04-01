@@ -20,6 +20,7 @@ import OurClients from "@/app/components/pagescomponents/About/OurClients";
 import { generatePageMetadata } from "@/lib/constants/metadata";
 
 
+
 export async function generateMetadata({
   params,
 }: {
@@ -35,7 +36,6 @@ interface Props {
 export default async function AboutUs({ params }: Props) {
   const primaryColor = "#0c479a";
   const { locale } = await params;
-
 
   const [mainMembers, notMainMemebrs, parkings,clients] = await Promise.all([
     getMainMembersByLocale(locale),

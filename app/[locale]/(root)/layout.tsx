@@ -9,6 +9,8 @@ import FontSwitcher from "@/app/components/fontswitcher/FontSwitcher";
 import { routing } from "@/i18n/routing";
 import { notFound } from 'next/navigation';
 import {getComingSoonCount} from "@/app/server/coming_soon/services"
+import { Suspense } from "react";
+import Loading from "@/app/loading";
 
 type Props = {
   children: React.ReactNode;
@@ -41,7 +43,7 @@ const count= (await getComingSoonCount()).data
           <Navbar isComingSoon={count>0? true:false} />
           <main className="flex-1">
        
-            {children}
+           <Suspense fallback={<Loading/>}> {children}</Suspense>
           </main>
           <Footer />
         </div>

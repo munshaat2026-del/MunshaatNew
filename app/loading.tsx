@@ -1,81 +1,55 @@
 "use client";
-import React from "react";
-import { Loader2 } from "lucide-react";
 
 export default function Loading() {
   const primaryColor = "#0c479a";
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center px-6 overflow-hidden relative">
-      {/* Dynamic Background Colors (نفس نمط صفحة 404) */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-[#0c479a]/5 blur-[120px]" />
-        <div className="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] rounded-full bg-[#0c479a]/10 blur-[150px]" />
+    <div className="min-h-screen bg-white flex items-center justify-center overflow-hidden relative">
+      {/* Small glowing background */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-48 h-48 rounded-full blur-[80px] opacity-20" style={{ backgroundColor: primaryColor }} />
       </div>
 
-      <div className="max-w-4xl w-full text-center relative z-10">
-        {/* Static Background Text - كلمة LOADING خلفية شفافة */}
-        <h1
-          className="text-[18vw] font-black leading-none tracking-tighter select-none pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap"
+      {/* Loader */}
+      <div className="relative w-24 h-24">
+        {/* Outer ring */}
+        <div
+          className="absolute inset-0 rounded-full animate-spin"
           style={{
-            color: primaryColor,
-            opacity: 0.04,
+            border: `3px solid ${primaryColor}33`,
+            borderTopColor: primaryColor,
+            borderRightColor: `${primaryColor}80`,
           }}
-        >
-          LOADING
-        </h1>
+        />
 
-        <div className="flex flex-col items-center space-y-8">
-          {/* Animated Spinner Icon */}
-          <div className="relative">
-            <div className="w-24 h-24 rounded-full border-4 border-slate-200 border-t-[#0c479a] animate-spin" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-2 h-2 bg-[#0c479a] rounded-full animate-ping" />
-            </div>
-          </div>
+        {/* Inner rotating square */}
+        <div className="absolute inset-6 flex items-center justify-center">
+          <div
+            className="w-8 h-8 rotate-45 animate-spin"
+            style={{
+              background: `linear-gradient(135deg, ${primaryColor}, ${primaryColor}80)`,
+              borderRadius: "8px",
+              boxShadow: `0 0 20px ${primaryColor}55`,
+            }}
+          />
+        </div>
 
-          <div className="space-y-4">
-            <h2 className="text-5xl md:text-7xl font-black text-slate-900 uppercase tracking-tighter leading-none">
-              Please <span style={{ color: primaryColor }}>Wait.</span>
-            </h2>
-
-            {/* Loading Progress Text */}
-            <div className="flex flex-col items-center gap-2">
-              <p className="text-slate-400 text-[10px] md:text-xs font-black uppercase  animate-pulse">
-                Synchronizing Asset Data...
-              </p>
-
-              {/* Minimal Progress Bar */}
-              <div className="w-48 h-[2px] bg-slate-200 mt-2 overflow-hidden relative">
-                <div
-                  className="absolute inset-0 bg-[#0c479a] transition-all duration-500 animate-shimmer"
-                  style={{
-                    width: "30%",
-                    animation: "loading-bar 2s infinite ease-in-out",
-                  }}
-                />
-              </div>
-            </div>
-          </div>
+        {/* Orbiting dot */}
+        <div className="absolute inset-0 rounded-full animate-spin" style={{ animationDuration: "2s" }}>
+          <div
+            className="absolute -top-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full"
+            style={{ backgroundColor: primaryColor, boxShadow: `0 0 15px ${primaryColor}` }}
+          />
         </div>
       </div>
 
-      {/* Subtle UI Detail - نفس تفاصيل صفحة 404 */}
-      <div className="absolute bottom-10 left-10 border-l border-slate-200 pl-4 hidden md:block">
-        <p className="text-[8px] font-black text-slate-300 uppercase ">
-          System Protocol: 0x77_INIT_SESSION
-        </p>
-      </div>
-
-      {/* CSS For Custom Animation */}
       <style jsx>{`
-        @keyframes loading-bar {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(250%);
-          }
+        .animate-spin {
+          animation: spin 1.5s linear infinite;
+        }
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
       `}</style>
     </div>
