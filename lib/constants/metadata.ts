@@ -125,54 +125,7 @@ export const ROOT_METADATA: Metadata = {
   },
 };
 
-// ---- Home metadata ----
-export const HOME_METADATA: Metadata = {
-  title: `${APP_NAME} — Commercial Leasing in Amman`,
-  description: HOME_DESCRIPTION_EN,
-  keywords: COMMON_KEYWORDS.join(", "),
-  metadataBase: new URL(SITE_URL),
-  openGraph: {
-    title: APP_NAME,
-    description: HOME_DESCRIPTION_EN,
-    url: SITE_URL,
-    siteName: SITE_TITLE,
-    type: "website",
-    locale: "en-US",
-    images: [
-      {
-        url: `${SITE_URL}/og-image.jpg`,
-        width: 1200,
-        height: 630,
-        alt: `${SITE_TITLE} — Offices, Stores & Depots`,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: APP_NAME,
-    description: HOME_DESCRIPTION_EN,
-    images: [`${SITE_URL}/og-image.jpg`],
-  },
-};
-
-
-// ---- Properties listing pages (stores / offices / depot) ----
-// Generic listing page metadata factory
-export const LISTING_METADATA = (typeLabel: string, path = ""): Metadata => ({
-  title: `${SITE_TITLE} — ${typeLabel}`,
-  description: `Available ${typeLabel.toLowerCase()} for rent in Amman.`,
-  keywords: COMMON_KEYWORDS.join(", "),
-  openGraph: {
-    title: `${SITE_TITLE} — ${typeLabel}`,
-    description: `Available ${typeLabel.toLowerCase()} for rent in Amman.`,
-    url: `${SITE_URL}/${path}`,
-    siteName: SITE_TITLE,
-    locale: "en-US",
-    type: "website",
-  },
-});
-
-
+// Used for /slug pages 
 export const generateDynamicMetadata = {
   page: (opts: {
     type:
@@ -308,12 +261,12 @@ export const generateDynamicMetadata = {
   },
 };
 
-
 /* ------------------------------- */
 
 import { Locale } from "@/types";
-
+// Used for pages with locale
 type PageKey =
+  | "home" // 
   | "offices"
   | "stores"
   | "depots"
@@ -344,6 +297,18 @@ const translations: Record<
         "تصفح المكاتب المتوفرة للإيجار في عمّان واكتشف مساحات إدارية حديثة مصممة لتلبية احتياجات الشركات والمؤسسات.",
     },
   },
+   home: {
+    en: {
+      title: "REEAC — Commercial Leasing in Amman",
+      description:
+        "A modern real estate platform offering offices, retail stores, depots, and parking spaces for rent in Amman. Professionally managed commercial assets.",
+    },
+    ar: {
+      title: "شركة المنشآت والمجمعات العقارية | REEAC",
+      description:
+        "شركة المنشآت والمجمعات العقارية هي الذراع العقاري المسؤول عن إدارة واستثمار وتأجير الأصول العقارية التجارية والإدارية في الأردن.",
+    },
+   },
 
   stores: {
     en: {
@@ -469,29 +434,32 @@ export function generatePageMetadata(
 ): Metadata {
   const isArabic = locale === "ar";
   const t = translations[page][isArabic ? "ar" : "en"];
+  const isHome = page === "home";
+
+  const basePath = isHome ? `${locale}` : `${locale}/${page}`;
 
   return {
-    title: `${t.title} | ${SITE_TITLE}`,
+    title: `${t.title}`,
     description: t.description,
 
     alternates: {
-      canonical: `${SITE_URL}/${locale}/${page}`,
+      canonical: `${SITE_URL}/${basePath}`,
       languages: {
-        en: `${SITE_URL}/en/${page}`,
-        ar: `${SITE_URL}/ar/${page}`,
+        en: `${SITE_URL}/en${isHome ? "" : `/${page}`}`,
+        ar: `${SITE_URL}/ar${isHome ? "" : `/${page}`}`,
       },
     },
 
     openGraph: {
-      title: `${t.title} | ${SITE_TITLE}`,
+      title: t.title,
       description: t.description,
-      url: `${SITE_URL}/${locale}/${page}`,
+      url: `${SITE_URL}/${basePath}`,
       siteName: SITE_TITLE,
       type: "website",
       locale: isArabic ? "ar_JO" : "en_US",
       images: [
         {
-          url: `${SITE_URL}/logo.png`,
+          url: `${SITE_URL}/logo.png`, 
           width: 1200,
           height: 630,
           alt: SITE_TITLE,
@@ -501,7 +469,7 @@ export function generatePageMetadata(
 
     twitter: {
       card: "summary_large_image",
-      title: `${t.title} | ${SITE_TITLE}`,
+      title: t.title,
       description: t.description,
       images: [`${SITE_URL}/logo.png`],
     },

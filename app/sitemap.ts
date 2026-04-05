@@ -8,22 +8,33 @@ import {
 
 const SITE_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
+const locales = ["en", "ar"] as const;
+
 export default async function sitemap() {
   const now = new Date();
 
+  // Helper to generate localized URLs
+  const withLocales = (path: string) =>
+    locales.map((locale) => ({
+      url: `${SITE_URL}/${locale}${path}`,
+      lastModified: now,
+    }));
+
   // Static pages
-  const staticPages = [
-    { url: `${SITE_URL}/`, lastModified: now },
-    { url: `${SITE_URL}/about`, lastModified: now },
-    { url: `${SITE_URL}/stores`, lastModified: now },
-    { url: `${SITE_URL}/offices`, lastModified: now },
-    { url: `${SITE_URL}/depot`, lastModified: now },
-    { url: `${SITE_URL}/parkings`, lastModified: now },
-    { url: `${SITE_URL}/tenders`, lastModified: now },
-    { url: `${SITE_URL}/careers`, lastModified: now },
-    { url: `${SITE_URL}/comingSoon`, lastModified: now },
-    { url: `${SITE_URL}/contact`, lastModified: now },
+  const staticPaths = [
+    "",
+    "/about",
+    "/stores",
+    "/offices",
+    "/depot",
+    "/parkings",
+    "/tenders",
+    "/careers",
+    "/comingsoon", 
+    "/contact",
   ];
+
+  const staticPages = staticPaths.flatMap((path) => withLocales(path));
 
   // Fetch dynamic slugs
   const storeSlugs = await fetchStoreSlugs();
@@ -32,31 +43,20 @@ export default async function sitemap() {
   const careerSlugs = await fetchCareerSlugs();
   const parkingSlugs = await fetchParkingSlugs();
 
-  // Map dynamic pages
-  const storePages = storeSlugs.map((s) => ({
-    url: `${SITE_URL}/stores/${s.slug}`,
-    lastModified: now,
-  }));
+  // Dynamic pages helper
+  const mapDynamic = (items: { slug: string }[], base: string) =>
+    items.flatMap((item) =>
+      locales.map((locale) => ({
+        url: `${SITE_URL}/${locale}${base}/${item.slug}`,
+        lastModified: now,
+      }))
+    );
 
-  const officePages = officeSlugs.map((o) => ({
-    url: `${SITE_URL}/offices/${o.slug}`,
-    lastModified: now,
-  }));
-
-  const depotPages = depotSlugs.map((d) => ({
-    url: `${SITE_URL}/depot/${d.slug}`,
-    lastModified: now,
-  }));
-
-  const careerPages = careerSlugs.map((c) => ({
-    url: `${SITE_URL}/careers/${c.slug}`,
-    lastModified: now,
-  }));
-
-  const parkingPages = parkingSlugs.map((p) => ({
-    url: `${SITE_URL}/parkings/${p.slug}`,
-    lastModified: now,
-  }));
+  const storePages = mapDynamic(storeSlugs, "/stores");
+  const officePages = mapDynamic(officeSlugs, "/offices");
+  const depotPages = mapDynamic(depotSlugs, "/depot");
+  const careerPages = mapDynamic(careerSlugs, "/careers");
+  const parkingPages = mapDynamic(parkingSlugs, "/parkings");
 
   return [
     ...staticPages,
