@@ -180,8 +180,8 @@ export const OfficeDetails = ({
                 <ArrowRight
                   size={14}
                   className={`${
-                    isAr ? "rotate-180" : ""
-                  } group-hover:translate-x-1 transition-transform`}
+                    isAr ? "group-hover:-translate-x-1" : "group-hover:translate-x-1"
+                  }  transition-transform`}
                 />
               </Link>
             )}
@@ -196,7 +196,7 @@ export const OfficeDetails = ({
                 size={16}
                 className={`${
                   isAr
-                    ? "rotate-180 group-hover:-translate-x-2"
+                    ? " group-hover:-translate-x-2"
                     : "group-hover:translate-x-2"
                 } transition-transform`}
               />

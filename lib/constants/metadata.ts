@@ -209,7 +209,7 @@ export const generateDynamicMetadata = {
       },
     };
 
-    const typeLabel = typeLabels[opts.type][isArabic ? "ar" : "en"];
+    const typeLabel = typeLabels[opts.type][opts.locale??"en"];
     const description =
       opts.description || defaultDescs[opts.type][isArabic ? "ar" : "en"];
 
@@ -299,7 +299,7 @@ const translations: Record<
   },
    home: {
     en: {
-      title: "REEAC — Commercial Leasing in Amman",
+      title: " Commercial Leasing in Amman",
       description:
         "A modern real estate platform offering offices, retail stores, depots, and parking spaces for rent in Amman. Professionally managed commercial assets.",
     },
@@ -439,7 +439,7 @@ export function generatePageMetadata(
   const basePath = isHome ? `${locale}` : `${locale}/${page}`;
 
   return {
-    title: `${t.title}`,
+    title: `${locale==="en" ? `Reeac — ${t.title}`:`شركة المنشآت — ${t.title}`} `,
     description: t.description,
 
     alternates: {
@@ -451,7 +451,7 @@ export function generatePageMetadata(
     },
 
     openGraph: {
-      title: t.title,
+      title: `${t.title} | Reeac`,
       description: t.description,
       url: `${SITE_URL}/${basePath}`,
       siteName: SITE_TITLE,

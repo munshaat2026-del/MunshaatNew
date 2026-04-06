@@ -14,7 +14,7 @@ export async function generateMetadata({ params }:Props) {
   const office = (await getAllRealEstatesBySlugByLocale(slug,locale,"store")).data;
 
   return generateDynamicMetadata.page({
-    type: "office",
+    type: "store",
     name:office?.name??"",
     description:office?.description,
     slug,

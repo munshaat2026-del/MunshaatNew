@@ -108,7 +108,7 @@ function BasicInfo({ locale }: { locale: Locale }) {
           {!isSubmitting && (
             <Send
               size={14}
-              className={`${isAr ? "group-hover:-translate-x-1 group-hover:-translate-y-1 transition-transform rotate-270" : "group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform "}`}
+              className={`${isAr ? "group-hover:-translate-x-1 group-hover:-translate-y-1 transition-transform " : "group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform "}`}
             />
           )}
         </span>
