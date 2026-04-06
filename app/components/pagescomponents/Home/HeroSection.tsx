@@ -84,7 +84,7 @@ export default function ArabianPremiumEmpire() {
         <div className="absolute inset-0 z-0">
           <img
             src={Banner.src}
-            className="hero-zoom-img w-full h-full object-cover opacity-60 transition-all duration-1000"
+            className="hero-zoom-img w-full h-full object-cover opacity-40 transition-all duration-1000"
             alt="Facade"
           />
           <div className="absolute inset-0  from-transparent to-white"></div>
