@@ -304,7 +304,7 @@ const translations: Record<
         "A modern real estate platform offering offices, retail stores, depots, and parking spaces for rent in Amman. Professionally managed commercial assets.",
     },
     ar: {
-      title: "شركة المنشآت والمجمعات العقارية | REEAC",
+      title: "شركة المنشآت والمجمعات العقارية",
       description:
         "شركة المنشآت والمجمعات العقارية هي الذراع العقاري المسؤول عن إدارة واستثمار وتأجير الأصول العقارية التجارية والإدارية في الأردن.",
     },
