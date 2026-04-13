@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Warehouse, Building2, Car, Layout, MoveUpRight } from "lucide-react";
+import { Warehouse, Building2, Car, MoveUpRight } from "lucide-react";
 import { useLocale } from "next-intl";
 import { homedata } from "@/app/data/homedata";
 import { useRouter } from "next/navigation";
@@ -11,13 +11,13 @@ import { Button1 } from "@/components/ui/Button1";
 import Banner from "@/public/banner.jpg";
 import alburg from "@/public/alburg.jpg";
 import header from "@/public/header.jpeg";
-
 import garage from "@/public/garage.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ArabianPremiumEmpire() {
   const containerRef = useRef(null);
+  const bannerImgRef = useRef(null); // مرجع خاص لصورة البانر
   const locale = useLocale() as "en" | "ar";
   const isAr = locale === "ar";
   const data = homedata[locale];
@@ -25,14 +25,20 @@ export default function ArabianPremiumEmpire() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.to(".hero-zoom-img", {
-        scale: 1.1,
-        duration: 20,
-        ease: "none",
+      // --- حركة البانر المميزة (تأثير سينمائي كل 4 ثواني) ---
+      const bannerTl = gsap.timeline({
         repeat: -1,
-        yoyo: true,
+        yoyo:true,
+        defaults: { duration: 4, ease: "sine.inOut" }
       });
 
+      bannerTl
+        .to(bannerImgRef.current, { scale: 1.1, x: -20, y: -10 })
+        .to(bannerImgRef.current, { scale: 1.15, x: 20, y: 10 })
+        .to(bannerImgRef.current, { scale: 1.2, x: 0, y: -20 })
+        .to(bannerImgRef.current, { scale: 1.1, x: 0, y: 0 });
+
+      // --- أنيميشن ظهور النصوص ---
       gsap.from(".hero-fade", {
         y: 30,
         opacity: 0,
@@ -41,6 +47,7 @@ export default function ArabianPremiumEmpire() {
         ease: "expo.out",
       });
 
+      // --- أنيميشن تجميع المبنى عند السكرول ---
       const assemblyTl = gsap.timeline({
         scrollTrigger: {
           trigger: ".assembly-section",
@@ -80,18 +87,21 @@ export default function ArabianPremiumEmpire() {
       ref={containerRef}
       className="bg-white text-slate-900 overflow-x-hidden font-sans"
     >
+      {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-900">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <img
+            ref={bannerImgRef}
             src={Banner.src}
-            className="hero-zoom-img w-full h-full object-cover opacity-40 transition-all duration-1000"
+            className="w-full h-full object-cover opacity-50 will-change-transform"
             alt="Facade"
           />
-          <div className="absolute inset-0  from-transparent to-white"></div>
+          {/* Layer Overlay لإضافة لمسة فخامة */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-transparent to-slate-900/60"></div>
         </div>
 
         <div className="relative z-10 text-center px-6">
-          <h1 className="hero-fade text-[12vw] centert  md:text-[8vw] font-black leading-[1.2] tracking-[-0.05em] uppercase text-white">
+          <h1 className="hero-fade text-[12vw] md:text-[8vw] font-black leading-[1.2] tracking-[-0.05em] uppercase text-white">
             {data.prime} <br />
             <span className="text-[#0c479a]">{data.assets}</span>
           </h1>
@@ -101,7 +111,7 @@ export default function ArabianPremiumEmpire() {
               onClick={() => {
                 router.push("/about");
               }}
-              className="group bg-[#0c479a] text-white px-12 py-6 font-black text-[20px] uppercase  flex items-center gap-4 transition-all hover:bg-black"
+              className="group bg-[#0c479a] text-white px-12 py-6 font-black text-[20px] uppercase flex items-center gap-4 transition-all hover:bg-white hover:text-[#0c479a]"
             >
               {data.aboutUs} <MoveUpRight size={20} />
             </Button1>
@@ -109,6 +119,7 @@ export default function ArabianPremiumEmpire() {
         </div>
       </section>
 
+      {/* Assembly Section */}
       <section className="assembly-section relative h-screen bg-white flex items-center justify-center overflow-hidden border-y border-slate-100">
         <div className="relative w-full mt-20 max-w-6xl h-[85vh]">
           <div className="part-top absolute top-0 w-full h-[45%] z-30 overflow-hidden border-b-4 border-white shadow-2xl">
@@ -164,6 +175,7 @@ export default function ArabianPremiumEmpire() {
         </div>
       </section>
 
+      {/* Services Section */}
       <section className="py-32 px-6 md:px-20 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-slate-100">
           {data.services.map((item, idx) => {
