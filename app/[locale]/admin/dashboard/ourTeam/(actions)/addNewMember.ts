@@ -33,9 +33,12 @@ export async function createMemberyAction(data: OurTeamCreateInput) {
       revalidatePath(`/ar/admin/dashboard/ourTeam`);
       return { success:true,message: result.message, status: result.status };
     }
+     console.log("www");
     return { success:false,message: result.message, status: result.status };
 
   } catch (error) {
+    console.log("www",error);
+    
     return {success:false, message: "Error In Adding Member", status: 500 };
   }
 }

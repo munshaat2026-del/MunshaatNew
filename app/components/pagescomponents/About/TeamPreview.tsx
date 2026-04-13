@@ -22,7 +22,7 @@ export default function TeamPreview({ primaryColor ,locale,data }: TeamPreviewPr
           <div className="space-y-4">
            
             <h2 className="text-4xl  md:text-5xl font-black text-slate-900 uppercase tracking-tighter">
-              {aboutData.titlePart1} <span className="font-light   text-slate-400">&</span> {aboutData.titlePart2}
+              {aboutData.titlePart1} 
             </h2>
           </div>
          
@@ -31,7 +31,7 @@ export default function TeamPreview({ primaryColor ,locale,data }: TeamPreviewPr
         {/* The Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {data.map((member, i) => (
-            <div key={i} className="group relative cursor-pointer">
+            <div key={i} className="group relative ">
               
               {/* Image Box */}
               <div className="relative aspect-[4/5] overflow-hidden bg-slate-200">
@@ -42,12 +42,7 @@ export default function TeamPreview({ primaryColor ,locale,data }: TeamPreviewPr
                 />
                 
                 {/* Floating Arrow Badge */}
-                <div 
-                  className={`absolute top-0 ${isAr ? 'left-0' : 'right-0'} w-12 h-12 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300`}
-                  style={{ backgroundColor: primaryColor }}
-                >
-                  {isAr ? <ArrowUpLeft size={20} /> : <ArrowUpRight size={20} />}
-                </div>
+              
               </div>
 
               {/* The Inset Card */}
@@ -57,7 +52,7 @@ export default function TeamPreview({ primaryColor ,locale,data }: TeamPreviewPr
                 </h4>
                 <div className={`flex items-center gap-2 mt-1 `}>
                   <div className="w-4 h-[2px]" style={{ backgroundColor: primaryColor }}></div>
-                  <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">
+                  <p className="text-slate-400 text-[10px] font-bold  tracking-widest">
                     {member.position}
                   </p>
                 </div>

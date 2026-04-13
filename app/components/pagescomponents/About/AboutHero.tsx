@@ -1,16 +1,15 @@
-"use client";
 
 import React from "react";
-import { useLocale } from "next-intl";
 import { aboutdata } from "@/app/data/aboutdata";
 import AboutImage from "@/public/aboutImage.jpeg";
+import { Locale } from "@/types";
 
 interface AboutHeroProps {
   primaryColor: string;
+  locale:Locale
 }
 
-export default function AboutHero({ primaryColor }: AboutHeroProps) {
-  const locale = useLocale() as "en" | "ar";
+export default function AboutHero({ primaryColor,locale }: AboutHeroProps) {
   const data = aboutdata[locale].aboutHero;
   const isAr = locale === "ar";
 

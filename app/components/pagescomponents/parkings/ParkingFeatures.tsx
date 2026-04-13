@@ -1,23 +1,26 @@
-"use client";
 
-import React from "react";
-import { ShieldCheck, Smartphone, Zap, CreditCard } from "lucide-react";
-import { useLocale } from "next-intl";
+import {
+  Cpu,          
+  ShieldCheck,  
+  MapPin,       
+  ParkingCircle 
+} from "lucide-react";
 import { parkingdata } from "@/app/data/parkingdata";
+import { Locale } from "@/types";
 
 interface ParkingFeaturesProps {
   primaryColor: string;
+  locale:Locale
 }
 
 export default function ParkingFeatures({
   primaryColor,
+  locale
 }: ParkingFeaturesProps) {
-  const locale = useLocale() as "en" | "ar";
   const data = parkingdata[locale].parkingFeatures;
   const isAr = locale === "ar";
 
-  const icons = [Smartphone, ShieldCheck, Zap, CreditCard];
-
+const icons = [Cpu, ShieldCheck, MapPin, ParkingCircle];
   return (
     <section className="py-32 px-6 md:px-16 max-w-7xl mx-auto bg-white border-b border-slate-100">
       {/* Header Info */}

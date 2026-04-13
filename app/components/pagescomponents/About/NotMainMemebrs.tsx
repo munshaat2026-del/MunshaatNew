@@ -16,16 +16,14 @@ export default function TeamRoster({ primaryColor, locale, data }: TeamRosterPro
         <div className={`mb-12 flex flex-col gap-3 items-center`}>
         
           <h3 className="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tighter">
-            {isAr ? "فريق العمل المعاون" : "Our Associates"}
+            {isAr ? "الإدارة التنفيذية" : "Executive Team"}
           </h3>
         </div>
 
-        {/* Grid - نستخدم 4 أو 5 أعمدة ليظهروا بحجم أصغر من الأساسيين */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {data.map((member, i) => (
             <div key={i} className="group relative">
               
-              {/* Image Container - دائري أو مربع بسيط مع تأثير Scale */}
               <div className="relative aspect-square overflow-hidden  transition-all duration-700 bg-slate-100 border border-slate-100">
                 <img
                   src={member.image ?? ""}
@@ -45,7 +43,7 @@ export default function TeamRoster({ primaryColor, locale, data }: TeamRosterPro
                 <h4 className="text-sm font-black text-slate-900 uppercase tracking-tight group-hover:text-slate-600 transition-colors">
                   {member.name}
                 </h4>
-                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-1">
+                <p className="text-[9px] font-bold text-slate-400  tracking-widest mt-1">
                   {member.position}
                 </p>
               </div>
@@ -54,7 +52,6 @@ export default function TeamRoster({ primaryColor, locale, data }: TeamRosterPro
           ))}
         </div>
 
-        {/* Decorative Background Text - لإضافة لمسة فنية خفيفة */}
         <div className={`absolute opacity-[0.03] pointer-events-none font-black text-9xl uppercase -z-10 ${isAr ? 'left-0' : 'right-0'}`}>
           {isAr ? "فريقنا" : "Support"}
         </div>

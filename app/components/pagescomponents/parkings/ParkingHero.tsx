@@ -1,18 +1,15 @@
-"use client";
 
-import React from 'react';
-import { Zap, ChevronRight, ChevronLeft } from "lucide-react";
 import { useLocale } from "next-intl";
 import { parkingdata } from "@/app/data/parkingdata";
+import { Locale } from "@/types";
 
 interface ParkingHeroProps {
   primaryColor: string;
+  locale:Locale
 }
 
-export default function ParkingHero({ primaryColor }: ParkingHeroProps) {
-  const locale = useLocale() as "en" | "ar";
+export default function ParkingHero({ primaryColor ,locale}: ParkingHeroProps) {
   const data = parkingdata[locale].parkingHero;
-  const isAr = locale === "ar";
 
   return (
     <header className="relative h-[85vh] flex items-center justify-start text-center px-6 overflow-hidden bg-[#0a0f1a]">
@@ -32,18 +29,18 @@ export default function ParkingHero({ primaryColor }: ParkingHeroProps) {
    
    
 
-      <div className="relative z-10 max-w-5xl space-y-12">
+      <div className="relative z-10 max-w-5xl space-y-4">
         {/* Sharp Badge */}
        
         {/* Hero Title */}
-        <h1 className="text-6xl md:text-[9vw] font-black text-white leading-[0.85] uppercase tracking-tighter">
+        <h1 className="text-6xl md:text-[8vw] font-black text-white  uppercase tracking-tighter">
           {data.titleLine1} <br />
           <span className="text-[#0c479a]" >
             {data.titleLine2}
           </span>
         </h1>
 
-        <div className="max-w-2xl mx-auto space-y-8">
+        <div className="max-w-2xl mx-auto space-y-0">
           <p className="text-slate-400 text-xs md:text-sm font-bold  tracking-[0.25em] leading-relaxed  ">
             {data.desc}
           </p>

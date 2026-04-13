@@ -2,7 +2,7 @@ import { getAllRealEstatesByTypeByLocale } from "@/app/server/real_estates/servi
 import { Locale } from "@/types";
 import OfficeFilterSidebar from "@/app/components/pagescomponents/offices/OfficesFilter";
 import PaginationShadcn from "@/components/PaginationsComponent";
-import { Package, SearchX } from "lucide-react"; // Using Package for Depots
+import { Package, SearchX } from "lucide-react"; 
 import Link from "next/link";
 import DepotGrid from "@/app/components/pagescomponents/depotComponents/DepotGrid";
 import DepotsHeader from "@/app/components/pagescomponents/depotComponents/DepotHeader";

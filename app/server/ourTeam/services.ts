@@ -7,23 +7,42 @@ const utapi = new UTApi();
 
 export const addNewMember = async (data: OurTeamCreateInput) => {
   try {
-    const highestDisplayOrder = (
-      await prisma.our_team.findFirst({
-        select: { display_order: true },
-        orderBy: { display_order: "desc" },
-      })
-    )?.display_order;
+    const highestDisplayOrder = await prisma.our_team.findMany({
+      select: { display_order: true },
+      orderBy: { display_order: "asc" },
+    });
+
+    console.log("highestDisplayOrder: ",highestDisplayOrder);
+let maxOrder = 0;
+
+    for (const item of highestDisplayOrder) {
+  if (typeof item.display_order === "number") {
+    if (item.display_order > maxOrder) {
+      maxOrder = item.display_order;
+    }
+  }
+}
+    
+    const nextDisplayOrder = maxOrder + 1;
+    console.log("nextDisplayOrder: ",nextDisplayOrder);
 
     const result = await prisma.our_team.create({
-      data: { ...data, display_order: Number(highestDisplayOrder!) + 1 },
+      data: {
+        ...data,
+        display_order: nextDisplayOrder,
+      },
     });
+
     revalidateTag("ourTeam", "max");
+
     return {
       data: result,
       message: "New Member Has Been Added Successfully",
       status: 201,
     };
   } catch (error) {
+    console.log("error: ", error);
+
     return {
       data: error,
       message: "Error In Adding The Member",

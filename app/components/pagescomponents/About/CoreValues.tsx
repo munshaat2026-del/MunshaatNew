@@ -1,16 +1,14 @@
-"use client";
 
-import React from "react";
 import { Target, Globe, ShieldCheck } from "lucide-react";
-import { useLocale } from "next-intl";
 import { aboutdata } from "@/app/data/aboutdata";
+import { Locale } from "@/types";
 
 interface CoreValuesProps {
   primaryColor: string;
+  locale:Locale
 }
 
-export default function CoreValues({ primaryColor }: CoreValuesProps) {
-  const locale = useLocale() as "en" | "ar";
+export default function CoreValues({ primaryColor,locale }: CoreValuesProps) {
   const data = aboutdata[locale].coreValues;
   const isAr = locale === "ar";
 

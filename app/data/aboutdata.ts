@@ -25,15 +25,15 @@ export const aboutdata = {
       items: [
         {
           t: "The Mission",
-          d: "To manage and invest government owned real estate assets in a professional and sustainable manner that balances economic returns with service quality while strengthening institutional governance.",
+          d: "To provide real estate investment solutions to the Jordanian market through highly experienced teams, relying on the best sound administrative standards.",
         },
         {
           t: "The Vision",
-          d: "To be the most efficient government real estate arm in managing and developing commercial and administrative complexes across the Kingdom.",
+          d: "To be the first choice for clients in the real estate sector by delivering distinguished and innovative services.",
         },
         {
           t: "Our Value",
-          d: "Institutional Governance, Transparency, Operational Efficiency, Responsibility, Sustainability",
+          d: "Professionalism, transparency, innovation, and commitment.",
         },
       ],
     },
@@ -95,7 +95,7 @@ export const aboutdata = {
     },
     ////////////////////////////////
     teamSection: {
-      titlePart1: "Leadership",
+      titlePart1: "Senior Management",
       titlePart2: "Excellence",
       tag: "[ The Core Management Team ]",
       members: [
@@ -189,15 +189,15 @@ export const aboutdata = {
       items: [
         {
           t: "الرسالة",
-          d: `إدارة واﺳﺘﺜﻤﺎر اﻷﺻﻮل اﻟﻌﻘﺎرﻳﺔ اﻟﺤﻜﻮﻣﻴﺔ ﺑﺄﺳﻠﻮب اﺣﺘﺮاﻓﻲ وﻣﺴﺘﺪام، ﻳﺤﻘﻖ اﻟﺘﻮازن ﺑﻴﻦ اﻟﻌﺎﺋﺪ اﻻﻗﺘﺼﺎدي وﺟﻮدة اﻟﺨﺪﻣﺎت، وﻳﻌﺰز ﻣﺒﺎدئ اﻟﺤﻮﻛﻤﺔ اﻟﻤﺆﺳﺴﻴﺔ.`,
+          d: `تقديم حلول استثمارية عقارية للسوق العقاري الاردني من خلال طواقم ذات خبرة عاليه وبالإعتماد على افضل المعايير الإدارية السليمة `,
         },
         {
           t: "الرؤية",
-          d: `أن ﺗﻜﻮن اﻟﺸﺮﻛﺔ اﻟﺬراع اﻟﻌﻘﺎري اﻟﺤﻜﻮﻣﻲ اﻷﻛﺜﺮ ﻛﻔﺎءة ﻓﻲ إدارة وﺗﻄﻮﻳﺮ اﻟﻤﺠﻤﻌﺎت اﻟﺘﺠﺎرﻳﺔ واﻹدارﻳﺔ ﻋﻠﻰ ﻣﺴﺘﻮى اﻟﻤﻤﻠﻜﺔ.`,
+          d: `الخيار الاول للعملاء في مجال العقارات من خلال تقديم خدمات متميزة ومبتكرة .`,
         },
         {
           t: "القيم",
-          d: "مؤسسية، اﻟﺤﻮﻛﻤﺔ اﻟﻤﺆﺳﺴﻴﺔ، شفافية، اﻟﻜﻔﺎءة اﻟﺘﺸﻐﻴﻠية، استدامة.",
+          d: "تتمثل بالاحترافيه والشفافيه والابتكار والالتزام .",
         },
       ],
     },
@@ -259,7 +259,7 @@ export const aboutdata = {
     },
     /////////////////////////////////////////
     teamSection: {
-      titlePart1: "القيادة",
+      titlePart1: "الإدارة العليا",
       titlePart2: "والتميز",
       tag: "[ فريق الإدارة العليا ]",
       members: [
@@ -329,4 +329,65 @@ export const aboutdata = {
       globalPresence: "التواجد العالمي",
     },
   },
+};
+
+
+export const directorStatement = {
+
+  ar: {
+
+    quoteSection: {
+
+      tag: "كلمة الإدارة",
+
+      headline: "كلمة المدير العام",
+
+      paragraphs: [
+
+        "يسعدني أن أرحب بكم في الموقع الإلكتروني لشركة المنشآت والمجمعات العقارية، والذي يأتي في إطار حرصنا على تعزيز التواصل مع شركائنا وجمهورنا، وتقديم خدماتنا بكل شفافية وكفاءة.",
+
+        "تلتزم الشركة بتطوير وإدارة المجمعات العقارية وفق أسس مهنية حديثة، وبما يحقق أعلى مستويات الجودة في الأداء، ويواكب متطلبات التطور في بيئة العمل والخدمات.",
+
+        "ونعمل باستمرار على تحسين إجراءاتنا وخدماتنا، بما يسهم في رفع كفاءة العمل وتعزيز رضا المتعاملين، انطلاقاً من مسؤوليتنا في تقديم خدمات متميزة ومستدامة.",
+
+        "نرحب بكم، ونتطلع إلى خدمتكم وتلبية تطلعاتكم بكل اهتمام."
+
+      ],
+
+      name: "د. مروان محمود المعايطة",
+
+      role: "المدير العام"
+
+    }
+
+  },
+
+  en: {
+
+    quoteSection: {
+
+      tag: "Executive Statement",
+
+      headline: "Leadership Statement",
+
+      paragraphs: [
+
+        "I am pleased to welcome you to the official website of the Real Estate and Commercial Complexes Company, which reflects our commitment to enhancing communication with our partners and the public, and to delivering our services with transparency and efficiency.",
+
+        "The company is committed to developing and managing real estate complexes based on modern professional standards, achieving the highest levels of performance quality while keeping pace with evolving work environments and services.",
+
+        "We continuously strive to improve our procedures and simplify our services in order to enhance operational efficiency and increase customer satisfaction, as part of our responsibility to provide distinguished and sustainable services.",
+
+        "We welcome you and look forward to serving you and meeting your expectations with the utmost care."
+
+      ],
+
+      name: "Dr. Marwan Mahmoud Al-Ma'aytah",
+
+      role: "General Manager"
+
+    }
+
+  }
+
 };

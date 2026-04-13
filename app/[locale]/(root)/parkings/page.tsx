@@ -35,8 +35,8 @@ export default async function ParkingLeasing({ params }: Props) {
 
   return (
     <div className="min-h-screen mt-20 bg-white text-slate-900 font-sans">
-      <ParkingHero primaryColor={primaryColor} />
-      <ParkingFeatures primaryColor={primaryColor} />
+      <ParkingHero primaryColor={primaryColor} locale={locale}/>
+      <ParkingFeatures primaryColor={primaryColor} locale={locale} />
       <SubmitParkingForm
         locale={locale}
         action={submitParkingRequestAction}

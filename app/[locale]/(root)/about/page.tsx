@@ -51,10 +51,10 @@ export default async function AboutUs({ params }: Props) {
   if (!complexdata) return notFound();
   return (
     <div className="min-h-screen mt-20 bg-white text-slate-900 font-sans">
-      <AboutHero primaryColor={primaryColor} />
-      <CoreValues primaryColor={primaryColor} />
+      <AboutHero primaryColor={primaryColor} locale={locale} />
+      <CoreValues primaryColor={primaryColor} locale={locale} />
       <OurComplexes complexdata={complexdata} />
-      <ExecutiveQuote primaryColor={primaryColor} />
+      <ExecutiveQuote primaryColor={primaryColor} locale={locale} />
       {mainMembers.data && <TeamPreview primaryColor={primaryColor}locale={locale} data={mainMembers.data}/>}
       {notMainMemebrs.data && <TeamDirectory primaryColor={primaryColor}locale={locale} data={notMainMemebrs.data}/>}
       {clients.data && clients.data?.length>0 &&  <OurClients locale={locale} clients={clients.data} />}

@@ -79,7 +79,7 @@ export default function Navbar({isComingSoon}:{isComingSoon:Boolean}) {
                 if (link.isDropdown) {
                   return (
                     <div key={link.name} className="relative group py-2">
-                      <button className="flex items-center gap-1 text-[11px] font-bold uppercase tracking-[0.15em] text-slate-500 hover:text-slate-900 transition-colors">
+                      <button className="flex items-center gap-1 text-[11px] font-bold uppercase tracking-[0.15em] text-slate-800 hover:text-slate-900 transition-colors">
                         {link.name}
                         <ChevronDown size={12} className="transition-transform duration-300 group-hover:rotate-180 opacity-70" />
                       </button>
@@ -88,7 +88,7 @@ export default function Navbar({isComingSoon}:{isComingSoon:Boolean}) {
                           <Link
                             key={subItem.name}
                             href={subItem.href}
-                            className="px-5 py-3 text-[10px] font-bold uppercase tracking-widest text-slate-500 hover:text-white hover:bg-[#0c479a] block transition-all"
+                            className="px-5 py-3 text-[10px] font-bold uppercase tracking-widest text-black hover:text-white hover:bg-[#0c479a] block transition-all"
                           >
                             {subItem.name}
                           </Link>
@@ -103,7 +103,7 @@ export default function Navbar({isComingSoon}:{isComingSoon:Boolean}) {
                     key={link.name}
                     href={link.href!}
                     className={`relative text-[11px] font-bold uppercase tracking-[0.15em] transition-colors
-                    ${isActive ? "text-slate-900" : "text-slate-500 hover:text-slate-900"}`}
+                    ${isActive ? "text-slate-900" : "text-slate-800 hover:text-slate-900"}`}
                   >
                     {link.name}
                     {isActive && (
