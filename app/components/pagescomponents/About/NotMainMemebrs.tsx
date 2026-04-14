@@ -14,10 +14,10 @@ export default function TeamRoster({ primaryColor, locale, data }: TeamRosterPro
       <div className="max-w-7xl mx-auto">
         
         <div className={`mb-12 flex flex-col gap-3 items-center`}>
-        
-          <h3 className="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tighter">
-            {isAr ? "الإدارة التنفيذية" : "Executive Team"}
-          </h3>
+
+           <h2 className="text-4xl  md:text-5xl font-black text-slate-900 uppercase tracking-tighter">
+              {isAr?"هيئة":"Board of"} <span className='text-4xl md:text-5xl text-[#0c479a]'>{isAr?"المديرين":"Directors"}</span>
+            </h2>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">

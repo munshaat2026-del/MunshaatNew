@@ -94,9 +94,9 @@ export const aboutdata = {
       bgText: "Reeac",
     },
     ////////////////////////////////
-    teamSection: {
-      titlePart1: "Senior Management",
-      titlePart2: "Excellence",
+    teamSection: { 
+      titlePart1: "Executive ",
+      titlePart2: "Team",
       tag: "[ The Core Management Team ]",
       members: [
         { name: "Ahmed Al-Saud", role: "Executive Director" },
@@ -259,8 +259,8 @@ export const aboutdata = {
     },
     /////////////////////////////////////////
     teamSection: {
-      titlePart1: "الإدارة العليا",
-      titlePart2: "والتميز",
+      titlePart1: "الإدارة",
+      titlePart2: "التنفيذية",
       tag: "[ فريق الإدارة العليا ]",
       members: [
         { name: "أحمد آل سعود", role: "المدير التنفيذي" },

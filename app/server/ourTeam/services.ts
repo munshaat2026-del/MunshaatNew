@@ -12,7 +12,6 @@ export const addNewMember = async (data: OurTeamCreateInput) => {
       orderBy: { display_order: "asc" },
     });
 
-    console.log("highestDisplayOrder: ",highestDisplayOrder);
 let maxOrder = 0;
 
     for (const item of highestDisplayOrder) {
@@ -22,10 +21,7 @@ let maxOrder = 0;
     }
   }
 }
-    
     const nextDisplayOrder = maxOrder + 1;
-    console.log("nextDisplayOrder: ",nextDisplayOrder);
-
     const result = await prisma.our_team.create({
       data: {
         ...data,
@@ -73,6 +69,7 @@ export const getAllMembers = unstable_cache(
   ["all-member"],
   {
     tags: ["ourTeam"],
+    revalidate:3600
   },
 );
 
@@ -100,6 +97,7 @@ export const getMembersByMain = (main: boolean) =>
     [`members-by-main-${main}`],
     {
       tags: ["ourTeam"],
+      revalidate:3600
     },
   );
 
@@ -120,7 +118,7 @@ export const getMemberById = (id: string) => {
       }
     },
     [`member-by-id-${id}`],
-    { tags: ["ourTeam"] },
+    { tags: ["ourTeam"],revalidate:3600 },
   );
 
   return cachedFn();
@@ -265,6 +263,7 @@ export const getMembersByMainAndLocale = (main: boolean, locale: string) =>
     [`members-${main}-${locale}`],
     {
       tags: ["ourTeam"],
+      revalidate:3600
     },
   );
 
@@ -311,6 +310,7 @@ export const getMainMembersByLocale = (locale: string) =>
     [`members-true-${locale}`],
     {
       tags: ["ourTeam"],
+      revalidate:3600
     },
   )();
 
@@ -358,5 +358,6 @@ export const getNotMainMembersByLocale = (locale: string) =>
     [`members-false-${locale}`],
     {
       tags: ["ourTeam"],
+      revalidate:3600
     },
   )();

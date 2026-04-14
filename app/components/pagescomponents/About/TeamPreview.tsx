@@ -22,7 +22,7 @@ export default function TeamPreview({ primaryColor ,locale,data }: TeamPreviewPr
           <div className="space-y-4">
            
             <h2 className="text-4xl  md:text-5xl font-black text-slate-900 uppercase tracking-tighter">
-              {aboutData.titlePart1} 
+              {aboutData.titlePart1} <span className='text-4xl md:text-5xl text-[#0c479a]'>{aboutData.titlePart2}</span>
             </h2>
           </div>
          
@@ -41,7 +41,6 @@ export default function TeamPreview({ primaryColor ,locale,data }: TeamPreviewPr
                   alt={member.name??"Memebr Name"}
                 />
                 
-                {/* Floating Arrow Badge */}
               
               </div>
 
