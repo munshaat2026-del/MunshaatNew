@@ -1,6 +1,6 @@
 "use client";
 
-import { Noto_Sans, Noto_Sans_Arabic } from "next/font/google";
+import { Noto_Sans, Cairo } from "next/font/google";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
@@ -8,7 +8,7 @@ const notoSans = Noto_Sans({
   display: "swap",
 });
 
-const notoSansArabic = Noto_Sans_Arabic({
+const notoSansArabic = Cairo({
   subsets: ["arabic"],
   weight: ["400", "700"],
   display: "swap",

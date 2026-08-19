@@ -266,3 +266,11 @@ export type ApplicationGetPayloadWithCareer = Prisma.applicationsGetPayload<{
     };
   };
 }>;
+
+export type newSetting = {
+  id?: string;
+  key_name_en?: string | null;
+  key_name_ar?: string | null;
+  value_en?: string | null;
+  value_ar?: string | null;
+};

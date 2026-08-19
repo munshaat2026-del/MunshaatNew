@@ -53,11 +53,11 @@ export default function RoyalOffsetHero({ complexdata }: Props) {
   return (
     <section className="relative min-h-screen w-full bg-white flex flex-col items-center justify-start overflow-hidden border-b border-slate-900 py-32">
       {/* Background Grid Pattern */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-size-[50px_50px]"></div>
 
-      <div className="relative z-10 w-full max-w-[1500px] px-10 mb-24 space-y-4">
+      <div className="relative z-10 w-full max-w-375 px-10 mb-24 space-y-4">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-[2px] bg-[#0c479a]"></div>
+          <div className="w-12 h-0.5 bg-[#0c479a]"></div>
           <span className="text-[10px] font-black uppercase  text-[#0c479a]">
             {isAr ? "اﻟﻤﻠﻜﻴﺔ اﻟﻌﻘﺎرﻳﺔ" : "Real Estate Ownership"}
           </span>
@@ -80,7 +80,7 @@ export default function RoyalOffsetHero({ complexdata }: Props) {
 
       {/* Cards Container */}
       <div
-        className={`relative z-10 max-w-[1500px] w-full px-10 transition-all duration-700 ${getContainerStyles()}`}
+        className={`relative z-10 max-w-375 w-full px-10 transition-all duration-700 ${getContainerStyles()}`}
       >
         {complexdata.map((item, idx) => (
           <Link
@@ -88,13 +88,13 @@ export default function RoyalOffsetHero({ complexdata }: Props) {
             key={item.id || idx}
             onMouseEnter={() => setActive(idx)}
             onMouseLeave={() => setActive(null)}
-            className={`relative transition-all duration-[1000ms] ease-[cubic-bezier(0.19,1,0.22,1)] group
+            className={`relative transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)] group
               ${getCardStyles(idx)}
               ${active !== null && active !== idx ? "grayscale opacity-40 scale-[0.97]" : "grayscale-0 opacity-100 scale-100"}
             `}
           >
             {/* Main Card Design */}
-            <div className="relative h-[550px] w-full overflow-hidden bg-slate-900 shadow-2xl border border-slate-100/10">
+            <div className="relative h-137.5 w-full overflow-hidden bg-slate-900 shadow-2xl border border-slate-100/10">
               {/* Background Image */}
               <div className="absolute inset-0 transition-transform duration-[2.5s] ease-out group-hover:scale-110">
                 <img
@@ -102,7 +102,7 @@ export default function RoyalOffsetHero({ complexdata }: Props) {
                   alt={item.name}
                   className="w-full h-full object-cover opacity-60 group-hover:opacity-30 transition-opacity duration-1000"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/40 to-transparent" />
               </div>
 
               {/* Card Index */}
@@ -141,12 +141,10 @@ export default function RoyalOffsetHero({ complexdata }: Props) {
                       </span>
                     </div>
 
-                    <Link href={`/about/${item.slug}`}>
-                      <Button1 className="flex items-center gap-3  px-6 py-3 font-black text-[9px] border-[#0c479a] uppercase  hover:bg-[#0c479a] hover:text-white transition-all duration-500">
-                        {isAr ? "عرض التفاصيل" : "see more"}
-                        <ArrowUpRight size={14} />
-                      </Button1>
-                    </Link>
+                    <Button1 className="flex items-center gap-3 cursor-pointer  px-6 py-3 font-black text-[9px] border-[#0c479a] uppercase  hover:bg-[#0c479a] hover:text-white transition-all duration-500">
+                      {isAr ? "عرض التفاصيل" : "see more"}
+                      <ArrowUpRight size={14} />
+                    </Button1>
                   </div>
                 </div>
               </div>

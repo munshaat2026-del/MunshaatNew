@@ -1,9 +1,9 @@
 {
   "Navbar": {
-    "careers":"Careers",
-    "tenders":"Tenders",
-     "comingSoon":"Coming Soon",
-    "realEstates":"Real Estates",
+    "careers": "Careers",
+    "tenders": "Tenders",
+    "comingSoon": "Coming Soon",
+    "realEstates": "Real Estates",
     "home": "Home",
     "about": "About",
     "offices": "Offices",
@@ -11,6 +11,10 @@
     "depot": "Depot",
     "parkings": "Parkings",
     "language": "Language",
-      "career":"Career"
+    "career": "Career",
+    "aboutUs": "About Us",
+    "ourComplexes": "Our Complexes",
+    "ourTeam": "Our Team",
+    "ourClients": "Our Clients"
   }
 }

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { AppName, AppDescription, AppURL } from "@/lib/constants";
-import { Toaster } from "@/components/ui/sonner"
+import { Toaster } from "@/components/ui/sonner";
 import { NextIntlClientProvider } from "next-intl";
 import FontSwitcher from "@/app/components/fontswitcher/FontSwitcher";
 import NextAuthProviders from "@/providers/NextAuthProvider";
+
 
 export const metadata: Metadata = {
   title: { template: `%s `, default: AppName },
@@ -18,23 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning >
       <body className="antialiased bg-white text-white">
         <NextAuthProviders>
           <NextIntlClientProvider>
-         
-              <FontSwitcher locale={"en"}>{children}</FontSwitcher>
-             <Toaster
-            position="bottom-right"
-            richColors
-            
-          
-            duration={3000}
-          />
-      
+            <FontSwitcher locale={"en"}>{children}</FontSwitcher>
+            <Toaster position="bottom-right" richColors duration={3000} />
           </NextIntlClientProvider>
         </NextAuthProviders>
-          
       </body>
     </html>
   );

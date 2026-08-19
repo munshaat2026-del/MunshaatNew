@@ -12,6 +12,7 @@ import {
   Clock,
   Briefcase,
   FileCheck,
+  Settings,
 } from "lucide-react";
 import { RiTeamLine } from "react-icons/ri";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
@@ -66,6 +67,7 @@ const items = [
   },
   { title: "My Team", url: "/admin/dashboard/ourTeam", icon: RiTeamLine },
   { title: "Clients", url: "/admin/dashboard/ourClients", icon: Crown },
+  { title: "Settings", url: "/admin/dashboard/settings", icon: Settings },
 ];
 
 export function AppSidebar() {
@@ -93,7 +95,7 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
-                    className="group relative flex items-center gap-3 px-4 py-6 text-gray-400 hover:text-white hover:bg-white/3 hover:scale-110 transition-all duration-300 rounded-none border-l-2 border-transparent hover:border-[#2383c9]"
+                    className="group relative flex items-center gap-3 px-4 py-5 text-gray-400 hover:text-white hover:bg-white/3 hover:scale-110 transition-all duration-300 rounded-none border-l-2 border-transparent hover:border-[#2383c9]"
                   >
                     <Link href={item.url}>
                       <item.icon

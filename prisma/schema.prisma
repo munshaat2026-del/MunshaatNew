@@ -173,6 +173,14 @@ model coming_soon {
   completion_rate Int?      @default(0)
 }
 
+model settings {
+  id          String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  key_name_en String? @db.VarChar(255)
+  key_name_ar String? @db.VarChar(255)
+  value_en    String?
+  value_ar    String?
+}
+
 model tender {
   id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name_en        String    @db.VarChar(255)

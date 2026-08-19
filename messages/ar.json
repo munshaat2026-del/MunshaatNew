@@ -1,9 +1,9 @@
 {
   "Navbar": {
-    "careers":"الوظائف",
-    "tenders":"العطاءات",
-     "comingSoon":"قريباً",
-    "realEstates":"العقارات",
+    "careers": "الوظائف",
+    "tenders": "العطاءات",
+    "comingSoon": "قريباً",
+    "realEstates": "العقارات",
     "home": "الرئيسية",
     "about": "من نحن",
     "offices": "المكاتب",
@@ -11,6 +11,10 @@
     "depot": "المستودعات",
     "parkings": "المواقف",
     "language": "اللغة",
-    "career":"الوظائف"
+    "career": "الوظائف",
+    "aboutUs": "نبذة عنا",
+    "ourComplexes": "مجمعاتنا",
+    "ourTeam": "فريقنا",
+    "ourClients": "عملاؤنا"
   }
 }

@@ -12,12 +12,17 @@ import Banner from "@/public/banner.jpg";
 import alburg from "@/public/alburg.jpg";
 import header from "@/public/header.jpeg";
 import garage from "@/public/garage.jpeg";
+import VideoSection from "./VideoSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ArabianPremiumEmpire() {
+export default function ArabianPremiumEmpire({
+  videoUrl,
+}: {
+  videoUrl?: string | null;
+}) {
   const containerRef = useRef(null);
-  const bannerImgRef = useRef(null); // مرجع خاص لصورة البانر
+  const bannerImgRef = useRef(null);
   const locale = useLocale() as "en" | "ar";
   const isAr = locale === "ar";
   const data = homedata[locale];
@@ -25,11 +30,10 @@ export default function ArabianPremiumEmpire() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // --- حركة البانر المميزة (تأثير سينمائي كل 4 ثواني) ---
       const bannerTl = gsap.timeline({
         repeat: -1,
-        yoyo:true,
-        defaults: { duration: 4, ease: "sine.inOut" }
+        yoyo: true,
+        defaults: { duration: 4, ease: "sine.inOut" },
       });
 
       bannerTl
@@ -38,7 +42,6 @@ export default function ArabianPremiumEmpire() {
         .to(bannerImgRef.current, { scale: 1.2, x: 0, y: -20 })
         .to(bannerImgRef.current, { scale: 1.1, x: 0, y: 0 });
 
-      // --- أنيميشن ظهور النصوص ---
       gsap.from(".hero-fade", {
         y: 30,
         opacity: 0,
@@ -47,7 +50,6 @@ export default function ArabianPremiumEmpire() {
         ease: "expo.out",
       });
 
-      // --- أنيميشن تجميع المبنى عند السكرول ---
       const assemblyTl = gsap.timeline({
         scrollTrigger: {
           trigger: ".assembly-section",
@@ -87,8 +89,9 @@ export default function ArabianPremiumEmpire() {
       ref={containerRef}
       className="bg-white text-slate-900 overflow-x-hidden font-sans"
     >
+      <VideoSection videoUrl={videoUrl} locale={locale} />
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-900">
+      {/*<section className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-900">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             ref={bannerImgRef}
@@ -96,7 +99,6 @@ export default function ArabianPremiumEmpire() {
             className="w-full h-full object-cover opacity-50 will-change-transform"
             alt="Facade"
           />
-          {/* Layer Overlay لإضافة لمسة فخامة */}
           <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-transparent to-slate-900/60"></div>
         </div>
 
@@ -117,7 +119,7 @@ export default function ArabianPremiumEmpire() {
             </Button1>
           </div>
         </div>
-      </section>
+      </section>*/}
 
       {/* Assembly Section */}
       <section className="assembly-section relative h-screen bg-white flex items-center justify-center overflow-hidden border-y border-slate-100">

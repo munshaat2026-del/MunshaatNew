@@ -46,19 +46,24 @@ export const ourFileRouter = {
     console.log("Projects Upload Complete:", file.ufsUrl);
     return { uploadedUrl: file.ufsUrl };
   }),
-   tender: f({
+  tender: f({
     blob: { maxFileSize: "8MB", maxFileCount: 1 },
   }).onUploadComplete(async ({ file }) => {
     console.log("tender file Upload Complete:", file.ufsUrl);
     return { uploadedUrl: file.ufsUrl, fileName: file.name };
   }),
-   cv: f({
+  cv: f({
     blob: { maxFileSize: "8MB", maxFileCount: 1 },
   }).onUploadComplete(async ({ file }) => {
     console.log("CV Upload Complete:", file.ufsUrl);
     return { uploadedUrl: file.ufsUrl, fileName: file.name };
   }),
- 
+  video: f({
+    video: { maxFileSize: "32MB", maxFileCount: 1 },
+  }).onUploadComplete(async ({ file }) => {
+    console.log("Video Upload Complete:", file.ufsUrl);
+    return { uploadedUrl: file.ufsUrl, fileName: file.name };
+  }),
 } satisfies FileRouter;
 
 export type OurFileRouter = typeof ourFileRouter;
