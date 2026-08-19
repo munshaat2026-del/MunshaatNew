@@ -1,12 +1,10 @@
 "use client";
 
-import React from "react";
 import {
   Mail,
   Phone,
   MapPin,
   Linkedin,
-  Twitter,
   Instagram,
   ArrowUpRight,
   Facebook,
@@ -23,6 +21,7 @@ export function Footer() {
   const isAr = locale === "ar";
   const currentYear = new Date().getFullYear();
   const nurembergUrl = process.env.NEXT_PUBLIC_NUREMBERG_URL;
+
   const address = isAr
     ? process.env.NEXT_PUBLIC_ADDRESS_LINE_AR
     : process.env.NEXT_PUBLIC_ADDRESS_LINE_EN;
@@ -54,12 +53,11 @@ export function Footer() {
               "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
             backgroundSize: "80px 80px",
           }}
-        ></div>
+        />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-4 items-start">
-          {/* Logo */}
           <div className="lg:col-span-4 space-y-4 lg:space-y-6">
             <div className="flex items-center gap-4">
               <Image
@@ -69,15 +67,16 @@ export function Footer() {
                 src={Logo}
                 className="object-contain"
               />
-              <span className="text-2xl font-black  tracking-tighter leading-none">
-                Re<span style={{ color: primaryColor }}>eac</span>
+
+              <span className="text-2xl font-black tracking-tighter leading-none">
+                RE<span style={{ color: primaryColor }}>EAC</span>
               </span>
             </div>
 
-            <p className="text-white font-bold text-[15px] uppercase tracking-widest leading-relaxed max-w-sm">
+            <p className="text-white font-bold text-[15px] tracking-widest leading-relaxed max-w-sm">
               {isAr
                 ? "شركة المنشآت والمجمعات العقارية"
-                : "real estate establishments and complexes company"}
+                : "Real Estate Establishments And Complexes Company"}
             </p>
 
             <div className="flex border border-white/5 w-fit bg-white/[0.02]">
@@ -106,9 +105,8 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Services */}
           <div className="lg:col-span-2 space-y-4 lg:space-y-6">
-            <h4 className="text-[9px] font-black uppercase  text-[#0c479a]">
+            <h4 className="text-[10px] font-black text-[#0c479a]">
               {isAr ? "الخدمات" : "Services"}
             </h4>
 
@@ -117,11 +115,11 @@ export function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-white transition-colors flex items-center gap-1 group"
+                    className="text-[12px] font-black tracking-[0.1em] text-slate-500 hover:text-white transition-colors flex items-center gap-1 group"
                   >
                     {item.name}
                     <ArrowUpRight
-                      size={10}
+                      size={11}
                       className="opacity-0 group-hover:opacity-100 transition-all"
                     />
                   </Link>
@@ -130,9 +128,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Important links */}
-          <div className="lg:col-span-2  space-y-6 hidden lg:grid">
-            <h4 className="text-[9px] font-black uppercase  text-[#0c479a]">
+          <div className="lg:col-span-2 space-y-6 hidden lg:grid">
+            <h4 className="text-[10px] font-black text-[#0c479a]">
               {isAr ? "روابط مهمة" : "Important links"}
             </h4>
 
@@ -141,11 +138,11 @@ export function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-white transition-colors flex items-center gap-1 group"
+                    className="text-[12px] font-black tracking-[0.1em] text-slate-500 hover:text-white transition-colors flex items-center gap-1 group"
                   >
                     {item.name}
                     <ArrowUpRight
-                      size={10}
+                      size={11}
                       className={`opacity-0 group-hover:opacity-100 transition-all ${
                         isAr ? "rotate-[-90deg]" : ""
                       }`}
@@ -156,49 +153,61 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div className="lg:col-span-4 space-y-4 lg:space-y-6">
-            <h4 className="text-[9px] font-black uppercase  text-[#0c479a]">
+            <h4 className="text-[10px] font-black text-[#0c479a]">
               {isAr ? "المقر الرئيسي" : "Headquarters"}
             </h4>
 
             <div className="space-y-4">
               <div className="flex items-start gap-3 group">
                 <MapPin
-                  size={16}
+                  size={17}
                   className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0"
                 />
-                <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 leading-tight group-hover:text-slate-300">
+
+                <span className="text-[12px] font-black tracking-widest text-slate-500 leading-tight group-hover:text-slate-300">
                   {address}
                 </span>
               </div>
 
               <div className="flex items-center gap-3 group">
                 <Phone
-                  size={16}
+                  size={17}
                   className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0"
                 />
-                <a href={`tel:${process.env.NEXT_PUBLIC_PHONE}` }  className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
+
+                <a
+                  href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+                  className="text-[12px] font-black tracking-widest text-slate-500 group-hover:text-slate-300"
+                >
                   {process.env.NEXT_PUBLIC_PHONE}
-                </a >
+                </a>
               </div>
 
               <div className="flex items-center gap-3 group">
                 <Phone
-                  size={16}
+                  size={17}
                   className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0"
                 />
-                <a href={`tel:${process.env.NEXT_PUBLIC_LAND_NUMBER}` } className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
+
+                <a
+                  href={`tel:${process.env.NEXT_PUBLIC_LAND_NUMBER}`}
+                  className="text-[12px] font-black tracking-widest text-slate-500 group-hover:text-slate-300"
+                >
                   {process.env.NEXT_PUBLIC_LAND_NUMBER}
                 </a>
               </div>
 
               <div className="flex items-center gap-3 group">
                 <Mail
-                  size={16}
+                  size={17}
                   className="text-slate-700 no-flip group-hover:text-white transition-colors shrink-0"
                 />
-                <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`} className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300">
+
+                <a
+                  href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`}
+                  className="text-[12px] font-black tracking-widest text-slate-500 group-hover:text-slate-300"
+                >
                   {process.env.NEXT_PUBLIC_EMAIL}
                 </a>
               </div>
@@ -206,9 +215,8 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
         <div className="text-center pt-7 mt-6 border-t border-white/10">
-          <p className="text-sm text-white/80 centert break-words">
+          <p className="text-sm text-white/80 break-words">
             {isAr ? (
               <>
                 © {currentYear} Reeac. جميع الحقوق محفوظة. تم الإنشاء بواسطة{" "}

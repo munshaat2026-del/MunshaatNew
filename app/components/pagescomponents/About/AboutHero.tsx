@@ -1,4 +1,3 @@
-
 import React from "react";
 import { aboutdata } from "@/app/data/aboutdata";
 import AboutImage from "@/public/aboutImage.jpeg";
@@ -6,81 +5,77 @@ import { Locale } from "@/types";
 
 interface AboutHeroProps {
   primaryColor: string;
-  locale:Locale
+  locale: Locale;
 }
 
-export default function AboutHero({ primaryColor,locale }: AboutHeroProps) {
+export default function AboutHero({
+  primaryColor,
+  locale,
+}: AboutHeroProps) {
   const data = aboutdata[locale].aboutHero;
   const isAr = locale === "ar";
 
   return (
-    <section className="relative py-40 px-6 md:px-20 overflow-hidden bg-white border-b border-slate-100">
-      {/* Decorative Grid Pattern */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+    <section
+      dir={isAr ? "rtl" : "ltr"}
+      className="relative min-h-[500px] overflow-hidden bg-slate-950"
+    >
+      <img
+        src={AboutImage.src}
+        alt={data.titleLine1}
+        className="absolute inset-0 h-full w-full object-cover object-center"
+      />
 
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-stretch gap-0 border border-slate-100">
-        {/* Left Content Block */}
-        <div
-          className={`flex-1 p-12 md:p-20 space-y-10 relative z-10 ${isAr ? "border-l" : "border-r"} border-slate-100`}
-        >
-          <div className="flex items-center gap-3 text-slate-300">
-            <div className="w-12 h-[1px] bg-[#0c479a]"></div>
-            <span className="font-black text-[10px] uppercase ">
+      <div
+        className={`absolute inset-0 ${
+          isAr
+            ? "bg-gradient-to-l from-slate-950/90 via-slate-950/65 to-slate-950/20"
+            : "bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/20"
+        }`}
+      />
+
+      <div className="relative z-10 mx-auto flex min-h-[500px] max-w-7xl items-center px-6 py-20 md:px-10 lg:px-16">
+        <div className="max-w-2xl">
+          <div className="mb-5 flex items-center gap-3">
+            <span
+              className="h-[2px] w-12"
+              style={{ backgroundColor: primaryColor }}
+            />
+
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/70">
               {data.tag}
             </span>
           </div>
 
-          <h1 className="text-6xl md:text-[7vw] font-black uppercase tracking-tighter leading-[0.85] text-slate-900">
-            {data.titleLine1} <br />
-            <span className="text-[#0c479a]">{data.titleLine2}</span>
+          <h1 className="text-4xl font-black uppercase leading-[0.9] tracking-tight text-white md:text-6xl lg:text-7xl">
+            {data.titleLine1}
+            <br />
+            <span style={{ color: primaryColor }}>
+              {data.titleLine2}
+            </span>
           </h1>
 
-          <div className="space-y-6 pt-8">
-            <p className="text-slate-400 text-xs font-bold   leading-loose max-w-md">
-              {data.description}
-            </p>
-            <div className="flex gap-4 items-center">
-              <div className="h-[2px] w-20 bg-[#0c479a]"></div>
-              <span className="text-[10px] font-black uppercase tracking-widest text-slate-900">
-                {data.est}
-              </span>
-            </div>
-          </div>
-        </div>
+          <p className="mt-7 max-w-lg text-sm font-medium leading-7 text-white/70 md:text-base">
+            {data.description}
+          </p>
 
-        {/* Right Image Block */}
-        <div className="flex-1 relative bg-slate-50 min-h-[500px]">
-          <div className="absolute inset-0 overflow-hidden">
-            <img
-              src={AboutImage.src}
-              className="w-full h-full object-cover transition-all duration-1000 scale-105"
-              alt="Corporate Environment"
+          <div className="mt-6 flex items-center gap-3">
+            <span
+              className="h-1 w-12"
+              style={{ backgroundColor: primaryColor }}
             />
-          </div>
 
-          {/* Overlay Tag */}
-          <div
-            className={`absolute top-0 ${isAr ? "left-0" : "right-0"} p-8 text-white z-20 whitespace-pre-line text-center`}
-            style={{ backgroundColor: primaryColor }}
-          >
-            <p className="text-[10px] font-black uppercase  leading-normal">
-              {data.overlayTag}
-            </p>
-          </div>
-
-          {/* Bottom Accent */}
-          <div
-            className={`absolute bottom-12 ${isAr ? "-right-12" : "-left-12"} bg-white p-10 hidden xl:block border border-slate-100 shadow-2xl z-30`}
-          >
-            <p className="text-4xl font-black tracking-tighter text-slate-900">
-              100%
-            </p>
-            <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mt-2">
-              {data.precisionLabel}
-            </p>
+            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white/70">
+              {data.est}
+            </span>
           </div>
         </div>
       </div>
+
+      <div
+        className="absolute bottom-0 left-0 h-1 w-32"
+        style={{ backgroundColor: primaryColor }}
+      />
     </section>
   );
 }

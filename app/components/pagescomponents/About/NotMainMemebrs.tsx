@@ -1,4 +1,4 @@
-import { Locale, TranslatedMembers } from '@/types';
+import { Locale, TranslatedMembers } from "@/types";
 
 interface TeamRosterProps {
   primaryColor: string;
@@ -6,56 +6,63 @@ interface TeamRosterProps {
   data: TranslatedMembers[];
 }
 
-export default function TeamRoster({ primaryColor, locale, data }: TeamRosterProps) {
+export default function TeamRoster({
+  primaryColor,
+  locale,
+  data,
+}: TeamRosterProps) {
   const isAr = locale === "ar";
 
-  return (
-    <section className="py-20 px-6 bg-[#fcfcfc]">
-      <div className="max-w-7xl mx-auto">
-        
-        <div className={`mb-12 flex flex-col gap-3 items-center`}>
+  const orderedData =
+    data.length >= 3 ? [data[1], data[0], data[2]] : data;
 
-           <h2 className="text-4xl  md:text-5xl font-black text-slate-900 uppercase tracking-tighter">
-              {isAr?"هيئة":"Board of"} <span className='text-4xl md:text-5xl text-[#0c479a]'>{isAr?"المديرين":"Directors"}</span>
-            </h2>
+  return (
+    <section className="py-16 px-6 md:px-12 bg-[#fcfcfc]">
+      <div className="max-w-4xl mx-auto">
+        <div className="mb-10 flex justify-center">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tighter">
+            {isAr ? "هيئة" : "Board of"}{" "}
+            <span style={{ color: primaryColor }}>
+              {isAr ? "المديرين" : "Directors"}
+            </span>
+          </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-          {data.map((member, i) => (
-            <div key={i} className="group relative">
-              
-              <div className="relative aspect-square overflow-hidden  transition-all duration-700 bg-slate-100 border border-slate-100">
-                <img
-                  src={member.image ?? ""}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  alt={member.name ?? "Member"}
-                />
-                
-                {/* Subtle Overlay Line */}
-                <div 
-                  className="absolute bottom-0 left-0 w-full h-1 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
+          {orderedData.map((member, i) => (
+            <div
+              key={member?.id ?? i}
+              className={`group ${
+                i === 1 ? "md:-translate-y-6" : ""
+              }`}
+            >
+              <div className="relative overflow-hidden bg-white border border-slate-200 shadow-[0_8px_25px_rgba(15,23,42,0.06)] transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_15px_35px_rgba(15,23,42,0.12)]">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={member.image ?? ""}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    alt={member.name ?? "Member"}
+                  />
+                </div>
+
+                <div className="px-5 py-4 bg-white border-t border-slate-100">
+                  <h4 className="text-sm font-black text-slate-900 tracking-tight group-hover:text-[#0c479a] transition-colors duration-300">
+                    {member.name}
+                  </h4>
+
+                  <p className="text-[9px] font-bold text-slate-400 tracking-widest mt-1.5">
+                    {member.position}
+                  </p>
+                </div>
+
+                <div
+                  className="absolute bottom-0 left-0 w-full h-1"
                   style={{ backgroundColor: primaryColor }}
                 />
               </div>
-
-              {/* Minimal Info */}
-              <div className={`mt-4 ${isAr ? 'text-right' : 'text-left'}`}>
-                <h4 className="text-sm font-black text-slate-900 uppercase tracking-tight group-hover:text-slate-600 transition-colors">
-                  {member.name}
-                </h4>
-                <p className="text-[9px] font-bold text-slate-400  tracking-widest mt-1">
-                  {member.position}
-                </p>
-              </div>
-              
             </div>
           ))}
         </div>
-
-        <div className={`absolute opacity-[0.03] pointer-events-none font-black text-9xl uppercase -z-10 ${isAr ? 'left-0' : 'right-0'}`}>
-          {isAr ? "فريقنا" : "Support"}
-        </div>
-
       </div>
     </section>
   );

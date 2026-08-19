@@ -4,12 +4,8 @@ import {
   Phone,
   Mail,
   MapPin,
-  Send,
-  Linkedin,
-  Twitter,
-  Instagram,
+
 } from "lucide-react";
-import { useLocale } from "next-intl";
 import { aboutdata } from "@/app/data/aboutdata";
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 import { createContactSchema } from "@/app/server/email/emailSchema";
@@ -120,30 +116,34 @@ export default function ContactSection({ locale, action }: Props) {
                 </div>
 
                 {/* Hours */}
-                <div className="bg-slate-950 p-8 text-white space-y-6">
-                  <h3 className="text-[10px] font-black uppercase  text-[#0c479a]">
-                    {data.hours.title}
-                  </h3>
+       
 
-                  <div className="space-y-3">
-                    {data.hours.rows.map((row, i) => (
-                      <div
-                        key={i}
-                        className="flex justify-between items-center border-b border-white/5 pb-2 last:border-0"
-                      >
-                        <span className="text-[9px] font-black uppercase tracking-widest text-slate-500">
-                          {row.day}
-                        </span>
+<div className="bg-[#0c479a] p-8 text-white space-y-6">
+  <h3 className="text-[10px] font-black uppercase tracking-widest text-white">
+    {data.hours.title}
+  </h3>
 
-                        <span
-                          className={`text-[10px] font-black uppercase tracking-widest ${row.alert ? "text-red-500" : "text-white"}`}
-                        >
-                          {row.time}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+  <div className="space-y-3">
+    {data.hours.rows.map((row, i) => (
+      <div
+        key={i}
+        className="flex justify-between items-center border-b border-white/20 pb-2 last:border-0"
+      >
+        <span className="text-[9px] font-black uppercase tracking-widest text-white/70">
+          {row.day}
+        </span>
+
+        <span
+          className={`text-[10px] font-black uppercase tracking-widest ${
+            row.alert ? "text-red-300" : "text-white"
+          }`}
+        >
+          {row.time}
+        </span>
+      </div>
+    ))}
+  </div>
+</div>
               </div>
             </div>
 

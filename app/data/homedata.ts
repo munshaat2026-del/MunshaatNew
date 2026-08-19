@@ -80,7 +80,7 @@ export const homedata = {
     whyUs: {
       tag: "Advantage",
       titleLine1: "WHY",
-      titleLine2: "Reeac?",
+      titleLine2: "US?",
       label: "Strategic Assets 01 // Jordan",
       points: [
   { 
@@ -180,7 +180,7 @@ export const homedata = {
     whyUs: {
       tag: "الميزة التنافسية",
       titleLine1: "لماذا",
-      titleLine2: "Reeac؟",
+      titleLine2: "نحن ؟",
       label: "أصول استراتيجية 01 // المملكة",
       points: [
   { 
