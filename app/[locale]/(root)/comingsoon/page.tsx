@@ -21,7 +21,6 @@ async function page({ params }: Props) {
   const response = await getAllComingSoonByLocale(locale);
   const comingSoonData = response?.data;
 
-  // Handle zero rows by passing null; the component will show default content
   const data = comingSoonData && comingSoonData.length > 0 ? comingSoonData[0] : null;
 
   return (

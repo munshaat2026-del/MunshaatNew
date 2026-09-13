@@ -34,16 +34,11 @@ type DropdownLink = {
 
 type NavLink = SimpleLink | DropdownLink;
 
-export default function Navbar({
-  isComingSoon,
-}: {
-  isComingSoon: boolean;
-}) {
+export default function Navbar({ isComingSoon }: { isComingSoon: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(
-    null,
-  );
+
+  const [openMobileDropdowns, setOpenMobileDropdowns] = useState<string[]>([]);
 
   const pathname = usePathname();
   const t = useTranslations("Navbar");
@@ -66,7 +61,7 @@ export default function Navbar({
 
   useEffect(() => {
     setIsOpen(false);
-    setOpenMobileDropdown(null);
+    setOpenMobileDropdowns([]);
   }, [pathname]);
 
   const scrollToSection = (id: string) => {
@@ -102,6 +97,14 @@ export default function Navbar({
     }
   };
 
+  const toggleMobileDropdown = (name: string) => {
+    setOpenMobileDropdowns((prev) =>
+      prev.includes(name)
+        ? prev.filter((item) => item !== name)
+        : [...prev, name],
+    );
+  };
+
   const navLinks: NavLink[] = [
     { name: t("home"), href: "/" },
     {
@@ -110,8 +113,8 @@ export default function Navbar({
       items: [
         {
           name: t("aboutUs") || "About Us",
-          href: "/about#about-us",
-          sectionId: "about-us",
+          href: "/about",
+          sectionId: "",
         },
         {
           name: t("ourComplexes") || "Our Complexes",
@@ -123,14 +126,14 @@ export default function Navbar({
           isDropdown: true,
           items: [
             {
-              name: t("executiveManagement") || "Executive Management",
-              href: "/about#executive-management",
-              sectionId: "executive-management",
-            },
-            {
               name: t("boardOfDirectors") || "Board of Directors",
               href: "/about#board-of-directors",
               sectionId: "board-of-directors",
+            },
+            {
+              name: t("executiveManagement") || "Executive Management",
+              href: "/about#executive-management",
+              sectionId: "executive-management",
             },
           ],
         },
@@ -139,15 +142,6 @@ export default function Navbar({
           href: "/about#our-clients",
           sectionId: "our-clients",
         },
-      ],
-    },
-    {
-      name: t("realEstates"),
-      isDropdown: true,
-      items: [
-        { name: t("stores"), href: "/stores" },
-        { name: t("depot"), href: "/depot" },
-        { name: t("offices"), href: "/offices" },
       ],
     },
     { name: t("parkings"), href: "/parkings" },
@@ -166,8 +160,8 @@ export default function Navbar({
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-white/90 backdrop-blur-md shadow-sm py-3"
-            : "bg-white py-5"
+            ? "bg-white/90 backdrop-blur-md shadow-sm py-2"
+            : "bg-white py-3"
         }`}
         dir={isAr ? "rtl" : "ltr"}
       >
@@ -175,15 +169,12 @@ export default function Navbar({
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2 group">
               <Image
-                src={Logo}
+                src={Logo.src}
                 alt="REEAC logo"
-                width={42}
-                height={42}
-                className="transition-transform duration-500 group-hover:scale-105"
+                width={120}
+                height={120}
+                className="h-16 w-auto transition-transform duration-500 group-hover:scale-105"
               />
-              <h1 className="text-xl font-black tracking-tighter text-black">
-                RE<span style={{ color: primaryColor }}>EAC</span>
-              </h1>
             </Link>
 
             <div className="hidden lg:flex items-center gap-8">
@@ -191,7 +182,7 @@ export default function Navbar({
                 if (link.isDropdown) {
                   return (
                     <div key={link.name} className="relative group py-2">
-                      <button className="flex items-center gap-1 text-[11px] font-bold uppercase tracking-[0.15em] text-slate-800 hover:text-slate-900">
+                      <button className="flex items-center gap-1 text-[11px] font-bold  tracking-[0.15em] text-slate-800 hover:text-slate-900">
                         {link.name}
                         <ChevronDown
                           size={12}
@@ -207,7 +198,7 @@ export default function Navbar({
                                 key={subItem.name}
                                 className="relative group/team"
                               >
-                                <div className="px-5 py-3 text-[10px] font-bold uppercase tracking-widest text-black hover:text-[#0c479a] flex items-center justify-between cursor-pointer">
+                                <div className="px-5 py-3 text-[10px] font-bold  tracking-widest text-black hover:text-[#0c479a] flex items-center justify-between cursor-pointer">
                                   <span>{subItem.name}</span>
                                   <ChevronDown
                                     size={11}
@@ -251,12 +242,9 @@ export default function Navbar({
                               key={subItem.name}
                               href={subItem.href}
                               onClick={(e) =>
-                                handleSectionClick(
-                                  e,
-                                  subItem.sectionId,
-                                )
+                                handleSectionClick(e, subItem.sectionId)
                               }
-                              className="px-5 py-3 text-[10px] font-bold uppercase tracking-widest text-black hover:text-white hover:bg-[#0c479a] block transition-all"
+                              className="px-5 py-3 text-[10px] font-bold  tracking-widest text-black hover:text-white hover:bg-[#0c479a] block transition-all"
                             >
                               {subItem.name}
                             </Link>
@@ -271,7 +259,7 @@ export default function Navbar({
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`relative text-[11px] font-bold uppercase tracking-[0.15em] transition-colors ${
+                    className={`relative text-[11px] font-bold  tracking-[0.15em] transition-colors ${
                       isLinkActive(link.href)
                         ? "text-slate-900"
                         : "text-slate-800 hover:text-slate-900"
@@ -304,7 +292,7 @@ export default function Navbar({
       </nav>
 
       <div
-        className={`fixed inset-0 bg-white z-[100] transform transition-transform duration-500 lg:hidden ${
+        className={`fixed inset-0 bg-white z-100 transform transition-transform duration-500 lg:hidden ${
           isOpen
             ? "translate-x-0"
             : isAr
@@ -316,7 +304,13 @@ export default function Navbar({
         <div className="p-8 flex flex-col h-full overflow-y-auto">
           <div className="flex items-center justify-between mb-10">
             <div className="flex items-center gap-2">
-              <Image src={Logo} alt="logo" width={45} height={45} />
+              <Image
+                src={Logo}
+                alt="logo"
+                width={100}
+                height={100}
+                className="h-14 w-auto"
+              />
               <span className="text-xl font-black text-black tracking-tighter">
                 RE<span style={{ color: primaryColor }}>EAC</span>
               </span>
@@ -333,20 +327,12 @@ export default function Navbar({
           <div className="flex flex-col">
             {navLinks.map((link) => {
               if (link.isDropdown) {
-                const isOpenDropdown =
-                  openMobileDropdown === link.name;
+                const isOpenDropdown = openMobileDropdowns.includes(link.name);
 
                 return (
-                  <div
-                    key={link.name}
-                    className="border-b border-slate-50"
-                  >
+                  <div key={link.name} className="border-b border-slate-50">
                     <button
-                      onClick={() =>
-                        setOpenMobileDropdown(
-                          isOpenDropdown ? null : link.name,
-                        )
-                      }
+                      onClick={() => toggleMobileDropdown(link.name)}
                       className="w-full text-lg font-bold flex justify-between items-center py-5 text-slate-800"
                     >
                       {link.name}
@@ -360,15 +346,14 @@ export default function Navbar({
 
                     <div
                       className={`flex flex-col overflow-hidden transition-all duration-300 ${
-                        isOpenDropdown
-                          ? "max-h-[600px] pb-4"
-                          : "max-h-0"
+                        isOpenDropdown ? "max-h-150 pb-4" : "max-h-0"
                       }`}
                     >
                       {link.items.map((subItem) => {
                         if (subItem.isDropdown) {
-                          const isTeamOpen =
-                            openMobileDropdown === subItem.name;
+                          const isTeamOpen = openMobileDropdowns.includes(
+                            subItem.name,
+                          );
 
                           return (
                             <div
@@ -377,11 +362,7 @@ export default function Navbar({
                             >
                               <button
                                 onClick={() =>
-                                  setOpenMobileDropdown(
-                                    isTeamOpen
-                                      ? link.name
-                                      : subItem.name,
-                                  )
+                                  toggleMobileDropdown(subItem.name)
                                 }
                                 className="w-full py-3 px-4 text-sm font-medium text-slate-600 flex items-center justify-between"
                               >
@@ -396,9 +377,7 @@ export default function Navbar({
 
                               <div
                                 className={`flex flex-col overflow-hidden transition-all duration-300 ${
-                                  isTeamOpen
-                                    ? "max-h-40 pb-2"
-                                    : "max-h-0"
+                                  isTeamOpen ? "max-h-40 pb-2" : "max-h-0"
                                 }`}
                               >
                                 {subItem.items?.map((teamItem) => (
@@ -406,10 +385,7 @@ export default function Navbar({
                                     key={teamItem.name}
                                     href={teamItem.href}
                                     onClick={(e) => {
-                                      handleSectionClick(
-                                        e,
-                                        teamItem.sectionId,
-                                      );
+                                      handleSectionClick(e, teamItem.sectionId);
                                     }}
                                     className="py-3 px-8 text-sm font-medium text-slate-500 hover:text-[#0c479a]"
                                   >
@@ -428,10 +404,7 @@ export default function Navbar({
                             key={subItem.name}
                             href={subItem.href}
                             onClick={(e) => {
-                              handleSectionClick(
-                                e,
-                                subItem.sectionId,
-                              );
+                              handleSectionClick(e, subItem.sectionId);
                               setIsOpen(false);
                             }}
                             className="py-3 px-4 text-sm font-medium text-slate-500 border-s-2 border-slate-100 hover:border-[#0c479a] hover:text-[#0c479a]"
@@ -463,7 +436,7 @@ export default function Navbar({
           </div>
 
           <div className="mt-auto pt-8 border-t border-slate-50 flex items-center justify-between">
-            <span className="text-[10px] text-slate-400 font-black uppercase tracking-widest">
+            <span className="text-[10px] text-slate-400 font-black  tracking-widest">
               {t("language")}
             </span>
             <LanguageSwitcher />

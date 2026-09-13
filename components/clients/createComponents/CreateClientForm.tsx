@@ -19,7 +19,7 @@ import { ClientsCreateInput } from "@/types";
 
 interface Props {
   action: (
-    data: ClientsCreateInput
+    data: ClientsCreateInput,
   ) => Promise<{ success: boolean; message: string; status: number }>;
 }
 
@@ -29,20 +29,13 @@ export default function CreateNewClientForm({ action }: Props) {
   const router = useRouter();
   const methods = useForm<ClientFormValues>({
     resolver: zodResolver(clientsSchema),
-    defaultValues: {
-      name_en: "",
-      name_ar: "",
-      logo: "",
-    },
   });
 
-  const {
-    handleSubmit
-  }= methods
+  const { handleSubmit } = methods;
 
   const onSubmit: SubmitHandler<ClientFormValues> = async (data) => {
     try {
-      const result = await action(data);      
+      const result = await action(data);
       if (result.status === 401) {
         toast.error(result.message);
         router.push("/login");
@@ -56,7 +49,6 @@ export default function CreateNewClientForm({ action }: Props) {
         router.replace("/admin/dashboard/ourClients");
         return;
       } else {
-        
         toast.error(result.message);
         return;
       }
@@ -69,34 +61,35 @@ export default function CreateNewClientForm({ action }: Props) {
   return (
     <FormProvider {...methods}>
       <main className="ml-3 xl:ml-7 mb-7 ">
-      <div className="flex flex-col justify-start items-start border-b-2 border-gray-800 w-[90vw] md:w-[65vw] mb-7">
-        <h1 className=" text-gray-800 text-3xl  font-semibold ">Add New Client</h1>
-      </div>
+        <div className="flex flex-col justify-start items-start border-b-2 border-gray-800 w-[90vw] md:w-[65vw] mb-7">
+          <h1 className=" text-gray-800 text-3xl  font-semibold ">
+            Add New Client
+          </h1>
+        </div>
 
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="h-full w-[97%] mx-auto  flex flex-col gap-5 "
-      >
-        <Card className="w-full h-full pt-5">
-          <CardHeader>
-            <CardTitle>New Client Details</CardTitle>
-            <CardDescription>
-              Fill out the required fields below to create a new Client.
-            </CardDescription>
-          </CardHeader>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="h-full w-[97%] mx-auto  flex flex-col gap-5 "
+        >
+          <Card className="w-full h-full pt-5">
+            <CardHeader>
+              <CardTitle>New Client Details</CardTitle>
+              <CardDescription>
+                Fill out the required fields below to create a new Client.
+              </CardDescription>
+            </CardHeader>
 
-          <CardContent className="flex flex-col  gap-5 mb-7 ">
-            {/* Name */}
-          <BasicInfo/>
-          {/* Image */}
-          <MediaSection/>
-          {/* Buttons */}
-          <FormActions/>
-          </CardContent>
-        </Card>
-      </form>
-    </main>
+            <CardContent className="flex flex-col  gap-5 mb-7 ">
+              {/* Name */}
+              <BasicInfo />
+              {/* Image */}
+              <MediaSection />
+              {/* Buttons */}
+              <FormActions />
+            </CardContent>
+          </Card>
+        </form>
+      </main>
     </FormProvider>
-    
   );
 }

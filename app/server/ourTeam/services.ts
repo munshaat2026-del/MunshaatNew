@@ -7,21 +7,47 @@ const utapi = new UTApi();
 
 export const addNewMember = async (data: OurTeamCreateInput) => {
   try {
+    if (data.main) {
+      const existingMainMember = await prisma.our_team.findFirst({
+        where: {
+          main: true,
+        },
+        select: {
+          id: true,
+        },
+      });
+
+      if (existingMainMember) {
+        return {
+          data: null,
+          message: "Only one member can be assigned as Executive Management",
+          status: 400,
+        };
+      }
+    }
+
     const highestDisplayOrder = await prisma.our_team.findMany({
-      select: { display_order: true },
-      orderBy: { display_order: "asc" },
+      select: {
+        display_order: true,
+      },
+      orderBy: {
+        display_order: "asc",
+      },
     });
 
-let maxOrder = 0;
+    let maxOrder = 0;
 
     for (const item of highestDisplayOrder) {
-  if (typeof item.display_order === "number") {
-    if (item.display_order > maxOrder) {
-      maxOrder = item.display_order;
+      if (
+        typeof item.display_order === "number" &&
+        item.display_order > maxOrder
+      ) {
+        maxOrder = item.display_order;
+      }
     }
-  }
-}
+
     const nextDisplayOrder = maxOrder + 1;
+
     const result = await prisma.our_team.create({
       data: {
         ...data,
@@ -29,7 +55,7 @@ let maxOrder = 0;
       },
     });
 
-    revalidateTag("ourTeam", "max");
+    revalidateTag("ourTeam", {expire:0});
 
     return {
       data: result,
@@ -46,7 +72,6 @@ let maxOrder = 0;
     };
   }
 };
-
 export const getAllMembers = unstable_cache(
   async () => {
     try {
@@ -69,7 +94,7 @@ export const getAllMembers = unstable_cache(
   ["all-member"],
   {
     tags: ["ourTeam"],
-    revalidate:3600
+    revalidate: 3600,
   },
 );
 
@@ -97,7 +122,7 @@ export const getMembersByMain = (main: boolean) =>
     [`members-by-main-${main}`],
     {
       tags: ["ourTeam"],
-      revalidate:3600
+      revalidate: 3600,
     },
   );
 
@@ -118,7 +143,7 @@ export const getMemberById = (id: string) => {
       }
     },
     [`member-by-id-${id}`],
-    { tags: ["ourTeam"],revalidate:3600 },
+    { tags: ["ourTeam"], revalidate: 3600 },
   );
 
   return cachedFn();
@@ -126,25 +151,59 @@ export const getMemberById = (id: string) => {
 
 export const updatMember = async (id: string, data: OurTeamUpdateInput) => {
   try {
-    const existing = await prisma.our_team.findUnique({ where: { id } });
-    if (!existing)
+    const existing = await prisma.our_team.findUnique({
+      where: { id },
+    });
+
+    if (!existing) {
       return {
         data: null,
         message: "Member Not Found",
         status: 409,
       };
-    const result = await prisma.our_team.update({ where: { id }, data });
-    revalidateTag("ourTeam", "max");
+    }
+
+    if (data.main === true) {
+      const existingMainMember = await prisma.our_team.findFirst({
+        where: {
+          main: true,
+          NOT: {
+            id,
+          },
+        },
+        select: {
+          id: true,
+        },
+      });
+
+      if (existingMainMember) {
+        return {
+          data: null,
+          message: "Executive Management can have only one main member",
+          status: 400,
+        };
+      }
+    }
+
+    const result = await prisma.our_team.update({
+      where: { id },
+      data,
+    });
+
+    revalidateTag("ourTeam", {expire:0});
+
     return {
       data: result,
       message: "The Member Has Been Updated Successfully",
-      status: 201,
+      status: 200,
     };
   } catch (error) {
+    console.log("error: ", error);
+
     return {
       data: error,
       message: "Error In Updating The Member",
-      status: 201,
+      status: 500,
     };
   }
 };
@@ -163,7 +222,7 @@ export const deleteMember = async (id: string) => {
     if (logoKey) {
       await utapi.deleteFiles(logoKey);
     }
-    revalidateTag("ourTeam", "max");
+    revalidateTag("ourTeam", {expire:0});
     return {
       data: result,
       message: "Member Has Been Deleted Successfully",
@@ -210,7 +269,7 @@ export const updateMemberOrder = async (members: MemberOrder[]) => {
     );
 
     await Promise.all(queries);
-    revalidateTag("ourTeam", "max");
+    revalidateTag("ourTeam", {expire:0});
     return {
       message: "Member orders updated successfully",
       status: 201,
@@ -263,7 +322,7 @@ export const getMembersByMainAndLocale = (main: boolean, locale: string) =>
     [`members-${main}-${locale}`],
     {
       tags: ["ourTeam"],
-      revalidate:3600
+      revalidate: 3600,
     },
   );
 
@@ -310,7 +369,7 @@ export const getMainMembersByLocale = (locale: string) =>
     [`members-true-${locale}`],
     {
       tags: ["ourTeam"],
-      revalidate:3600
+      revalidate: 3600,
     },
   )();
 
@@ -321,7 +380,7 @@ export const getNotMainMembersByLocale = (locale: string) =>
         const result = await prisma.our_team.findMany({
           where: { main: false },
           orderBy: { display_order: "asc" },
-           select: {
+          select: {
             name_en: true,
             name_ar: true,
             position_en: true,
@@ -358,6 +417,6 @@ export const getNotMainMembersByLocale = (locale: string) =>
     [`members-false-${locale}`],
     {
       tags: ["ourTeam"],
-      revalidate:3600
+      revalidate: 3600,
     },
   )();

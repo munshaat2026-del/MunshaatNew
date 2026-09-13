@@ -18,12 +18,12 @@ function ComingSoonEvent({ locale, data }: { locale: Locale, data: TranslatedCom
 
   const content = {
     targetDate: isAr ? "تاريخ الإطلاق المتوقع" : "Target Launch Date",
-    completion: isAr ? "معدل الإنجاز" : "Completion Rate"
+   
   };  
 
   return (
     <div
-      className="min-h-[75vh] bg-white border border-slate-200 shadow-[0_32px_64px_-15px_rgba(0,0,0,0.1)] max-w-7xl mx-auto mb-20 mt-28 flex flex-col overflow-hidden"
+      className="min-h-[75vh] bg-white border border-slate-200 shadow-[0_32px_64px_-15px_rgba(0,0,0,0.1)] max-w-7xl mx-auto  my-32 flex flex-col overflow-hidden"
       dir={isAr ? "rtl" : "ltr"}
     >    
       <main className="flex-1 flex flex-col lg:flex-row">
@@ -47,21 +47,8 @@ function ComingSoonEvent({ locale, data }: { locale: Locale, data: TranslatedCom
             <div className="space-y-1">
               {/* 2. Dynamic Grid: Switches to 1 column if date is hidden */}
               <div className={`grid ${isFutureDate ? 'grid-cols-2' : 'grid-cols-1'} gap-px bg-slate-200 border border-slate-200`}>
-                
-                {/* Completion Metric */}
-                <div className="bg-slate-50 p-6 space-y-3">
-                  <div className="flex items-center gap-2">
-                    <BarChart3 size={14} className="text-[#0c479a] no-flip" />
-                    <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">
-                       {content.completion}
-                    </span>
-                  </div>
-                  <p className="text-2xl font-black text-slate-900 tabular-nums">
-                    {data.completion_rate}%
-                  </p>
-                </div>
 
-                {/* Date Metric: Only rendered if valid and in the future */}
+                
                 {isFutureDate && (
                   <div className="bg-slate-50 p-6 space-y-3 border-s border-slate-200 lg:border-s-0">
                     <div className="flex items-center gap-2">
@@ -77,13 +64,7 @@ function ComingSoonEvent({ locale, data }: { locale: Locale, data: TranslatedCom
                 )}
               </div>
 
-              {/* Progress Bar */}
-              <div className="w-full h-1.5 bg-slate-100 overflow-hidden relative">
-                <div 
-                  className="h-full bg-[#0c479a] transition-all duration-1000"
-                  style={{ width: `${data.completion_rate}%` }}
-                />
-              </div>
+             
               
           
             </div>

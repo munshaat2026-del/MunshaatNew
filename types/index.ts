@@ -1,5 +1,5 @@
 import { Prisma } from "@/app/generated/prisma/client";
-
+import { price_period, real_estates_type } from "@/app/generated/prisma/client";
 export type translatedParkingsGetPayload = {
   id: string;
   slug: string;
@@ -61,6 +61,7 @@ export type RealEstateWithImages = Prisma.real_estatesGetPayload<{
     real_estates_images: true;
   };
 }>;
+
 export type TranslatedRaelEstate = {
   id: string;
   name: string;
@@ -107,6 +108,17 @@ export type TranlatedRealEstateById = {
     image_url: string | null;
     real_estates_id: string;
   }[];
+};
+
+export type RealEstatesTableType = {
+  name_en: string;
+  description_en: string;
+  real_estates_type: real_estates_type;
+  price: number | null;
+  price_period: price_period | null;
+  address_en: string;
+  size_sqm: number;
+  is_available: boolean;
 };
 
 // Parkings Types
@@ -156,6 +168,7 @@ export type TranslatedClients = {
   id: string | undefined;
   name: string;
   logo: string;
+  websiteUrl?: string | null;
 };
 
 //Real Estate Requests Types
@@ -197,6 +210,16 @@ export type RequestsGetPayloadParkingNameAndId =
     };
   }>;
 export type ParkingRequestsCreateInput = Prisma.parkings_requestsCreateInput;
+export type SubmitParkingRequestData = {
+  name: string;
+  phone_number: string;
+  email: string;
+  plan: price_period;
+  license_image: string;
+  identity_image: string;
+  already_rents_in_complex?: boolean;
+  parking_id: string;
+};
 export type ParkingRequestsUpdateInput = Prisma.parkings_requestsUpdateInput;
 export type ParkingRequestsGetPayload = Prisma.parkings_requestsGetPayload<{
   include: {

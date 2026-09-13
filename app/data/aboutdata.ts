@@ -1,9 +1,7 @@
-
-
-  const address= process.env.NEXT_PUBLIC_ADDRESS_LINE_EN
-const phoneNumber= process.env.NEXT_PUBLIC_PHONE
-const emailAddress= process.env.NEXT_PUBLIC_EMAIL
-const arabicAddress= process.env.NEXT_PUBLIC_ADDRESS_LINE_AR
+const address = process.env.NEXT_PUBLIC_ADDRESS_LINE_EN;
+const phoneNumber = process.env.NEXT_PUBLIC_PHONE;
+const emailAddress = process.env.NEXT_PUBLIC_EMAIL;
+const arabicAddress = process.env.NEXT_PUBLIC_ADDRESS_LINE_AR;
 export const aboutdata = {
   en: {
     aboutHero: {
@@ -22,18 +20,40 @@ export const aboutdata = {
       titleLine2: "EXCELLENCE",
       desc: "Architecting the future of asset management in Jordan.",
       protocol: "PROTOCOL_0",
+
       items: [
         {
           t: "The Mission",
-          d: "To provide real estate investment solutions to the Jordanian market through highly experienced teams, relying on the best sound administrative standards.",
+          d: `Providing comprehensive and reliable real estate solutions and services that meet clients’ needs and contribute to achieving their aspirations, by leveraging specialized expertise and competencies and applying the highest standards of quality and professionalism throughout all stages of our work.
+
+We also strive to provide flexible and efficient spaces and services, with a strong focus on the customer experience and delivering a high level of service, while building sustainable relationships with clients and partners based on trust and mutual respect.`,
         },
+
         {
           t: "The Vision",
-          d: "To be the first choice for clients in the real estate sector by delivering distinguished and innovative services.",
+          d: `To be one of the leading and preferred real estate companies among clients in the Jordanian market, distinguished by providing innovative and flexible real estate solutions that align with market needs and clients’ aspirations.
+
+We aspire to expand the scope of our business and continuously develop our projects and services, while maintaining high standards of quality and professionalism, thereby strengthening the company’s position and achieving sustainable long-term growth.`,
         },
+
         {
-          t: "Our Value",
-          d: "Professionalism, transparency, innovation, and commitment.",
+          t: "Our Values",
+          d: `Our values form the foundation upon which we manage our business and build our relationships with clients and partners. We are committed to reflecting these values in all our interactions and decisions.`,
+
+          points: [
+            {
+              label: "Professionalism",
+              text: "We are committed to applying best professional practices and delivering services with a high level of efficiency and quality.",
+            },
+            {
+              label: "Transparency",
+              text: "We ensure clarity and credibility in our dealings and build our relationships on trust and mutual respect.",
+            },
+            {
+              label: "Quality",
+              text: "We continuously work to enhance the quality of our services and facilities to meet and exceed our clients’ expectations.",
+            },
+          ],
         },
       ],
     },
@@ -94,7 +114,7 @@ export const aboutdata = {
       bgText: "Reeac",
     },
     ////////////////////////////////
-    teamSection: { 
+    teamSection: {
       titlePart1: "Executive ",
       titlePart2: "Team",
       tag: "[ The Core Management Team ]",
@@ -109,8 +129,8 @@ export const aboutdata = {
     contact: {
       header: {
         tag: "Direct Communication",
-        title1: "LET'S",
-        title2: "CONNECT",
+        title1: "Your",
+        title2: "Feedback",
       },
 
       headquarters: {
@@ -139,9 +159,8 @@ export const aboutdata = {
       hours: {
         title: "Operating Hours",
         rows: [
-          { day: "Sun - Thu", time: "08:00 - 18:00" },
+          { day: "Saturday – Thursday", time: "8:00 AM – 4:00 PM" },
           { day: "Friday", time: "Closed", alert: true },
-          { day: "Saturday", time: "Support Only" },
         ],
       },
 
@@ -150,8 +169,9 @@ export const aboutdata = {
         company: "Company",
         email: "Business Email",
         subject: "Subject",
-        message: "Message Protocol",
+        message: "Message",
         submit: "Send Email",
+        phoneNumber: "Phone Number ",
 
         placeholders: {
           name: "IDENTITY",
@@ -186,18 +206,40 @@ export const aboutdata = {
       titleLine2: "التميز",
       desc: "بناء مستقبل إدارة الأصول في المملكة الأردنية الهاشمية.",
       protocol: "بروتوكول_0",
+
       items: [
         {
           t: "الرسالة",
-          d: `تقديم حلول استثمارية عقارية للسوق العقاري الاردني من خلال طواقم ذات خبرة عاليه وبالإعتماد على افضل المعايير الإدارية السليمة `,
+          d: `تقديم حلول وخدمات عقارية متكاملة وموثوقة تلبي احتياجات العملاء وتساهم في تحقيق تطلعاتهم، من خلال الاستفادة من الخبرات والكفاءات المتخصصة، وتطبيق أعلى معايير الجودة والاحترافية في مختلف مراحل العمل.
+
+كما نعمل على توفير مساحات وخدمات تتميز بالمرونة والكفاءة، مع الاهتمام بتجربة العميل وتقديم مستوى عالٍ من الخدمة، وبناء علاقات مستدامة مع العملاء والشركاء تقوم على الثقة والاحترام المتبادل.`,
         },
+
         {
           t: "الرؤية",
-          d: `الخيار الاول للعملاء في مجال العقارات من خلال تقديم خدمات متميزة ومبتكرة .`,
+          d: `أن نكون من الشركات العقارية الرائدة والمفضلة لدى العملاء في السوق الأردني، وأن نتميز بتقديم حلول عقارية مبتكرة ومرنة تتوافق مع احتياجات السوق وتطلعات العملاء.
+
+ونطمح إلى توسيع نطاق أعمالنا وتطوير مشاريعنا وخدماتنا بصورة مستمرة، مع المحافظة على مستوى عالٍ من الجودة والاحترافية، بما يعزز مكانة الشركة ويحقق نمواً مستداماً على المدى الطويل.`,
         },
+
         {
           t: "القيم",
-          d: "تتمثل بالاحترافيه والشفافيه والابتكار والالتزام .",
+          d: `تشكل قيمنا الأساس الذي نعتمد عليه في إدارة أعمالنا وعلاقاتنا مع العملاء والشركاء، ونحرص على أن تنعكس هذه القيم في جميع تعاملاتنا وقراراتنا.`,
+
+          points: [
+            {
+              label: "الاحترافية",
+              text: "نلتزم بتطبيق أفضل الممارسات المهنية وتقديم خدمات بمستوى عالٍ من الكفاءة والجودة.",
+            },
+            {
+              label: "الشفافية",
+              text: "نحرص على الوضوح والمصداقية في تعاملاتنا، ونبني علاقاتنا على الثقة والاحترام المتبادل.",
+            },
+            {
+              label: "الجودة",
+              text: "نعمل باستمرار على تحسين مستوى خدماتنا ومرافقنا بما يلبي توقعات العملاء ويتجاوزها.",
+            },
+          ],
         },
       ],
     },
@@ -273,8 +315,8 @@ export const aboutdata = {
     contact: {
       header: {
         tag: "اتصال مباشر",
-        title1: "دعنا",
-        title2: "نتواصل",
+        title1: "اقتراحاتكم",
+        title2: "",
       },
 
       headquarters: {
@@ -290,7 +332,7 @@ export const aboutdata = {
         },
         {
           key: "phone",
-          label:"رقم الهاتف",
+          label: "رقم الهاتف",
           value: phoneNumber,
         },
         {
@@ -303,9 +345,8 @@ export const aboutdata = {
       hours: {
         title: "ساعات العمل",
         rows: [
-          { day: "الأحد - الخميس", time: "08:00 - 18:00" },
+          { day: "السبت – الخميس", time: "8 صباحاً – 4 مساءً" },
           { day: "الجمعة", time: "مغلق", alert: true },
-          { day: "السبت", time: "دعم فقط" },
         ],
       },
 
@@ -314,6 +355,7 @@ export const aboutdata = {
         company: "الشركة",
         email: "البريد الإلكتروني",
         subject: "الموضوع",
+        phoneNumber: "رقم الهاتف",
         message: "نص الرسالة",
         submit: "إرسال البريد",
 
@@ -331,63 +373,48 @@ export const aboutdata = {
   },
 };
 
-
 export const directorStatement = {
-
   ar: {
-
     quoteSection: {
-
       tag: "كلمة الإدارة",
 
       headline: "كلمة المدير العام",
 
       paragraphs: [
-
         "يسعدني أن أرحب بكم في الموقع الإلكتروني لشركة المنشآت والمجمعات العقارية، والذي يأتي في إطار حرصنا على تعزيز التواصل مع شركائنا وجمهورنا، وتقديم خدماتنا بكل شفافية وكفاءة.",
 
         "تلتزم الشركة بتطوير وإدارة المجمعات العقارية وفق أسس مهنية حديثة، وبما يحقق أعلى مستويات الجودة في الأداء، ويواكب متطلبات التطور في بيئة العمل والخدمات.",
 
         "ونعمل باستمرار على تحسين إجراءاتنا وخدماتنا، بما يسهم في رفع كفاءة العمل وتعزيز رضا المتعاملين، انطلاقاً من مسؤوليتنا في تقديم خدمات متميزة ومستدامة.",
 
-        "نرحب بكم، ونتطلع إلى خدمتكم وتلبية تطلعاتكم بكل اهتمام."
-
+        "نرحب بكم، ونتطلع إلى خدمتكم وتلبية تطلعاتكم بكل اهتمام.",
       ],
 
       name: "د. مروان محمود المعايطة",
 
-      role: "المدير العام"
-
-    }
-
+      role: "المدير العام",
+    },
   },
 
   en: {
-
     quoteSection: {
-
       tag: "Executive Statement",
 
       headline: "Leadership Statement",
 
       paragraphs: [
-
         "I am pleased to welcome you to the official website of the Real Estate and Commercial Complexes Company, which reflects our commitment to enhancing communication with our partners and the public, and to delivering our services with transparency and efficiency.",
 
         "The company is committed to developing and managing real estate complexes based on modern professional standards, achieving the highest levels of performance quality while keeping pace with evolving work environments and services.",
 
         "We continuously strive to improve our procedures and simplify our services in order to enhance operational efficiency and increase customer satisfaction, as part of our responsibility to provide distinguished and sustainable services.",
 
-        "We welcome you and look forward to serving you and meeting your expectations with the utmost care."
-
+        "We welcome you and look forward to serving you and meeting your expectations with the utmost care.",
       ],
 
       name: "Dr. Marwan Mahmoud Al-Ma'aytah",
 
-      role: "General Manager"
-
-    }
-
-  }
-
+      role: "General Manager",
+    },
+  },
 };

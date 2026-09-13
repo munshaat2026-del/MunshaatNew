@@ -127,7 +127,8 @@ export const ROOT_METADATA: Metadata = {
 
 // Used for /slug pages 
 export const generateDynamicMetadata = {
-  page: (opts: {
+  page: (opts: 
+    {
     type:
       | "store"
       | "office"

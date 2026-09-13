@@ -41,7 +41,7 @@ export default function FormDateInput({
       <div className="flex flex-col mb-1">
         <label
           htmlFor={id}
-          className="text-[11px] font-bold text-slate-500 uppercase tracking-widest"
+          className="block text-sm font-semibold text-gray-700 mb-1 ml-2"
         >
           {label}
         </label>

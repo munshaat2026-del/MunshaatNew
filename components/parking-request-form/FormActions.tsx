@@ -23,7 +23,7 @@ function FormActions({ locale }: Props) {
           relative rounded-md scale-105 overflow-hidden group
           w-full py-4 md:py-6 
           bg-[#0c479a] text-white 
-          font-black uppercase  text-[12px] 
+          font-black   text-[12px] 
           flex items-center justify-center gap-3 md:gap-4 
           transition-all duration-500
           hover: hover:shadow-[0_20px_40px_rgba(12,71,154,0.3)]
@@ -31,7 +31,6 @@ function FormActions({ locale }: Props) {
           disabled:opacity-50 disabled:grayscale disabled:
         "
       >
-        {/* Background Slide Effect - Logic remains same for both */}
         <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
 
         <div className="relative z-10 flex items-center gap-3">
@@ -41,7 +40,6 @@ function FormActions({ locale }: Props) {
             </span>
           ) : (
             <>
-              {/* Icon Logic: Positioned based on Locale, Animation based on RTL */}
               <span>
                 {isArabic ? "تنفيذ تقديم الطلب" : "Execute Submission"}
               </span>

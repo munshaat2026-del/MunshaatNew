@@ -36,7 +36,7 @@ export default function NotFound() {
           </div>
 
           {/* Navigation Cards */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-8">
+         {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-8">
             {[
               { icon: Building2, label: "Offices", href: "/en/offices" },
               { icon: Store, label: "Stores", href: "/en/stores" },
@@ -59,10 +59,10 @@ export default function NotFound() {
                 </span>
               </Link>
             ))}
-          </div>
+          </div>*/}
 
           {/* Primary Action Button */}
-          <div className="pt-10">
+          <div className="pt-10 flex row justify-center ">
             <Link
               href="/"
               className="inline-flex items-center gap-4 px-12 py-5 bg-slate-900 text-white text-[10px] font-black uppercase  hover:bg-[#0c479a] transition-all shadow-lg"

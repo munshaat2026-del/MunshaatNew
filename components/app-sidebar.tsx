@@ -102,7 +102,7 @@ export function AppSidebar() {
                         className="group-hover:text-[#2383c9] transition-colors"
                         size={20}
                       />
-                      <span className="text-xs font-bold tracking-widest uppercase">
+                      <span className="text-xs font-bold tracking-widest ">
                         {item.title}
                       </span>
                     </Link>

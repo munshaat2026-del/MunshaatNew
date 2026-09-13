@@ -26,23 +26,33 @@ export function Footer() {
     ? process.env.NEXT_PUBLIC_ADDRESS_LINE_AR
     : process.env.NEXT_PUBLIC_ADDRESS_LINE_EN;
 
+  //commented for now
+  /*
   const navLinks = [
     { name: t("offices"), href: "/offices" },
     { name: t("stores"), href: "/stores" },
     { name: t("depot"), href: "/depot" },
     { name: t("parkings"), href: "/parkings" },
   ];
+  */
+
+  const navLinks = [
+    { name: t("aboutUs"), href: "/about" },
+    { name: t("ourComplexes"), href: "/about#our-complexes" },
+    { name: t("ourTeam"), href: "/about#board-of-directors" },
+    { name: t("ourClients"), href: "/about#our-clients" },
+  ];
 
   const navLinks2 = [
     { name: t("about"), href: "/about" },
     { name: t("tenders"), href: "/tender" },
     { name: t("career"), href: "/career" },
-    { name: t("comingSoon"), href: "/comingSoon" },
+    { name: t("contact"), href: "/about#contact" },
   ];
 
   return (
     <footer
-      className="bg-[#0a0f1a] text-white pt-16 pb-8 px-6 md:px-16 relative overflow-hidden"
+      className="bg-[#0a0f1a] text-white pt-12 pb-8 px-6 md:px-16 relative overflow-hidden"
       dir={isAr ? "rtl" : "ltr"}
     >
       <div className="absolute top-0 right-0 w-full h-full opacity-[0.02] pointer-events-none">
@@ -62,24 +72,15 @@ export function Footer() {
             <div className="flex items-center gap-4">
               <Image
                 alt="REEAC Logo"
-                width={42}
-                height={42}
+                width={200}
+                height={200}
                 src={Logo}
-                className="object-contain"
+                className="h-24 w-auto object-contain"
               />
-
-              <span className="text-2xl font-black tracking-tighter leading-none">
-                RE<span style={{ color: primaryColor }}>EAC</span>
-              </span>
             </div>
 
-            <p className="text-white font-bold text-[15px] tracking-widest leading-relaxed max-w-sm">
-              {isAr
-                ? "شركة المنشآت والمجمعات العقارية"
-                : "Real Estate Establishments And Complexes Company"}
-            </p>
 
-            <div className="flex border border-white/5 w-fit bg-white/[0.02]">
+            {/* <div className="flex border border-white/5 w-fit bg-white/2">
               {[
                 {
                   Icon: Linkedin,
@@ -102,12 +103,12 @@ export function Footer() {
                   <Icon className="no-flip" size={16} />
                 </Link>
               ))}
-            </div>
+            </div>*/}
           </div>
 
           <div className="lg:col-span-2 space-y-4 lg:space-y-6">
             <h4 className="text-[10px] font-black text-[#0c479a]">
-              {isAr ? "الخدمات" : "Services"}
+              {isAr ? "نبذة عنا" : "About Us"}
             </h4>
 
             <ul className="space-y-3">
@@ -115,7 +116,7 @@ export function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-[12px] font-black tracking-[0.1em] text-slate-500 hover:text-white transition-colors flex items-center gap-1 group"
+                    className="text-[12px] font-black tracking-widest text-slate-500 hover:text-white transition-colors flex items-center gap-1 group"
                   >
                     {item.name}
                     <ArrowUpRight
@@ -138,13 +139,13 @@ export function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-[12px] font-black tracking-[0.1em] text-slate-500 hover:text-white transition-colors flex items-center gap-1 group"
+                    className="text-[12px] font-black tracking-widest text-slate-500 hover:text-white transition-colors flex items-center gap-1 group"
                   >
                     {item.name}
                     <ArrowUpRight
                       size={11}
                       className={`opacity-0 group-hover:opacity-100 transition-all ${
-                        isAr ? "rotate-[-90deg]" : ""
+                        isAr ? "x-rotate-90" : ""
                       }`}
                     />
                   </Link>
@@ -178,6 +179,7 @@ export function Footer() {
 
                 <a
                   href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+                  dir="ltr"
                   className="text-[12px] font-black tracking-widest text-slate-500 group-hover:text-slate-300"
                 >
                   {process.env.NEXT_PUBLIC_PHONE}
@@ -192,6 +194,7 @@ export function Footer() {
 
                 <a
                   href={`tel:${process.env.NEXT_PUBLIC_LAND_NUMBER}`}
+                  dir="ltr"
                   className="text-[12px] font-black tracking-widest text-slate-500 group-hover:text-slate-300"
                 >
                   {process.env.NEXT_PUBLIC_LAND_NUMBER}
@@ -215,8 +218,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="text-center pt-7 mt-6 border-t border-white/10">
-          <p className="text-sm text-white/80 break-words">
+        {/* Updated formatting to guarantee centered text */}
+        <div className="flex justify-center text-center pt-7 mt-6 border-t border-white/10 w-full">
+          <p className="text-sm text-white/80 wrap-break-word">
             {isAr ? (
               <>
                 © {currentYear} Reeac. جميع الحقوق محفوظة. تم الإنشاء بواسطة{" "}

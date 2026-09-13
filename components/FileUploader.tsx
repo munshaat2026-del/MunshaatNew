@@ -4,7 +4,15 @@ import React, { useState } from "react";
 import { Control, Controller, FieldError } from "react-hook-form";
 import { useUploadThing } from "@/lib/uploadthing";
 import { toast } from "sonner";
-import { FileUp, X, Loader2, Paperclip, CheckCircle2, Eye, AlertCircle } from "lucide-react";
+import {
+  FileUp,
+  X,
+  Loader2,
+  Paperclip,
+  CheckCircle2,
+  Eye,
+  AlertCircle,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Locale } from "@/types";
 
@@ -15,7 +23,7 @@ interface FileUploaderProps {
   error?: FieldError;
   required?: boolean;
   disabled?: boolean;
-  locale?:Locale
+  locale?: Locale;
 }
 
 interface UploadResponse {
@@ -34,7 +42,7 @@ export default function FileUploader({
 }: FileUploaderProps) {
   const [isUploading, setIsUploading] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
-  const isArabic= locale==="ar"
+  const isArabic = locale === "ar";
   const { startUpload } = useUploadThing("cv", {
     onClientUploadComplete(res: UploadResponse[]) {
       const upload = res?.[0];
@@ -89,14 +97,13 @@ export default function FileUploader({
       control={control}
       rules={{ required: required ? "File is required" : false }}
       render={({ field }) => {
-
         const isFilePresent = !!field.value;
 
         const displayFileName = fileName || "Uploaded Document.pdf";
 
         return (
           <div className="w-full space-y-2">
-            <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+            <label className="block text-sm font-semibold text-gray-700 mb-1 ml-2">
               {required && <span className="text-destructive mr-1 ">*</span>}
               {label}
             </label>
@@ -123,11 +130,11 @@ export default function FileUploader({
                     )}
                     <p className="mb-1 text-sm text-muted-foreground">
                       <span className="font-semibold text-primary">
-                       {isArabic?"اضغط لتحميل ملف":" Click to upload"}
+                        {isArabic ? "اضغط لتحميل ملف" : " Click to upload"}
                       </span>
                     </p>
                     <p className="text-xs text-muted-foreground/70">
-                     {isArabic?"PDF (بحد اقصى 8 ميجابايت)":"PDF (Max 8MB)"} 
+                      {isArabic ? "PDF (بحد اقصى 8 ميجابايت)" : "PDF (Max 8MB)"}
                     </p>
                   </div>
                   <input

@@ -15,7 +15,7 @@ export const addRequest = async (data: RequestCreateInput) => {
         phone_number: data.phone_number.trim(),
       },
     });
-    revalidateTag("requests", "max");
+    revalidateTag("requests", {expire:0});
     return {
       status: 201,
       message: "Request created successfully",
@@ -37,7 +37,7 @@ export const deleteRequest = async (id: string) => {
     const request = await prisma.requests.delete({
       where: { id },
     });
-    revalidateTag("requests", "max");
+    revalidateTag("requests", {expire:0});
     return {
       status: 201,
       message: "Request deleted successfully",

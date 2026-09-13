@@ -19,13 +19,9 @@ interface Props {
   params: Promise<{ id: string; locale: Locale }>;
 }
 
-
 async function page({ params }: Props) {
   const { id, locale } = await params;
-
   const realEstateData = await getRealEstatesByIdPartially(id)
-
-
   if (!realEstateData.data) {
     notFound();
   }

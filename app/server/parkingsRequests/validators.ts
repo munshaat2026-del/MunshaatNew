@@ -21,6 +21,8 @@ export const requestSchema = (isArabic: boolean) =>
           : "Phone number must be 10 digits and start with 07",
       ),
 
+    already_rents_in_complex: z.boolean().optional(),
+
     email: z
       .string()
       .email(isArabic ? "البريد الإلكتروني غير صالح" : "Invalid email address"),

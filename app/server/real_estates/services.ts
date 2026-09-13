@@ -11,7 +11,6 @@ import { Prisma } from "@/app/generated/prisma/client";
 
 const utapi = new UTApi();
 
-// Add New Real Estate
 export const addNewRealEstates = async (
   data: RealEstateCreateInput,
   images: { image_url: string }[],
@@ -32,7 +31,7 @@ export const addNewRealEstates = async (
 
       return estate;
     });
-    revalidateTag("real-estates", "max");
+    revalidateTag("real-estates", {expire:0});
     return {
       status: 201,
       message: "Real estate created successfully",
@@ -50,17 +49,32 @@ export const addNewRealEstates = async (
 
 // Get all real estates
 export const getAllRealEstates = unstable_cache(
-  async () => {
+  async (page: number, take: number) => {
     try {
+      const skip = take * (page - 1);
+      const estatesCount = await prisma.real_estates.count();
       const estates = await prisma.real_estates.findMany({
-        include: {
-          real_estates_images: true,
+        select: {
+          name_en: true,
+          address_en: true,
+          is_available: true,
+          real_estates_type: true,
+          price: true,
+          price_period: true,
+          size_sqm: true,
+          description_en: true,
+          created_at:true
         },
-        orderBy: {
-          created_at: "desc",
-        },
+        skip,
+        take,
+       
       });
-      return { data: estates, message: "All Real Estates", status: 200 };
+      return {
+        estatesCount,
+        data: estates,
+        message: "All Real Estates",
+        status: 200,
+      };
     } catch (error) {
       console.error("Error fetching all real estates:", error);
       return {
@@ -70,8 +84,8 @@ export const getAllRealEstates = unstable_cache(
       };
     }
   },
-  ["all-real-etsates"],
-  { tags: ["real-etsates"], revalidate: 3600 },
+  ["all-real-estates"],
+  { tags: ["real-estates"], revalidate: 3600 },
 );
 
 // Get all real estates with requests
@@ -239,7 +253,7 @@ export const editRealEstate = async (
       return updateRealEstate;
     });
 
-    revalidateTag("real-estates", "max");
+    revalidateTag("real-estates", {expire:0});
     return {
       status: 201,
       message: "Real estate updated successfully",
@@ -290,7 +304,7 @@ export const deleteRealEstate = async (id: string) => {
       return estate;
     });
 
-    revalidateTag("real-estates", "max");
+    revalidateTag("real-estates", {expire:0});
     return {
       status: 201,
       message: "Real estate deleted successfully",
@@ -407,14 +421,14 @@ export const getAllRealEstatesByLocale = async (locale: Locale) =>
 export const getAllRealEstatesBySlugByLocale = async (
   slug: string,
   locale: Locale,
-  type:"store" | "office" | "depot",
+  type: "store" | "office" | "depot",
 ) =>
   unstable_cache(
     async () => {
       const isArabic = locale === "ar";
       try {
         const estate = await prisma.real_estates.findUnique({
-          where: { slug,real_estates_type:type },
+          where: { slug, real_estates_type: type },
           include: {
             real_estates_images: true,
           },
@@ -441,9 +455,9 @@ export const getAllRealEstatesBySlugByLocale = async (
             floor_number: estate.floor_number,
             slug: estate.slug,
             size_sqm: estate.size_sqm,
-           // real_estates_type: estate.real_estates_type,
+            // real_estates_type: estate.real_estates_type,
             cover_image: estate.cover_image,
-            real_estate_images:estate.real_estates_images
+            real_estate_images: estate.real_estates_images,
           },
           message: "Real Estate By Id Translated",
           status: 200,
@@ -482,7 +496,10 @@ export const getAllRealEstatesByTypeByLocale = async (
       const pageSize = 9;
       const skip = (pageNumber - 1) * pageSize;
 
-      const where: RealEstateWhereInputs = { real_estates_type: type,is_available:true };
+      const where: RealEstateWhereInputs = {
+        real_estates_type: type,
+        is_available: true,
+      };
 
       if (filters?.minSize || filters?.maxSize) {
         where.size_sqm = {
@@ -512,14 +529,14 @@ export const getAllRealEstatesByTypeByLocale = async (
             id: true,
             name_en: true,
             name_ar: true,
-            price_period:true,
+            price_period: true,
             address_en: true,
-            slug:true,
+            slug: true,
             address_ar: true,
             size_sqm: true,
             floor_number: true,
-            price:true,
-            cover_image:true
+            price: true,
+            cover_image: true,
           },
         });
         if (estates.length === 0)
@@ -532,18 +549,18 @@ export const getAllRealEstatesByTypeByLocale = async (
 
         const translatedEstates = estates.map((ele) => {
           return {
-            id:ele.id,
+            id: ele.id,
             name: isArabic ? ele.name_ar : ele.name_en,
-           // description: isArabic ? ele.description_ar : ele.description_en,
+            // description: isArabic ? ele.description_ar : ele.description_en,
             address: isArabic ? ele.address_ar : ele.address_en,
-           // features: isArabic ? ele.features_ar : ele.features_en,
+            // features: isArabic ? ele.features_ar : ele.features_en,
             price: ele.price,
             price_period: ele.price_period,
-           // location_link: ele.location_link,
+            // location_link: ele.location_link,
             floor_number: ele.floor_number,
-          slug: ele.slug,
+            slug: ele.slug,
             size_sqm: ele.size_sqm,
-           // real_estates_type: ele.real_estates_type,
+            // real_estates_type: ele.real_estates_type,
             cover_image: ele.cover_image,
           };
         });
@@ -551,11 +568,11 @@ export const getAllRealEstatesByTypeByLocale = async (
           data: translatedEstates,
           message: "Real Estate By Type Translated",
           status: 200,
-          totlaPages: Math.floor(numberOfPages/pageSize),
+          totlaPages: Math.floor(numberOfPages / pageSize),
         };
       } catch (_error) {
-        console.log("_error: ",_error);
-        
+        console.log("_error: ", _error);
+
         return {
           data: null,
           message: "Error In Getting Real Estate By Id Translated",

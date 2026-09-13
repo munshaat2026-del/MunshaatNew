@@ -21,7 +21,7 @@ function MediaSection() {
               label="Atached File"
               name="pdf_file"
               control={control}
-              required
+              
               error={errors.pdf_file}
             />
        

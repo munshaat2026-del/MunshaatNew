@@ -19,31 +19,71 @@ export default function CareersPage({ careers, locale }: Props) {
       dir={isArabic ? "rtl" : "ltr"}
     >
       {/* 1. Header Section - Minimalist Industrial */}
-      <section className="relative pt-40 pb-24 px-6 border-b border-slate-100 bg-slate-50/30 overflow-hidden">
+      <section className="relative pt-30 pb-16 px-6 border-b border-slate-100 bg-slate-50/30 overflow-hidden">
         {/* Subtle Decorative Grid Pattern */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="flex items-center gap-4 mb-8">
+          <div className="flex items-center gap-2 ">
             <div className="w-16 h-px bg-[#0c479a]"></div>
-            <span className="text-[11px] font-black uppercase  text-[#0c479a]">
-              {isArabic ? "فرص استراتيجية" : "Strategic_Openings"}
-            </span>
           </div>
-
           <h1 className="text-7xl md:text-9xl font-black uppercase tracking-tighter leading-[0.85] mb-10">
-            {isArabic ? "المسارات" : "Career"}
+            {isArabic ? " انضم إلى " : "Join Our"}
             <br />
-            <span className="text-slate-200">
-              {isArabic ? "المهنية" : "Pathways"}
+            <span className="text-[#0c479a]">
+              {isArabic ? "فريقنا" : "Team"}
             </span>
           </h1>
 
-          <p className="max-w-2xl text-slate-500 font-bold text-xl leading-relaxed  tracking-tight">
-            {isArabic
-              ? "نحن نستقطب الكفاءات لبناء الجيل القادم من البنية التحتية الصناعية."
-              : "Recruiting elite talent to engineer the next generation of industrial infrastructure."}
-          </p>
+          <div
+            className={cn(
+              "relative max-w-4xl",
+              isArabic ? "pr-6 md:pr-8 border-r-2" : "pl-6 md:pl-8 border-l-2",
+            )}
+            style={{
+              borderColor: "#0c479a",
+            }}
+          >
+            {/* Intro */}
+            <p
+              className={cn(
+                "text-base md:text-lg lg:text-xl text-slate-600 leading-loose font-medium tracking-tight",
+                isArabic ? "text-right" : "text-left",
+              )}
+            >
+              {isArabic
+                ? "في شركة المنشآت والمجمعات العقارية، نؤمن بأن الكفاءات البشرية هي الأساس في تحقيق النجاح واستدامة التطور."
+                : "At Al-Manasha'at and Real Estate Complexes Company, we believe that human talent is the foundation of success and sustainable growth."}
+            </p>
+
+            {/* Supporting Content */}
+            <div
+              className={cn(
+                "mt-6 grid gap-6 md:grid-cols-2",
+                isArabic ? "text-right" : "text-left",
+              )}
+            >
+              <p className="text-sm md:text-base text-slate-500 leading-8 font-medium">
+                {isArabic
+                  ? "لذلك نحرص على استقطاب أصحاب الخبرات والمهارات المتميزة، وتوفير بيئة عمل محفزة تتيح لأفراد فريقنا تطوير قدراتهم والمساهمة بفاعلية في تحقيق أهداف الشركة."
+                  : "We are committed to attracting individuals with outstanding expertise and skills, while providing a motivating work environment that enables our team members to develop their capabilities and contribute effectively to achieving the company’s objectives."}
+              </p>
+
+              <p className="text-sm md:text-base text-slate-500 leading-8 font-medium">
+                {isArabic
+                  ? "نسعى إلى بناء فريق عمل متكامل يجمع بين الخبرة والكفاءة والطموح، ويشارك في تطوير أعمال الشركة والارتقاء بمستوى الخدمات المقدمة لعملائنا وشركائنا."
+                  : "We strive to build an integrated team that brings together experience, competence, and ambition, contributing to the development of our business and the continuous enhancement of the services we provide to our clients and partners."}
+              </p>
+            </div>
+
+            {/* Small Label */}
+            <div
+              className={cn(
+                "mt-8 flex items-center gap-3 text-[9px] font-black uppercase tracking-[0.25em] text-slate-400",
+                isArabic ? "justify-start" : "justify-start",
+              )}
+            ></div>
+          </div>
         </div>
       </section>
 
@@ -62,7 +102,7 @@ export default function CareersPage({ careers, locale }: Props) {
                   <img
                     src={job.image}
                     alt={job.position}
-                    className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+                    className="w-full h-full object-cover grayscale-50 group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
                   />
 
                   {/* Floating Experience Badge (Repositioned) */}
@@ -80,7 +120,7 @@ export default function CareersPage({ careers, locale }: Props) {
                 </div>
 
                 {/* Content Area */}
-                <div className="py-10 px-3.5 md:px-8 flex flex-col flex-grow">
+                <div className="py-10 px-3.5 md:px-8 flex flex-col grow">
                   <div className="mb-6">
                     <div className="flex items-center gap-2 text-slate-300 text-[9px] font-black uppercase  mb-3">
                       <Briefcase size={10} />
@@ -133,13 +173,42 @@ export default function CareersPage({ careers, locale }: Props) {
           </div>
         ) : (
           /* Empty State */
-          <div className="flex flex-col items-center justify-center py-40 border-2 border-dashed border-slate-100 rounded-[3rem] text-center">
-            <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mb-8 border border-slate-100">
-              <SearchX size={32} className="text-slate-200" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50/50 px-6 py-24 md:px-12 md:py-28 flex flex-col items-center justify-center">
+            {/* Decorative Element */}
+            <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full border border-[#0c479a]/5" />
+            <div className="pointer-events-none absolute -bottom-24 -left-20 h-64 w-64 rounded-full border border-[#0c479a]/5" />
+
+            <div className="relative z-10 flex flex-col items-center justify-center text-center">
+              {/* Icon */}
+              <div className="mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-[#0c479a]/10 bg-[#0c479a]/5 text-[#0c479a] mx-auto">
+                <SearchX size={26} strokeWidth={1.5} />
+              </div>
+
+              {/* Label */}
+              <div className="mb-4 flex items-center justify-center gap-3">
+                <span className="h-px w-8 bg-[#0c479a]" />
+
+                <span className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400">
+                  {isArabic ? "الفرص الوظيفية" : "CAREER OPPORTUNITIES"}
+                </span>
+
+                <span className="h-px w-8 bg-[#0c479a]" />
+              </div>
+
+              {/* Title */}
+              <h3 className="w-full text-center text-2xl font-black tracking-tight text-slate-900 md:text-3xl">
+                {isArabic
+                  ? "لا توجد شواغر متاحة حاليًا"
+                  : "No Current Vacancies"}
+              </h3>
+
+              {/* Description */}
+              <p className="mt-5 max-w-xl mx-auto text-justify text-sm font-medium leading-8 text-slate-500 md:text-base">
+                {isArabic
+                  ? "لا توجد لدينا فرص وظيفية متاحة في الوقت الحالي، ونرحب بكم بمتابعة صفحة الوظائف للاطلاع على الفرص القادمة والانضمام إلى فريقنا."
+                  : "We currently have no open positions. We invite you to check our careers page regularly for upcoming opportunities to join our team."}
+              </p>
             </div>
-            <h3 className="text-xs font-black uppercase  text-slate-300">
-              {isArabic ? "لا توجد شواغر حالية" : "No_Active_Vacancies"}
-            </h3>
           </div>
         )}
       </section>

@@ -6,9 +6,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Warehouse, Building2, Car } from "lucide-react";
 import { useLocale } from "next-intl";
 import { homedata } from "@/app/data/homedata";
-import alburg from "@/public/alburg.jpg";
-import header from "@/public/header.jpeg";
-import garage from "@/public/garage.jpeg";
+import alburg from "@/public/alburg.avif";
+import header from "@/public/header.avif";
+import garage from "@/public/garage.avif";
 import VideoSection from "./VideoSection";
 import Image from "next/image";
 
@@ -27,37 +27,6 @@ export default function ArabianPremiumEmpire({
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const bannerTl = gsap.timeline({
-        repeat: -1,
-        yoyo: true,
-        defaults: {
-          duration: 4,
-          ease: "sine.inOut",
-        },
-      });
-
-      bannerTl
-        .to(bannerImgRef.current, {
-          scale: 1.1,
-          x: -20,
-          y: -10,
-        })
-        .to(bannerImgRef.current, {
-          scale: 1.15,
-          x: 20,
-          y: 10,
-        })
-        .to(bannerImgRef.current, {
-          scale: 1.2,
-          x: 0,
-          y: -20,
-        })
-        .to(bannerImgRef.current, {
-          scale: 1.1,
-          x: 0,
-          y: 0,
-        });
-
       gsap.from(".hero-fade", {
         y: 30,
         opacity: 0,
@@ -124,14 +93,14 @@ export default function ArabianPremiumEmpire({
   return (
     <div
       ref={containerRef}
-      className="relative z-0 bg-white text-slate-900 overflow-x-hidden font-sans"
+      className="relative z-0 bg-white  text-slate-900 overflow-x-hidden font-sans"
     >
       <div className="relative z-0">
         <VideoSection videoUrl={videoUrl} locale={locale} />
       </div>
 
-      <section className="assembly-section relative z-0 min-h-screen bg-white flex items-center justify-center overflow-hidden border-y border-slate-100">
-        <div className="relative z-0 w-full mt-20 max-w-6xl h-[85vh]">
+      <section className="assembly-section py-28  relative z-0 min-h-screen bg-white flex items-center justify-center overflow-hidden border-y border-slate-100">
+        <div className="relative z-0 w-full  max-w-7xl h-[95vh]">
           <div className="part-top absolute top-0 left-0 w-full h-[45%] z-20 overflow-hidden border-b-4 border-white shadow-2xl">
             <div
               className={`absolute top-0 ${
@@ -193,66 +162,58 @@ export default function ArabianPremiumEmpire({
               fill
             />
           </div>
-
-          <div className="building-title absolute inset-0 z-30 flex items-center justify-center opacity-0 translate-y-10 pointer-events-none">
-            <h2 className="text-7xl md:text-[10vw] font-black text-white mix-blend-difference tracking-tighter uppercase leading-none text-center">
-              {data.futureReadyLine1}
-              <br />
-              {data.futureReadyLine2}
-            </h2>
-          </div>
         </div>
       </section>
 
-     <section className="relative z-0 py-32 px-6 md:px-20 max-w-7xl mx-auto">
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-    {data.services.map((item, idx) => {
-      const Icon = icons[idx];
+      {/* <section className="relative z-0  py-20 px-6 md:px-20 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {data.services.map((item, idx) => {
+            const Icon = icons[idx];
 
-      return (
-        <div
-          key={idx}
-          className="group relative min-h-[400px] overflow-hidden rounded-none bg-slate-900 p-10 md:p-12 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_30px_70px_rgba(15,23,42,0.25)]"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-800/40 via-transparent to-[#0c479a]/20" />
+            return (
+              <div
+                key={idx}
+                className="group relative min-h-100 overflow-hidden rounded-none bg-slate-900 p-10 md:p-12 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_30px_70px_rgba(15,23,42,0.25)]"
+              >
+                <div className="absolute inset-0 bg-linear-to-br from-slate-800/40 via-transparent to-[#0c479a]/20" />
 
-          <div className="absolute top-8 left-8 flex h-14 w-14 items-center justify-center border border-white/10 bg-white/5">
-            <span className="text-sm font-black text-white/50">
-              0{idx + 1}
-            </span>
-          </div>
+                <div
+                  className={`absolute top-8 ${isAr ? "right-8" : "left-8"} flex h-14 w-14 items-center justify-center border border-white/10 bg-white/5`}
+                >
+                  <span className="text-sm font-black text-white/50">
+                    0{idx + 1}
+                  </span>
+                </div>
+                <div
+                  className={`absolute ${
+                    isAr ? "left-8" : "right-8"
+                  } top-8 transition-all duration-700 group-hover:scale-110 group-hover:-rotate-6`}
+                >
+                  <Icon
+                    size={125}
+                    strokeWidth={1}
+                    className="text-[#0c479a]/40 group-hover:text-[#0c479a]/70 transition-colors duration-500"
+                  />
+                </div>
 
-          <div
-            className={`absolute ${
-              isAr ? "left-8" : "right-8"
-            } top-8 transition-all duration-700 group-hover:scale-110 group-hover:-rotate-6`}
-          >
-            <Icon
-              size={125}
-              strokeWidth={1}
-              className="text-[#0c479a]/40 group-hover:text-[#0c479a]/70 transition-colors duration-500"
-            />
-          </div>
+                <div className="relative z-10 flex h-full flex-col justify-end">
+                  <div className="mb-5 h-1 w-12 bg-[#0c479a] transition-all duration-500 group-hover:w-24" />
 
-          <div className="relative z-10 flex h-full flex-col justify-end">
-            <div className="mb-5 h-1 w-12 bg-[#0c479a] transition-all duration-500 group-hover:w-24" />
+                  <h3 className="mb-4 text-2xl md:text-3xl font-black uppercase tracking-tight text-white">
+                    {item.title}
+                  </h3>
 
-            <h3 className="mb-4 text-2xl md:text-3xl font-black uppercase tracking-tight text-white">
-              {item.title}
-            </h3>
+                  <p className="max-w-md text-sm font-medium leading-7 text-slate-400">
+                    {item.desc}
+                  </p>
 
-            <p className="max-w-md text-sm font-medium leading-7 text-slate-400">
-              {item.desc}
-            </p>
-
-            <div className="mt-8 h-px w-8 bg-white/20 transition-all duration-500 group-hover:w-14 group-hover:bg-[#0c479a]" />
-          </div>
+                  <div className="mt-8 h-px w-8 bg-white/20 transition-all duration-500 group-hover:w-14 group-hover:bg-[#0c479a]" />
+                </div>
+              </div>
+            );
+          })}
         </div>
-      );
-    })}
-  </div>
-</section>
-
+      </section>*/}
     </div>
   );
 }

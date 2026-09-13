@@ -12,7 +12,7 @@ export const newTender = async (data: TenderCreateInput) => {
       data,
     });
 
-    revalidateTag("tenders", "max");
+    revalidateTag("tenders", {expire:0});
     return {
       data: result,
       message: "New Tender Has Been Added Successfully",
@@ -131,7 +131,7 @@ export const editTender = async (id: string, data: TenderUpdateInput) => {
     }
 
     const result = await prisma.tender.update({ where: { id }, data });
-    revalidateTag("tenders", "max");
+    revalidateTag("tenders", {expire:0});
     return {
       data: result,
       message: "Tender Has Been Updated Successfully",
@@ -168,7 +168,7 @@ export const deleteTender = async (id: string) => {
       }
     }
 
-    revalidateTag("tenders", "max");
+    revalidateTag("tenders", {expire:0});
     return {
       data: result,
       message: "Tender Has Been Deleted Successfully",

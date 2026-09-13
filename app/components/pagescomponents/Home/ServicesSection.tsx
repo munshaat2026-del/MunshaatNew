@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Building2,
-  Car,
-  Users,
-  Store,
-  Settings,
-  FileText,
-} from "lucide-react";
+import { Store, Building2, Car, Settings,ChartNoAxesCombined } from "lucide-react";
 import { useLocale } from "next-intl";
 import { homedata } from "@/app/data/homedata";
 
@@ -22,81 +15,84 @@ export default function ServicesSection({
   const data = homedata[locale].servicesSection;
   const isAr = locale === "ar";
 
-  const icons = [Store, Building2, Car, Settings, FileText, Users];
+  const icons = [Store, Building2, Car, ChartNoAxesCombined];
 
   return (
-    <section className="py-40 px-6 md:px-20 bg-white">
-      <div className="max-w-7xl mx-auto mb-32 flex flex-col md:flex-row md:items-end justify-between gap-8">
-        <div className="space-y-6">
-          <div className="flex items-center gap-3 text-slate-400">
-            <span className="text-[10px] font-black uppercase">
-              {data.tag}
-            </span>
-            <div className="h-px w-12 bg-slate-300" />
-          </div>
-
-          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none text-slate-900">
-            {data.titleLine1} <br />
-            <span className="text-[#0c479a]">{data.titleLine2}</span>
-          </h2>
-        </div>
-
-        <p className="text-slate-500 font-bold text-[10px] max-w-xs leading-loose pb-2 border-b border-slate-200">
-          {data.description}
-        </p>
-      </div>
-
-      <div
-        className={`max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ${
-          isAr ? "border-r" : "border-l"
-        } border-slate-200`}
-      >
-        {data.items.map((item, i) => {
-          const Icon = icons[i];
-
-          return (
-            <div
-              key={i}
-              className={`group p-12 min-h-[320px] bg-slate-50 border border-slate-200 transition-all duration-500 hover:bg-slate-100 hover:border-slate-300 relative overflow-hidden ${
-                isAr ? "border-l" : "border-r"
-              }`}
-            >
-              <div
-                className={`absolute top-0 ${
-                  isAr ? "right-0" : "left-0"
-                } w-1 h-full transition-all duration-500`}
+    <section
+      dir={isAr ? "rtl" : "ltr"}
+      className="py-20 md:py-20 px-4 lg:px-10 overflow-hidden bg-[#e8f0fb]"
+    >
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div className="max-w-2xl">
+            <div className="mb-4 flex items-center gap-3">
+              <span
+                className="h-0.5 w-10"
                 style={{ backgroundColor: primaryColor }}
               />
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#58708f]">
+                {data.tag}
+              </span>
+            </div>
 
-              <div className="flex justify-between items-start mb-12">
+            <h2 className="text-3xl font-black uppercase leading-[0.9] tracking-tight text-[#12345b] md:text-5xl lg:text-6xl">
+              {data.titleLine1}
+              <br />
+              <span style={{ color: primaryColor }}>{data.titleLine2}</span>
+            </h2>
+          </div>
+        </div>
+
+        {/* --- 2x2 Grid Section --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {data.items.slice(0, 4).map((item, i) => {
+            const Icon = icons[i];
+
+            return (
+              <div
+                key={i}
+                className="group relative p-6 md:p-8 min-h-64 border border-[#c9d9ee] bg-white hover:border-[#a8c5eb] transition-all duration-500 overflow-hidden shadow-sm hover:shadow-[0_20px_40px_rgba(12,71,154,0.08)]"
+              >
                 <div
-                  className="w-14 h-14 flex items-center justify-center bg-white border border-slate-200 shadow-sm group-hover:shadow-md group-hover:border-[#0c479a]/30 transition-all duration-500"
-                  style={{ color: primaryColor }}
-                >
-                  <Icon size={28} strokeWidth={1.5} />
+                  className={`absolute top-0 ${
+                    isAr ? "right-0" : "left-0"
+                  } w-1.5 h-full transition-opacity duration-500 opacity-80 group-hover:opacity-100`}
+                  style={{ backgroundColor: primaryColor }}
+                />
+
+                <div className="flex justify-between items-start mb-8 relative z-10">
+                  <div className="w-14 h-14 flex items-center justify-center bg-[#d5e3f5] rounded-xl group-hover:scale-110 transition-transform duration-500">
+                    <Icon
+                      size={40}
+                      strokeWidth={1.5}
+                      style={{ color: primaryColor }}
+                    />
+                  </div>
+
+                  <span className="text-[12px] font-black uppercase tracking-widest text-[#c9d9ee] group-hover:text-[#58708f] transition-colors duration-500">
+                    0{i + 1}
+                  </span>
                 </div>
 
-                <span className="text-[10px] font-black text-slate-300 group-hover:text-slate-500 transition-colors">
-                  0{i + 1}
-                </span>
+                <div className="relative z-10">
+                  <h3
+                    className={`text-xl md:text-2xl font-black  tracking-tight mb-4 text-[#12345b] transition-transform duration-500 ${
+                      isAr
+                        ? "group-hover:-translate-x-2"
+                        : "group-hover:translate-x-2"
+                    }`}
+                  >
+                    {item.t}
+                  </h3>
+
+                  <p className="text-[#58708f] text-[12px] md:text-[13px] font-medium tracking-wide leading-relaxed max-w-lg">
+                    {item.d}
+                  </p>
+                </div>
               </div>
-
-              <h3
-                className={`text-lg font-black uppercase tracking-tight mb-4 text-slate-900 transition-transform duration-500 ${
-                  isAr
-                    ? "group-hover:-translate-x-2"
-                    : "group-hover:translate-x-2"
-                }`}
-              >
-                {item.t}
-              </h3>
-
-              <p className="text-slate-500 text-[11px] font-bold tracking-widest leading-relaxed mb-8">
-                {item.d}
-              </p>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );

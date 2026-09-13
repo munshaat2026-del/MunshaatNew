@@ -1,80 +1,95 @@
-
-import {
-  Cpu,          
-  ShieldCheck,  
-  MapPin,       
-  ParkingCircle 
-} from "lucide-react";
+import { Cpu, ShieldCheck, MapPin, ParkingCircle } from "lucide-react";
 import { parkingdata } from "@/app/data/parkingdata";
 import { Locale } from "@/types";
 
 interface ParkingFeaturesProps {
   primaryColor: string;
-  locale:Locale
+  locale: Locale;
 }
 
 export default function ParkingFeatures({
   primaryColor,
-  locale
+  locale,
 }: ParkingFeaturesProps) {
   const data = parkingdata[locale].parkingFeatures;
   const isAr = locale === "ar";
 
-const icons = [Cpu, ShieldCheck, MapPin, ParkingCircle];
-  return (
-    <section className="py-32 px-6 md:px-16 max-w-7xl mx-auto bg-white border-b border-slate-100">
-      {/* Header Info */}
-      <div
-        className={`mb-16 flex items-center gap-4 ${isAr ? "flex-row-reverse" : ""}`}
-      >
-        <div
-          className="w-12 h-0.5"
-          style={{ backgroundColor: primaryColor }}
-        ></div>
-        <span className="text-[10px] font-black uppercase  text-slate-400">
-          {data.meta}
-        </span>
-      </div>
+  const icons = [Cpu, ShieldCheck, MapPin, ParkingCircle];
 
-      {/* Features Grid */}
+  return (
+    <section
+      dir={isAr ? "rtl" : "ltr"}
+      className="relative w-full overflow-hidden bg-[#0a0f1a] px-6 py-20 text-white md:px-16 md:pt-10 md:pb-28"
+    >
+      {/* Grid */}
       <div
-        className={`grid grid-cols-1 md:grid-cols-4 gap-0 border-t border-slate-100 ${isAr ? "border-r" : "border-l"}`}
-      >
-        {data.items.map((item, i) => {
-          const Icon = icons[i];
-          return (
-            <div
-              key={i}
-              className={`group p-10 border-b border-slate-100 hover:bg-slate-50 transition-all duration-500 relative overflow-hidden ${isAr ? "border-l" : "border-r"}`}
-            >
-              <div className="space-y-8 relative z-10">
-                {/* Icon */}
-                <div
-                  className="w-14 h-14 flex  items-center justify-center border border-slate-100 bg-white group-hover:border-slate-900 transition-all duration-500 shadow-sm"
-                  style={{ color: primaryColor }}
-                >
-                  <Icon className="no-flip" size={22} strokeWidth={1.5} />
+        className="pointer-events-none absolute inset-0 opacity-[0.04] "
+        style={{
+          backgroundImage: `
+            linear-gradient(${primaryColor} 1px, transparent 1px),
+            linear-gradient(90deg, ${primaryColor} 1px, transparent 1px)
+          `,
+          backgroundSize: "80px 80px",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto ">
+        {/* Header */}
+        <div className="mb-12 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+          <div>
+            <div className="mb-6 flex items-center gap-3">
+              <span
+                className="h-px w-12"
+                style={{ backgroundColor: primaryColor }}
+              />
+
+              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500">
+                {data.meta}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Cards */}
+        <div className="grid  gap-5  md:grid-cols-2 lg:grid-cols-4">
+          {data.items.map((item, i) => {
+            const Icon = icons[i];
+
+            return (
+              <div
+                key={i}
+                className={`group   rounded-3xl border shadow-sm hover:shadow-xl hover:-translate-y-1  overflow-hidden   group relative min-h-50 border-b  border-white/10 py-6 ${isAr ? "pr-6" : "pl-6"} transition-all duration-500 bg-[#e8f0fb]  lg:border-b-0 lg:border-r lg:last:border-r-0`}
+              >
+                {/* Number */}
+                <div className="mb-6 flex items-center justify-between">
+                  <Icon
+                    size={40}
+                    strokeWidth={1.5}
+                    style={{ color: primaryColor }}
+                    className="transition-transform no-flip duration-500 group-hover:scale-110"
+                  />
                 </div>
 
-                {/* Text Content */}
-                <div
-                  className={`space-y-3 ${isAr ? "text-right" : "text-left"}`}
-                >
-                  <h4 className="font-black text-base uppercase tracking-tighter text-slate-900">
+                {/* Content */}
+                <div className={isAr ? "text-right" : "text-left"}>
+                  <h3 className="mb-2 text-lg font-black tracking-tight text-[#0c479a]">
                     {item.title}
-                  </h4>
+                  </h3>
 
-                  <p className="text-slate-400 text-[11px] font-bold  tracking-widest leading-loose">
+                  <p className="text-[16px] font-medium leading-7 text-[#12345b]">
                     {item.desc}
                   </p>
                 </div>
 
-                {/* Visual Accent */}
-                <div className="w-0 h-px bg-slate-900 group-hover:w-full transition-all duration-700 opacity-20"></div>
+                {/* Accent */}
+                <div
+                  className="absolute bottom-0 left-0 h-px w-0 transition-all duration-700 group-hover:w-full"
+                  style={{ backgroundColor: primaryColor }}
+                />
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );

@@ -21,7 +21,7 @@ export const newComingSoon = async (data: ComingSoonCreateInput) => {
       data,
     });
 
-    revalidateTag("coming-soon", "max");
+    revalidateTag("coming-soon", {expire:0});
 
     return {
       data: result,
@@ -131,7 +131,7 @@ export const editComingSoon = async (
         }
       }
     }
-    revalidateTag("coming-soon", "max");
+    revalidateTag("coming-soon", {expire:0});
 
     return {
       data: result,
@@ -171,7 +171,7 @@ export const deleteComingSoon = async (id: string) => {
         console.error("UTApi deleteFiles error:", err);
       }
     }
-    revalidateTag("coming-soon", "max");
+    revalidateTag("coming-soon", {expire:0});
     return {
       data: result,
       message: "Coming Soon Item Deleted Successfully",

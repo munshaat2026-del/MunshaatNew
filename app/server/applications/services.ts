@@ -9,7 +9,7 @@ const utapi = new UTApi();
 export const addNewApplication = async (data: ApplicationCreateInput) => {
   try {
     const result = await prisma.applications.create({ data });
-    revalidateTag("applications", "max");
+    revalidateTag("applications", {expire:0});
     return {
       data: result,
       message: "Your Application Was Submitted Successfully",
@@ -115,7 +115,7 @@ export const deleteApplication = async (id: string) => {
 
     const fileKey = existing.cv.split("/f/")[1]; // upload thing requeried the the file key, so i can`t just send the full url to delete the file, i have to get the file key
     const deleteFile = await utapi.deleteFiles(fileKey);
-    revalidateTag("applications", "max");
+    revalidateTag("applications", {expire:0});
     return {
       data: result,
       message: `Application Deleted Successfully`,
@@ -152,7 +152,7 @@ export const deleteAllExpiredApplications = async () => {
       where: { id: { in: expiredApplicationsIds } },
     });
 
-    revalidateTag("applications","max")
+    revalidateTag("applications",{expire:0})
     const cvKey = expiredAppliations
       .map((ele) => ele.cv.split("/f/")[1])
       .filter(Boolean);
@@ -246,7 +246,7 @@ export const markApplicationAsShown = async (id: string) => {
       where: { id },
       data: { is_shown: true },
     });
-    revalidateTag("applications", "max");
+    revalidateTag("applications", {expire:0});
     return {
       data: result,
       message: `Application Marked As Shown Successfully`,

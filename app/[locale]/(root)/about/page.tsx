@@ -3,7 +3,7 @@ import CoreValues from "@/app/components/pagescomponents/About/CoreValues";
 import ExecutiveQuote from "@/app/components/pagescomponents/About/ExecutiveQuote";
 import TeamPreview from "@/app/components/pagescomponents/About/TeamPreview";
 import OurComplexes from "@/app/components/pagescomponents/About/OurComplexes";
-import ContactUs from "@/app/components/contactus";
+import ContactUs from "@/app/components/pagescomponents/About/contactComponents/contactus";
 import { getAllParkingsByLocale } from "@/app/server/parkings/services";
 import {
   getMainMembersByLocale,
@@ -15,6 +15,8 @@ import TeamDirectory from "@/app/components/pagescomponents/About/NotMainMemebrs
 import { getAllClientsByLocale } from "@/app/server/clients/services";
 import OurClients from "@/app/components/pagescomponents/About/OurKeyPartners";
 import { generatePageMetadata } from "@/lib/constants/metadata";
+import GeneralManagerSection from "@/app/components/pagescomponents/About/GeneralManagerSection";
+import { directorStatement } from "@/app/data/aboutdata";
 
 export async function generateMetadata({
   params,
@@ -55,30 +57,38 @@ export default async function AboutUs({ params }: Props) {
         </div>
       )}
 
-      <ExecutiveQuote primaryColor={primaryColor} locale={locale} />
+      {/* Note: By notMainMemebrs i mean the  board-of-directors members */}
+      {notMainMemebrs.data && (
+        <div id="board-of-directors" className="scroll-mt-28">
+          <TeamDirectory
+            primaryColor={primaryColor}
+            locale={locale}
+            data={notMainMemebrs.data}
+          />
+        </div>
+      )}
 
-<div id="our-team" className="scroll-mt-28">
-  {notMainMemebrs.data && (
-    <div id="board-of-directors" className="scroll-mt-28">
-      <TeamDirectory
+      {/*<ExecutiveQuote primaryColor={primaryColor} locale={locale} />
+
+      <div id="our-team" className="scroll-mt-28">
+        {mainMembers.data && (
+          <div id="executive-management" className="scroll-mt-28">
+            <TeamPreview
+              primaryColor={primaryColor}
+              locale={locale}
+              data={mainMembers.data}
+            />
+          </div>
+        )}
+      </div>*/}
+
+      {/* Note: By mainMemebrs i mean the  executive-management member, which should be Dr.Maroan */}
+      <GeneralManagerSection
         primaryColor={primaryColor}
         locale={locale}
-        data={notMainMemebrs.data}
+        member={mainMembers.data[0]}
+        data={directorStatement[locale].quoteSection}
       />
-    </div>
-  )}
-
-  {mainMembers.data && (
-    <div id="executive-management" className="scroll-mt-28">
-      <TeamPreview
-        primaryColor={primaryColor}
-        locale={locale}
-        data={mainMembers.data}
-      />
-    </div>
-  )}
-</div>
-
 
       {clients.data && clients.data.length > 0 && (
         <div id="our-clients" className="scroll-mt-28">
@@ -86,7 +96,10 @@ export default async function AboutUs({ params }: Props) {
         </div>
       )}
 
-      <ContactUs locale={locale} action={sendEmailAction} />
+      <div id="contact">
+        {" "}
+        <ContactUs locale={locale} action={sendEmailAction} />
+      </div>
     </div>
   );
 }

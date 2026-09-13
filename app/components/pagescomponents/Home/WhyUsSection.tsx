@@ -1,9 +1,12 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import { useLocale } from "next-intl";
 import { homedata } from "@/app/data/homedata";
+import Image1 from "@/public/aboutImage.avif";
+import Image2 from "@/public/parkingsIamge.avif";
 
 interface WhyUsSectionProps {
   primaryColor: string;
@@ -15,41 +18,33 @@ export default function WhyUsSection({ primaryColor }: WhyUsSectionProps) {
   const isAr = locale === "ar";
 
   return (
-    <section className="py-40 px-6 md:px-20 bg-white border-b border-slate-100">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-24">
-        {/* Left Side: Editorial Content */}
-        <div className="flex-1 space-y-16">
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 text-slate-300">
-              <span className="text-[10px] font-black uppercase ">
-                {data.tag}
-              </span>
-              <div className="h-[1px] w-12 bg-slate-200"></div>
-            </div>
-            <h2 className="text-6xl font-black  leading-[0.85] tracking-tighter text-slate-900">
+    <section className="pt-16 md:pt-24 pb-20 md:pb-32 px-6 md:px-16 bg-white border-b border-slate-100 overflow-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="flex-1 space-y-8 md:space-y-12 w-full">
+          <div className="space-y-4">
+            <div className="h-0.5 w-10 bg-slate-300" />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black leading-tight tracking-tight text-slate-900">
               {data.titleLine1} <br />
-              <span className="text-[#0c479a]">{data.titleLine2}</span>
+              <span style={{ color: primaryColor || "#0c479a" }}>
+                {data.titleLine2}
+              </span>
             </h2>
           </div>
 
-          <div className="space-y-12">
+          <div className="space-y-6 md:space-y-8">
             {data.points.map((point, i) => (
-              <div key={i} className={`flex gap-8 group`}>
+              <div key={i} className="flex items-start gap-4 md:gap-5">
                 <div
-                  className="w-12 h-12 shrink-0 border border-slate-100 flex items-center justify-center transition-all duration-500 group-hover:bg-slate-900 group-hover:text-white"
-                  style={{ color: primaryColor }}
+                  className="w-10 h-10 md:w-11 md:h-11 shrink-0 border border-slate-200 flex items-center justify-center text-slate-900"
+                  style={{ color: primaryColor || "#0c479a" }}
                 >
-                  <CheckCircle2
-                    className="no-flip"
-                    size={20}
-                    strokeWidth={1.5}
-                  />
+                  <CheckCircle2 size={20} strokeWidth={2} className="no-flip" />
                 </div>
-                <div className="space-y-2">
-                  <h4 className="font-black text-[13px] uppercase tracking-widest text-slate-900">
+                <div className="space-y-1">
+                  <h4 className="font-bold text-sm md:text-base text-slate-900 tracking-wide">
                     {point.t}
                   </h4>
-                  <p className="text-slate-400 text-[11px] font-bold  tracking-tight leading-relaxed max-w-sm">
+                  <p className="text-slate-600 text-xs md:text-sm font-medium leading-relaxed max-w-md">
                     {point.d}
                   </p>
                 </div>
@@ -58,37 +53,38 @@ export default function WhyUsSection({ primaryColor }: WhyUsSectionProps) {
           </div>
         </div>
 
-        {/* Right Side: Geometric Image Composition */}
-        <div className="flex-1 w-full relative">
-          <div className="grid grid-cols-12 grid-rows-6 h-[600px] gap-0">
-            {/* Image 1: Tall & Sharp */}
+        <div className="flex-1 w-full">
+          <div className="relative w-full h-[390px] sm:h-[470px] lg:h-[520px]">
             <div
-              className={`col-span-7 row-span-5 bg-slate-100 z-10 overflow-hidden shadow-2xl ${isAr ? "border-l-4" : "border-r-4"} border-white`}
+              className={`absolute top-0 ${
+                isAr ? "right-0" : "left-0"
+              } w-[58%] sm:w-[56%] h-[74%] bg-slate-100 shadow-md overflow-hidden z-10`}
             >
-              <img
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070"
-                className="h-full w-full object-cover transition-all duration-1000"
-                alt="Property Structure"
+              <Image
+                src={Image1}
+                alt="Commercial and office spaces"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 60vw, 30vw"
+                priority
               />
             </div>
 
-            {/* Image 2: Wide & Offset */}
             <div
-              className={`${isAr ? "col-end-9 col-span-8" : "col-start-5 col-span-8"} row-start-3 row-span-4 bg-slate-200 border-t-4 border-white overflow-hidden shadow-2xl`}
+              className={`absolute bottom-0 ${
+                isAr ? "left-0" : "right-0"
+              } w-[74%] sm:w-[70%] aspect-[16/10] bg-slate-200 shadow-xl overflow-hidden z-20`}
             >
-              <img
-                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070"
-                className="h-full w-full object-cover transition-all duration-1000"
-                alt="Operational Strategy"
+              <Image
+                src={Image2}
+                alt="Parking facilities"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 75vw, 35vw"
               />
             </div>
-          </div>
 
-          {/* Decorative Technical Label */}
-          <div
-            className={`absolute -bottom-8 ${isAr ? "-right-8" : "-left-8"} bg-black text-white px-8 py-4 text-[9px] font-black uppercase  z-20`}
-          >
-            {data.label}
+           
           </div>
         </div>
       </div>

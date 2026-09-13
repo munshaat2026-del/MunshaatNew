@@ -1,4 +1,4 @@
-import { FileText, Download, Info, Mail } from "lucide-react";
+import { FileText, Download, Info, Mail, Phone } from "lucide-react";
 import { Locale, TranslatedTender } from "@/types";
 
 interface Props {
@@ -13,7 +13,8 @@ export default function MainTenderPage({
   isExpired = false,
 }: Props) {
   const isAr = locale === "ar";
-  const contactEmail = "info@munshaat.jo";
+  const contactEmail = process.env.NEXT_PUBLIC_EMAIL;
+  const contactPhoneNumber = process.env.NEXT_PUBLIC_PHONE;
 
   const formatDate = (date: Date | null) => {
     if (!date) return "";
@@ -48,9 +49,7 @@ export default function MainTenderPage({
         legal: "Terms & Guarantees",
         download: "Tender Documents",
       },
-      cta: isExpired
-        ? "Tender Unavailable"
-        : "Download The File (PDF)",
+      cta: isExpired ? "Tender Unavailable" : "Download The File (PDF)",
       expiredMessage: "The submission period for this tender has ended.",
       noFile:
         "To obtain the tender details and documents, please contact us via email.",
@@ -128,9 +127,7 @@ export default function MainTenderPage({
 
           <div
             className={`border-l-4 bg-slate-50 p-6 ${
-              isExpired
-                ? "border-slate-400"
-                : "border-[#0c479a]"
+              isExpired ? "border-slate-400" : "border-[#0c479a]"
             }`}
           >
             <p className="mb-2 text-[10px] font-black uppercase tracking-widest text-slate-400">
@@ -139,9 +136,7 @@ export default function MainTenderPage({
 
             <p
               className={`text-xl font-black ${
-                isExpired
-                  ? "text-red-600"
-                  : "text-[#0c479a]"
+                isExpired ? "text-red-600" : "text-[#0c479a]"
               }`}
             >
               {t.status}
@@ -168,11 +163,7 @@ export default function MainTenderPage({
               <div className="mb-6 flex items-center gap-2">
                 <FileText
                   size={20}
-                  className={
-                    isExpired
-                      ? "text-red-500"
-                      : "text-[#0c479a]"
-                  }
+                  className={isExpired ? "text-red-500" : "text-[#0c479a]"}
                 />
 
                 <h4 className="text-sm font-black uppercase tracking-widest">
@@ -206,22 +197,66 @@ export default function MainTenderPage({
                 </>
               ) : (
                 <div className="border border-slate-200 bg-slate-50 p-6">
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#0c479a]/10 text-[#0c479a]">
+                  <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#0c479a]/10 text-[#0c479a]">
                     <Mail size={18} />
                   </div>
 
-                  <p className="mb-5 text-sm font-medium leading-7 text-slate-600">
+                  <p className="mb-6 text-sm font-medium leading-7 text-slate-600">
                     {t.noFile}
                   </p>
 
-                  <a
-                    href={`mailto:${contactEmail}`}
-                    className="block break-all text-sm font-black text-[#0c479a] transition-colors hover:text-slate-900"
-                  >
-                    {contactEmail}
-                  </a>
+                  <div className="space-y-3">
+                    {/* Email */}
+                    <a
+                      href={`mailto:${contactEmail}`}
+                      className="group flex items-center gap-3 border border-slate-200 bg-white p-3 transition-all hover:border-[#0c479a]/30 hover:shadow-sm"
+                    >
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center bg-[#0c479a]/10 text-[#0c479a]">
+                        <Mail size={16} />
+                      </div>
 
-                  <p className="mt-2 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                      <div className="min-w-0">
+                        <p className="mb-0.5 text-[9px] font-black uppercase tracking-widest text-slate-400">
+                          {isAr ? "البريد الإلكتروني" : "Email"}
+                        </p>
+
+                        <p
+                          dir="ltr"
+                          className="break-all text-left text-sm font-bold text-slate-800 transition-colors group-hover:text-[#0c479a]"
+                        >
+                          {contactEmail}
+                        </p>
+                      </div>
+                    </a>
+
+                    {/* Phone */}
+                    <a
+                      href={`tel:${contactPhoneNumber}`}
+                      
+                      className="group flex items-center gap-3 border border-slate-200 bg-white p-3 text-left transition-all hover:border-[#0c479a]/30 hover:shadow-sm"
+                      style={{ unicodeBidi: "isolate" }}
+                    >
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center bg-[#0c479a]/10 text-[#0c479a]">
+                        <Phone size={16} />
+                      </div>
+
+                      <div className="min-w-0">
+                        <p className="mb-0.5 text-[9px] font-black uppercase tracking-widest text-slate-400">
+                          {isAr ? "رقم الهاتف" : "Phone"}
+                        </p>
+
+                        <p
+                          dir="ltr"
+                          className="whitespace-nowrap text-sm font-bold text-slate-800 transition-colors group-hover:text-[#0c479a]"
+                          style={{ unicodeBidi: "isolate" }}
+                        >
+                          {contactPhoneNumber}
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <p className="mt-6 text-[10px] font-black uppercase tracking-widest text-slate-400">
                     {t.contactUs}
                   </p>
                 </div>

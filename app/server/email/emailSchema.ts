@@ -40,38 +40,36 @@ export const createContactSchema = (lang: Lang) => {
         ar: "الرسالة طويلة جدًا",
       },
     },
-    messageAr: {
-      min: {
-        en: "Arabic message must be at least 10 characters",
-        ar: "الرسالة العربية يجب أن تحتوي على 10 أحرف على الأقل",
+    phoneNumber: {
+      length: {
+        en: "Phone number must be exactly 10 digits",
+        ar: "يجب أن يحتوي رقم الهاتف على 10 أرقام",
       },
-      max: {
-        en: "Arabic message is too long",
-        ar: "الرسالة العربية طويلة جدًا",
+      invalid: {
+        en: "Must be a valid number",
+        ar: "يجب أن يكون رقماً صالحاً",
       },
     },
   };
 
   return z.object({
-    name: z
-      .string()
-      .min(2, msg.name.min[lang])
-      .max(100, msg.name.max[lang]),
+    name: z.string().min(2, msg.name.min[lang]).max(100, msg.name.max[lang]),
 
-    email: z
-      .string()
-      .email(msg.email.invalid[lang]),
+    email: z.string().email(msg.email.invalid[lang]),
 
     subject: z
       .string()
       .min(3, msg.subject.min[lang])
       .max(150, msg.subject.max[lang]),
 
-      message: z
+    message: z
       .string()
-        .min(10, msg.messageEn.min[lang])
-        .max(2000, msg.messageEn.max[lang]),
-
-   
+      .min(10, msg.messageEn.min[lang])
+      .max(2000, msg.messageEn.max[lang]),
+    phoneNumber: z
+      .string()
+      .regex(/^\d+$/, msg.phoneNumber.invalid[lang])
+      .length(10, msg.phoneNumber.length[lang])
+      
   });
 };

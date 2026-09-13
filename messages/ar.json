@@ -12,11 +12,12 @@
     "parkings": "المواقف",
     "language": "اللغة",
     "career": "الوظائف",
-    "aboutUs": "نبذة عنا",
+    "aboutUs": "نبذة عن الشركة",
     "ourComplexes": "مجمعاتنا",
     "ourTeam": "فريقنا",
     "executiveManagement": "الإدارة التنفيذية",
-    "boardOfDirectors": "مجلس الإدارة",
-    "ourClients": "عملاؤنا"
+    "boardOfDirectors": "هيئة المديرين",
+    "ourClients": "شركاؤنا ",
+    "contact": "الملاحظات والاقتراحات"
   }
 }

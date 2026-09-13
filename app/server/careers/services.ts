@@ -20,7 +20,7 @@ export const addNewCareer = async (data: CareersCreateInput) => {
     };
   try {
     const result = await prisma.careers.create({ data });
-    revalidateTag("careers","max");
+    revalidateTag("careers",{expire:0});
     return { data: result, message: "Career Added Successfully", status: 201 };
   } catch (error) {
     console.log("error: ",error);
@@ -120,7 +120,7 @@ export const updateCareer= async(id:string, data:CareersUpdateInput)=>{
       where: { id },
       data,
     });
-    revalidateTag("careers","max");
+    revalidateTag("careers",{expire:0});
     return {
       data: result,
       message: `Career Updated Successfully`,
@@ -154,7 +154,7 @@ export const deleteCareers = async (id: string) => {
     if(imageKey){
       await utapi.deleteFiles(imageKey);
     }
-    revalidateTag("careers","max");
+    revalidateTag("careers",{expire:0});
     return {
       data: result,
       message: `Career Deleted Successfully`,

@@ -6,8 +6,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Locale, TranslatedClients } from "@/types";
 import { useEffect, useRef } from "react";
@@ -25,7 +23,7 @@ export default function InitiativePartners({
 }: InitiativePartnersProps) {
   const primaryColor = "#0c479a";
   const autoplay = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true }),
+    Autoplay({ delay: 2000, stopOnInteraction: true }),
   );
   const isAr = locale === "ar";
   const carouselRef = useRef<HTMLDivElement | null>(null);
@@ -46,12 +44,31 @@ export default function InitiativePartners({
   }, [clients]);
 
   return (
-    <section className="bg-white py-24 border-t border-slate-100 overflow-hidden">
+    <section
+      dir={isAr ? "rtl" : "ltr"}
+      className="bg-white py-20 md:py-24 border-t border-slate-100 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-16 flex flex-col gap-2">
-          <h2 className="text-3xl md:text-4xl centert font-black text-slate-900 uppercase tracking-tighter">
-            {isAr ? "أبرز شركاؤنا" : "Our Key Partners"}
-          </h2>
+        {/* --- Standardized Header Section --- */}
+        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div className="max-w-2xl">
+            <div className="mb-4 flex items-center gap-3">
+              <span
+                className="h-0.5 w-10"
+                style={{ backgroundColor: primaryColor }}
+              />
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">
+                {isAr ? "الشبكة والتعاون" : "Network & Alliances"}
+              </span>
+            </div>
+            <h2 className="text-3xl font-black uppercase leading-[0.9] tracking-tight text-slate-950 md:text-5xl lg:text-6xl">
+              {isAr ? "أبرز" : "Our Key"}
+              <br />
+              <span style={{ color: primaryColor }}>
+                {isAr ? "شركاؤنا" : "Partners"}
+              </span>
+            </h2>
+          </div>
         </div>
 
         <Carousel
@@ -70,7 +87,7 @@ export default function InitiativePartners({
                 className="partner-item pl-4 md:pl-8 basis-1/2 sm:basis-1/3 lg:basis-1/3"
               >
                 <Link
-                  href={partner.link || "#"}
+                  href={partner.websiteUrl || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group/item flex flex-col items-center cursor-pointer"
@@ -92,22 +109,35 @@ export default function InitiativePartners({
                     <span className="text-center text-[10px] font-black uppercase tracking-widest text-slate-400 group-hover/item:text-slate-900 transition-colors">
                       {partner.name}
                     </span>
-                    <div className="h-[1px] w-4 bg-slate-200 group-hover/item:w-8 group-hover/item:bg-[#0c479a] transition-all duration-500" />
+                    <div
+                      className="h-px w-4 transition-all duration-500 group-hover/item:w-8"
+                      style={{ backgroundColor: undefined }}
+                    />
+                    <div
+                      className="h-px w-4 group-hover/item:w-8 transition-all duration-500"
+                      style={{
+                        // Dynamically change line color on hover using primaryColor
+                        backgroundColor: "var(--line-color, #e2e8f0)",
+                      }}
+                      ref={(el) => {
+                        if (el) {
+                          el.onmouseenter = () =>
+                            (el.style.backgroundColor = primaryColor);
+                          el.onmouseleave = () =>
+                            (el.style.backgroundColor = "");
+                        }
+                      }}
+                    />
                   </div>
                 </Link>
               </CarouselItem>
             ))}
           </CarouselContent>
-
-          <div className="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <CarouselPrevious className="absolute -left-12 top-1/2 border-slate-200 rounded-none w-10 h-10 hover:bg-black hover:text-white transition-all" />
-            <CarouselNext className="absolute -right-12 top-1/2 border-slate-200 rounded-none w-10 h-10 hover:bg-black hover:text-white transition-all" />
-          </div>
         </Carousel>
 
         <div className="mt-16 flex items-center gap-4 opacity-20">
           <div className="h-px flex-1 bg-slate-400" />
-          <div className="text-[8px] font-black text-slate-500 uppercase">
+          <div className="text-[8px] font-black text-slate-500 uppercase tracking-widest">
             {isAr ? "سجل الشركاء المعتمد" : "Verified Partners Log"}
           </div>
           <div className="h-px flex-1 bg-slate-400" />

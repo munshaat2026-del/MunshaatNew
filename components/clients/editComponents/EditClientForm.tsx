@@ -1,6 +1,6 @@
 "use client";
 
-import { ClientsCreateInput,ClientsGetPayload } from "@/types";
+import { ClientsCreateInput, ClientsGetPayload } from "@/types";
 import {
   Card,
   CardContent,
@@ -19,7 +19,7 @@ import MediaSection from "./MediaSection";
 import FormActions from "./FormActions";
 
 interface Props {
-  client: ClientsGetPayload ;
+  client: ClientsGetPayload;
   action: (
     id: string,
     data: ClientsCreateInput,
@@ -35,13 +35,12 @@ export default function EditClientForm({ action, client }: Props) {
     defaultValues: {
       name_en: client?.name_en,
       name_ar: client?.name_ar,
-    logo: client?.logo??"",
+      logo: client?.logo ?? "",
+      website_url: client.website_url ?? "",
     },
   });
 
-  const {
-    handleSubmit,
-  }=methods
+  const { handleSubmit } = methods;
   const onSubmit: SubmitHandler<ClientFormValues> = async (data) => {
     try {
       const result = await action(client!.id ?? "", data);

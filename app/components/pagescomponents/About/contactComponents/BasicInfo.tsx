@@ -24,13 +24,13 @@ function BasicInfo({ locale }: { locale: Locale }) {
       <div>
         {/* Full Name */}
         <div className="group space-y-2">
-          <label className="text-[9px] font-black uppercase  text-slate-400">
+          <label className="text-[9px] font-black   text-[#0c479a]">
             {data.form.fullName}
           </label>
           <input
             {...register("name")}
             type="text"
-            className={`w-full bg-transparent border-b py-3 text-sm font-black uppercase tracking-tighter outline-none transition-colors 
+            className={`w-full bg-transparent border-b py-3 text-sm font-black  tracking-tighter outline-none transition-colors 
               ${errors.name ? "border-red-600 focus:border-red-600" : "border-black focus:border-[#0c479a]"}`}
           />
           {errors.name && (
@@ -44,13 +44,13 @@ function BasicInfo({ locale }: { locale: Locale }) {
 
       {/* Email */}
       <div className="group space-y-2">
-        <label className="text-[9px] font-black uppercase  text-slate-400">
+        <label className="text-[9px] font-black   text-[#0c479a]">
           {data.form.email}
         </label>
         <input
           {...register("email")}
           type="email"
-          className={`w-full bg-transparent border-b py-3 text-sm font-black uppercase tracking-tighter outline-none transition-colors 
+          className={`w-full bg-transparent border-b py-3 text-sm font-black  tracking-tighter outline-none transition-colors 
               ${errors.email ? "border-red-600 focus:border-red-600" : "border-black focus:border-[#0c479a]"}`}
         />
         {errors.email && (
@@ -62,14 +62,14 @@ function BasicInfo({ locale }: { locale: Locale }) {
       </div>
 
       {/* Subject */}
-      <div className="group space-y-2 col-span-1 md:col-span-2">
-        <label className="text-[9px] font-black uppercase  text-slate-400">
+      <div className="group space-y-2 ">
+        <label className="text-[9px] font-black   text-[#0c479a]">
           {data.form.subject}
         </label>
         <input
           {...register("subject")}
           type="text"
-          className={`w-full bg-transparent border-b py-3 text-sm font-black uppercase tracking-tighter outline-none transition-colors 
+          className={`w-full bg-transparent border-b py-3 text-sm font-black  tracking-tighter outline-none transition-colors 
               ${errors.subject ? "border-red-600 focus:border-red-600" : "border-black focus:border-[#0c479a]"}`}
         />
         {errors.subject && (
@@ -80,9 +80,27 @@ function BasicInfo({ locale }: { locale: Locale }) {
         )}
       </div>
 
+      <div className="group space-y-2 ">
+        <label className="text-[9px] font-black   text-[#0c479a]">
+          {data.form.phoneNumber}
+        </label>
+        <input
+          {...register("phoneNumber")}
+          type="text"
+          className={`w-full bg-transparent border-b py-3 text-sm font-black  tracking-tighter outline-none transition-colors 
+              ${errors.phoneNumber ? "border-red-600 focus:border-red-600" : "border-black focus:border-[#0c479a]"}`}
+        />
+        {errors.phoneNumber && (
+          <p className="mt-1 text-xs text-red-600 flex items-center gap-2 ml-2">
+            <AlertCircle size={12} className="text-red-600" />
+            <span>{errors.phoneNumber.message}</span>
+          </p>
+        )}
+      </div>
+
       {/* Message */}
       <div className="group space-y-2 col-span-1 md:col-span-2">
-        <label className="text-[9px] font-black uppercase  text-slate-400">
+        <label className="text-[9px] font-black   text-[#0c479a]">
           {data.form.message}
         </label>
         <textarea
@@ -101,7 +119,7 @@ function BasicInfo({ locale }: { locale: Locale }) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="group relative w-full py-5 col-span-1 md:col-span-2 bg-[#0c479a] text-white font-black uppercase  text-[13px] flex items-center justify-center gap-4 hover:bg-black transition-all overflow-hidden disabled:opacity-50"
+        className="group relative w-full py-5 col-span-1 md:col-span-2 bg-[#0c479a] text-white font-black   text-[13px] flex items-center justify-center gap-4 hover:bg-black transition-all overflow-hidden disabled:opacity-50"
       >
         <span className="relative z-10 flex items-center gap-4">
           {isSubmitting ? "Sending..." : data.form.submit}

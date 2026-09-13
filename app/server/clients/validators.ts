@@ -5,7 +5,7 @@ export const clientsSchema = z.object({
   name_en: z.string().min(1, "English name is required"),
   name_ar: z.string().min(1, "Arabic name is required"),
   logo: z.string().min(1, "Client logo is required"),
-
+  website_url: z.string().min(1, "Client website link is required"),
 });
 
 export type NewClient = z.infer<typeof clientsSchema>;

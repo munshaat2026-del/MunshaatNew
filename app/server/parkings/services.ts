@@ -10,7 +10,7 @@ const utapi = new UTApi();
 export const addParking = async (data: ParkingsCreateInput) => {
   try {
     const parking = await prisma.parkings.create({ data });
-    revalidateTag("parkings", "max");
+    revalidateTag("parkings", {expire:0});
     return { status: 201, message: "Parking added", data: parking };
   } catch (error) {
     console.error("Error adding parking:", error);
@@ -25,7 +25,7 @@ export const editParking = async (id: string, data: parkingsUpdateInput) => {
       where: { id },
       data,
     });
-    revalidateTag("parkings", "max");
+    revalidateTag("parkings", {expire:0});
     return { status: 201, message: "Parking updated", data: parking };
   } catch (error) {
     console.error("Error updating parking:", error);
@@ -39,7 +39,7 @@ export const deleteParking = async (id: string) => {
     const parking = await prisma.parkings.delete({ where: { id } });
     const imageKey = parking.image?.split("/f/")[1];
     if (imageKey) utapi.deleteFiles(imageKey);
-    revalidateTag("parkings", "max");
+    revalidateTag("parkings", {expire:0});
     return { status: 201, message: "Parking deleted", data: parking };
   } catch (error) {
     console.error("Error deleting parking:", error);

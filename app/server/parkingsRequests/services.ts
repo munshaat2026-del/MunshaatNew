@@ -1,19 +1,24 @@
 import prisma from "@/lib/prisma";
 import { revalidateTag, unstable_cache } from "next/cache";
-import {type ParkingRequestsCreateInput} from "@/types/index"
+import { type SubmitParkingRequestData } from "@/types/index";
 
 // Submit New Request
-export const addParkingRequest = async (data: ParkingRequestsCreateInput) => {
+export const addParkingRequest = async (data: SubmitParkingRequestData) => {
   try {
+    console.log("data: ", data);
+
     const RequestCreateInput = await prisma.parkings_requests.create({
       data: {
-        ...data,
+        parking_id: data.parking_id,
+        identity_image: data.identity_image,
+        license_image: data.license_image,
+        already_rents_in_complex: data.already_rents_in_complex,
         name: data.name.trim().toLocaleLowerCase(),
         email: data.email?.trim().toLocaleLowerCase(),
         phone_number: data.phone_number.trim(),
       },
     });
-    revalidateTag("parkings-requests", "max");
+    revalidateTag("parkings-requests", {expire:0});
     return {
       status: 201,
       message: "Request created successfully",
@@ -35,7 +40,7 @@ export const deleteParkingRequest = async (id: string) => {
     const request = await prisma.parkings_requests.delete({
       where: { id },
     });
-    revalidateTag("parkings-requests", "max");
+    revalidateTag("parkings-requests", {expire:0});
     return {
       status: 201,
       message: "parkings requests deleted successfully",
@@ -84,7 +89,6 @@ export const getAllParkingRequests = unstable_cache(
   { tags: ["parkings-requests"], revalidate: 3600 },
 )();
 
-
 // Get Request By ID
 export const getParkingRequestById = async (id: string) =>
   unstable_cache(
@@ -92,18 +96,19 @@ export const getParkingRequestById = async (id: string) =>
       try {
         const result = await prisma.parkings_requests.findUnique({
           where: { id },
-         select:{
-            parking_id:true,
-            name:true,
-            phone_number:true,
-            plan:true,
-            parkings:true,
-            email:true,
-            created_at:true,
-            identity_image:true,
-            license_image:true, id:true
-            
-         }
+          select: {
+            parking_id: true,
+            name: true,
+            phone_number: true,
+            plan: true,
+            parkings: true,
+            email: true,
+            created_at: true,
+            identity_image: true,
+            license_image: true,
+            id: true,
+            already_rents_in_complex: true,
+          },
         });
         return {
           data: result,
@@ -123,8 +128,7 @@ export const getParkingRequestById = async (id: string) =>
     { tags: ["parkings-requests"], revalidate: 3600 },
   )();
 
-export const getParkingRequestsCount = async (
-) => {
+export const getParkingRequestsCount = async () => {
   try {
     const result = await prisma.parkings_requests.count({});
     return {
@@ -196,7 +200,7 @@ export const getAllParkingrequestsByFilters = (
             take: pageSize,
             orderBy: { created_at: "desc" },
             include: {
-              parkings: { select: { name_en: true,id:true } },
+              parkings: { select: { name_en: true, id: true } },
             },
           }),
           prisma.parkings_requests.count({ where }),

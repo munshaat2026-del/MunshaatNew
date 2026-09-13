@@ -1,6 +1,6 @@
 "use client";
 
-import { ParkingRequestsCreateInput, TranslatedParkings } from "@/types";
+import { SubmitParkingRequestData, TranslatedParkings } from "@/types";
 import {
   useForm,
   SubmitHandler,
@@ -22,8 +22,10 @@ import {
   ChevronDown,
   ClipboardList,
   Info,
+  CheckCircle2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import SuccessPopup from "./SuccessPopup";
 
 type ParkingRequestFormValues = z.infer<ReturnType<typeof requestSchema>>;
 
@@ -31,11 +33,12 @@ interface Props {
   parkingData: TranslatedParkings[];
   locale: "en" | "ar";
   action: (
-    data: ParkingRequestsCreateInput,
+    data: SubmitParkingRequestData,
   ) => Promise<{ success: boolean; status: number; message: string }>;
 }
 
 function SubmitForm({ action, locale, parkingData }: Props) {
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const isArabic = locale === "ar";
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -69,35 +72,35 @@ function SubmitForm({ action, locale, parkingData }: Props) {
 
   const onSubmit: SubmitHandler<ParkingRequestFormValues> = async (data) => {
     try {
-      const result = await action({
-        ...data,
-        parkings: {
-          connect: {
-            id: data.parking_id,
-          },
-        },
-      });
+      const result = await action(data);
 
       if (result.success) {
-        toast.success(result.message);
         methods.reset();
-        router.replace("/parkings");
+        setShowSuccessPopup(true);
         return;
       }
 
       toast.error(result.message);
     } catch {
       toast.error(
-        isArabic
-          ? "حدث خطأ غير متوقع"
-          : "Unexpected error occurred.",
+        isArabic ? "حدث خطأ غير متوقع" : "Unexpected error occurred.",
       );
     }
   };
 
   return (
     <FormProvider {...methods}>
-      <div className="min-h-screen bg-slate-50/50 px-4 py-12 md:px-6">
+      <SuccessPopup
+        isOpen={showSuccessPopup}
+        isArabic={isArabic}
+        onConfirm={() => {
+          setShowSuccessPopup(false);
+          methods.reset();
+          router.replace("/");
+        }}
+      />
+
+      <div className="w-full bg-slate-50 px-4 pt-12 pb-40 md:px-6">
         <div
           className="mx-auto max-w-[95%] overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_24px_60px_-20px_rgba(15,23,42,0.12)]"
           dir={isArabic ? "rtl" : "ltr"}
@@ -109,14 +112,12 @@ function SubmitForm({ action, locale, parkingData }: Props) {
               </div>
 
               <div>
-                <p className="mb-1 text-[10px] font-black uppercase tracking-[0.2em] text-[#0c479a]">
+                <p className="mb-1 text-[10px] font-black tracking-[0.2em] text-[#0c479a]">
                   {isArabic ? "طلبات المواقف" : "Parking Requests"}
                 </p>
 
                 <h1 className="text-xl font-black tracking-tight text-[#12345b] md:text-2xl">
-                  {isArabic
-                    ? "إنشاء طلب موقف جديد"
-                    : "Create Parking Request"}
+                  {isArabic ? "إنشاء طلب موقف جديد" : "Create Parking Request"}
                 </h1>
 
                 <p className="mt-1 text-xs font-medium text-[#58708f]">
@@ -131,7 +132,10 @@ function SubmitForm({ action, locale, parkingData }: Props) {
           <button
             type="button"
             onClick={() => setIsOpen((prev) => !prev)}
-            className="flex w-full items-center justify-between border-b border-slate-200 bg-slate-100/70 px-6 py-4 transition-colors hover:bg-slate-200/60 md:px-10"
+            className={cn(
+              "flex w-full items-center justify-between bg-slate-100/70 px-6 py-4 transition-colors hover:bg-slate-200/60 md:px-10",
+              isOpen && "border-b border-slate-200",
+            )}
           >
             <span className="text-sm font-bold text-slate-700">
               {isOpen
@@ -150,25 +154,22 @@ function SubmitForm({ action, locale, parkingData }: Props) {
               )}
             />
           </button>
-
           <div
             className={cn(
-              "grid transition-all duration-300",
-              isOpen
-                ? "grid-rows-[1fr] opacity-100"
-                : "grid-rows-[0fr] opacity-0",
+              "transition-[max-height,opacity] duration-500 ease-in-out overflow-hidden",
+              isOpen ? "max-h-750 opacity-100" : "max-h-0 opacity-0",
             )}
           >
-            <div className="overflow-hidden">
+            <div>
               <div className="grid grid-cols-1 lg:grid-cols-12">
                 <div className="bg-white p-4 md:p-8 lg:col-span-7 lg:p-12">
                   <div className="mx-auto max-w-2xl lg:mx-0">
                     <div className="mb-10">
-                      <span className="rounded-md bg-[#0c479a]/5 px-3 py-1 text-[10px] font-black uppercase text-[#0c479a]">
+                      <span className="rounded-md bg-[#0c479a]/5 px-3 py-1 text-[10px] font-black text-[#0c479a]">
                         {isArabic ? "نموذج الطلب" : "Request Entry"}
                       </span>
 
-                      <h2 className="mt-4 text-2xl font-black uppercase tracking-tight text-slate-900">
+                      <h2 className="mt-4 text-2xl font-black tracking-tight text-slate-900">
                         {isArabic
                           ? "تفاصيل طلب الموقف"
                           : "Parking Request Details"}
@@ -193,24 +194,21 @@ function SubmitForm({ action, locale, parkingData }: Props) {
 
                 <div
                   className={cn(
-                    "relative flex max-h-full flex-col transition-colors duration-500 lg:col-span-5",
+                    "relative flex h-full flex-col transition-colors duration-500 lg:col-span-5",
                     selectedParkingDetails
                       ? "bg-slate-50/30"
                       : "bg-slate-50/80",
                   )}
                 >
                   <div className="absolute inset-y-0 left-0 hidden w-px bg-slate-200/60 lg:block rtl:left-auto rtl:right-0" />
-
-                  <div className="relative flex flex-1 flex-col items-center justify-start p-16 md:p-12">
+                  <div className="relative flex h-full flex-col items-center justify-start p-4 md:p-12">
                     {selectedParkingDetails ? (
                       <div className="w-full animate-in fade-in slide-in-from-bottom-4 duration-700">
                         <div className="mx-auto mb-8 flex w-fit items-center gap-3 rounded-2xl border border-slate-100 bg-white px-4 py-2 shadow-sm lg:mx-0">
                           <Info className="h-4 w-4 text-[#0c479a]" />
 
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
-                            {isArabic
-                              ? "معاينة الاختيار"
-                              : "Selection Preview"}
+                          <span className="text-[10px] font-bold tracking-widest text-slate-500">
+                            {isArabic ? "معاينة الاختيار" : "Selection Preview"}
                           </span>
                         </div>
 
@@ -225,7 +223,7 @@ function SubmitForm({ action, locale, parkingData }: Props) {
                           <CarFront className="h-10 w-10 text-slate-200 transition-colors duration-500 group-hover:text-[#0c479a]" />
                         </div>
 
-                        <h3 className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-slate-900">
+                        <h3 className="mb-3 text-xs font-black tracking-[0.25em] text-slate-900">
                           {isArabic
                             ? "في انتظار اختيار الموقف"
                             : "Awaiting Selection"}

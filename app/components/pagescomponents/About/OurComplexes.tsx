@@ -51,16 +51,14 @@ export default function RoyalOffsetHero({ complexdata }: Props) {
   };
 
   return (
-    <section className="relative min-h-screen w-full bg-white flex flex-col items-center justify-start overflow-hidden border-b border-slate-900 py-32">
+    <section className="relative min-h-screen w-full bg-white flex flex-col items-center justify-start overflow-hidden border-b  py-32">
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-size-[50px_50px]"></div>
 
       <div className="relative z-10 w-full max-w-375 px-10 mb-24 space-y-4">
         <div className="flex items-center gap-3">
           <div className="w-12 h-0.5 bg-[#0c479a]"></div>
-          <span className="text-[10px] font-black uppercase  text-[#0c479a]">
-            {isAr ? "اﻟﻤﻠﻜﻴﺔ اﻟﻌﻘﺎرﻳﺔ" : "Real Estate Ownership"}
-          </span>
+         
         </div>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none text-slate-900">
@@ -118,9 +116,7 @@ export default function RoyalOffsetHero({ complexdata }: Props) {
               <div className="absolute inset-0 p-8 flex flex-col justify-end z-10">
                 <div className="space-y-5">
                   <div className="space-y-1">
-                    <p className="text-[#0c479a] font-black text-[9px]  uppercase">
-                      Industrial Complex
-                    </p>
+                   
                     <h3
                       className={`text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tighter leading-tight uppercase transition-transform duration-700 ${isAr ? "group-hover:-translate-x-2" : "group-hover:translate-x-2"}`}
                     >

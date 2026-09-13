@@ -30,7 +30,7 @@ export default async function SingleTenderPage({ params }: Props) {
   }
 
   return (
-    <div className="mt-16 min-h-screen bg-white">
+    <div className="my-16 min-h-screen bg-white">
       {tenders.map((tender, i) => {
         const displayIndex = (i + 1).toString().padStart(2, "0");
 
