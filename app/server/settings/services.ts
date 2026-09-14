@@ -2,14 +2,14 @@
 
 import prisma from "@/lib/prisma";
 import { newSetting } from "@/types";
-import { revalidateTag, unstable_cache } from "next/cache";
+import { unstable_cache, updateTag } from "next/cache";
 
 type Locale = "en" | "ar";
 
 export const addNewSetting = async (data: newSetting) => {
   try {
     const result = await prisma.settings.create({ data });
-    revalidateTag("settings", { expire: 0 });
+    updateTag("settings");
     return {
       data: result,
       message: "Setting added successfully",
@@ -69,7 +69,7 @@ export const editSetting = async (id: string, modifiedSettings: newSetting) => {
       },
     });
 
-    revalidateTag("settings", { expire: 0 });
+    updateTag("settings");
     return {
       success: true,
       message: "Setting updated successfully",
@@ -96,7 +96,7 @@ export const deleteSetting = async (id: string) => {
       };
 
     await prisma.settings.delete({ where: { id } });
-    revalidateTag("settings", { expire: 0 });
+    updateTag("settings");
 
     return {
       success: true,
@@ -119,7 +119,7 @@ export const getSettingByLocale = async (
 ): Promise<{ name: string | null; value: string | null } | null> => {
   return unstable_cache(
     async () => {
-      const settings = await getSettingsData();
+      const settings = await prisma.settings.findMany();
 
       const selected = settings.find((s) => s.key_name_en === fieldName);
 
@@ -143,7 +143,7 @@ export const getSettingByFieldName = async (
 ): Promise<{ name: string | null; value: string | null } | null> => {
   return unstable_cache(
     async () => {
-      const settings = await getSettingsData();
+      const settings = await prisma.settings.findMany();
 
       const selected = settings.find((s) => s.key_name_en === fieldName);
 

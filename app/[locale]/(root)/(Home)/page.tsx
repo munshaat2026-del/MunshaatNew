@@ -3,7 +3,6 @@ import ServicesSection from "@/app/components/pagescomponents/Home/ServicesSecti
 import WhyUsSection from "@/app/components/pagescomponents/Home/WhyUsSection";
 import { getSettingByLocale } from "@/app/server/settings/services";
 import { generatePageMetadata } from "@/lib/constants/metadata";
-
 import { Locale } from "@/types";
 
 interface Props {
