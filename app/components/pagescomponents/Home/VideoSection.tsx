@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Locale } from "@/types";
@@ -17,7 +18,9 @@ export default function VideoSection({
   locale,
 }: VideoSectionProps) {
   const data = homedata[locale];
+
   const videoRef = useRef<HTMLVideoElement>(null);
+  const loadingOverlayRef = useRef<HTMLDivElement>(null);
 
   const [soundOn, setSoundOn] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -27,11 +30,27 @@ export default function VideoSection({
     setVideoLoaded(false);
     setVideoError(false);
     setSoundOn(false);
+
+    if (loadingOverlayRef.current) {
+      loadingOverlayRef.current.style.opacity = "1";
+      loadingOverlayRef.current.style.visibility = "visible";
+    }
   }, [videoUrl]);
 
-  const markVideoAsLoaded = () => {
+  /**
+   * Hide the loading overlay.
+   *
+   * We do this both through React state and directly through the DOM.
+   * The direct DOM update guarantees that the overlay cannot remain
+   * above a video that is already playing.
+   */
+  const hideLoadingOverlay = () => {
     setVideoLoaded(true);
-    setVideoError(false);
+
+    if (loadingOverlayRef.current) {
+      loadingOverlayRef.current.style.opacity = "0";
+      loadingOverlayRef.current.style.visibility = "hidden";
+    }
   };
 
   const toggleSound = async () => {
@@ -76,23 +95,28 @@ export default function VideoSection({
           aria-hidden="true"
           disablePictureInPicture
           disableRemotePlayback
-          onLoadedData={markVideoAsLoaded}
-          onCanPlay={markVideoAsLoaded}
-          onPlaying={markVideoAsLoaded}
+          onLoadedData={hideLoadingOverlay}
+          onCanPlay={hideLoadingOverlay}
+          onPlaying={hideLoadingOverlay}
+          onTimeUpdate={hideLoadingOverlay}
           onError={(e) => {
             console.error("Hero video failed to load:", videoUrl, e);
             setVideoError(true);
+
+            if (loadingOverlayRef.current) {
+              loadingOverlayRef.current.style.opacity = "0";
+              loadingOverlayRef.current.style.visibility = "hidden";
+            }
           }}
-          className={`absolute inset-0 z-0 h-full w-full object-cover transition-opacity duration-700 ${
-            videoLoaded ? "opacity-100" : "opacity-0"
-          }`}
+          className="absolute inset-0 z-0 h-full w-full object-cover"
         />
       )}
 
       {(!videoLoaded || !videoUrl || videoError) && (
         <div
+          ref={loadingOverlayRef}
           dir="ltr"
-          className="absolute inset-0 z-[5] flex items-center justify-center bg-slate-900"
+          className="absolute inset-0 z-[5] flex items-center justify-center bg-slate-900 transition-opacity duration-500"
         >
           {posterUrl && (
             <img
@@ -132,3 +156,4 @@ export default function VideoSection({
     </section>
   );
 }
+
