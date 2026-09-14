@@ -3,7 +3,7 @@
 import { Locale } from "@/types";
 import { Volume2, VolumeX, LoaderCircle } from "lucide-react";
 import { homedata } from "@/app/data/homedata";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface VideoSectionProps {
   videoUrl?: string | null;
@@ -21,6 +21,18 @@ export default function VideoSection({
 
   const [soundOn, setSoundOn] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+
+  useEffect(() => {
+    setVideoLoaded(false);
+    setVideoError(false);
+    setSoundOn(false);
+  }, [videoUrl]);
+
+  const markVideoAsLoaded = () => {
+    setVideoLoaded(true);
+    setVideoError(false);
+  };
 
   const toggleSound = async () => {
     const video = videoRef.current;
@@ -30,66 +42,83 @@ export default function VideoSection({
     try {
       if (video.muted) {
         video.muted = false;
+
         await video.play();
+
         setSoundOn(true);
       } else {
         video.muted = true;
         setSoundOn(false);
       }
-    } catch {
+    } catch (err) {
+      console.error("Unable to unmute/play video:", err);
+
       video.muted = true;
       setSoundOn(false);
     }
   };
 
+  const showVideo = Boolean(videoUrl) && !videoError;
+
   return (
     <section className="relative flex h-[80vh] w-full items-center justify-center overflow-hidden bg-slate-900 md:h-screen">
-      {videoUrl && (
-        <>
-          <video
-            ref={videoRef}
-            src={videoUrl}
-            poster={posterUrl}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            onCanPlay={() => setVideoLoaded(true)}
-            className={`absolute inset-0 z-0 h-full w-full object-cover transition-opacity duration-700 ${
-              videoLoaded ? "opacity-100" : "opacity-0"
-            }`}
-          />
+      {showVideo && (
+        <video
+          key={videoUrl}
+          ref={videoRef}
+          src={videoUrl!}
+          poster={posterUrl}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+          disablePictureInPicture
+          disableRemotePlayback
+          onLoadedData={markVideoAsLoaded}
+          onCanPlay={markVideoAsLoaded}
+          onPlaying={markVideoAsLoaded}
+          onError={(e) => {
+            console.error("Hero video failed to load:", videoUrl, e);
+            setVideoError(true);
+          }}
+          className={`absolute inset-0 z-0 h-full w-full object-cover transition-opacity duration-700 ${
+            videoLoaded ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      )}
 
-          {!videoLoaded && (
-            <div className="absolute inset-0 z-10 flex items-center justify-center">
-              {posterUrl && (
-                <img
-                  src={posterUrl}
-                  alt=""
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-              )}
+      {(!videoLoaded || !videoUrl || videoError) && (
+        <div
+          dir="ltr"
+          className="absolute inset-0 z-[5] flex items-center justify-center bg-slate-900"
+        >
+          {posterUrl && (
+            <img
+              src={posterUrl}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          )}
 
-              <div className="relative z-10 flex flex-col items-center gap-3 text-white">
-                <LoaderCircle
-                  size={36}
-                  strokeWidth={2}
-                  className="animate-spin"
-                />
-
-                <span className="text-sm font-medium tracking-wide">
-                  Loading...
-                </span>
-              </div>
+          {showVideo && !videoLoaded && (
+            <div
+              dir="ltr"
+              className="relative z-10 h-9 w-9"
+            >
+              <LoaderCircle
+                size={36}
+                className="video-loader-spin h-9 w-9 text-white/80"
+              />
             </div>
           )}
-        </>
+        </div>
       )}
 
       <div className="absolute inset-0 z-10 bg-linear-to-b from-black/30 via-black/50 to-black/80" />
 
-      {videoUrl && (
+      {showVideo && (
         <button
           onClick={toggleSound}
           aria-label={soundOn ? "Mute video" : "Unmute video"}
